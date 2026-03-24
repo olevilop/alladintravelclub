@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const navLinks = [
   { label: "О нас", href: "#about" },
@@ -13,6 +14,8 @@ const navLinks = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -22,6 +25,10 @@ const Navbar = () => {
 
   const scrollTo = (href: string) => {
     setMenuOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/" + href);
+      return;
+    }
     const el = document.querySelector(href);
     el?.scrollIntoView({ behavior: "smooth" });
   };
@@ -35,7 +42,7 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between h-20">
-        <button onClick={() => scrollTo("#hero")} className="flex items-center gap-2">
+        <button onClick={() => location.pathname === "/" ? scrollTo("#hero") : navigate("/")} className="flex items-center gap-2">
           <span className="font-serif text-2xl font-semibold tracking-wider text-gold-gradient">
             TERRA ELITE
           </span>
