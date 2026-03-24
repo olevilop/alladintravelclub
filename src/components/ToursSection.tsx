@@ -74,10 +74,10 @@ const ToursSection = () => {
                 </div>
                 <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/50">
                   <span className="font-serif text-lg text-primary">{tour.price}</span>
-                  <button className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors group/btn">
+                  <Link to={`/tour/${tour.id}`} className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors group/btn">
                     Подробнее
                     <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
+                  </Link>
                 </div>
               </div>
             </motion.div>
