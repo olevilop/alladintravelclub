@@ -1,27 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Calendar, ArrowRight } from "lucide-react";
-import tourExpedition from "@/assets/tour-expedition.jpg";
-import tourPenguins from "@/assets/tour-penguins.jpg";
-import tourSafari from "@/assets/tour-safari.jpg";
-import arcticImg from "@/assets/arctic.jpg";
-import antarcticaImg from "@/assets/antarctica.jpg";
-import islandsImg from "@/assets/islands.jpg";
-import asiaImg from "@/assets/asia.jpg";
-import southAmericaImg from "@/assets/south-america.jpg";
+import { Link } from "react-router-dom";
+import { tours } from "@/data/tours";
 
 const regions = ["Все", "Арктика", "Антарктида", "Африка", "Азия", "Острова", "Южная Америка"];
-
-const tours = [
-  { name: "Арктический круиз на Шпицберген", region: "Арктика", days: 14, price: "от €12 500", image: arcticImg },
-  { name: "Экспедиция к Южному полюсу", region: "Антарктида", days: 21, price: "по запросу", image: antarcticaImg },
-  { name: "Королевские пингвины Антарктиды", region: "Антарктида", days: 16, price: "от €15 800", image: tourPenguins },
-  { name: "Сафари в Серенгети Deluxe", region: "Африка", days: 10, price: "от €9 200", image: tourSafari },
-  { name: "Фьорды Норвегии на яхте", region: "Арктика", days: 12, price: "от €18 000", image: tourExpedition },
-  { name: "Галапагосские острова", region: "Острова", days: 11, price: "от €11 500", image: islandsImg },
-  { name: "Затерянные храмы Бутана", region: "Азия", days: 9, price: "от €7 800", image: asiaImg },
-  { name: "Патагония: край земли", region: "Южная Америка", days: 15, price: "от €13 200", image: southAmericaImg },
-];
 
 const ToursSection = () => {
   const ref = useRef(null);
