@@ -26,7 +26,7 @@ const AboutSection = () => {
             О компании
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-light text-foreground mt-4">
-            Мы открываем мир для тех, кто уже{" "}
+            <span style={{ fontSize: '0.85em' }}>М</span>ы открываем мир для тех, кто уже{" "}
             <span className="italic text-gold-gradient">всё видел</span>
           </h2>
           <p className="mt-6 text-muted-foreground font-sans leading-relaxed">
