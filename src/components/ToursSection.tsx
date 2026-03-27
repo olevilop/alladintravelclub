@@ -26,7 +26,7 @@ const ToursSection = () => {
             Каталог туров
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-light text-foreground mt-4">
-            Экспедиционные <span className="italic text-gold-gradient">круизы</span>
+            <span style={{ fontSize: '0.85em' }}>Э</span>кспедиционные <span className="italic text-gold-gradient">круизы</span>
           </h2>
         </motion.div>
 
