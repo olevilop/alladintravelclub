@@ -57,12 +57,6 @@ const Navbar = () => {
               {link.label}
             </button>
           ))}
-          <button
-            onClick={() => scrollTo("#contact")}
-            className="bg-gold-gradient text-primary-foreground px-6 py-2.5 text-sm font-medium uppercase tracking-wider hover:opacity-90 transition-opacity"
-          >
-            Оставить заявку
-          </button>
         </nav>
 
         <button
