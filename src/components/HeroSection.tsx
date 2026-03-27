@@ -81,29 +81,6 @@ const HeroSection = () => {
           Авторские туры по всему миру
         </motion.p>
 
-        {/* Aladdin lamp button */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          className="mt-10 flex flex-col items-center"
-        >
-          <button
-            onClick={() =>
-              document.querySelector("#tours")?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="group relative flex items-center justify-center w-24 h-24 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-500 hover:scale-110"
-          >
-            <img
-              src={aladdinLamp}
-              alt="Лампа Алладина"
-              className="w-14 h-14 object-contain drop-shadow-lg group-hover:drop-shadow-2xl transition-all duration-500"
-            />
-          </button>
-          <span className="mt-3 text-white/80 text-sm font-sans tracking-wide">
-            Потри лампу Алладина
-          </span>
-        </motion.div>
 
         {/* Slide indicators */}
         <div className="absolute bottom-24 left-6 sm:left-12 lg:left-24 flex gap-2">
