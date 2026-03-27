@@ -18,6 +18,10 @@ import chinaWallImg from "@/assets/china-wall.jpg";
 import chinaZhangjiajieImg from "@/assets/china-zhangjiajie.jpg";
 import chinaGuilinImg from "@/assets/china-guilin.jpg";
 import chinaBeijingImg from "@/assets/china-beijing.jpg";
+import nkoreaPyongyangImg from "@/assets/nkorea-pyongyang.jpg";
+import nkoreaKumgangImg from "@/assets/nkorea-kumgang.jpg";
+import nkoreaKaesongImg from "@/assets/nkorea-kaesong.jpg";
+import nkoreaDmzImg from "@/assets/nkorea-dmz.jpg";
 
 export interface TourDay {
   day: number;
@@ -856,7 +860,145 @@ export const chinaTours: Tour[] = [
   },
 ];
 
+export const northKoreaTours: Tour[] = [
+  {
+    id: "nkorea-pyongyang",
+    name: "Пхеньян — закрытая столица",
+    region: "Северная Корея",
+    days: 8,
+    price: "от €4 500",
+    image: nkoreaPyongyangImg,
+    gallery: [nkoreaPyongyangImg, nkoreaKaesongImg, nkoreaDmzImg],
+    subtitle: "Уникальная возможность увидеть самую закрытую страну мира",
+    description:
+      "Пхеньян — город монументальной архитектуры, широких проспектов и уникальной атмосферы. Вы посетите грандиозные памятники, метро с мраморными станциями, Башню идей чучхе и увидите массовые гимнастические выступления.",
+    itinerary: [
+      { day: 1, title: "Пекин — Пхеньян", description: "Перелёт, встреча гидами КНДР, размещение." },
+      { day: 2, title: "Пхеньян", description: "Площадь Ким Ир Сена, Башня идей чучхе, метро." },
+      { day: 3, title: "Пхеньян", description: "Монумент Чхоллима, Триумфальная арка, цирк." },
+      { day: 4, title: "Мёхянсан", description: "Горы Мёхян, Международная выставка дружбы." },
+      { day: 5, title: "Пхеньян", description: "Музей Корейской войны, студия Мансудэ." },
+      { day: 6, title: "Нампхо", description: "Западное море, дамба Нампхо, фабрика." },
+      { day: 7, title: "Пхеньян", description: "Парк Тэсонсан, прощальный ужин с корейским барбекю." },
+      { day: 8, title: "Пхеньян — Пекин", description: "Вылет обратно через Пекин." },
+    ],
+    included: [
+      "Отель первого класса в Пхеньяне",
+      "Полный пансион",
+      "Все экскурсии и входные билеты",
+      "Два корейских гида-сопровождающих",
+      "Внутренние трансферы",
+      "Виза КНДР",
+    ],
+    notIncluded: ["Международные перелёты до Пекина", "Отель в Пекине", "Алкоголь", "Чаевые"],
+    difficulty: "Лёгкая",
+    groupSize: "до 15 человек",
+    startDates: ["20 апреля 2026", "15 августа 2026", "10 октября 2026"],
+  },
+  {
+    id: "nkorea-kumgang",
+    name: "Алмазные горы Кымгансан",
+    region: "Северная Корея",
+    days: 10,
+    price: "от €5 800",
+    image: nkoreaKumgangImg,
+    gallery: [nkoreaKumgangImg, nkoreaPyongyangImg, nkoreaKaesongImg],
+    subtitle: "Легендарные горы с водопадами и буддийскими храмами",
+    description:
+      "Горы Кымгансан — «Алмазные горы» — одно из самых красивых мест Корейского полуострова. Драматичные скалы, водопады, древние буддийские храмы и нетронутая природа в сочетании с уникальным опытом пребывания в КНДР.",
+    itinerary: [
+      { day: 1, title: "Пекин — Пхеньян", description: "Перелёт, размещение в столице." },
+      { day: 2, title: "Пхеньян", description: "Обзорная экскурсия по столице." },
+      { day: 3, title: "Переезд на восток", description: "Путь к горам Кымгансан через сельскую местность." },
+      { day: 4, title: "Кымгансан", description: "Треккинг к водопаду Куронён (Девять драконов)." },
+      { day: 5, title: "Кымгансан", description: "Маршрут по внутренним горам, буддийский храм Пхёхунса." },
+      { day: 6, title: "Кымгансан", description: "Морские скалы Самиль, озеро Самиль." },
+      { day: 7, title: "Вонсан", description: "Портовый город, побережье Восточного моря." },
+      { day: 8, title: "Пхеньян", description: "Возвращение, посещение студии Мансудэ." },
+      { day: 9, title: "Кэсон", description: "Древняя столица Корё, обед из синсолло." },
+      { day: 10, title: "Пхеньян — Пекин", description: "Вылет." },
+    ],
+    included: [
+      "Отели и горные гостиницы",
+      "Полный пансион",
+      "Все экскурсии и треккинг с гидом",
+      "Два корейских гида",
+      "Все трансферы",
+      "Виза КНДР",
+    ],
+    notIncluded: ["Международные перелёты до Пекина", "Отель в Пекине", "Алкоголь", "Чаевые"],
+    difficulty: "Средняя",
+    groupSize: "до 12 человек",
+    startDates: ["1 мая 2026", "5 сентября 2026"],
+  },
+  {
+    id: "nkorea-kaesong",
+    name: "Древний Кэсон и история Корё",
+    region: "Северная Корея",
+    days: 6,
+    price: "от €3 800",
+    image: nkoreaKaesongImg,
+    gallery: [nkoreaKaesongImg, nkoreaPyongyangImg, nkoreaDmzImg],
+    subtitle: "Столица средневекового королевства Корё и граница двух миров",
+    description:
+      "Кэсон — древняя столица королевства Корё (918–1392) с гробницами королей, конфуцианской академией и уникальной атмосферой средневекового города. Включает посещение Пханмунджома — самой охраняемой границы в мире.",
+    itinerary: [
+      { day: 1, title: "Пекин — Пхеньян", description: "Перелёт, размещение." },
+      { day: 2, title: "Пхеньян", description: "Обзорная экскурсия, метро, Башня чучхе." },
+      { day: 3, title: "Кэсон", description: "Переезд, гробницы королей Корё (ЮНЕСКО), академия Сонгюнгван." },
+      { day: 4, title: "Пханмунджом", description: "DMZ — демилитаризованная зона, переговорная комната." },
+      { day: 5, title: "Кэсон — Пхеньян", description: "Стена Сонджук, водопад Пак, возвращение." },
+      { day: 6, title: "Пхеньян — Пекин", description: "Вылет." },
+    ],
+    included: [
+      "Отели в Пхеньяне и традиционный гестхаус в Кэсоне",
+      "Полный пансион",
+      "Все экскурсии",
+      "Два корейских гида",
+      "Трансферы",
+      "Виза КНДР",
+    ],
+    notIncluded: ["Международные перелёты до Пекина", "Отель в Пекине", "Алкоголь", "Чаевые"],
+    difficulty: "Лёгкая",
+    groupSize: "до 15 человек",
+    startDates: ["10 апреля 2026", "20 сентября 2026", "5 ноября 2026"],
+  },
+  {
+    id: "nkorea-dmz-border",
+    name: "По обе стороны DMZ",
+    region: "Северная Корея",
+    days: 7,
+    price: "от €4 200",
+    image: nkoreaDmzImg,
+    gallery: [nkoreaDmzImg, nkoreaPyongyangImg, nkoreaKaesongImg],
+    subtitle: "Самая охраняемая граница в мире — взгляд с северной стороны",
+    description:
+      "Уникальный тур с акцентом на историю разделённой Кореи. Посещение DMZ с северной стороны, Музей Корейской войны, тоннели проникновения и монументальный Пхеньян — всё это создаёт незабываемое впечатление о стране контрастов.",
+    itinerary: [
+      { day: 1, title: "Пекин — Пхеньян", description: "Прибытие поездом через Синыйджу." },
+      { day: 2, title: "Пхеньян", description: "Музей Корейской войны, захваченный корабль «Пуэбло»." },
+      { day: 3, title: "Пханмунджом", description: "Демилитаризованная зона, бетонная стена, переговорная." },
+      { day: 4, title: "Кэсон", description: "Древняя столица, гробницы, традиционный обед." },
+      { day: 5, title: "Пхеньян", description: "Монумент Мансудэ, парк Моранбон, вечерний Пхеньян." },
+      { day: 6, title: "Пхеньян", description: "Ботанический сад, ферма, школа — быт КНДР." },
+      { day: 7, title: "Пхеньян — Пекин", description: "Вылет." },
+    ],
+    included: [
+      "Отель в Пхеньяне",
+      "Полный пансион",
+      "Все экскурсии и входные билеты",
+      "Два корейских гида",
+      "Трансферы",
+      "Виза КНДР",
+    ],
+    notIncluded: ["Международные перелёты до Пекина", "Отель в Пекине", "Алкоголь", "Чаевые"],
+    difficulty: "Лёгкая",
+    groupSize: "до 15 человек",
+    startDates: ["25 апреля 2026", "27 июля 2026", "10 октября 2026"],
+  },
+];
+
 export const getTourById = (id: string) => {
-  const allTours = [...tours, ...japanTours, ...koreaTours, ...chinaTours];
+  const allTours = [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours];
   return allTours.find((t) => t.id === id);
 };
