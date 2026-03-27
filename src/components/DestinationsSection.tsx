@@ -32,9 +32,6 @@ const DestinationsSection = () => {
           <span className="text-primary text-sm font-sans uppercase tracking-[0.3em]">
             Направления для путешествия
           </span>
-          <h2 className="font-serif text-3xl md:text-5xl font-light text-foreground mt-4">
-            Куда мы <span className="italic text-gold-gradient">отправимся</span>
-          </h2>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
