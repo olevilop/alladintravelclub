@@ -57,16 +57,6 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col items-start justify-center px-6 sm:px-12 lg:px-24">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="mb-4"
-        >
-          <span className="inline-block text-primary-foreground/80 text-sm font-sans uppercase tracking-[0.3em]">
-            Travel Club Alladin
-          </span>
-        </motion.div>
 
         {/* Slide title */}
         <AnimatePresence mode="wait">
