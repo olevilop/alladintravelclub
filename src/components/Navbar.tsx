@@ -79,12 +79,6 @@ const Navbar = () => {
                 {link.label}
               </button>
             ))}
-            <button
-              onClick={() => scrollTo("#contact")}
-              className="bg-gold-gradient text-primary-foreground px-6 py-3 text-sm font-medium uppercase tracking-wider mt-2"
-            >
-              Оставить заявку
-            </button>
           </nav>
         </div>
       )}
