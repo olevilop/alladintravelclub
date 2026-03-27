@@ -95,7 +95,7 @@ const HeroSection = () => {
         </motion.button>
 
         {/* Slide indicators */}
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-2 items-center">
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 items-center">
           {slides.map((_, index) => (
             <button
               key={index}
