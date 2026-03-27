@@ -204,7 +204,3 @@ const ToursSection = () => {
 };
 
 export default ToursSection;
-  );
-};
-
-export default ToursSection;
