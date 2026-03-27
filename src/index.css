@@ -114,6 +114,10 @@
     background-clip: text;
   }
 
+  .lamp-logo-gold {
+    filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(0.6);
+  }
+
   .bg-gold-gradient {
     background: linear-gradient(135deg, hsl(38 50% 45%), hsl(38 45% 38%));
   }
