@@ -8,7 +8,7 @@ import heroGreatWall from "@/assets/hero-great-wall.jpg";
 import heroMaldives from "@/assets/hero-maldives.jpg";
 import heroShanghai from "@/assets/hero-shanghai.jpg";
 import heroAntarctica from "@/assets/hero-antarctica.jpg";
-import aladdinLamp from "@/assets/aladdin-lamp.png";
+import lampButton from "@/assets/lamp-button.png";
 
 const slides = [
   { image: heroBg, title: "Уникальные путешествия в самые недоступные уголки планеты" },
