@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 const stats = [
   { value: "15+", label: "лет опыта" },
-  { value: "100+", label: "экспедиций" },
+  { value: "100+", label: "туров" },
   { value: "30+", label: "стран" },
   { value: "90%", label: "повторных клиентов" },
 ];
