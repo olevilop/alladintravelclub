@@ -39,6 +39,7 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-6 flex items-center justify-between h-20">
         <button onClick={() => location.pathname === "/" ? scrollTo("#hero") : navigate("/")} className="flex items-center gap-2">
+          <img src={lampLogo} alt="Лампа Алладина" className="h-8 w-auto lamp-logo-gold" />
           <span className="font-serif text-2xl font-semibold tracking-wider text-gold-gradient">
             Travel Club Alladin
           </span>
