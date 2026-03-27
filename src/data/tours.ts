@@ -6,6 +6,10 @@ import tourSafari from "@/assets/tour-safari.jpg";
 import islandsImg from "@/assets/islands.jpg";
 import asiaImg from "@/assets/asia.jpg";
 import southAmericaImg from "@/assets/south-america.jpg";
+import japanKyotoImg from "@/assets/japan-kyoto.jpg";
+import japanFujiImg from "@/assets/japan-fuji.jpg";
+import japanOnsenImg from "@/assets/japan-onsen.jpg";
+import japanToriiImg from "@/assets/japan-torii.jpg";
 
 export interface TourDay {
   day: number;
@@ -398,4 +402,173 @@ export const tours: Tour[] = [
   },
 ];
 
-export const getTourById = (id: string) => tours.find((t) => t.id === id);
+export const japanTours: Tour[] = [
+  {
+    id: "japan-sakura-kyoto",
+    name: "Сакура в Киото",
+    region: "Япония",
+    days: 10,
+    price: "от €8 500",
+    image: japanKyotoImg,
+    gallery: [japanKyotoImg, japanToriiImg, japanFujiImg],
+    subtitle: "Цветение сакуры — самое поэтичное путешествие в мире",
+    description:
+      "Погрузитесь в магию весенней Японии. Тысячи вишнёвых деревьев в цвету, древние храмы Киото, чайные церемонии и прогулки по садам дзен. Путешествие, которое останется в сердце навсегда.",
+    itinerary: [
+      { day: 1, title: "Токио", description: "Прибытие, трансфер в отель, вечерняя прогулка по Сибуя." },
+      { day: 2, title: "Токио", description: "Храм Сэнсо-дзи, парк Уэно в цвету сакуры, Акихабара." },
+      { day: 3, title: "Камакура", description: "Великий Будда и прибрежные храмы." },
+      { day: 4, title: "Синкансэн в Киото", description: "Скоростной поезд, размещение в рёкане." },
+      { day: 5, title: "Киото", description: "Кинкаку-дзи, Философская тропа в цвету сакуры." },
+      { day: 6, title: "Киото", description: "Фусими Инари, район гейш Гион, чайная церемония." },
+      { day: 7, title: "Нара", description: "Парк с ручными оленями, храм Тодай-дзи." },
+      { day: 8, title: "Осака", description: "Уличная еда в Дотонбори, замок Осаки." },
+      { day: 9, title: "Киото", description: "Бамбуковая роща Арасияма, прощальный ужин." },
+      { day: 10, title: "Осака — вылет", description: "Трансфер в аэропорт Кансай." },
+    ],
+    included: [
+      "Размещение в рёканах и бутик-отелях",
+      "Завтраки и 5 ужинов (включая кайсэки)",
+      "Japan Rail Pass (7 дней)",
+      "Все экскурсии с русскоговорящим гидом",
+      "Чайная церемония",
+      "Трансферы",
+    ],
+    notIncluded: [
+      "Международные перелёты",
+      "Обеды",
+      "Алкоголь",
+      "Чаевые",
+    ],
+    difficulty: "Лёгкая",
+    groupSize: "до 12 человек",
+    startDates: ["25 марта 2026", "1 апреля 2026", "10 апреля 2026"],
+  },
+  {
+    id: "japan-fuji-lakes",
+    name: "Фудзи и Пять озёр",
+    region: "Япония",
+    days: 8,
+    price: "от €6 900",
+    image: japanFujiImg,
+    gallery: [japanFujiImg, japanKyotoImg, japanOnsenImg],
+    subtitle: "Величие священной горы и умиротворение горных озёр",
+    description:
+      "Путешествие к подножию горы Фудзи — символа Японии. Пять озёр с зеркальными отражениями вершины, горячие источники, традиционные деревни и захватывающие треккинговые маршруты.",
+    itinerary: [
+      { day: 1, title: "Токио", description: "Прибытие, вечер в Синдзюку." },
+      { day: 2, title: "Хаконэ", description: "Горячие источники, вид на Фудзи, пиратский корабль по озеру Аси." },
+      { day: 3, title: "Озеро Кавагутико", description: "Классический вид на Фудзи, музей Итику Кубота." },
+      { day: 4, title: "Восхождение на Фудзи", description: "Треккинг до 5-й станции (2300 м), панорамы." },
+      { day: 5, title: "Озеро Мотосу", description: "Самое чистое из пяти озёр, каякинг." },
+      { day: 6, title: "Осино Хаккай", description: "Деревня с прозрачными прудами и видом на Фудзи." },
+      { day: 7, title: "Мацумото", description: "Чёрный замок Ворона, японские Альпы." },
+      { day: 8, title: "Токио — вылет", description: "Возвращение и трансфер в аэропорт." },
+    ],
+    included: [
+      "Размещение в рёканах с онсэном",
+      "Полупансион",
+      "Все трансферы и экскурсии",
+      "Каякинг на озере Мотосу",
+      "Гид-натуралист",
+    ],
+    notIncluded: [
+      "Международные перелёты",
+      "Обеды",
+      "Алкоголь",
+      "Чаевые",
+    ],
+    difficulty: "Средняя",
+    groupSize: "до 10 человек",
+    startDates: ["15 мая 2026", "10 октября 2026"],
+  },
+  {
+    id: "japan-onsen-trail",
+    name: "Тропа горячих источников",
+    region: "Япония",
+    days: 12,
+    price: "от €10 200",
+    image: japanOnsenImg,
+    gallery: [japanOnsenImg, japanFujiImg, japanKyotoImg],
+    subtitle: "Целительная сила японских онсэнов среди горных пейзажей",
+    description:
+      "Уникальный маршрут по лучшим онсэн-курортам Японии — от Хаконэ до Беппу. Горячие источники в горах, традиционные рёканы, кайсэки-ужины и полное погружение в японскую культуру релакса.",
+    itinerary: [
+      { day: 1, title: "Токио", description: "Прибытие, район Гинза." },
+      { day: 2, title: "Хаконэ", description: "Онсэн-курорт с видом на Фудзи." },
+      { day: 3, title: "Атами", description: "Приморский онсэн, цветочные сады." },
+      { day: 4, title: "Такарагава", description: "Легендарный открытый онсэн в горах Гумма." },
+      { day: 5, title: "Кусацу", description: "Один из трёх лучших онсэнов Японии." },
+      { day: 6, title: "Нагано", description: "Парк снежных обезьян Дзигокудани." },
+      { day: 7, title: "Гэро", description: "Онсэн-город в японских Альпах." },
+      { day: 8, title: "Кинносаки", description: "Семь общественных бань, гулянье в юката." },
+      { day: 9, title: "Арима", description: "Древнейший онсэн Японии, золотые и серебряные воды." },
+      { day: 10, title: "Миядзима", description: "Остров-святилище, плавающие тории." },
+      { day: 11, title: "Беппу", description: "Город пара — «адские» источники." },
+      { day: 12, title: "Фукуока — вылет", description: "Трансфер и вылет." },
+    ],
+    included: [
+      "Рёканы с частными онсэнами",
+      "Полный пансион (кайсэки-ужины)",
+      "Japan Rail Pass",
+      "Все трансферы и экскурсии",
+      "Юката и традиционные принадлежности",
+    ],
+    notIncluded: [
+      "Международные перелёты",
+      "Спа-процедуры (кроме онсэнов)",
+      "Алкоголь",
+      "Чаевые",
+    ],
+    difficulty: "Лёгкая",
+    groupSize: "до 8 человек",
+    startDates: ["5 февраля 2026", "20 ноября 2026"],
+  },
+  {
+    id: "japan-spiritual-path",
+    name: "Духовный путь Японии",
+    region: "Япония",
+    days: 11,
+    price: "от €9 400",
+    image: japanToriiImg,
+    gallery: [japanToriiImg, japanKyotoImg, japanOnsenImg],
+    subtitle: "Паломничество по священным местам Страны восходящего солнца",
+    description:
+      "Путешествие по древним святилищам и храмам Японии — от тысяч тории Фусими Инари до горных монастырей Коя-сан. Ночёвки в буддийских храмах, медитация на рассвете и путь Кумано Кодо.",
+    itinerary: [
+      { day: 1, title: "Осака", description: "Прибытие, храм Ситэнно-дзи." },
+      { day: 2, title: "Коя-сан", description: "Ночь в буддийском монастыре, вечерняя медитация." },
+      { day: 3, title: "Коя-сан", description: "Утренняя служба, кладбище Окуно-ин." },
+      { day: 4, title: "Кумано Кодо", description: "Начало древнего паломнического пути." },
+      { day: 5, title: "Кумано Кодо", description: "Треккинг через кедровые леса к Кумано Нати Тайся." },
+      { day: 6, title: "Исэ", description: "Главное синтоистское святилище Японии." },
+      { day: 7, title: "Киото", description: "Фусими Инари — 10 000 красных тории." },
+      { day: 8, title: "Киото", description: "Рёан-дзи — сад камней, Кинкаку-дзи." },
+      { day: 9, title: "Нара", description: "Древняя столица, великий Будда Тодай-дзи." },
+      { day: 10, title: "Миядзима", description: "Священный остров, плавающие тории Ицукусима." },
+      { day: 11, title: "Хиросима — вылет", description: "Мемориал мира, трансфер в аэропорт." },
+    ],
+    included: [
+      "Размещение: рёканы, храмы, бутик-отели",
+      "Полупансион (включая сёдзин рёри в монастырях)",
+      "Japan Rail Pass",
+      "Все экскурсии и входные билеты",
+      "Медитационные сессии",
+      "Русскоговорящий гид",
+    ],
+    notIncluded: [
+      "Международные перелёты",
+      "Обеды",
+      "Алкоголь",
+      "Чаевые",
+    ],
+    difficulty: "Средняя",
+    groupSize: "до 10 человек",
+    startDates: ["1 апреля 2026", "15 сентября 2026", "5 ноября 2026"],
+  },
+];
+
+export const getTourById = (id: string) => {
+  const allTours = [...tours, ...japanTours];
+  return allTours.find((t) => t.id === id);
+};
