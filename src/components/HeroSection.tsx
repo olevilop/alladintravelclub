@@ -107,8 +107,8 @@ const HeroSection = () => {
               }`}
             />
           ))}
+          </div>
         </div>
-      </div>
 
       <motion.div
         initial={{ opacity: 0 }}
