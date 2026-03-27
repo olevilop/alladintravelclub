@@ -115,7 +115,7 @@
   }
 
   .lamp-logo-gold {
-    filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(0.6);
+    filter: brightness(0.7) saturate(0.8);
   }
 
   .bg-gold-gradient {
