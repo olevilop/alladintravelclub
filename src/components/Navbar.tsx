@@ -3,12 +3,11 @@ import { Menu, X } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const navLinks = [
-  { label: "О нас", href: "#about" },
-  { label: "Направления", href: "#destinations" },
   { label: "Туры", href: "#tours" },
-  { label: "Преимущества", href: "#why-us" },
-  { label: "Отзывы", href: "#reviews" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Круизы", href: "#destinations" },
+  { label: "Спецпредложения", href: "#why-us" },
+  { label: "Бронирование авиабилетов", href: "#about" },
+  { label: "Контакты", href: "#contact" },
 ];
 
 const Navbar = () => {
@@ -44,7 +43,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6 flex items-center justify-between h-20">
         <button onClick={() => location.pathname === "/" ? scrollTo("#hero") : navigate("/")} className="flex items-center gap-2">
           <span className="font-serif text-2xl font-semibold tracking-wider text-gold-gradient">
-            TERRA ELITE
+            Travel Club Alladin
           </span>
         </button>
 
@@ -58,12 +57,6 @@ const Navbar = () => {
               {link.label}
             </button>
           ))}
-          <button
-            onClick={() => scrollTo("#contact")}
-            className="bg-gold-gradient text-primary-foreground px-6 py-2.5 text-sm font-medium uppercase tracking-wider hover:opacity-90 transition-opacity"
-          >
-            Оставить заявку
-          </button>
         </nav>
 
         <button
@@ -86,12 +79,6 @@ const Navbar = () => {
                 {link.label}
               </button>
             ))}
-            <button
-              onClick={() => scrollTo("#contact")}
-              className="bg-gold-gradient text-primary-foreground px-6 py-3 text-sm font-medium uppercase tracking-wider mt-2"
-            >
-              Оставить заявку
-            </button>
           </nav>
         </div>
       )}
