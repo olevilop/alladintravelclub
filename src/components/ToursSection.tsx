@@ -25,9 +25,13 @@ const ToursSection = () => {
           <span className="text-primary text-sm font-sans uppercase tracking-[0.3em]">
             Каталог туров
           </span>
-          <h2 className="font-serif text-3xl md:text-5xl font-light text-foreground mt-4">
-            <span style={{ fontSize: '0.85em' }}>Э</span>кспедиционные <span className="italic text-gold-gradient">круизы</span>
-          </h2>
+          <div className="flex items-center justify-center gap-4 mt-4">
+            <span className="hidden sm:block flex-shrink-0 h-[1px] w-16 bg-gradient-to-r from-transparent to-primary" />
+            <h2 className="font-serif text-3xl md:text-5xl font-light text-foreground">
+              <span style={{ fontSize: '0.85em' }}>Э</span>кспедиционные <span className="italic text-gold-gradient">круизы</span>
+            </h2>
+            <span className="hidden sm:block flex-shrink-0 h-[1px] w-16 bg-gradient-to-l from-transparent to-primary" />
+          </div>
         </motion.div>
 
         <div className="flex flex-wrap justify-center gap-3 mb-12">
