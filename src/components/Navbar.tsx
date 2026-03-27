@@ -3,12 +3,11 @@ import { Menu, X } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const navLinks = [
-  { label: "О нас", href: "#about" },
-  { label: "Направления", href: "#destinations" },
   { label: "Туры", href: "#tours" },
-  { label: "Преимущества", href: "#why-us" },
-  { label: "Отзывы", href: "#reviews" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Круизы", href: "#destinations" },
+  { label: "Спецпредложения", href: "#why-us" },
+  { label: "Бронирование авиабилетов", href: "#about" },
+  { label: "Контакты", href: "#contact" },
 ];
 
 const Navbar = () => {
