@@ -22,6 +22,10 @@ import nkoreaPyongyangImg from "@/assets/nkorea-pyongyang.jpg";
 import nkoreaKumgangImg from "@/assets/nkorea-kumgang.jpg";
 import nkoreaKaesongImg from "@/assets/nkorea-kaesong.jpg";
 import nkoreaDmzImg from "@/assets/nkorea-dmz.jpg";
+import russiaBaikalImg from "@/assets/russia-baikal.jpg";
+import russiaKamchatkaImg from "@/assets/russia-kamchatka.jpg";
+import russiaAltaiImg from "@/assets/russia-altai.jpg";
+import russiaSpbImg from "@/assets/russia-spb.jpg";
 
 export interface TourDay {
   day: number;
@@ -998,7 +1002,156 @@ export const northKoreaTours: Tour[] = [
   },
 ];
 
+export const russiaTours: Tour[] = [
+  {
+    id: "russia-baikal",
+    name: "Байкал — жемчужина Сибири",
+    region: "Россия",
+    days: 10,
+    price: "от ₽189 000",
+    image: russiaBaikalImg,
+    gallery: [russiaBaikalImg, russiaAltaiImg, russiaKamchatkaImg],
+    subtitle: "Самое глубокое озеро планеты — зимняя сказка и летнее чудо",
+    description:
+      "Путешествие к озеру Байкал — глубочайшему и чистейшему озеру мира. Зимой — прозрачный лёд, ледяные гроты и собачьи упряжки. Летом — круизы, нерпы и бурятская культура. Остров Ольхон, КБЖД и Листвянка.",
+    itinerary: [
+      { day: 1, title: "Иркутск", description: "Прибытие, обзорная экскурсия по городу." },
+      { day: 2, title: "Листвянка", description: "Байкальский музей, нерпинарий, рынок с омулем." },
+      { day: 3, title: "КБЖД", description: "Кругобайкальская железная дорога — инженерное чудо." },
+      { day: 4, title: "Ольхон", description: "Переправа на остров, скала Шаманка." },
+      { day: 5, title: "Ольхон", description: "Мыс Хобой — северная оконечность, байкальский омуль на костре." },
+      { day: 6, title: "Ольхон", description: "Бурятская деревня, шаманские обряды." },
+      { day: 7, title: "Восточный берег", description: "Переправа, Чивыркуйский залив." },
+      { day: 8, title: "Горячие источники", description: "Термальные источники Змеиной бухты." },
+      { day: 9, title: "Иркутск", description: "Возвращение, 130-й квартал, прощальный ужин." },
+      { day: 10, title: "Иркутск — вылет", description: "Трансфер в аэропорт." },
+    ],
+    included: [
+      "Отели и гостевые дома",
+      "Полный пансион",
+      "КБЖД экскурсия",
+      "Все трансферы и переправы",
+      "Экскурсии с гидом",
+      "Термальные источники",
+    ],
+    notIncluded: ["Перелёты до Иркутска", "Алкоголь", "Чаевые", "Сувениры"],
+    difficulty: "Лёгкая",
+    groupSize: "до 12 человек",
+    startDates: ["15 февраля 2026", "20 июня 2026", "5 августа 2026"],
+  },
+  {
+    id: "russia-kamchatka",
+    name: "Камчатка — земля вулканов",
+    region: "Россия",
+    days: 12,
+    price: "от ₽285 000",
+    image: russiaKamchatkaImg,
+    gallery: [russiaKamchatkaImg, russiaBaikalImg, russiaAltaiImg],
+    subtitle: "Действующие вулканы, гейзеры и медведи на краю земли",
+    description:
+      "Камчатка — одно из последних диких мест планеты. Восхождение на вулканы, Долина гейзеров, термальные источники, наблюдение за медведями и рыбалка на дикого лосося. Вертолётные экскурсии над кальдерами.",
+    itinerary: [
+      { day: 1, title: "Петропавловск-Камчатский", description: "Прибытие, Авачинская бухта." },
+      { day: 2, title: "Авачинский вулкан", description: "Восхождение на Авачинский (2741 м)." },
+      { day: 3, title: "Долина гейзеров", description: "Вертолётная экскурсия в Долину гейзеров (ЮНЕСКО)." },
+      { day: 4, title: "Мутновский вулкан", description: "Фумаролы, кислотное озеро, каньон Опасный." },
+      { day: 5, title: "Горячая река", description: "Купание в термальной реке Паратунка." },
+      { day: 6, title: "Курильское озеро", description: "Вертолёт, наблюдение за медведями." },
+      { day: 7, title: "Тихоокеанское побережье", description: "Халактырский пляж с чёрным песком." },
+      { day: 8, title: "Быстринский парк", description: "Этнодеревня эвенов, собачьи упряжки." },
+      { day: 9, title: "Рыбалка", description: "Рыбалка на дикого лосося, уха на костре." },
+      { day: 10, title: "Горячереченск", description: "Термальные источники в тайге." },
+      { day: 11, title: "Налычевская долина", description: "Треккинг по природному парку." },
+      { day: 12, title: "Вылет", description: "Трансфер в аэропорт." },
+    ],
+    included: [
+      "Базы и глэмпинги",
+      "Полный пансион",
+      "Два вертолётных дня",
+      "Все треккинги с гидом",
+      "Рыбалка",
+      "Термальные источники",
+      "Трансферы на вездеходах",
+    ],
+    notIncluded: ["Перелёты до Камчатки", "Алкоголь", "Чаевые"],
+    difficulty: "Средняя — сложная",
+    groupSize: "до 10 человек",
+    startDates: ["1 июля 2026", "20 июля 2026", "10 августа 2026"],
+  },
+  {
+    id: "russia-altai",
+    name: "Золотые горы Алтая",
+    region: "Россия",
+    days: 11,
+    price: "от ₽165 000",
+    image: russiaAltaiImg,
+    gallery: [russiaAltaiImg, russiaBaikalImg, russiaKamchatkaImg],
+    subtitle: "Горные озёра, перевалы и древние петроглифы Сибири",
+    description:
+      "Путешествие по Чуйскому тракту — одной из красивейших дорог мира. Телецкое озеро, Марсианские пейзажи Кызыл-Чина, слияние Чуи и Катуни, петроглифы Калбак-Таша и ледники Актру.",
+    itinerary: [
+      { day: 1, title: "Горно-Алтайск", description: "Прибытие, переезд на Телецкое озеро." },
+      { day: 2, title: "Телецкое озеро", description: "Круиз по озеру, водопад Корбу." },
+      { day: 3, title: "Чуйский тракт", description: "Начало пути по легендарной дороге." },
+      { day: 4, title: "Слияние рек", description: "Место слияния Чуи и Катуни, Патмос." },
+      { day: 5, title: "Калбак-Таш", description: "Древние петроглифы, Чуй-Оозы." },
+      { day: 6, title: "Марс", description: "Марсианские пейзажи Кызыл-Чина." },
+      { day: 7, title: "Курайская степь", description: "Переезд к ледникам Актру." },
+      { day: 8, title: "Актру", description: "Треккинг к леднику, горное озеро." },
+      { day: 9, title: "Гейзерное озеро", description: "Бирюзовое термальное озеро." },
+      { day: 10, title: "Чемал", description: "Остров Патмос, Чемальская ГЭС." },
+      { day: 11, title: "Горно-Алтайск — вылет", description: "Трансфер в аэропорт." },
+    ],
+    included: [
+      "Глэмпинги и базы отдыха",
+      "Полный пансион",
+      "Джип-трансферы",
+      "Все экскурсии и треккинги",
+      "Круиз по Телецкому озеру",
+      "Гид-краевед",
+    ],
+    notIncluded: ["Перелёты до Горно-Алтайска", "Алкоголь", "Чаевые"],
+    difficulty: "Средняя",
+    groupSize: "до 10 человек",
+    startDates: ["10 июня 2026", "15 июля 2026", "1 сентября 2026"],
+  },
+  {
+    id: "russia-spb-white-nights",
+    name: "Белые ночи Петербурга",
+    region: "Россия",
+    days: 7,
+    price: "от ₽120 000",
+    image: russiaSpbImg,
+    gallery: [russiaSpbImg, russiaBaikalImg, russiaAltaiImg],
+    subtitle: "Имперская роскошь, разводные мосты и незаходящее солнце",
+    description:
+      "Санкт-Петербург в сезон белых ночей — особая магия. Эрмитаж без толп, ночные прогулки по набережным, разведение мостов с воды, Петергоф, Царское Село и лучшие рестораны северной столицы.",
+    itinerary: [
+      { day: 1, title: "Санкт-Петербург", description: "Прибытие, вечерняя прогулка по Невскому." },
+      { day: 2, title: "Эрмитаж", description: "Приватная экскурсия, Дворцовая площадь." },
+      { day: 3, title: "Петергоф", description: "Фонтаны Нижнего парка, Большой дворец." },
+      { day: 4, title: "Царское Село", description: "Янтарная комната, Екатерининский парк." },
+      { day: 5, title: "Каналы", description: "Прогулка по рекам и каналам, Спас на Крови." },
+      { day: 6, title: "Мариинский театр", description: "Балет, ночные мосты с катера." },
+      { day: 7, title: "Вылет", description: "Елисеевский магазин, трансфер в аэропорт." },
+    ],
+    included: [
+      "5-звёздочный отель в центре",
+      "Завтраки",
+      "Приватные экскурсии",
+      "Билеты в Эрмитаж и дворцы",
+      "Балет в Мариинском",
+      "Ночной круиз под мостами",
+      "Трансферы",
+    ],
+    notIncluded: ["Перелёты до Петербурга", "Обеды и ужины", "Алкоголь", "Чаевые"],
+    difficulty: "Лёгкая",
+    groupSize: "до 8 человек",
+    startDates: ["1 июня 2026", "15 июня 2026", "1 июля 2026"],
+  },
+];
+
 export const getTourById = (id: string) => {
-  const allTours = [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours];
+  const allTours = [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours];
   return allTours.find((t) => t.id === id);
 };
