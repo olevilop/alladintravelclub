@@ -23,7 +23,7 @@ const ToursSection = () => {
           className="text-center mb-12"
         >
           <span className="text-primary text-sm font-sans uppercase tracking-[0.3em]">
-            Каталог
+            Каталог туров
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-light text-foreground mt-4">
             Наши <span className="italic text-gold-gradient">путешествия</span>
