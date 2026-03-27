@@ -8,7 +8,7 @@ import heroGreatWall from "@/assets/hero-great-wall.jpg";
 import heroMaldives from "@/assets/hero-maldives.jpg";
 import heroShanghai from "@/assets/hero-shanghai.jpg";
 import heroAntarctica from "@/assets/hero-antarctica.jpg";
-import aladdinLamp from "@/assets/aladdin-lamp.png";
+import lampButton from "@/assets/lamp-button.png";
 
 const slides = [
   { image: heroBg, title: "Уникальные путешествия в самые недоступные уголки планеты" },
@@ -80,6 +80,18 @@ const HeroSection = () => {
         >
           Авторские туры по всему миру
         </motion.p>
+
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.2 }}
+          onClick={() => document.querySelector("#tours")?.scrollIntoView({ behavior: "smooth" })}
+          className="mt-8 flex items-center gap-3 px-6 py-3 rounded-full text-white font-sans text-lg tracking-wide hover:brightness-110 transition-all duration-300"
+          style={{ backgroundColor: "#a87f39" }}
+        >
+          <img src={lampButton} alt="Лампа" className="h-8 w-auto invert" />
+          Потри лампу
+        </motion.button>
 
 
         {/* Slide indicators */}
