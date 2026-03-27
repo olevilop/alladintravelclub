@@ -30,7 +30,7 @@ const DestinationsSection = () => {
           className="text-center mb-16"
         >
           <span className="text-primary text-sm font-sans uppercase tracking-[0.3em]">
-            Направления
+            Направления для путешествия
           </span>
           <h2 className="font-serif text-3xl md:text-5xl font-light text-foreground mt-4">
             Куда мы <span className="italic text-gold-gradient">отправимся</span>
