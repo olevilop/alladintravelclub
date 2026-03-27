@@ -43,7 +43,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6 flex items-center justify-between h-20">
         <button onClick={() => location.pathname === "/" ? scrollTo("#hero") : navigate("/")} className="flex items-center gap-2">
           <span className="font-serif text-2xl font-semibold tracking-wider text-gold-gradient">
-            TERRA ELITE
+            Travel Club Alladin
           </span>
         </button>
 
