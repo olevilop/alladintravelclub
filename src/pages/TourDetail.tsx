@@ -2,6 +2,13 @@ import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { ArrowLeft, Calendar, Users, Mountain, Check, X, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { getTourById } from "@/data/tours";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -197,14 +204,21 @@ const TourDetail = () => {
                 </div>
                 <div className="pt-4 border-t border-border">
                   <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground mb-3">Ближайшие даты</h4>
-                  <div className="space-y-2">
-                    {tour.startDates.map((date) => (
-                      <div key={date} className="text-sm text-foreground/80 flex items-center gap-2">
-                        <Calendar className="w-3 h-3 text-primary/60" />
-                        {date}
+                  <Select>
+                    <SelectTrigger className="w-full bg-background border-border text-foreground">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4 text-primary" />
+                        <SelectValue placeholder="Выберите дату" />
                       </div>
-                    ))}
-                  </div>
+                    </SelectTrigger>
+                    <SelectContent>
+                      {tour.startDates.map((date) => (
+                        <SelectItem key={date} value={date}>
+                          {date}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
 
