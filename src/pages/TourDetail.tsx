@@ -261,7 +261,7 @@ const TourDetail = () => {
               <div className="flex items-center justify-center gap-4 mb-8">
                 <span className="hidden sm:block flex-shrink-0 h-[1px] w-24 bg-gradient-to-r from-transparent to-primary" />
                 <h2 className="font-serif text-2xl md:text-3xl font-light text-foreground">
-                  Похожие <span className="italic text-gold-gradient">круизы</span>
+                  Похожие <span className="italic text-gold-gradient">экспедиционные круизы</span>
                 </h2>
                 <span className="hidden sm:block flex-shrink-0 h-[1px] w-24 bg-gradient-to-l from-transparent to-primary" />
               </div>
