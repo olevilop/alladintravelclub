@@ -187,6 +187,7 @@ const TourDetail = () => {
             <div className="sticky top-24 space-y-6">
               {/* Quick info card */}
               <div className="bg-card border border-border p-6 space-y-5">
+                <h3 className="font-serif text-lg md:text-xl font-light leading-snug">{tour.name}</h3>
                 <div className="font-serif text-2xl text-primary">{tour.price}</div>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center gap-3 text-foreground/80">
