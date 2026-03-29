@@ -1,16 +1,26 @@
 
-## Replace date text input with Select dropdown in booking form
 
-### What changes
-In `TourBookingForm.tsx`, replace the plain text `<input>` for "Желаемая дата" with a `<Select>` dropdown populated with the same `startDates` array used in the info block.
+## Add "Similar Tours" block on expedition cruise pages
+
+### What
+After the "What's included" section on expedition cruise detail pages, add a "Похожие туры" (Similar Tours) block showing other expedition cruises (excluding the current one). Use the same card design as on the main page.
 
 ### How
-1. **Pass `startDates` as prop** — update `TourBookingFormProps` to include `startDates: string[]`, pass it from `TourDetail.tsx`.
 
-2. **Replace input with Select** — swap the date `<input>` (lines 61-67) with a `Select` / `SelectTrigger` / `SelectContent` / `SelectItem` using the same pattern as in the info block. Style the trigger to match the other form inputs (`inputClass`).
+**`src/pages/TourDetail.tsx`**:
+1. Import `tours` from `@/data/tours` and `Calendar, ArrowRight` from lucide-react (ArrowRight needs adding).
+2. Determine if current tour is an expedition cruise: `const isExpeditionCruise = tours.some(t => t.id === tour.id)`.
+3. Compute similar tours: `const similarTours = tours.filter(t => t.id !== tour.id)`.
+4. After the "Included / Not Included" block (inside `lg:col-span-2`), conditionally render the similar tours section when `isExpeditionCruise` is true.
+5. Section includes:
+   - Heading with gold decorative lines matching main page style: "Похожие *круизы*"
+   - Grid of tour cards (`grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`) — same card markup as `ToursSection`: image with region badge, title, days, price, "Подробнее" link.
 
-3. **In `TourDetail.tsx`** — add `startDates={tour.startDates}` to the `<TourBookingForm>` component call.
+### Card design (copied from ToursSection)
+- Card: `bg-card border border-border/50 overflow-hidden hover:border-primary/30`
+- Image: `aspect-[16/10]` with region badge top-right
+- Info: tour name, days with Calendar icon, price + "Подробнее" link with ArrowRight
 
 ### Files changed
-- `src/components/TourBookingForm.tsx` — add prop, replace input with Select
-- `src/pages/TourDetail.tsx` — pass `startDates` prop
+- `src/pages/TourDetail.tsx` — add similar tours block
+
