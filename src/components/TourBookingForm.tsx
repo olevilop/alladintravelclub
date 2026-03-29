@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface TourBookingFormProps {
   tourName: string;
+  startDates: string[];
 }
 
-const TourBookingForm = ({ tourName }: TourBookingFormProps) => {
+const TourBookingForm = ({ tourName, startDates }: TourBookingFormProps) => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", phone: "", email: "", date: "", message: "" });
 
@@ -58,14 +60,16 @@ const TourBookingForm = ({ tourName }: TourBookingFormProps) => {
           className={inputClass}
           maxLength={255}
         />
-        <input
-          type="text"
-          placeholder="Желаемая дата"
-          value={form.date}
-          onChange={(e) => setForm({ ...form, date: e.target.value })}
-          className={inputClass}
-          maxLength={50}
-        />
+        <Select value={form.date} onValueChange={(value) => setForm({ ...form, date: value })}>
+          <SelectTrigger className={`${inputClass} h-auto`}>
+            <SelectValue placeholder="Желаемая дата" />
+          </SelectTrigger>
+          <SelectContent>
+            {startDates.map((date) => (
+              <SelectItem key={date} value={date}>{date}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
         <textarea
           placeholder="Пожелания"
           value={form.message}

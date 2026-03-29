@@ -246,7 +246,7 @@ const TourDetail = () => {
               <RouteMap tourId={tour.id} />
 
               {/* Booking form */}
-              <TourBookingForm tourName={tour.name} />
+              <TourBookingForm tourName={tour.name} startDates={tour.startDates} />
             </div>
           </div>
         </div>
