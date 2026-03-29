@@ -1,20 +1,37 @@
 
+Цель: восстановить открытие сайта и убрать падение страницы тура после добавления карты маршрута.
 
-## Add tour name to the sidebar info card
+1) Диагностика (что уже найдено)
+- Do I know what the issue is? Да.
+- В проекте React = 18.3.1, а установлен `react-leaflet@5.0.0`, который требует React 19 (peer dependency).
+- Это критичный конфликт версий и наиболее вероятная причина runtime-падения (белый экран/не открывается страница).
+- Дополнительно: `RouteMap.tsx` не обрабатывает ошибку загрузки модулей карты (`Promise.all(...).then(...)` без `catch`), поэтому при сбое карта может “уронить” весь экран маршрута.
 
-In `src/pages/TourDetail.tsx`, add the tour name as the first element inside the sidebar card (the `bg-card border border-border p-6` div), before the price line.
+2) План исправления
+- Шаг 1. Привести зависимости карты к React 18:
+  - Понизить `react-leaflet` до ветки v4 (совместимой с React 18).
+  - Оставить `leaflet@1.9.x`.
+  - Синхронизировать lock-файлы, чтобы не было расхождения окружений (`bun.lock` и `package-lock.json`).
+- Шаг 2. Усилить устойчивость `RouteMap`:
+  - Убрать лишние импорты (`lazy`, `Suspense`), оставить чистую инициализацию.
+  - Добавить `catch` для динамических импортов и состояние ошибки (`mapError`).
+  - При ошибке показывать безопасный fallback-блок “Карта временно недоступна”, а не ломать страницу тура.
+  - Аккуратно защитить инициализацию иконок Leaflet (проверки на существование объектов перед `mergeOptions`).
+- Шаг 3. Проверка после фикса:
+  - Открыть `/` (главная не должна падать).
+  - Открыть минимум 3 страницы тура (`/tour/arctic-spitsbergen`, `/tour/south-pole-expedition`, `/tour/russia-baikal`).
+  - Проверить, что:
+    - страница открывается стабильно;
+    - блок “Карта маршрута” либо корректно рендерится, либо показывает fallback без падения;
+    - в консоли нет критичных runtime-ошибок.
+  - Проверить на мобильной ширине (sticky/sidebar и карта не ломают верстку).
 
-### Change
+3) Файлы, которые будут затронуты
+- `package.json` (версия `react-leaflet`)
+- `bun.lock` и `package-lock.json` (синхронизация зависимостей)
+- `src/components/RouteMap.tsx` (обработка ошибок и fallback)
 
-Add a styled heading with the tour name at the top of the card:
-
-```tsx
-<div className="bg-card border border-border p-6 space-y-5">
-  <h3 className="font-serif text-lg md:text-xl font-light leading-snug">{tour.name}</h3>
-  <div className="font-serif text-2xl text-primary">{tour.price}</div>
-  ...
-</div>
-```
-
-Single file edit: `src/pages/TourDetail.tsx`, one line addition.
-
+4) Ожидаемый результат
+- Сайт снова стабильно открывается.
+- Страницы тура больше не падают из-за карты.
+- Карта работает на совместимой версии библиотеки, а при сбое деградирует безопасно.
