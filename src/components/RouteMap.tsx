@@ -1,4 +1,4 @@
-import { useEffect, useState, lazy, Suspense } from "react";
+import { useEffect, useState } from "react";
 import { MapPin } from "lucide-react";
 import { tourRoutes } from "@/data/tourRoutes";
 
@@ -6,8 +6,9 @@ interface RouteMapProps {
   tourId: string;
 }
 
-const RouteMapInner = ({ tourId }: RouteMapProps) => {
+const RouteMap = ({ tourId }: RouteMapProps) => {
   const [mapReady, setMapReady] = useState(false);
+  const [mapError, setMapError] = useState(false);
   const [modules, setModules] = useState<any>(null);
 
   const points = tourRoutes[tourId];
@@ -18,23 +19,44 @@ const RouteMapInner = ({ tourId }: RouteMapProps) => {
       import("react-leaflet"),
       import("leaflet"),
       import("leaflet/dist/leaflet.css"),
-    ]).then(([rl, L]) => {
-      if (cancelled) return;
-
-      delete (L.default.Icon.Default.prototype as any)._getIconUrl;
-      L.default.Icon.Default.mergeOptions({
-        iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png",
-        iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png",
-        shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
+    ])
+      .then(([rl, L]) => {
+        if (cancelled) return;
+        const leaflet = L.default || L;
+        if (leaflet?.Icon?.Default?.prototype) {
+          delete (leaflet.Icon.Default.prototype as any)._getIconUrl;
+          leaflet.Icon.Default.mergeOptions({
+            iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png",
+            iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png",
+            shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
+          });
+        }
+        setModules({ rl, L: leaflet });
+        setMapReady(true);
+      })
+      .catch((err) => {
+        console.error("Failed to load map:", err);
+        if (!cancelled) setMapError(true);
       });
-
-      setModules({ rl, L: L.default });
-      setMapReady(true);
-    });
     return () => { cancelled = true; };
   }, []);
 
   if (!points || points.length === 0) return null;
+
+  if (mapError) {
+    return (
+      <div className="bg-card border border-border p-4 space-y-3">
+        <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+          <MapPin className="w-3.5 h-3.5 text-primary" />
+          Карта маршрута
+        </h4>
+        <div className="aspect-square bg-muted rounded-sm flex items-center justify-center text-sm text-muted-foreground">
+          Карта временно недоступна
+        </div>
+      </div>
+    );
+  }
+
   if (!mapReady || !modules) {
     return (
       <div className="bg-card border border-border p-4 space-y-3">
@@ -135,10 +157,6 @@ const RouteMapInner = ({ tourId }: RouteMapProps) => {
       </div>
     </div>
   );
-};
-
-const RouteMap = ({ tourId }: RouteMapProps) => {
-  return <RouteMapInner tourId={tourId} />;
 };
 
 export default RouteMap;
