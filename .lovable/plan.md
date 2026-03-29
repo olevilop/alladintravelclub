@@ -1,21 +1,16 @@
 
+## Replace date text input with Select dropdown in booking form
 
-## Add missing ship names to cruise tours
+### What changes
+In `TourBookingForm.tsx`, replace the plain text `<input>` for "Желаемая дата" with a `<Select>` dropdown populated with the same `startDates` array used in the info block.
 
-### Problem
-Two tours that involve sea vessels are missing the `shipName` field, so the ship name row doesn't appear on their detail pages.
+### How
+1. **Pass `startDates` as prop** — update `TourBookingFormProps` to include `startDates: string[]`, pass it from `TourDetail.tsx`.
 
-### Tours to update in `src/data/tours.ts`
+2. **Replace input with Select** — swap the date `<input>` (lines 61-67) with a `Select` / `SelectTrigger` / `SelectContent` / `SelectItem` using the same pattern as in the info block. Style the trigger to match the other form inputs (`inputClass`).
 
-| Tour ID | Tour Name | Ship Name to Add |
-|---|---|---|
-| `antarctic-penguins` | Королевские пингвины Антарктиды | `"Antarctic Dream"` |
-| `galapagos-islands` | Галапагосские острова | `"Galápagos Explorer"` |
-
-### Additional fix
-Currently `isCruise` only checks for "круиз" in the tour name, but these tours don't contain that word. The ship name row in `TourDetail.tsx` is gated by `isCruise && tour.shipName`. We should change the condition to just `tour.shipName` — if a ship name exists, show it regardless of tour type.
+3. **In `TourDetail.tsx`** — add `startDates={tour.startDates}` to the `<TourBookingForm>` component call.
 
 ### Files changed
-- `src/data/tours.ts` — add `shipName` to two tours
-- `src/pages/TourDetail.tsx` — change `{isCruise && tour.shipName && ...}` to `{tour.shipName && ...}`
-
+- `src/components/TourBookingForm.tsx` — add prop, replace input with Select
+- `src/pages/TourDetail.tsx` — pass `startDates` prop
