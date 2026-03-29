@@ -9,7 +9,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { getTourById } from "@/data/tours";
+import { getTourById, tours } from "@/data/tours";
 import { tourRoutes } from "@/data/tourRoutes";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
