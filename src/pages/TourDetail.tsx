@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ArrowLeft, Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   Select,
@@ -23,6 +23,10 @@ const TourDetail = () => {
   const tour = getTourById(id || "");
   const [galleryIndex, setGalleryIndex] = useState(0);
   const isCruise = tour?.name.toLowerCase().includes("круиз");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
   const routePoints = tour ? tourRoutes[tour.id] : undefined;
 
   if (!tour) {
