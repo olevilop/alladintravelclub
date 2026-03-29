@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ArrowLeft, Calendar, Users, Mountain, Check, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { getTourById } from "@/data/tours";
+import { tourRoutes } from "@/data/tourRoutes";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TourBookingForm from "@/components/TourBookingForm";
@@ -22,6 +23,7 @@ const TourDetail = () => {
   const tour = getTourById(id || "");
   const [galleryIndex, setGalleryIndex] = useState(0);
   const isCruise = tour?.name.toLowerCase().includes("круиз");
+  const routePoints = tour ? tourRoutes[tour.id] : undefined;
 
   if (!tour) {
     return (
@@ -208,20 +210,31 @@ const TourDetail = () => {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="font-serif text-2xl text-primary">{tour.price}</div>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center gap-3 text-foreground/80">
-                    <Calendar className="w-4 h-4 text-primary" />
-                    <span>{tour.days} дней</span>
+                    <Moon className="w-4 h-4 text-primary shrink-0" />
+                    <span>{tour.days} дней / {tour.days - 1} ночей</span>
                   </div>
                   <div className="flex items-center gap-3 text-foreground/80">
-                    <Users className="w-4 h-4 text-primary" />
-                    <span>{tour.groupSize}</span>
+                    <MapPin className="w-4 h-4 text-primary shrink-0" />
+                    <span>{tour.region}</span>
                   </div>
+                  {isCruise && tour.shipName && (
+                    <div className="flex items-center gap-3 text-foreground/80">
+                      <Ship className="w-4 h-4 text-primary shrink-0" />
+                      <span>{tour.shipName}</span>
+                    </div>
+                  )}
                   <div className="flex items-center gap-3 text-foreground/80">
-                    <Mountain className="w-4 h-4 text-primary" />
-                    <span>{tour.difficulty}</span>
+                    <Banknote className="w-4 h-4 text-primary shrink-0" />
+                    <span>Стоимость {tour.price}</span>
                   </div>
+                  {routePoints && routePoints.length > 0 && (
+                    <div className="flex items-start gap-3 text-foreground/80">
+                      <Route className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      <span className="leading-relaxed">{routePoints.map(p => p.label).filter((v, i, a) => a.indexOf(v) === i || i === a.length - 1).join(" → ")}</span>
+                    </div>
+                  )}
                 </div>
               </div>
 

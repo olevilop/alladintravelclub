@@ -49,6 +49,7 @@ export interface Tour {
   difficulty: string;
   groupSize: string;
   startDates: string[];
+  shipName?: string;
 }
 
 export const tours: Tour[] = [
@@ -99,6 +100,7 @@ export const tours: Tour[] = [
     difficulty: "Лёгкая — средняя",
     groupSize: "до 120 человек",
     startDates: ["15 — 28 июня 2025", "5 — 18 июля 2025", "28 июля — 10 августа 2025"],
+    shipName: "Ocean Explorer",
   },
   {
     id: "south-pole-expedition",
