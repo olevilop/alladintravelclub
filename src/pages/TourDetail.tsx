@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { ArrowLeft, Calendar, Users, Mountain, Check, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   Select,
   SelectContent,
