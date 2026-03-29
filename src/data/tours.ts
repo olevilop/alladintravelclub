@@ -98,7 +98,7 @@ export const tours: Tour[] = [
     ],
     difficulty: "Лёгкая — средняя",
     groupSize: "до 120 человек",
-    startDates: ["15 июня 2025", "5 июля 2025", "28 июля 2025"],
+    startDates: ["15 — 28 июня 2025", "5 — 18 июля 2025", "28 июля — 10 августа 2025"],
   },
   {
     id: "south-pole-expedition",
@@ -154,7 +154,7 @@ export const tours: Tour[] = [
     ],
     difficulty: "Средняя",
     groupSize: "до 80 человек",
-    startDates: ["10 ноября 2025", "5 декабря 2025", "15 января 2026"],
+    startDates: ["10 — 30 ноября 2025", "5 — 25 декабря 2025", "15 января — 4 февраля 2026"],
   },
   {
     id: "antarctic-penguins",
@@ -201,7 +201,7 @@ export const tours: Tour[] = [
     ],
     difficulty: "Лёгкая",
     groupSize: "до 100 человек",
-    startDates: ["20 ноября 2025", "18 декабря 2025"],
+    startDates: ["20 ноября — 5 декабря 2025", "18 декабря 2025 — 2 января 2026"],
   },
   {
     id: "serengeti-safari",
@@ -243,7 +243,7 @@ export const tours: Tour[] = [
     ],
     difficulty: "Лёгкая",
     groupSize: "до 8 человек",
-    startDates: ["5 марта 2025", "15 июня 2025", "10 сентября 2025"],
+    startDates: ["5 — 14 марта 2025", "15 — 24 июня 2025", "10 — 19 сентября 2025"],
   },
   {
     id: "norway-fjords",
@@ -285,7 +285,7 @@ export const tours: Tour[] = [
     ],
     difficulty: "Лёгкая",
     groupSize: "до 12 человек",
-    startDates: ["1 июня 2025", "15 августа 2025", "1 октября 2025"],
+    startDates: ["1 — 12 июня 2025", "15 — 26 августа 2025", "1 — 12 октября 2025"],
   },
   {
     id: "galapagos-islands",
@@ -327,7 +327,7 @@ export const tours: Tour[] = [
     ],
     difficulty: "Лёгкая",
     groupSize: "до 16 человек",
-    startDates: ["10 апреля 2025", "5 августа 2025", "12 ноября 2025"],
+    startDates: ["10 — 20 апреля 2025", "5 — 15 августа 2025", "12 — 22 ноября 2025"],
   },
   {
     id: "bhutan-temples",
@@ -367,7 +367,7 @@ export const tours: Tour[] = [
     ],
     difficulty: "Средняя",
     groupSize: "до 10 человек",
-    startDates: ["15 марта 2025", "10 октября 2025", "5 ноября 2025"],
+    startDates: ["15 — 23 марта 2025", "10 — 18 октября 2025", "5 — 13 ноября 2025"],
   },
   {
     id: "patagonia-edge",
@@ -414,7 +414,7 @@ export const tours: Tour[] = [
     ],
     difficulty: "Средняя — высокая",
     groupSize: "до 12 человек",
-    startDates: ["1 ноября 2025", "15 января 2026", "1 марта 2026"],
+    startDates: ["1 — 15 ноября 2025", "15 — 29 января 2026", "1 — 15 марта 2026"],
   },
 ];
 
@@ -458,7 +458,7 @@ export const japanTours: Tour[] = [
     ],
     difficulty: "Лёгкая",
     groupSize: "до 12 человек",
-    startDates: ["25 марта 2026", "1 апреля 2026", "10 апреля 2026"],
+    startDates: ["25 марта — 3 апреля 2026", "1 — 10 апреля 2026", "10 — 19 апреля 2026"],
   },
   {
     id: "japan-fuji-lakes",
@@ -496,7 +496,7 @@ export const japanTours: Tour[] = [
     ],
     difficulty: "Средняя",
     groupSize: "до 10 человек",
-    startDates: ["15 мая 2026", "10 октября 2026"],
+    startDates: ["15 — 22 мая 2026", "10 — 17 октября 2026"],
   },
   {
     id: "japan-onsen-trail",
@@ -538,7 +538,7 @@ export const japanTours: Tour[] = [
     ],
     difficulty: "Лёгкая",
     groupSize: "до 8 человек",
-    startDates: ["5 февраля 2026", "20 ноября 2026"],
+    startDates: ["5 — 16 февраля 2026", "20 ноября — 1 декабря 2026"],
   },
   {
     id: "japan-spiritual-path",
@@ -580,7 +580,7 @@ export const japanTours: Tour[] = [
     ],
     difficulty: "Средняя",
     groupSize: "до 10 человек",
-    startDates: ["1 апреля 2026", "15 сентября 2026", "5 ноября 2026"],
+    startDates: ["1 — 11 апреля 2026", "15 — 25 сентября 2026", "5 — 15 ноября 2026"],
   },
 ];
 
@@ -616,7 +616,7 @@ export const koreaTours: Tour[] = [
     notIncluded: ["Международные перелёты", "Обеды", "Алкоголь", "Чаевые"],
     difficulty: "Лёгкая",
     groupSize: "до 12 человек",
-    startDates: ["10 апреля 2026", "15 сентября 2026"],
+    startDates: ["10 — 16 апреля 2026", "15 — 21 сентября 2026"],
   },
   {
     id: "korea-jeju-island",
@@ -647,7 +647,7 @@ export const koreaTours: Tour[] = [
     notIncluded: ["Международные перелёты", "Обеды", "Алкоголь", "Чаевые"],
     difficulty: "Средняя",
     groupSize: "до 10 человек",
-    startDates: ["5 мая 2026", "20 октября 2026"],
+    startDates: ["5 — 10 мая 2026", "20 — 25 октября 2026"],
   },
   {
     id: "korea-temple-stay",
@@ -682,7 +682,7 @@ export const koreaTours: Tour[] = [
     notIncluded: ["Международные перелёты", "Обеды", "Алкоголь", "Чаевые"],
     difficulty: "Лёгкая — средняя",
     groupSize: "до 8 человек",
-    startDates: ["15 марта 2026", "1 октября 2026", "10 ноября 2026"],
+    startDates: ["15 — 23 марта 2026", "1 — 9 октября 2026", "10 — 18 ноября 2026"],
   },
   {
     id: "korea-hanok-culture",
@@ -719,7 +719,7 @@ export const koreaTours: Tour[] = [
     notIncluded: ["Международные перелёты", "Обеды", "Алкоголь", "Чаевые"],
     difficulty: "Лёгкая",
     groupSize: "до 12 человек",
-    startDates: ["20 апреля 2026", "5 сентября 2026", "25 октября 2026"],
+    startDates: ["20 — 29 апреля 2026", "5 — 14 сентября 2026", "25 октября — 3 ноября 2026"],
   },
 ];
 
@@ -758,7 +758,7 @@ export const chinaTours: Tour[] = [
     notIncluded: ["Международные перелёты", "Обеды", "Алкоголь", "Чаевые"],
     difficulty: "Средняя",
     groupSize: "до 12 человек",
-    startDates: ["10 апреля 2026", "15 сентября 2026", "5 октября 2026"],
+    startDates: ["10 — 19 апреля 2026", "15 — 24 сентября 2026", "5 — 14 октября 2026"],
   },
   {
     id: "china-zhangjiajie",
@@ -791,7 +791,7 @@ export const chinaTours: Tour[] = [
     notIncluded: ["Международные перелёты", "Обеды", "Алкоголь", "Чаевые"],
     difficulty: "Средняя",
     groupSize: "до 10 человек",
-    startDates: ["20 мая 2026", "10 октября 2026"],
+    startDates: ["20 — 27 мая 2026", "10 — 17 октября 2026"],
   },
   {
     id: "china-guilin-li-river",
@@ -826,7 +826,7 @@ export const chinaTours: Tour[] = [
     notIncluded: ["Международные перелёты", "Обеды", "Алкоголь", "Чаевые"],
     difficulty: "Лёгкая",
     groupSize: "до 10 человек",
-    startDates: ["1 апреля 2026", "15 сентября 2026", "20 октября 2026"],
+    startDates: ["1 — 9 апреля 2026", "15 — 23 сентября 2026", "20 — 28 октября 2026"],
   },
   {
     id: "china-beijing-imperial",
@@ -860,7 +860,7 @@ export const chinaTours: Tour[] = [
     notIncluded: ["Международные перелёты", "Обеды", "Алкоголь", "Чаевые"],
     difficulty: "Лёгкая",
     groupSize: "до 12 человек",
-    startDates: ["5 мая 2026", "10 сентября 2026", "1 ноября 2026"],
+    startDates: ["5 — 11 мая 2026", "10 — 16 сентября 2026", "1 — 7 ноября 2026"],
   },
 ];
 
@@ -897,7 +897,7 @@ export const northKoreaTours: Tour[] = [
     notIncluded: ["Международные перелёты до Пекина", "Отель в Пекине", "Алкоголь", "Чаевые"],
     difficulty: "Лёгкая",
     groupSize: "до 15 человек",
-    startDates: ["20 апреля 2026", "15 августа 2026", "10 октября 2026"],
+    startDates: ["20 — 27 апреля 2026", "15 — 22 августа 2026", "10 — 17 октября 2026"],
   },
   {
     id: "nkorea-kumgang",
@@ -933,7 +933,7 @@ export const northKoreaTours: Tour[] = [
     notIncluded: ["Международные перелёты до Пекина", "Отель в Пекине", "Алкоголь", "Чаевые"],
     difficulty: "Средняя",
     groupSize: "до 12 человек",
-    startDates: ["1 мая 2026", "5 сентября 2026"],
+    startDates: ["1 — 10 мая 2026", "5 — 14 сентября 2026"],
   },
   {
     id: "nkorea-kaesong",
@@ -965,7 +965,7 @@ export const northKoreaTours: Tour[] = [
     notIncluded: ["Международные перелёты до Пекина", "Отель в Пекине", "Алкоголь", "Чаевые"],
     difficulty: "Лёгкая",
     groupSize: "до 15 человек",
-    startDates: ["10 апреля 2026", "20 сентября 2026", "5 ноября 2026"],
+    startDates: ["10 — 15 апреля 2026", "20 — 25 сентября 2026", "5 — 10 ноября 2026"],
   },
   {
     id: "nkorea-dmz-border",
@@ -998,7 +998,7 @@ export const northKoreaTours: Tour[] = [
     notIncluded: ["Международные перелёты до Пекина", "Отель в Пекине", "Алкоголь", "Чаевые"],
     difficulty: "Лёгкая",
     groupSize: "до 15 человек",
-    startDates: ["25 апреля 2026", "27 июля 2026", "10 октября 2026"],
+    startDates: ["25 апреля — 1 мая 2026", "27 июля — 2 августа 2026", "10 — 16 октября 2026"],
   },
 ];
 
@@ -1037,7 +1037,7 @@ export const russiaTours: Tour[] = [
     notIncluded: ["Перелёты до Иркутска", "Алкоголь", "Чаевые", "Сувениры"],
     difficulty: "Лёгкая",
     groupSize: "до 12 человек",
-    startDates: ["15 февраля 2026", "20 июня 2026", "5 августа 2026"],
+    startDates: ["15 — 24 февраля 2026", "20 — 29 июня 2026", "5 — 14 августа 2026"],
   },
   {
     id: "russia-kamchatka",
@@ -1076,7 +1076,7 @@ export const russiaTours: Tour[] = [
     notIncluded: ["Перелёты до Камчатки", "Алкоголь", "Чаевые"],
     difficulty: "Средняя — сложная",
     groupSize: "до 10 человек",
-    startDates: ["1 июля 2026", "20 июля 2026", "10 августа 2026"],
+    startDates: ["1 — 12 июля 2026", "20 — 31 июля 2026", "10 — 21 августа 2026"],
   },
   {
     id: "russia-altai",
@@ -1113,7 +1113,7 @@ export const russiaTours: Tour[] = [
     notIncluded: ["Перелёты до Горно-Алтайска", "Алкоголь", "Чаевые"],
     difficulty: "Средняя",
     groupSize: "до 10 человек",
-    startDates: ["10 июня 2026", "15 июля 2026", "1 сентября 2026"],
+    startDates: ["10 — 20 июня 2026", "15 — 25 июля 2026", "1 — 11 сентября 2026"],
   },
   {
     id: "russia-spb-white-nights",
@@ -1147,7 +1147,7 @@ export const russiaTours: Tour[] = [
     notIncluded: ["Перелёты до Петербурга", "Обеды и ужины", "Алкоголь", "Чаевые"],
     difficulty: "Лёгкая",
     groupSize: "до 8 человек",
-    startDates: ["1 июня 2026", "15 июня 2026", "1 июля 2026"],
+    startDates: ["1 — 7 июня 2026", "15 — 21 июня 2026", "1 — 7 июля 2026"],
   },
 ];
 
