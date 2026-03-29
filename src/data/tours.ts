@@ -49,6 +49,7 @@ export interface Tour {
   difficulty: string;
   groupSize: string;
   startDates: string[];
+  shipName?: string;
 }
 
 export const tours: Tour[] = [
