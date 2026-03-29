@@ -1,9 +1,12 @@
-import { useEffect, useRef } from "react";
-import { MapContainer, TileLayer, Polyline, Marker, Popup, useMap } from "react-leaflet";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import { tourRoutes, type RoutePoint } from "@/data/tourRoutes";
+import { useEffect, useState } from "react";
 import { MapPin } from "lucide-react";
+import { tourRoutes, type RoutePoint } from "@/data/tourRoutes";
+
+interface RouteMapInnerProps {
+  points: RoutePoint[];
+  center: [number, number];
+  polylinePositions: [number, number][];
+}
 
 // Fix default marker icons
 delete (L.Icon.Default.prototype as any)._getIconUrl;
