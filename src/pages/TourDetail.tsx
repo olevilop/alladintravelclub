@@ -188,23 +188,8 @@ const TourDetail = () => {
               {/* Quick info card */}
               <div className="bg-card border border-border p-6 space-y-5">
                 <h3 className="font-serif text-lg md:text-xl font-light leading-snug">{tour.name}</h3>
-                <div className="font-serif text-2xl text-primary">{tour.price}</div>
-                <div className="space-y-3 text-sm">
-                  <div className="flex items-center gap-3 text-foreground/80">
-                    <Calendar className="w-4 h-4 text-primary" />
-                    <span>{tour.days} дней</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-foreground/80">
-                    <Users className="w-4 h-4 text-primary" />
-                    <span>{tour.groupSize}</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-foreground/80">
-                    <Mountain className="w-4 h-4 text-primary" />
-                    <span>{tour.difficulty}</span>
-                  </div>
-                </div>
-                <div className="pt-4 border-t border-border">
-                  <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground mb-3">Ближайшие даты</h4>
+                <div>
+                  <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground mb-3">Даты круиза/тура</h4>
                   <Select>
                     <SelectTrigger className="w-full bg-background border-border text-foreground">
                       <div className="flex items-center gap-2">
@@ -220,6 +205,21 @@ const TourDetail = () => {
                       ))}
                     </SelectContent>
                   </Select>
+                </div>
+                <div className="font-serif text-2xl text-primary">{tour.price}</div>
+                <div className="space-y-3 text-sm">
+                  <div className="flex items-center gap-3 text-foreground/80">
+                    <Calendar className="w-4 h-4 text-primary" />
+                    <span>{tour.days} дней</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-foreground/80">
+                    <Users className="w-4 h-4 text-primary" />
+                    <span>{tour.groupSize}</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-foreground/80">
+                    <Mountain className="w-4 h-4 text-primary" />
+                    <span>{tour.difficulty}</span>
+                  </div>
                 </div>
               </div>
 
