@@ -1,26 +1,26 @@
 
 
-## Add "Similar Tours" block on expedition cruise pages
+## Carousel for similar tours, 4 per row, expedition-only filtering
 
 ### What
-After the "What's included" section on expedition cruise detail pages, add a "Похожие туры" (Similar Tours) block showing other expedition cruises (excluding the current one). Use the same card design as on the main page.
+Replace the current 2-column grid in the "Similar Tours" block with a horizontal carousel showing 4 cards per row, with left/right scroll arrows. On expedition cruise pages, only show other expedition cruises (from `tours` array). The block should NOT appear on non-expedition pages (Japan, Korea, etc.).
 
 ### How
 
 **`src/pages/TourDetail.tsx`**:
-1. Import `tours` from `@/data/tours` and `Calendar, ArrowRight` from lucide-react (ArrowRight needs adding).
-2. Determine if current tour is an expedition cruise: `const isExpeditionCruise = tours.some(t => t.id === tour.id)`.
-3. Compute similar tours: `const similarTours = tours.filter(t => t.id !== tour.id)`.
-4. After the "Included / Not Included" block (inside `lg:col-span-2`), conditionally render the similar tours section when `isExpeditionCruise` is true.
-5. Section includes:
-   - Heading with gold decorative lines matching main page style: "Похожие *круизы*"
-   - Grid of tour cards (`grid-cols-1 sm:grid-cols-2 lg:grid-cols-3`) — same card markup as `ToursSection`: image with region badge, title, days, price, "Подробнее" link.
 
-### Card design (copied from ToursSection)
-- Card: `bg-card border border-border/50 overflow-hidden hover:border-primary/30`
-- Image: `aspect-[16/10]` with region badge top-right
-- Info: tour name, days with Calendar icon, price + "Подробнее" link with ArrowRight
+1. Import `Carousel`, `CarouselContent`, `CarouselItem`, `CarouselPrevious`, `CarouselNext` from `@/components/ui/carousel`.
+
+2. Keep the existing filtering: `tours.filter(t => t.id !== tour.id)` — this already only uses the expedition `tours` array.
+
+3. Replace the `grid grid-cols-1 sm:grid-cols-2 gap-6` div with a Carousel component:
+   - `CarouselContent` wraps the items
+   - Each `CarouselItem` gets `basis-full sm:basis-1/2 lg:basis-1/4` (so 4 per row on large screens, 2 on tablet, 1 on mobile)
+   - `CarouselPrevious` and `CarouselNext` buttons for navigation
+   - Carousel opts: `{ align: "start", loop: true }`
+
+4. Keep the same card markup inside each carousel item.
 
 ### Files changed
-- `src/pages/TourDetail.tsx` — add similar tours block
+- `src/pages/TourDetail.tsx` — replace grid with Carousel, add imports
 
