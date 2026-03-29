@@ -21,6 +21,7 @@ const TourDetail = () => {
   const { id } = useParams<{ id: string }>();
   const tour = getTourById(id || "");
   const [galleryIndex, setGalleryIndex] = useState(0);
+  const isCruise = tour?.name.toLowerCase().includes("круиз");
 
   if (!tour) {
     return (
@@ -190,7 +191,7 @@ const TourDetail = () => {
               <div className="bg-card border border-border p-6 space-y-5">
                 <h3 className="font-serif text-lg md:text-xl font-light leading-snug">{tour.name}</h3>
                 <div>
-                  <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground mb-3">Даты круиза/тура</h4>
+                  <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground mb-3">{isCruise ? "Дата круиза" : "Дата тура"}</h4>
                   <Select>
                     <SelectTrigger className="w-full bg-background border-border text-foreground">
                       <div className="flex items-center gap-2">
