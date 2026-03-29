@@ -1,35 +1,19 @@
 
 
-## Replace interactive map with static route image
-
-### What changes
-Replace the `<iframe>` OpenStreetMap embed in `RouteMap.tsx` with a static map image generated via a free tile-based static map API.
+## Change "Даты круиза/тура" label based on tour type
 
 ### Approach
-Use **OpenStreetMap static map images** via the free `staticmap.openstreetmap.de` service, which supports drawing paths and markers directly in the URL:
+Determine whether the tour is a cruise by checking if `tour.name` contains the word "круиз" (case-insensitive). No need to add a new field to the data model — multiple tours already have "круиз" in their names.
 
+### File: `src/pages/TourDetail.tsx`
+
+In the sidebar info card, replace the hardcoded string `"Даты круиза/тура"` with a dynamic label:
+
+```tsx
+const isCruise = tour.name.toLowerCase().includes("круиз");
+// ...
+<h4>...{isCruise ? "Дата круиза" : "Дата тура"}</h4>
 ```
-https://staticmap.openstreetmap.de/staticmap.php?center={lat},{lng}&zoom={z}&size={w}x{h}&markers={markers}&path={path}
-```
 
-This renders a static PNG image of the route with:
-- A polyline path connecting all waypoints
-- Numbered markers at each point
-- No iframe, no interactivity — just an `<img>` tag
-
-### File: `src/components/RouteMap.tsx`
-
-1. Remove `useState` for iframe error — replace with `<img>` `onError` fallback
-2. Build the static map URL from route coordinates:
-   - Calculate center point and appropriate zoom level from the bounding box
-   - Encode path coordinates as a polyline parameter
-   - Add markers for key stops
-3. Render as `<img src={staticMapUrl} />` with `loading="lazy"`
-4. Keep the labeled waypoint list below unchanged
-
-### Result
-- Lightweight static image instead of heavy iframe
-- Visually shows the route path on the map
-- No external dependencies
-- Graceful fallback if image fails to load
+One line of logic, one line changed in the template. No other files affected.
 
