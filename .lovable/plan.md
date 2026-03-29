@@ -1,38 +1,18 @@
 
 
-## Redesign sidebar info card
+## Scroll to top on tour page navigation
 
-### What changes
+### Problem
+When clicking a tour/cruise link, the page opens scrolled to the bottom instead of the top, because `scroll-behavior: smooth` in CSS and no explicit scroll reset on route change.
 
-In the sidebar "Quick info card" on `TourDetail.tsx`, replace/modify the info rows:
+### Fix
+Add `useEffect` with `window.scrollTo(0, 0)` in `src/pages/TourDetail.tsx`, triggered on route param change:
 
-1. **Days → Days/Nights**: Change `{tour.days} дней` to `{tour.days} дней / {tour.days - 1} ночей`. Replace `Calendar` icon with `Moon` (from lucide-react).
+```tsx
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, [id]);
+```
 
-2. **Group size → Region**: Replace the `Users` + `{tour.groupSize}` row with `MapPin` + `{tour.region}` (region data already exists on every tour).
-
-3. **Add ship name row (cruises only)**: Show `Ship` icon + ship name when `isCruise` is true. Since `Tour` interface has no `shipName` field, add an optional `shipName?: string` to the interface and populate it for cruise tours in `tours.ts`.
-
-4. **Add price row**: Show `Banknote` icon + `Стоимость от {tour.price}` (price data already exists, format is "от €12 500" etc.).
-
-5. **Add route row**: Show `Route` icon + route points joined with ` → ` arrows. Pull point labels from `tourRoutes` data (already exists in `tourRoutes.ts`). Import `tourRoutes` and render `points.map(p => p.label).join(" → ")`.
-
-6. **Remove the standalone price line** (`<div className="font-serif text-2xl text-primary">{tour.price}</div>`) since price moves into the info rows.
-
-### Data model change: `src/data/tours.ts`
-
-Add `shipName?: string` to `Tour` interface. Set it on cruise tours:
-- `arctic-spitsbergen`: `"Ocean Explorer"`
-- `norway-fjords`: `"Nordic Voyager"`  
-- Any other cruise tours — add appropriate names.
-
-### File: `src/pages/TourDetail.tsx`
-
-- Import `Moon, MapPin, Ship, Banknote, Route` from lucide-react (remove `Users, Mountain, Calendar` from the info rows import if unused elsewhere — `Calendar` is still used for date select).
-- Import `tourRoutes` from `@/data/tourRoutes`.
-- Replace the `<div className="space-y-3 text-sm">` block with new rows.
-- Remove standalone price div.
-
-### Files changed
-- `src/data/tours.ts` — add `shipName` to interface + cruise tour data
-- `src/pages/TourDetail.tsx` — rewrite info rows in sidebar
+One line of logic added near the top of the component. No other files changed.
 
