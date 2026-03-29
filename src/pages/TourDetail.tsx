@@ -13,6 +13,7 @@ import { getTourById } from "@/data/tours";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TourBookingForm from "@/components/TourBookingForm";
+import RouteMap from "@/components/RouteMap";
 
 const fadeIn = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
@@ -222,6 +223,9 @@ const TourDetail = () => {
                   </div>
                 </div>
               </div>
+
+              {/* Route map */}
+              <RouteMap tourId={tour.id} />
 
               {/* Booking form */}
               <TourBookingForm tourName={tour.name} />
