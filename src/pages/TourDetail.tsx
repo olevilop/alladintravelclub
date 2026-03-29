@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { getTourById } from "@/data/tours";
+import { tourRoutes } from "@/data/tourRoutes";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TourBookingForm from "@/components/TourBookingForm";
@@ -22,6 +23,7 @@ const TourDetail = () => {
   const tour = getTourById(id || "");
   const [galleryIndex, setGalleryIndex] = useState(0);
   const isCruise = tour?.name.toLowerCase().includes("круиз");
+  const routePoints = tour ? tourRoutes[tour.id] : undefined;
 
   if (!tour) {
     return (
