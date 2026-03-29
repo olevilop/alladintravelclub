@@ -157,6 +157,7 @@ export const tours: Tour[] = [
     difficulty: "Средняя",
     groupSize: "до 80 человек",
     startDates: ["10 — 30 ноября 2025", "5 — 25 декабря 2025", "15 января — 4 февраля 2026"],
+    shipName: "Polar Pioneer",
   },
   {
     id: "antarctic-penguins",
@@ -288,6 +289,7 @@ export const tours: Tour[] = [
     difficulty: "Лёгкая",
     groupSize: "до 12 человек",
     startDates: ["1 — 12 июня 2025", "15 — 26 августа 2025", "1 — 12 октября 2025"],
+    shipName: "Nordic Voyager",
   },
   {
     id: "galapagos-islands",
