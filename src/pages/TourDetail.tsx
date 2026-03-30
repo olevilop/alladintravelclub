@@ -148,14 +148,10 @@ const TourDetail = () => {
                     transition={{ delay: 0.03 * i, duration: 0.4 }}
                     className="flex gap-4 md:gap-6 group"
                   >
-                    {/* Timeline line */}
                     <div className="flex flex-col items-center">
-                      <div className="w-8 h-8 rounded-full border border-primary/50 bg-card flex items-center justify-center text-xs text-primary font-sans shrink-0">
-                        {day.day}
+                      <div className="rounded-full border border-primary/50 bg-card flex items-center justify-center px-3 py-1 text-xs text-primary font-sans shrink-0 whitespace-nowrap">
+                        День {day.day}
                       </div>
-                      {i < tour.itinerary.length - 1 && (
-                        <div className="w-px flex-1 bg-border" />
-                      )}
                     </div>
                     <div className="pb-8">
                       <h3 className="font-serif text-lg text-foreground">{day.title}</h3>
