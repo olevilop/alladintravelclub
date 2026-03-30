@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart, User } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import lampLogo from "@/assets/lamp-logo.png";
 
