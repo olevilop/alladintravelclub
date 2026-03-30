@@ -256,10 +256,10 @@ const TourDetail = () => {
         </div>
       </div>
 
-      <FAQSection isCruise={isCruise} />
-
       {/* Similar Tours — full width */}
       <SimilarTours currentTour={tour} />
+
+      <FAQSection isCruise={isCruise} />
 
       <Footer />
     </div>
