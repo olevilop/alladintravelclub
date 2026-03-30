@@ -1,10 +1,16 @@
 
 
-## Убрать блок «Заявка» с главной страницы
+## Уменьшить кнопки соцсетей
 
 ### Что делаем
-Удаляем `<ContactSection />` из `src/pages/Index.tsx` (строка 26) и убираем неиспользуемый импорт (строка 10).
+В `src/components/NewsletterSocial.tsx` уменьшаем кнопки Telegram, VK, YouTube: меньше padding, меньше размер текста и иконок.
 
-### Файлы
-- `src/pages/Index.tsx` — удалить импорт `ContactSection` и его использование
+### Изменения
+- Padding: `px-5 py-2.5` → `px-4 py-2`
+- Иконки: `w-5 h-5` → `w-4 h-4`
+- Текст: `text-sm` → `text-xs`
+- Gap между кнопками: `gap-3` → `gap-2`
+
+### Файл
+- `src/components/NewsletterSocial.tsx`
 
