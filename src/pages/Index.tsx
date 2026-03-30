@@ -8,6 +8,7 @@ import ReviewsSection from "@/components/ReviewsSection";
 import SpecialOffers from "@/components/SpecialOffers";
 
 import ContactSection from "@/components/ContactSection";
+import NewsletterSocial from "@/components/NewsletterSocial";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -23,6 +24,7 @@ const Index = () => {
       <ReviewsSection />
       
       <ContactSection />
+      <NewsletterSocial />
       <Footer />
     </div>
   );

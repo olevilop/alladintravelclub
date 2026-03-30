@@ -19,6 +19,7 @@ import TourBookingForm from "@/components/TourBookingForm";
 import RouteMap from "@/components/RouteMap";
 import FAQSection from "@/components/FAQSection";
 import SpecialOffers from "@/components/SpecialOffers";
+import NewsletterSocial from "@/components/NewsletterSocial";
 
 const fadeIn = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
@@ -271,6 +272,7 @@ const TourDetail = () => {
       <SpecialOffers excludeTourId={tour.id} />
       <FAQSection isCruise={isCruise} />
 
+      <NewsletterSocial />
       <Footer />
     </div>
   );
