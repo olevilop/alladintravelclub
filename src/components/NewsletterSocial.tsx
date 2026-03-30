@@ -67,7 +67,7 @@ const NewsletterSocial = () => {
           <h3 className="font-serif text-xl md:text-2xl font-light">
             Мы в <span className="italic text-gold-gradient">соцсетях</span>
           </h3>
-          <div className="flex flex-col gap-3 mt-auto">
+          <div className="flex flex-col gap-2 mt-auto">
             <a
               href="https://t.me/"
               target="_blank"
