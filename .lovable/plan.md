@@ -1,23 +1,48 @@
 
+Цель: починить блок «Похожие туры», чтобы он гарантированно показывался на странице тура и содержал только туры того же региона.
 
-## Remove cross-category filling in "Similar Tours" block
+Что уже видно по коду:
+- В `src/pages/TourDetail.tsx` блок есть, но он зависит от `categoryMap.find(...)` и `whileInView`-анимации.
+- На текущем маршруте `/tour/japan-sakura-kyoto` он должен показывать 3 карточки (в Японии 4 тура, 1 текущий исключается).
+- Если `category` не находится или анимация не срабатывает корректно, блок может не отрисоваться визуально.
 
-### Problem
-Currently, when a category has fewer than 4 tours (after excluding the current one), the block fills remaining slots with tours from other categories. The user wants only same-region tours displayed.
+План изменений:
 
-### Changes in `src/pages/TourDetail.tsx`
+1) Упростить и сделать детерминированной логику «похожих»
+- Вынести вычисления из IIFE в обычные константы перед `return`.
+- Считать похожие не через `categoryMap`, а напрямую по региону текущего тура:
+  - собрать `allTours` из всех массивов,
+  - `similarTours = allTours.filter(t => t.id !== tour.id && t.region === tour.region)`.
+- Это уберёт риск, что блок пропадёт из-за ошибки в маппинге категории.
 
-Remove lines 270-275 (the fallback logic that supplements with other categories). Keep only `sameCategoryTours`:
+2) Оставить только «свой регион»
+- Не добавлять туры из других регионов.
+- Показывать ровно столько карточек, сколько реально есть (для Японии — 3).
 
-```ts
-const category = categoryMap.find(c => c.list.some(t => t.id === tour.id));
-const sameCategoryTours = category ? category.list.filter(t => t.id !== tour.id) : [];
-// Use sameCategoryTours directly — no cross-category filling
-return sameCategoryTours.length > 0 && category ? (
-```
+3) Сделать блок всегда видимым
+- Убрать зависимость видимости секции от `whileInView` для внешнего контейнера (или заменить на обычный `div`), чтобы блок не оставался скрытым из-за триггера анимации.
+- Анимацию оставить только на карточках (опционально), чтобы контент не исчезал целиком.
 
-The grid will show 3 cards (or however many exist in the same category) without padding from unrelated regions.
+4) Стабилизировать заголовок блока
+- Заголовок формировать от `tour.region`:
+  - Япония → «Похожие туры в Японию»
+  - Корея → «Похожие туры в Корею»
+  - Китай → «Похожие туры в Китай»
+  - Северная Корея → «Похожие туры в Северную Корею»
+  - Россия → «Похожие туры по России»
+  - Для экспедиционных туров — текущий формат с «экспедиционные круизы» (по принадлежности текущего тура к `tours`).
 
-### Files changed
-- `src/pages/TourDetail.tsx` — remove lines 269-275, use `sameCategoryTours` directly
+5) Добавить явный fallback вместо «тишины»
+- Если `similarTours.length === 0`, показывать короткий текст в секции: «Похожих туров этого региона пока нет».
+- Это исключит ситуацию, когда пользователь думает, что блок «сломался».
 
+Технические детали (точка правки):
+- Файл: `src/pages/TourDetail.tsx`
+- Участок: блок `/* Similar Tours — full width */` (примерно после основного контейнера и перед `<Footer />`)
+- Рефактор: убрать IIFE, перейти к предрасчитанным переменным (`allTours`, `similarTours`, `similarLabel`), затем простой условный рендер секции.
+
+Проверка после внедрения:
+1. Открыть `/tour/japan-sakura-kyoto` — блок виден, в карточках только «Япония».
+2. Открыть по 1 туру из Кореи/Китая/России/КНДР — блок есть, карточки только своего региона.
+3. Проверить, что в блоке нет примесей из других регионов.
+4. Проверить на текущем viewport 820px, что секция реально отображается внизу страницы.
