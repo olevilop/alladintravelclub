@@ -5,7 +5,9 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import TourDetail from "./pages/TourDetail.tsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import CookieBanner from "./components/CookieBanner.tsx";
 
 const queryClient = new QueryClient();
 
@@ -18,9 +20,11 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/tour/:id" element={<TourDetail />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CookieBanner />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

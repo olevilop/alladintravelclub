@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin } from "lucide-react";
@@ -68,8 +69,8 @@ const Footer = () => {
             © {new Date().getFullYear()} Terra Elite. Все права защищены.
           </p>
           <div className="flex gap-6 text-xs text-muted-foreground">
-            <span className="hover:text-primary transition-colors cursor-pointer">Политика конфиденциальности</span>
-            <span className="hover:text-primary transition-colors cursor-pointer">Условия использования</span>
+            <Link to="/privacy" className="hover:text-primary transition-colors">Политика конфиденциальности</Link>
+            <Link to="/privacy" className="hover:text-primary transition-colors">Условия использования</Link>
           </div>
         </div>
       </div>
