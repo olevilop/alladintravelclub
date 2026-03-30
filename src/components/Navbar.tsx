@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart, User } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import lampLogo from "@/assets/lamp-logo.png";
 
@@ -57,12 +57,20 @@ const Navbar = () => {
           ))}
         </nav>
 
-        <button
-          className="lg:hidden text-foreground"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-4">
+          <button className="text-foreground/70 hover:text-primary transition-colors">
+            <ShoppingCart size={20} />
+          </button>
+          <button className="text-foreground/70 hover:text-primary transition-colors">
+            <User size={20} />
+          </button>
+          <button
+            className="lg:hidden text-foreground"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {menuOpen && (
