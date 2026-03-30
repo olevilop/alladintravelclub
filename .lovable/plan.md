@@ -1,15 +1,16 @@
 
 
-## Уменьшить кнопки соцсетей
+## Уменьшить кнопки соцсетей (реально)
 
-### Что делаем
-В `src/components/NewsletterSocial.tsx` уменьшаем кнопки Telegram, VK, YouTube: меньше padding, меньше размер текста и иконок.
+### Проблема
+Кнопки уже имели значения `px-4 py-2`, `text-xs`, `w-4 h-4` — предыдущий план не дал видимого эффекта.
 
-### Изменения
-- Padding: `px-5 py-2.5` → `px-4 py-2`
-- Иконки: `w-5 h-5` → `w-4 h-4`
-- Текст: `text-sm` → `text-xs`
-- Gap между кнопками: `gap-3` → `gap-2`
+### Изменения в `src/components/NewsletterSocial.tsx`
+- Padding: `px-4 py-2` → `px-3 py-1.5`
+- Иконки: `w-4 h-4` → `w-3.5 h-3.5`
+- Текст: `text-xs` → `text-[10px]`
+- Gap: `gap-2` → `gap-1.5`
+- Tracking: `tracking-widest` → `tracking-wider`
 
 ### Файл
 - `src/components/NewsletterSocial.tsx`
