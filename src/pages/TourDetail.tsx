@@ -265,7 +265,14 @@ const TourDetail = () => {
           { list: russiaTours, label: "туры по России" },
         ];
         const category = categoryMap.find(c => c.list.some(t => t.id === tour.id));
-        const similarTours = category ? category.list.filter(t => t.id !== tour.id) : [];
+        const sameCategoryTours = category ? category.list.filter(t => t.id !== tour.id) : [];
+        let similarTours = [...sameCategoryTours];
+        if (similarTours.length < 4) {
+          const allOtherTours = categoryMap
+            .flatMap(c => c.list)
+            .filter(t => t.id !== tour.id && !similarTours.some(s => s.id === t.id));
+          similarTours = [...similarTours, ...allOtherTours].slice(0, 4);
+        }
         return similarTours.length > 0 && category ? (
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} transition={{ duration: 0.6 }} className="px-6 md:px-12 pb-16 md:pb-24">
             <div className="flex items-center justify-center gap-4 mb-8">
