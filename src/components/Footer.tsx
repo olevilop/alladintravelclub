@@ -1,23 +1,11 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Input } from "@/components/ui/input";
-import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
-  const { toast } = useToast();
-  const [email, setEmail] = useState("");
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({ title: "Подписка оформлена", description: "Вы будете получать наши лучшие предложения" });
-    setEmail("");
-  };
-
   return (
     <footer className="border-t border-border/50">
       <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <span className="font-serif text-2xl font-semibold text-gold-gradient">TERRA ELITE</span>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
@@ -41,26 +29,6 @@ const Footer = () => {
                 <span>Москва, Пресненская наб., 12</span>
               </div>
             </div>
-          </div>
-
-          <div>
-            <h4 className="font-serif text-lg text-foreground mb-4">Подписка на спецпредложения</h4>
-            <form onSubmit={handleSubscribe} className="flex gap-2">
-              <Input
-                placeholder="Ваш email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="bg-card/50 border-border/50 focus:border-primary h-11 font-sans"
-              />
-              <button
-                type="submit"
-                className="bg-gold-gradient text-primary-foreground px-6 h-11 text-sm font-medium uppercase tracking-wider hover:opacity-90 transition-opacity whitespace-nowrap"
-              >
-                OK
-              </button>
-            </form>
           </div>
         </div>
 
