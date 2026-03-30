@@ -1,48 +1,35 @@
 
-Цель: починить блок «Похожие туры», чтобы он гарантированно показывался на странице тура и содержал только туры того же региона.
 
-Что уже видно по коду:
-- В `src/pages/TourDetail.tsx` блок есть, но он зависит от `categoryMap.find(...)` и `whileInView`-анимации.
-- На текущем маршруте `/tour/japan-sakura-kyoto` он должен показывать 3 карточки (в Японии 4 тура, 1 текущий исключается).
-- Если `category` не находится или анимация не срабатывает корректно, блок может не отрисоваться визуально.
+## Horizontal scroll carousel for tour category blocks
 
-План изменений:
+### Problem
+Each tour category block on the main page displays all tours in a grid. Now that there are 5+ tours per category, the user wants each block to show exactly 4 cards at a time with left/right scroll arrows to reveal more.
 
-1) Упростить и сделать детерминированной логику «похожих»
-- Вынести вычисления из IIFE в обычные константы перед `return`.
-- Считать похожие не через `categoryMap`, а напрямую по региону текущего тура:
-  - собрать `allTours` из всех массивов,
-  - `similarTours = allTours.filter(t => t.id !== tour.id && t.region === tour.region)`.
-- Это уберёт риск, что блок пропадёт из-за ошибки в маппинге категории.
+### Solution
+Create a reusable `TourCarousel` component that wraps tour cards in a horizontally scrollable container with navigation arrows. Replace all 6 grid blocks in `ToursSection.tsx` with this carousel.
 
-2) Оставить только «свой регион»
-- Не добавлять туры из других регионов.
-- Показывать ровно столько карточек, сколько реально есть (для Японии — 3).
+### New file: `src/components/TourCarousel.tsx`
+- Accepts `tours` array as prop
+- Renders a horizontal scroll container (`overflow-x-auto`, `scroll-snap-type: x mandatory`) showing 4 cards at a time on desktop (2 on tablet, 1 on mobile)
+- Left/right arrow buttons on sides (styled like existing UI — outline, rounded, with `ArrowLeft`/`ArrowRight` icons)
+- Clicking arrows scrolls by one card width using `scrollBy` with smooth behavior
+- Cards use `scroll-snap-align: start`, `flex-shrink-0`, width `calc(25% - gap)` on lg
+- Hide scrollbar with CSS (`scrollbar-width: none`, `-webkit-scrollbar: none`)
+- Hide left arrow when scrolled to start, right arrow when scrolled to end
 
-3) Сделать блок всегда видимым
-- Убрать зависимость видимости секции от `whileInView` для внешнего контейнера (или заменить на обычный `div`), чтобы блок не оставался скрытым из-за триггера анимации.
-- Анимацию оставить только на карточках (опционально), чтобы контент не исчезал целиком.
+### Changes in `src/components/ToursSection.tsx`
+Replace each `<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">` block with `<TourCarousel tours={...} />`. This affects 6 blocks:
+1. Expeditionary cruises (`filtered.slice(0, 4)` → pass full `filtered.slice(0, 4)` or more)
+2. Classic cruises (`filtered.slice(4)`)
+3. Japan (`japanTours`)
+4. Korea (`koreaTours`)
+5. China (`chinaTours`)
+6. North Korea (`northKoreaTours`)
+7. Russia (`russiaTours`)
 
-4) Стабилизировать заголовок блока
-- Заголовок формировать от `tour.region`:
-  - Япония → «Похожие туры в Японию»
-  - Корея → «Похожие туры в Корею»
-  - Китай → «Похожие туры в Китай»
-  - Северная Корея → «Похожие туры в Северную Корею»
-  - Россия → «Похожие туры по России»
-  - Для экспедиционных туров — текущий формат с «экспедиционные круизы» (по принадлежности текущего тура к `tours`).
+The tour card markup (image, title, days, price, link) moves into `TourCarousel` to eliminate duplication across all 7 blocks.
 
-5) Добавить явный fallback вместо «тишины»
-- Если `similarTours.length === 0`, показывать короткий текст в секции: «Похожих туров этого региона пока нет».
-- Это исключит ситуацию, когда пользователь думает, что блок «сломался».
+### Files changed
+- `src/components/TourCarousel.tsx` — new reusable carousel component
+- `src/components/ToursSection.tsx` — replace grid blocks with `<TourCarousel />`
 
-Технические детали (точка правки):
-- Файл: `src/pages/TourDetail.tsx`
-- Участок: блок `/* Similar Tours — full width */` (примерно после основного контейнера и перед `<Footer />`)
-- Рефактор: убрать IIFE, перейти к предрасчитанным переменным (`allTours`, `similarTours`, `similarLabel`), затем простой условный рендер секции.
-
-Проверка после внедрения:
-1. Открыть `/tour/japan-sakura-kyoto` — блок виден, в карточках только «Япония».
-2. Открыть по 1 туру из Кореи/Китая/России/КНДР — блок есть, карточки только своего региона.
-3. Проверить, что в блоке нет примесей из других регионов.
-4. Проверить на текущем viewport 820px, что секция реально отображается внизу страницы.
