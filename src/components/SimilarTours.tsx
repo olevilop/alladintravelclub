@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import { ArrowRight, Calendar } from "lucide-react";
 import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours } from "@/data/tours";
 
@@ -22,10 +21,6 @@ const SimilarTours = ({ currentTour }: SimilarToursProps) => {
   const isCruise = tours.some(t => t.id === currentTour.id);
   const label = isCruise ? "экспедиционные круизы" : (regionLabels[currentTour.region] || `туры — ${currentTour.region}`);
 
-  if (similarTours.length === 0) {
-    return null;
-  }
-
   return (
     <div className="px-6 md:px-12 pb-16 md:pb-24">
       <div className="flex items-center justify-center gap-4 mb-8">
@@ -35,16 +30,13 @@ const SimilarTours = ({ currentTour }: SimilarToursProps) => {
         </h2>
         <span className="hidden sm:block flex-shrink-0 h-[1px] w-24 bg-gradient-to-l from-transparent to-primary" />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-        {similarTours.map((t, i) => (
-          <motion.div
-            key={t.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 * i }}
-            className="group bg-card border border-border/50 overflow-hidden hover:border-primary/30 transition-colors duration-500 h-full"
-          >
+      {similarTours.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          {similarTours.map((t) => (
+            <div
+              key={t.id}
+              className="group bg-card border border-border/50 overflow-hidden hover:border-primary/30 transition-colors duration-500 h-full"
+            >
             <div className="relative aspect-[16/10] overflow-hidden">
               <img
                 src={t.image}
@@ -70,9 +62,12 @@ const SimilarTours = ({ currentTour }: SimilarToursProps) => {
                 </Link>
               </div>
             </div>
-          </motion.div>
-        ))}
-      </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-center text-muted-foreground">Похожих туров этого региона пока нет</p>
+      )}
     </div>
   );
 };
