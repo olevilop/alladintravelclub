@@ -53,7 +53,7 @@ const TourDetail = () => {
       {/* Hero */}
       <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">
         <img
-          src={tour.image}
+          src={tour.gallery[galleryIndex]}
           alt={tour.name}
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -79,52 +79,28 @@ const TourDetail = () => {
         </div>
       </section>
 
+      {/* Thumbnail strip */}
+      <div className="container mx-auto px-6 -mt-12 relative z-10">
+        <div className="grid grid-cols-5 gap-2">
+          {tour.gallery.slice(0, 5).map((img, i) => (
+            <button
+              key={i}
+              onClick={() => setGalleryIndex(i)}
+              className={`aspect-[16/9] overflow-hidden border-2 transition-colors ${
+                i === galleryIndex ? "border-primary" : "border-transparent hover:border-primary/40"
+              }`}
+            >
+              <img src={img} alt={`${tour.name} — фото ${i + 1}`} className="w-full h-full object-cover" />
+            </button>
+          ))}
+        </div>
+      </div>
+
       <div className="container mx-auto px-6 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
           {/* Main content */}
           <div className="lg:col-span-2 space-y-16">
             {/* Gallery */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} transition={{ duration: 0.6 }}>
-              <div className="relative aspect-[16/9] overflow-hidden group">
-                <img
-                  src={tour.gallery[galleryIndex]}
-                  alt={`${tour.name} — фото ${galleryIndex + 1}`}
-                  className="w-full h-full object-cover transition-all duration-500"
-                />
-                <button
-                  onClick={prevImage}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 bg-background/60 backdrop-blur-sm p-2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-background/80"
-                >
-                  <ChevronLeft className="w-5 h-5 text-foreground" />
-                </button>
-                <button
-                  onClick={nextImage}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 bg-background/60 backdrop-blur-sm p-2 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-background/80"
-                >
-                  <ChevronRight className="w-5 h-5 text-foreground" />
-                </button>
-                <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2">
-                  {tour.gallery.map((_, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setGalleryIndex(i)}
-                      className={`w-2 h-2 rounded-full transition-colors ${i === galleryIndex ? "bg-primary" : "bg-foreground/40"}`}
-                    />
-                  ))}
-                </div>
-              </div>
-              <div className="grid grid-cols-3 gap-2 mt-2">
-                {tour.gallery.map((img, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setGalleryIndex(i)}
-                    className={`aspect-[16/9] overflow-hidden border-2 transition-colors ${i === galleryIndex ? "border-primary" : "border-transparent"}`}
-                  >
-                    <img src={img} alt="" className="w-full h-full object-cover" />
-                  </button>
-                ))}
-              </div>
-            </motion.div>
 
             {/* Description */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} transition={{ duration: 0.6 }}>
