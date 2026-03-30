@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { getTourById, tours } from "@/data/tours";
+import { getTourById, tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours } from "@/data/tours";
 import { tourRoutes } from "@/data/tourRoutes";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -254,14 +254,23 @@ const TourDetail = () => {
         </div>
 
         {/* Similar Tours — full width */}
-        {tours.some(t => t.id === tour.id) && (() => {
-          const similarTours = tours.filter(t => t.id !== tour.id);
-          return similarTours.length > 0 ? (
+        {(() => {
+          const categoryMap = [
+            { list: tours, label: "экспедиционные круизы" },
+            { list: japanTours, label: "туры в Японию" },
+            { list: koreaTours, label: "туры в Корею" },
+            { list: chinaTours, label: "туры в Китай" },
+            { list: northKoreaTours, label: "туры в Северную Корею" },
+            { list: russiaTours, label: "туры по России" },
+          ];
+          const category = categoryMap.find(c => c.list.some(t => t.id === tour.id));
+          const similarTours = category ? category.list.filter(t => t.id !== tour.id) : [];
+          return similarTours.length > 0 && category ? (
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} transition={{ duration: 0.6 }} className="mt-20">
               <div className="flex items-center justify-center gap-4 mb-8">
                 <span className="hidden sm:block flex-shrink-0 h-[1px] w-24 bg-gradient-to-r from-transparent to-primary" />
                 <h2 className="font-serif text-2xl md:text-3xl font-light text-foreground">
-                  Похожие <span className="italic text-gold-gradient">экспедиционные круизы</span>
+                  Похожие <span className="italic text-gold-gradient">{category.label}</span>
                 </h2>
                 <span className="hidden sm:block flex-shrink-0 h-[1px] w-24 bg-gradient-to-l from-transparent to-primary" />
               </div>
