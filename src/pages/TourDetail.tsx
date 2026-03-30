@@ -17,6 +17,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TourBookingForm from "@/components/TourBookingForm";
 import RouteMap from "@/components/RouteMap";
+import FAQSection from "@/components/FAQSection";
 
 const fadeIn = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
@@ -254,6 +255,8 @@ const TourDetail = () => {
           </div>
         </div>
       </div>
+
+      <FAQSection isCruise={isCruise} />
 
       {/* Similar Tours — full width */}
       <SimilarTours currentTour={tour} />
