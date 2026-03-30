@@ -61,7 +61,7 @@ export const tours: Tour[] = [
     days: 14,
     price: "от €12 500",
     image: arcticImg,
-    gallery: [arcticImg, tourExpedition, antarcticaImg],
+    gallery: [arcticImg, tourExpedition, antarcticaImg, tourPenguins, tourSafari],
     subtitle: "Путешествие к вершине мира среди ледников и белых медведей",
     description:
       "Экспедиционный круиз к архипелагу Шпицберген — одно из самых впечатляющих арктических приключений. Вы увидите гигантские ледники, полярных медведей в естественной среде обитания, тысячи морских птиц и незаходящее полярное солнце. Путешествие проходит на комфортабельном экспедиционном судне ледового класса с командой опытных натуралистов и гидов.",
@@ -218,7 +218,7 @@ export const tours: Tour[] = [
     days: 10,
     price: "от €9 200",
     image: tourSafari,
-    gallery: [tourSafari, islandsImg, asiaImg],
+    gallery: [tourSafari, islandsImg, asiaImg, southAmericaImg, tourExpedition],
     subtitle: "Большая пятёрка Африки в окружении роскоши и дикой природы",
     description:
       "Премиальное сафари по национальным паркам Танзании с размещением в лучших лоджах и лагерях. Великая миграция, львы на расстоянии вытянутой руки, закаты саванны и звёздное небо Африки — всё это в сочетании с безупречным сервисом.",
@@ -306,7 +306,7 @@ export const tours: Tour[] = [
     shipImage: "https://images.unsplash.com/photo-1559825481-12a05cc00344?w=800&auto=format&fit=crop",
     price: "от €11 500",
     image: islandsImg,
-    gallery: [islandsImg, tourSafari, southAmericaImg],
+    gallery: [islandsImg, tourSafari, southAmericaImg, asiaImg, tourExpedition],
     subtitle: "По следам Дарвина — уникальная экосистема на краю света",
     description:
       "Галапагосские острова — живая лаборатория эволюции. Гигантские черепахи, морские игуаны, голубоногие олуши и подводный мир, не имеющий аналогов. Круиз на комфортабельной яхте с натуралистами.",
@@ -348,7 +348,7 @@ export const tours: Tour[] = [
     days: 9,
     price: "от €7 800",
     image: asiaImg,
-    gallery: [asiaImg, islandsImg, tourSafari],
+    gallery: [asiaImg, islandsImg, tourSafari, southAmericaImg, tourExpedition],
     subtitle: "Королевство счастья — духовное путешествие в Гималаях",
     description:
       "Бутан — одна из самых закрытых и загадочных стран мира. Древние монастыри на отвесных скалах, рисовые террасы в облаках и искренняя доброта местных жителей. Путешествие, которое меняет мировоззрение.",
@@ -388,7 +388,7 @@ export const tours: Tour[] = [
     days: 15,
     price: "от €13 200",
     image: southAmericaImg,
-    gallery: [southAmericaImg, antarcticaImg, tourExpedition],
+    gallery: [southAmericaImg, antarcticaImg, tourExpedition, islandsImg, arcticImg],
     subtitle: "Ветер, ледники и бескрайние просторы на краю света",
     description:
       "Патагония — место, где заканчивается цивилизация и начинается дикая природа. Ледник Перито-Морено, горы Торрес-дель-Пайне, гуанако и кондоры. Приключение для тех, кто ищет настоящую свободу.",
@@ -438,7 +438,7 @@ export const japanTours: Tour[] = [
     days: 10,
     price: "от €8 500",
     image: japanKyotoImg,
-    gallery: [japanKyotoImg, japanToriiImg, japanFujiImg],
+    gallery: [japanKyotoImg, japanToriiImg, japanFujiImg, japanOnsenImg, asiaImg],
     subtitle: "Цветение сакуры — самое поэтичное путешествие в мире",
     description:
       "Погрузитесь в магию весенней Японии. Тысячи вишнёвых деревьев в цвету, древние храмы Киото, чайные церемонии и прогулки по садам дзен. Путешествие, которое останется в сердце навсегда.",
@@ -479,7 +479,7 @@ export const japanTours: Tour[] = [
     days: 8,
     price: "от €6 900",
     image: japanFujiImg,
-    gallery: [japanFujiImg, japanKyotoImg, japanOnsenImg],
+    gallery: [japanFujiImg, japanKyotoImg, japanOnsenImg, japanToriiImg, asiaImg],
     subtitle: "Величие священной горы и умиротворение горных озёр",
     description:
       "Путешествие к подножию горы Фудзи — символа Японии. Пять озёр с зеркальными отражениями вершины, горячие источники, традиционные деревни и захватывающие треккинговые маршруты.",
@@ -559,7 +559,7 @@ export const japanTours: Tour[] = [
     days: 11,
     price: "от €9 400",
     image: japanToriiImg,
-    gallery: [japanToriiImg, japanKyotoImg, japanOnsenImg],
+    gallery: [japanToriiImg, japanKyotoImg, japanOnsenImg, japanFujiImg, asiaImg],
     subtitle: "Паломничество по священным местам Страны восходящего солнца",
     description:
       "Путешествие по древним святилищам и храмам Японии — от тысяч тории Фусими Инари до горных монастырей Коя-сан. Ночёвки в буддийских храмах, медитация на рассвете и путь Кумано Кодо.",
@@ -645,7 +645,7 @@ export const koreaTours: Tour[] = [
     days: 7,
     price: "от €5 200",
     image: koreaSeoulImg,
-    gallery: [koreaSeoulImg, koreaHanokImg, koreaTempleImg],
+    gallery: [koreaSeoulImg, koreaHanokImg, koreaTempleImg, koreaJejuImg, asiaImg],
     subtitle: "Величие древних дворцов и современный ритм корейской столицы",
     description:
       "Погружение в тысячелетнюю историю Сеула — от величественных дворцов династии Чосон до футуристических районов Каннам и Хондэ. Традиционные чайные церемонии, ханбок-прогулки и лучшая корейская кухня.",
@@ -709,7 +709,7 @@ export const koreaTours: Tour[] = [
     days: 9,
     price: "от €6 500",
     image: koreaTempleImg,
-    gallery: [koreaTempleImg, koreaSeoulImg, koreaJejuImg],
+    gallery: [koreaTempleImg, koreaSeoulImg, koreaJejuImg, koreaHanokImg, asiaImg],
     subtitle: "Медитация и покой в древних буддийских монастырях Кореи",
     description:
       "Уникальная программа Temple Stay — ночёвки в буддийских храмах среди гор, утренние медитации, чайные церемонии с монахами и треккинг по национальным паркам. Духовное путешествие от храма Пульгукса до горного монастыря Хэинса.",
@@ -744,7 +744,7 @@ export const koreaTours: Tour[] = [
     days: 10,
     price: "от €7 800",
     image: koreaHanokImg,
-    gallery: [koreaHanokImg, koreaTempleImg, koreaSeoulImg],
+    gallery: [koreaHanokImg, koreaTempleImg, koreaSeoulImg, koreaJejuImg, asiaImg],
     subtitle: "Путешествие сквозь века — от древних столиц до современного K-wave",
     description:
       "Большое путешествие по Южной Корее: дворцы Сеула, древний Кёнджу, портовый Пусан и традиционные деревни. Кимчхи мастер-класс, ханбок-фотосессия, корейское барбекю и погружение в K-pop культуру.",
@@ -854,7 +854,7 @@ export const chinaTours: Tour[] = [
     days: 8,
     price: "от €5 800",
     image: chinaZhangjiajieImg,
-    gallery: [chinaZhangjiajieImg, chinaGuilinImg, chinaWallImg],
+    gallery: [chinaZhangjiajieImg, chinaGuilinImg, chinaWallImg, chinaBeijingImg, asiaImg],
     subtitle: "Парящие скалы и стеклянные мосты в сердце Китая",
     description:
       "Национальный парк Чжанцзяцзе — прообраз планеты Пандора из фильма «Аватар». Тысячи песчаниковых столбов, уходящих в облака, стеклянный мост на высоте 300 м, пещера Жёлтого дракона и древние деревни народа туцзя.",
@@ -887,7 +887,7 @@ export const chinaTours: Tour[] = [
     days: 9,
     price: "от €6 200",
     image: chinaGuilinImg,
-    gallery: [chinaGuilinImg, chinaZhangjiajieImg, chinaBeijingImg],
+    gallery: [chinaGuilinImg, chinaZhangjiajieImg, chinaBeijingImg, chinaWallImg, asiaImg],
     subtitle: "Пейзажи с китайских свитков — река Ли и рисовые террасы",
     description:
       "Круиз по реке Ли среди карстовых пиков — один из самых живописных маршрутов в мире. Рисовые террасы Лунцзи, бамбуковый рафтинг, пещера Тростниковой флейты и вечернее шоу бакланов-рыболовов.",
@@ -922,7 +922,7 @@ export const chinaTours: Tour[] = [
     days: 7,
     price: "от €5 500",
     image: chinaBeijingImg,
-    gallery: [chinaBeijingImg, chinaWallImg, chinaGuilinImg],
+    gallery: [chinaBeijingImg, chinaWallImg, chinaGuilinImg, chinaZhangjiajieImg, asiaImg],
     subtitle: "Запретный город, нефритовые храмы и тайны Поднебесной",
     description:
       "Глубокое погружение в имперскую историю Пекина: Запретный город, Храм Неба, Летний дворец и секретные хутуны. Мастер-класс по каллиграфии, пекинская опера и лучшая утка по-пекински.",
@@ -956,7 +956,7 @@ export const chinaTours: Tour[] = [
     days: 14,
     price: "от ¥42 000",
     image: chinaWallImg,
-    gallery: [chinaWallImg, chinaZhangjiajieImg, chinaGuilinImg],
+    gallery: [chinaWallImg, chinaZhangjiajieImg, chinaGuilinImg, chinaBeijingImg, asiaImg],
     subtitle: "По следам караванов через пустыни и оазисы западного Китая",
     description:
       "Путешествие по легендарному Шёлковому пути — от древней столицы Сиань до границы с Центральной Азией. Терракотовая армия, пещеры Могао с тысячелетними фресками, пустыня Такла-Макан, разноцветные горы Данься, озеро Цинхай и уйгурские базары Кашгара.",
@@ -1033,7 +1033,7 @@ export const northKoreaTours: Tour[] = [
     days: 10,
     price: "от €5 800",
     image: nkoreaKumgangImg,
-    gallery: [nkoreaKumgangImg, nkoreaPyongyangImg, nkoreaKaesongImg],
+    gallery: [nkoreaKumgangImg, nkoreaPyongyangImg, nkoreaKaesongImg, nkoreaDmzImg, asiaImg],
     subtitle: "Легендарные горы с водопадами и буддийскими храмами",
     description:
       "Горы Кымгансан — «Алмазные горы» — одно из самых красивых мест Корейского полуострова. Драматичные скалы, водопады, древние буддийские храмы и нетронутая природа в сочетании с уникальным опытом пребывания в КНДР.",
@@ -1069,7 +1069,7 @@ export const northKoreaTours: Tour[] = [
     days: 6,
     price: "от €3 800",
     image: nkoreaKaesongImg,
-    gallery: [nkoreaKaesongImg, nkoreaPyongyangImg, nkoreaDmzImg],
+    gallery: [nkoreaKaesongImg, nkoreaPyongyangImg, nkoreaDmzImg, nkoreaKumgangImg, asiaImg],
     subtitle: "Столица средневекового королевства Корё и граница двух миров",
     description:
       "Кэсон — древняя столица королевства Корё (918–1392) с гробницами королей, конфуцианской академией и уникальной атмосферой средневекового города. Включает посещение Пханмунджома — самой охраняемой границы в мире.",
@@ -1101,7 +1101,7 @@ export const northKoreaTours: Tour[] = [
     days: 7,
     price: "от €4 200",
     image: nkoreaDmzImg,
-    gallery: [nkoreaDmzImg, nkoreaPyongyangImg, nkoreaKaesongImg],
+    gallery: [nkoreaDmzImg, nkoreaPyongyangImg, nkoreaKaesongImg, nkoreaKumgangImg, asiaImg],
     subtitle: "Самая охраняемая граница в мире — взгляд с северной стороны",
     description:
       "Уникальный тур с акцентом на историю разделённой Кореи. Посещение DMZ с северной стороны, Музей Корейской войны, тоннели проникновения и монументальный Пхеньян — всё это создаёт незабываемое впечатление о стране контрастов.",
@@ -1170,7 +1170,7 @@ export const russiaTours: Tour[] = [
     days: 10,
     price: "от ₽189 000",
     image: russiaBaikalImg,
-    gallery: [russiaBaikalImg, russiaAltaiImg, russiaKamchatkaImg],
+    gallery: [russiaBaikalImg, russiaAltaiImg, russiaKamchatkaImg, russiaSpbImg, arcticImg],
     subtitle: "Самое глубокое озеро планеты — зимняя сказка и летнее чудо",
     description:
       "Путешествие к озеру Байкал — глубочайшему и чистейшему озеру мира. Зимой — прозрачный лёд, ледяные гроты и собачьи упряжки. Летом — круизы, нерпы и бурятская культура. Остров Ольхон, КБЖД и Листвянка.",
@@ -1206,7 +1206,7 @@ export const russiaTours: Tour[] = [
     days: 12,
     price: "от ₽285 000",
     image: russiaKamchatkaImg,
-    gallery: [russiaKamchatkaImg, russiaBaikalImg, russiaAltaiImg],
+    gallery: [russiaKamchatkaImg, russiaBaikalImg, russiaAltaiImg, russiaSpbImg, arcticImg],
     subtitle: "Действующие вулканы, гейзеры и медведи на краю земли",
     description:
       "Камчатка — одно из последних диких мест планеты. Восхождение на вулканы, Долина гейзеров, термальные источники, наблюдение за медведями и рыбалка на дикого лосося. Вертолётные экскурсии над кальдерами.",
@@ -1245,7 +1245,7 @@ export const russiaTours: Tour[] = [
     days: 11,
     price: "от ₽165 000",
     image: russiaAltaiImg,
-    gallery: [russiaAltaiImg, russiaBaikalImg, russiaKamchatkaImg],
+    gallery: [russiaAltaiImg, russiaBaikalImg, russiaKamchatkaImg, russiaSpbImg, arcticImg],
     subtitle: "Горные озёра, перевалы и древние петроглифы Сибири",
     description:
       "Путешествие по Чуйскому тракту — одной из красивейших дорог мира. Телецкое озеро, Марсианские пейзажи Кызыл-Чина, слияние Чуи и Катуни, петроглифы Калбак-Таша и ледники Актру.",
