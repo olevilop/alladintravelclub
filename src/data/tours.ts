@@ -111,7 +111,7 @@ export const tours: Tour[] = [
     days: 21,
     price: "по запросу",
     image: antarcticaImg,
-    gallery: [antarcticaImg, tourPenguins, arcticImg],
+    gallery: [antarcticaImg, tourPenguins, arcticImg, tourExpedition, islandsImg],
     subtitle: "Покорение последнего рубежа — путешествие на край Земли",
     description:
       "Уникальная экспедиция к Южному полюсу — мечта любого исследователя. Вы пересечёте пролив Дрейка, высадитесь на ледяной континент и пройдёте по следам великих полярников. Колонии пингвинов, гигантские айсберги и абсолютная тишина антарктических просторов — впечатления, которые изменят вашу жизнь.",
@@ -171,7 +171,7 @@ export const tours: Tour[] = [
     shipImage: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=800&auto=format&fit=crop",
     price: "от €15 800",
     image: tourPenguins,
-    gallery: [tourPenguins, antarcticaImg, arcticImg],
+    gallery: [tourPenguins, antarcticaImg, arcticImg, tourExpedition, southAmericaImg],
     subtitle: "Встреча с самыми элегантными обитателями ледяного континента",
     description:
       "Экспедиция к крупнейшим колониям королевских пингвинов в Антарктиде. Вы увидите тысячи пингвинов в их естественной среде обитания, пройдёте по следам Шеклтона и откроете для себя потрясающую красоту Южной Георгии и Фолклендских островов.",
@@ -260,7 +260,7 @@ export const tours: Tour[] = [
     days: 12,
     price: "от €18 000",
     image: tourExpedition,
-    gallery: [tourExpedition, arcticImg, antarcticaImg],
+    gallery: [tourExpedition, arcticImg, antarcticaImg, tourPenguins, islandsImg],
     subtitle: "Приватный яхтенный круиз по самым величественным фьордам Скандинавии",
     description:
       "Частная яхта, фьорды, водопады и северное сияние — исключительный круиз по побережью Норвегии. Остановки у уединённых рыбацких деревень, дегустация свежайших морепродуктов и тишина скандинавской природы.",
@@ -517,7 +517,7 @@ export const japanTours: Tour[] = [
     days: 12,
     price: "от €10 200",
     image: japanOnsenImg,
-    gallery: [japanOnsenImg, japanFujiImg, japanKyotoImg],
+    gallery: [japanOnsenImg, japanFujiImg, japanKyotoImg, japanToriiImg, asiaImg],
     subtitle: "Целительная сила японских онсэнов среди горных пейзажей",
     description:
       "Уникальный маршрут по лучшим онсэн-курортам Японии — от Хаконэ до Беппу. Горячие источники в горах, традиционные рёканы, кайсэки-ужины и полное погружение в японскую культуру релакса.",
@@ -601,7 +601,7 @@ export const japanTours: Tour[] = [
     days: 9,
     price: "от €7 800",
     image: japanOnsenImg,
-    gallery: [japanOnsenImg, japanFujiImg, japanKyotoImg],
+    gallery: [japanOnsenImg, japanFujiImg, japanKyotoImg, japanToriiImg, asiaImg],
     subtitle: "Снежные фестивали, горячие источники и лыжные курорты северной Японии",
     description:
       "Хоккайдо зимой — это волшебная сказка из снега и льда. Знаменитый Снежный фестиваль в Саппоро, катание на горнолыжных курортах мирового уровня Нисеко и Фурано, купание в горячих источниках под открытым небом среди сугробов, дегустация свежайших морепродуктов и наблюдение за краснокоронными журавлями в Кусиро.",
@@ -678,7 +678,7 @@ export const koreaTours: Tour[] = [
     days: 6,
     price: "от €4 800",
     image: koreaJejuImg,
-    gallery: [koreaJejuImg, koreaSeoulImg, koreaTempleImg],
+    gallery: [koreaJejuImg, koreaSeoulImg, koreaTempleImg, koreaHanokImg, asiaImg],
     subtitle: "Вулканические пейзажи, изумрудное море и уникальная культура хэнё",
     description:
       "Остров Чеджу — объект Всемирного наследия ЮНЕСКО с потрясающими вулканическими ландшафтами, водопадами, лавовыми трубками и уникальной культурой женщин-ныряльщиц хэнё. Треккинг на вулкан Халласан, пляжи с чёрным песком и лучшие морепродукты Кореи.",
@@ -781,7 +781,7 @@ export const koreaTours: Tour[] = [
     days: 8,
     price: "от ₩2 100 000",
     image: koreaJejuImg,
-    gallery: [koreaJejuImg, koreaSeoulImg, koreaTempleImg],
+    gallery: [koreaJejuImg, koreaSeoulImg, koreaTempleImg, koreaHanokImg, asiaImg],
     subtitle: "Морской Пусан, храмы над океаном и термальные курорты юга Кореи",
     description:
       "Южное побережье Кореи — это яркий контраст бурлящего Пусана и тихих рыбацких деревень. Храм Хэдон Ёнгунса на скалах над морем, рыбный рынок Чагальчхи, красочная деревня Камчхон, термальные источники Тонне и живописные острова архипелага Хальёхэсан.",
@@ -818,7 +818,7 @@ export const chinaTours: Tour[] = [
     days: 10,
     price: "от €6 900",
     image: chinaWallImg,
-    gallery: [chinaWallImg, chinaBeijingImg, chinaGuilinImg],
+    gallery: [chinaWallImg, chinaBeijingImg, chinaGuilinImg, chinaZhangjiajieImg, asiaImg],
     subtitle: "По следам императоров вдоль величайшего сооружения на Земле",
     description:
       "Путешествие вдоль разных участков Великой стены — от отреставрированного Бадалина до дикого Цзиньшаньлина. Ночёвка в башне на стене, треккинг по нетуристическим участкам и погружение в историю Поднебесной.",
@@ -999,7 +999,7 @@ export const northKoreaTours: Tour[] = [
     days: 8,
     price: "от €4 500",
     image: nkoreaPyongyangImg,
-    gallery: [nkoreaPyongyangImg, nkoreaKaesongImg, nkoreaDmzImg],
+    gallery: [nkoreaPyongyangImg, nkoreaKaesongImg, nkoreaDmzImg, nkoreaKumgangImg, asiaImg],
     subtitle: "Уникальная возможность увидеть самую закрытую страну мира",
     description:
       "Пхеньян — город монументальной архитектуры, широких проспектов и уникальной атмосферы. Вы посетите грандиозные памятники, метро с мраморными станциями, Башню идей чучхе и увидите массовые гимнастические выступления.",
@@ -1134,7 +1134,7 @@ export const northKoreaTours: Tour[] = [
     days: 6,
     price: "от €2 800",
     image: nkoreaPyongyangImg,
-    gallery: [nkoreaPyongyangImg, nkoreaKaesongImg, nkoreaDmzImg],
+    gallery: [nkoreaPyongyangImg, nkoreaKaesongImg, nkoreaDmzImg, nkoreaKumgangImg, asiaImg],
     subtitle: "Грандиозное шоу с участием 100 000 артистов и тайны закрытой столицы",
     description:
       "Массовые игры — крупнейшее в мире представление с живой мозаикой из десятков тысяч человек на стадионе Первого мая. Помимо шоу — глубокое знакомство с Пхеньяном: метро-дворец, Кымсусанский мемориал, студия Мансудэ и поездка на ферму за городом.",
@@ -1282,7 +1282,7 @@ export const russiaTours: Tour[] = [
     days: 7,
     price: "от ₽120 000",
     image: russiaSpbImg,
-    gallery: [russiaSpbImg, russiaBaikalImg, russiaAltaiImg],
+    gallery: [russiaSpbImg, russiaBaikalImg, russiaAltaiImg, russiaKamchatkaImg, arcticImg],
     subtitle: "Имперская роскошь, разводные мосты и незаходящее солнце",
     description:
       "Санкт-Петербург в сезон белых ночей — особая магия. Эрмитаж без толп, ночные прогулки по набережным, разведение мостов с воды, Петергоф, Царское Село и лучшие рестораны северной столицы.",
@@ -1316,7 +1316,7 @@ export const russiaTours: Tour[] = [
     days: 8,
     price: "от ₽95 000",
     image: russiaSpbImg,
-    gallery: [russiaSpbImg, russiaBaikalImg, russiaAltaiImg],
+    gallery: [russiaSpbImg, russiaBaikalImg, russiaAltaiImg, russiaKamchatkaImg, arcticImg],
     subtitle: "Древние города, белокаменные храмы и русская глубинка",
     description:
       "Классический маршрут по древнейшим городам России — Сергиев Посад, Переславль-Залесский, Ростов Великий, Ярославль, Кострома, Суздаль и Владимир. Кремли и монастыри, иконопись и ремёсла, русская кухня и купеческие усадьбы.",
