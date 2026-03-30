@@ -50,6 +50,7 @@ export interface Tour {
   groupSize: string;
   startDates: string[];
   shipName?: string;
+  shipImage?: string;
 }
 
 export const tours: Tour[] = [
@@ -101,6 +102,7 @@ export const tours: Tour[] = [
     groupSize: "до 120 человек",
     startDates: ["15 — 28 июня 2025", "5 — 18 июля 2025", "28 июля — 10 августа 2025"],
     shipName: "Ocean Explorer",
+    shipImage: "https://images.unsplash.com/photo-1548574505-5e239809ee19?w=800&auto=format&fit=crop",
   },
   {
     id: "south-pole-expedition",
@@ -158,6 +160,7 @@ export const tours: Tour[] = [
     groupSize: "до 80 человек",
     startDates: ["10 — 30 ноября 2025", "5 — 25 декабря 2025", "15 января — 4 февраля 2026"],
     shipName: "Polar Pioneer",
+    shipImage: "https://images.unsplash.com/photo-1599640842225-85d111c60e6b?w=800&auto=format&fit=crop",
   },
   {
     id: "antarctic-penguins",
@@ -165,6 +168,7 @@ export const tours: Tour[] = [
     region: "Антарктида",
     days: 16,
     shipName: "Antarctic Dream",
+    shipImage: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=800&auto=format&fit=crop",
     price: "от €15 800",
     image: tourPenguins,
     gallery: [tourPenguins, antarcticaImg, arcticImg],
@@ -291,6 +295,7 @@ export const tours: Tour[] = [
     groupSize: "до 12 человек",
     startDates: ["1 — 12 июня 2025", "15 — 26 августа 2025", "1 — 12 октября 2025"],
     shipName: "Nordic Voyager",
+    shipImage: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&auto=format&fit=crop",
   },
   {
     id: "galapagos-islands",
@@ -298,6 +303,7 @@ export const tours: Tour[] = [
     region: "Острова",
     days: 11,
     shipName: "Galápagos Explorer",
+    shipImage: "https://images.unsplash.com/photo-1559825481-12a05cc00344?w=800&auto=format&fit=crop",
     price: "от €11 500",
     image: islandsImg,
     gallery: [islandsImg, tourSafari, southAmericaImg],

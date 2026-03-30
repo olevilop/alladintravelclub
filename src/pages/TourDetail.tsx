@@ -246,6 +246,19 @@ const TourDetail = () => {
               {/* Route map */}
               <RouteMap tourId={tour.id} />
 
+              {/* Ship photo */}
+              {tour.shipName && tour.shipImage && (
+                <div className="bg-card border border-border p-4 space-y-3">
+                  <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                    <Ship className="w-3.5 h-3.5 text-primary" />
+                    {tour.shipName}
+                  </h4>
+                  <div className="aspect-[16/10] overflow-hidden rounded-sm border border-border">
+                    <img src={tour.shipImage} alt={tour.shipName} className="w-full h-full object-cover" />
+                  </div>
+                </div>
+              )}
+
               {/* Booking form */}
               <TourBookingForm tourName={tour.name} startDates={tour.startDates} />
             </div>
