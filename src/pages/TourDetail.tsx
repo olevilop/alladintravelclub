@@ -150,7 +150,7 @@ const TourDetail = () => {
                   >
                     <div className="flex flex-col items-center">
                       <div className="rounded-full border border-primary/50 bg-card flex items-center justify-center px-3 py-1 text-xs text-primary font-sans shrink-0 whitespace-nowrap">
-                        День {day.day}
+                        {day.day} день
                       </div>
                     </div>
                     <div className="pb-8">
