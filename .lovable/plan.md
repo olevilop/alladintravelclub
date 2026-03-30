@@ -1,44 +1,17 @@
 
 
-## Перенос FAQ с главной на страницы туров с адаптацией контента
+## Переместить FAQ после «Похожие туры»
 
-### Что делаем
-1. Убираем `<FAQSection />` с главной страницы (`Index.tsx`)
-2. Рефакторим `FAQSection.tsx` — компонент принимает проп `isCruise: boolean` и показывает соответствующий набор вопросов
-3. Добавляем `<FAQSection />` на страницу тура (`TourDetail.tsx`) между блоком «Что включено» и «Похожие туры»
+### Изменение в `src/pages/TourDetail.tsx`
 
-### Два набора FAQ
+Поменять местами строки 259 и 261-262: сначала `<SimilarTours />`, затем `<FAQSection />`.
 
-**Для круизов** (определяется по `tour.name` содержащему «круиз» или наличию `shipName`):
-- Что такое экспедиционный круиз?
-- Какой уровень комфорта на борту?
-- Нужна ли специальная подготовка для круиза?
-- Как забронировать круиз?
-- Включена ли страховка в стоимость круиза?
-
-**Для туров** (все остальные):
-- Кому подходят такие туры?
-- Что входит в стоимость тура?
-- Нужна ли виза для поездки?
-- Как забронировать тур?
-- Включена ли страховка в стоимость тура?
-
-### Технические детали
-
-**`src/components/FAQSection.tsx`**:
-- Добавить проп `isCruise?: boolean`
-- Два массива FAQ: `cruiseFaqItems` и `tourFaqItems`
-- Выбирать массив по пропу
-
-**`src/pages/Index.tsx`**:
-- Убрать импорт и использование `<FAQSection />`
-
-**`src/pages/TourDetail.tsx`**:
-- Импортировать `FAQSection`
-- Вставить `<FAQSection isCruise={isCruise} />` перед `<SimilarTours />`
+```
+<SimilarTours currentTour={tour} />
+<FAQSection isCruise={isCruise} />
+<Footer />
+```
 
 ### Файлы
-- `src/components/FAQSection.tsx` — рефактор с двумя наборами вопросов
-- `src/pages/Index.tsx` — удалить FAQ
-- `src/pages/TourDetail.tsx` — добавить FAQ
+- `src/pages/TourDetail.tsx` — swap order of FAQSection and SimilarTours (lines 259-262)
 
