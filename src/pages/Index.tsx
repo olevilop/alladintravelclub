@@ -7,7 +7,7 @@ import WhyUsSection from "@/components/WhyUsSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import SpecialOffers from "@/components/SpecialOffers";
 
-import ContactSection from "@/components/ContactSection";
+
 import NewsletterSocial from "@/components/NewsletterSocial";
 import Footer from "@/components/Footer";
 
@@ -23,7 +23,7 @@ const Index = () => {
       <SpecialOffers />
       <ReviewsSection />
       
-      <ContactSection />
+      
       <NewsletterSocial />
       <Footer />
     </div>
