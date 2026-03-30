@@ -1,38 +1,32 @@
 
 
-## Блок «Фото корабля» в сайдбаре круизных туров
+## Два блока перед подвалом: «Подпишитесь на рассылку» и «Мы в соцсетях»
 
 ### Что делаем
-Между блоком «Карта маршрута» (`RouteMap`) и «Забронировать тур» (`TourBookingForm`) добавляем блок с фото корабля и его названием — только для круизных туров (где есть `shipName`).
+Создаём новый компонент `NewsletterSocial.tsx`, который размещается между `ContactSection` и `Footer` на всех страницах. Два блока в ряд по образцу из скриншота, адаптированные под стиль сайта.
 
-### Изменения
+### Компонент `src/components/NewsletterSocial.tsx`
 
-**1. `src/data/tours.ts`** — добавить поле `shipImage?: string` в интерфейс `Tour` и указать изображения для каждого тура с `shipName`. Использовать реальные фото кораблей из Unsplash (URL-ссылки), по одному для каждого судна:
-- Ocean Explorer
-- Polar Pioneer
-- Antarctic Dream
-- Nordic Voyager
-- Galápagos Explorer
+Два блока в сетке `grid-cols-1 md:grid-cols-[2fr_1fr]`:
 
-**2. `src/pages/TourDetail.tsx`** — между `<RouteMap />` (строка 247) и `<TourBookingForm />` (строка 250) вставить блок:
+**Левый блок — «Подпишитесь на нашу рассылку»:**
+- Карточка `bg-card border border-border` с паддингом
+- Заголовок uppercase шрифтом serif
+- Подзаголовок: «Будьте в курсе новостей и специальных предложений»
+- Форма в ряд: Input email + Select «Кто вы?» (варианты: Турист, Турагент, Компания) + кнопка «Подписаться» (bg-navy/dark стиль)
 
-```tsx
-{tour.shipName && tour.shipImage && (
-  <div className="bg-card border border-border p-4 space-y-3">
-    <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-      <Ship className="w-3.5 h-3.5 text-primary" />
-      {tour.shipName}
-    </h4>
-    <div className="aspect-[16/10] overflow-hidden rounded-sm border border-border">
-      <img src={tour.shipImage} alt={tour.shipName} className="w-full h-full object-cover" />
-    </div>
-  </div>
-)}
-```
+**Правый блок — «Мы в соцсетях»:**
+- Заголовок: «Следите за новостями и акциями на наших страницах в соцсетях»
+- Две кнопки-ссылки: Telegram (голубой) и YouTube (красный) с иконками
 
-Дизайн повторяет стиль блока `RouteMap` — та же карточка `bg-card`, тот же заголовок uppercase с иконкой.
+### Изменения в существующих файлах
+
+**`src/pages/Index.tsx`** — добавить `<NewsletterSocial />` после `<ContactSection />` и перед `<Footer />`
+
+**`src/pages/TourDetail.tsx`** — добавить `<NewsletterSocial />` перед `<Footer />` (если Footer там есть, иначе в конец)
 
 ### Файлы
-- `src/data/tours.ts` — интерфейс + данные
-- `src/pages/TourDetail.tsx` — вставка блока
+- `src/components/NewsletterSocial.tsx` — новый
+- `src/pages/Index.tsx` — вставка
+- `src/pages/TourDetail.tsx` — вставка
 
