@@ -18,6 +18,7 @@ import Footer from "@/components/Footer";
 import TourBookingForm from "@/components/TourBookingForm";
 import RouteMap from "@/components/RouteMap";
 import FAQSection from "@/components/FAQSection";
+import SpecialOffers from "@/components/SpecialOffers";
 
 const fadeIn = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
@@ -258,7 +259,7 @@ const TourDetail = () => {
 
       {/* Similar Tours — full width */}
       <SimilarTours currentTour={tour} />
-
+      <SpecialOffers excludeTourId={tour.id} />
       <FAQSection isCruise={isCruise} />
 
       <Footer />
