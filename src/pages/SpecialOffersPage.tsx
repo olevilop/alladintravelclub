@@ -37,7 +37,7 @@ const SpecialOffersPage = () => {
       </section>
 
       {/* Tour cards */}
-      <section className="container mx-auto px-10 md:px-16 lg:px-24 py-10 md:py-14 space-y-4">
+      <section className="container mx-auto px-10 md:px-16 lg:px-24 py-12 md:py-20 space-y-6">
         {allTours.map((tour) => (
           <Link
             key={tour.id}
@@ -46,7 +46,7 @@ const SpecialOffersPage = () => {
           >
             <div className="flex flex-col md:flex-row">
               {/* Image */}
-              <div className="md:w-[220px] md:min-h-[160px] flex-shrink-0 overflow-hidden">
+              <div className="md:w-[300px] md:min-h-[220px] flex-shrink-0 overflow-hidden">
                 <img
                   src={tour.image}
                   alt={tour.name}
@@ -56,33 +56,33 @@ const SpecialOffersPage = () => {
               </div>
 
               {/* Text */}
-              <div className="flex-1 p-4 md:p-5 flex flex-col justify-center">
-                <h2 className="text-base md:text-lg font-bold text-foreground uppercase tracking-wide">
+              <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
+                <h2 className="text-xl md:text-2xl font-bold text-foreground uppercase tracking-wide">
                   {tour.name}
                 </h2>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
                   {tour.description}
                 </p>
               </div>
 
               {/* Price / Duration */}
-              <div className="md:w-[200px] flex-shrink-0 p-4 md:p-5 flex flex-col justify-center space-y-2 md:border-l md:border-border">
+              <div className="md:w-[240px] flex-shrink-0 p-6 md:p-8 flex flex-col justify-center space-y-3 md:border-l md:border-border">
                 <div className="flex items-center gap-3 text-sm text-foreground/80">
-                  <Moon className="w-3.5 h-3.5 text-primary shrink-0" />
+                  <Moon className="w-4 h-4 text-primary shrink-0" />
                   <span>{tour.days} дней / {tour.days - 1} ночей</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-foreground/80">
-                  <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+                  <MapPin className="w-4 h-4 text-primary shrink-0" />
                   <span>{tour.region}</span>
                 </div>
                 {tour.shipName && (
                   <div className="flex items-center gap-3 text-sm text-foreground/80">
-                    <Ship className="w-3.5 h-3.5 text-primary shrink-0" />
+                    <Ship className="w-4 h-4 text-primary shrink-0" />
                     <span>{tour.shipName}</span>
                   </div>
                 )}
                 <div className="flex items-center gap-3 text-sm text-foreground/80">
-                  <Banknote className="w-3.5 h-3.5 text-primary shrink-0" />
+                  <Banknote className="w-4 h-4 text-primary shrink-0" />
                   <span>от {tour.price}</span>
                 </div>
               </div>
