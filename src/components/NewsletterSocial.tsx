@@ -36,16 +36,13 @@ const NewsletterSocial = () => {
               onChange={(e) => setEmail(e.target.value)}
               className="flex-1 bg-background border-border"
             />
-            <Select>
-              <SelectTrigger className="w-full sm:w-[160px] bg-background border-border">
-                <SelectValue placeholder="Кто вы?" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="tourist">Турист</SelectItem>
-                <SelectItem value="agent">Турагент</SelectItem>
-                <SelectItem value="company">Компания</SelectItem>
-              </SelectContent>
-            </Select>
+            <Input
+              type="text"
+              placeholder="Ваше имя"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="w-full sm:w-[160px] bg-background border-border"
+            />
             <button
               type="submit"
               className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground text-sm font-sans uppercase tracking-widest hover:bg-primary/90 transition-colors whitespace-nowrap"
