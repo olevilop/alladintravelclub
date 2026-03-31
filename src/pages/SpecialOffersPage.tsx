@@ -35,7 +35,7 @@ const SpecialOffersPage = () => {
       </section>
 
       {/* Tour cards */}
-      <section className="container mx-auto px-6 py-12 md:py-20 space-y-6">
+      <section className="container mx-auto px-10 md:px-16 lg:px-24 py-12 md:py-20 space-y-6">
         {allTours.map((tour) => (
           <Link
             key={tour.id}
