@@ -19,7 +19,7 @@ const SpecialOffersPage = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative h-[60vh] overflow-hidden">
+      <section className="relative h-[75vh] overflow-hidden">
         <img
           src={heroTour.image}
           alt={heroTour.name}
