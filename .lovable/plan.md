@@ -1,14 +1,12 @@
 
 
-## Заменить поле «Кто вы?» на поле «Имя»
+## Поменять местами поля «Ваше имя» и «Ваш email»
 
 ### Что делаем
-В `src/components/NewsletterSocial.tsx` заменяем Select-компонент (выбор роли: турист/агент/компания) на текстовое поле Input для ввода имени.
+В `src/components/NewsletterSocial.tsx` в форме подписки меняем порядок полей: сначала «Ваше имя», потом «Ваш email».
 
-### Изменения в `src/components/NewsletterSocial.tsx`
-- Убрать импорт `Select, SelectContent, SelectItem, SelectTrigger, SelectValue`
-- Добавить state `name` (useState)
-- Заменить `<Select>...</Select>` на `<Input placeholder="Ваше имя" value={name} onChange={...} />`  с теми же классами ширины (`w-full sm:w-[160px]`)
+### Изменения
+- Переместить `<Input placeholder="Ваше имя" .../>` перед `<Input placeholder="Ваш email" .../>`
 
 ### Файл
 - `src/components/NewsletterSocial.tsx`
