@@ -2,8 +2,11 @@
 
 ## Растянуть кнопки соцсетей на всю ширину блока
 
-### Изменения в `src/components/NewsletterSocial.tsx`
-- Убрать `w-1/2` у всех трёх ссылок (Telegram, VK, YouTube) и заменить на `w-full`
+### Проблема
+Контейнер кнопок (`div` на строке 61) имеет класс `items-start`, который сжимает flex-элементы по ширине содержимого, несмотря на `w-full` у кнопок.
+
+### Изменение в `src/components/NewsletterSocial.tsx`
+- Строка 61: убрать `items-start` из класса контейнера кнопок, чтобы кнопки растянулись на всю ширину
 
 ### Файл
 - `src/components/NewsletterSocial.tsx`
