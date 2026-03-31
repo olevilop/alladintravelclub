@@ -166,7 +166,6 @@ const TourDetail = () => {
               </div>
             </motion.div>
 
-            <FAQSection isCruise={isCruise} />
 
           </div>
 
