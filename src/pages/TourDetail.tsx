@@ -166,6 +166,8 @@ const TourDetail = () => {
               </div>
             </motion.div>
 
+            <FAQSection isCruise={isCruise} />
+
           </div>
 
           {/* Sidebar */}
@@ -246,7 +248,7 @@ const TourDetail = () => {
       {/* Similar Tours — full width */}
       <SimilarTours currentTour={tour} />
       <SpecialOffers excludeTourId={tour.id} />
-      <FAQSection isCruise={isCruise} />
+
 
       <NewsletterSocial />
       <Footer />
