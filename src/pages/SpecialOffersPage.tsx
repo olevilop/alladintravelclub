@@ -67,7 +67,7 @@ const SpecialOffersPage = () => {
 
               {/* Vertical divider */}
               <div className="hidden md:flex items-center">
-                <div className="w-px h-2/3 bg-border/30" />
+                <div className="w-px h-2/3 bg-border" />
               </div>
 
               {/* Price / Duration */}
