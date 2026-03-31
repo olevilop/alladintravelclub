@@ -1,13 +1,13 @@
 
 
-## Привязать ссылку «Спецпредложения» к странице /special-offers
+## Добавить блок рассылки и соцсетей на страницу спецпредложений
 
-### Изменение в `src/components/Navbar.tsx`
+### Изменение
 
-В массиве `navLinks` изменить элемент «Спецпредложения»: вместо `href: "#why-us"` сделать `href: "/special-offers"`.
+**Файл: `src/pages/SpecialOffersPage.tsx`**
 
-Обновить функцию `scrollTo`: если `href` начинается не с `#`, выполнять `navigate(href)` вместо прокрутки.
+Добавить компонент `<NewsletterSocial />` между секцией карточек туров и `<Footer />`, аналогично тому, как это сделано на главной странице (`Index.tsx`).
 
-### Файл
-- `src/components/Navbar.tsx`
+- Импортировать `NewsletterSocial` из `@/components/NewsletterSocial`
+- Вставить `<NewsletterSocial />` перед `<Footer />`
 
