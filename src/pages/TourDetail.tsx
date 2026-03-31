@@ -166,7 +166,6 @@ const TourDetail = () => {
               </div>
             </motion.div>
 
-            <FAQSection isCruise={isCruise} />
 
           </div>
 
@@ -244,6 +243,8 @@ const TourDetail = () => {
           </div>
         </div>
       </div>
+
+      <FAQSection isCruise={isCruise} />
 
       {/* Similar Tours — full width */}
       <SimilarTours currentTour={tour} />
