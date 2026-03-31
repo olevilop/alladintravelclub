@@ -19,7 +19,7 @@ const NewsletterSocial = () => {
 
   return (
     <section className="container mx-auto px-6 py-12">
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_240px] gap-4">
         {/* Newsletter */}
         <div className="bg-card border border-border p-6 md:p-8 space-y-4">
           <h3 className="font-serif text-xl md:text-2xl font-light">
