@@ -24,6 +24,7 @@ const App = () => (
           <Route path="/tour/:id" element={<TourDetail />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/special-offers" element={<SpecialOffersPage />} />
+          <Route path="/japan-tours" element={<JapanToursPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
