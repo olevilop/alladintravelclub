@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import TourDetail from "./pages/TourDetail.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import SpecialOffersPage from "./pages/SpecialOffersPage.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 
 const queryClient = new QueryClient();
