@@ -54,7 +54,7 @@ const NewsletterSocial = () => {
         </div>
 
         {/* Social */}
-        <div className="bg-card border border-border p-6 md:p-8 space-y-4 flex flex-col">
+        <div className="md:w-[240px] shrink-0 bg-card border border-border p-6 md:p-8 space-y-4 flex flex-col">
           <h3 className="font-serif text-xl md:text-2xl font-light">
             Мы в <span className="italic text-gold-gradient">соцсетях</span>
           </h3>
