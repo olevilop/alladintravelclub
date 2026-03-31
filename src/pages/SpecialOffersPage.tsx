@@ -80,6 +80,7 @@ const SpecialOffersPage = () => {
         ))}
       </section>
 
+      <NewsletterSocial />
       <Footer />
     </div>
   );
