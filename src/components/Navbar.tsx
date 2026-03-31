@@ -6,7 +6,7 @@ import lampLogo from "@/assets/lamp-logo.png";
 const navLinks = [
   { label: "Туры", href: "#tours" },
   { label: "Круизы", href: "#destinations" },
-  { label: "Спецпредложения", href: "#why-us" },
+  { label: "Спецпредложения", href: "/special-offers" },
   { label: "Бронирование авиабилетов", href: "#about" },
   { label: "Контакты", href: "#contact" },
 ];
@@ -25,6 +25,10 @@ const Navbar = () => {
 
   const scrollTo = (href: string) => {
     setMenuOpen(false);
+    if (!href.startsWith("#")) {
+      navigate(href);
+      return;
+    }
     if (location.pathname !== "/") {
       navigate("/" + href);
       return;
