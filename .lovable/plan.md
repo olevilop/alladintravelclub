@@ -1,13 +1,14 @@
 
 
-## Добавить блок рассылки и соцсетей на страницу спецпредложений
+## Переместить блок FAQ после блока «Что включено»
 
-### Изменение
+### Изменение в `src/pages/TourDetail.tsx`
 
-**Файл: `src/pages/SpecialOffersPage.tsx`**
+Сейчас `<FAQSection>` находится в конце страницы (после SimilarTours и SpecialOffers, строка 249). Нужно переместить его внутрь основного контента (левая колонка `lg:col-span-2`), сразу после блока «Что включено / Не включено» (после строки ~163).
 
-Добавить компонент `<NewsletterSocial />` между секцией карточек туров и `<Footer />`, аналогично тому, как это сделано на главной странице (`Index.tsx`).
+1. Удалить строку 249: `<FAQSection isCruise={isCruise} />`
+2. Вставить `<FAQSection isCruise={isCruise} />` после закрывающего `</motion.div>` блока «Что включено» (после существующих секций Description → Itinerary → Included/NotIncluded)
 
-- Импортировать `NewsletterSocial` из `@/components/NewsletterSocial`
-- Вставить `<NewsletterSocial />` перед `<Footer />`
+### Файл
+- `src/pages/TourDetail.tsx`
 
