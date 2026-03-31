@@ -25,6 +25,10 @@ const Navbar = () => {
 
   const scrollTo = (href: string) => {
     setMenuOpen(false);
+    if (!href.startsWith("#")) {
+      navigate(href);
+      return;
+    }
     if (location.pathname !== "/") {
       navigate("/" + href);
       return;
