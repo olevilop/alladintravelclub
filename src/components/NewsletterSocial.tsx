@@ -19,7 +19,7 @@ const NewsletterSocial = () => {
 
   return (
     <section className="container mx-auto px-6 py-12">
-      <div className="<div className="flex flex-col md:flex-row gap-4 justify-center items-stretch max-w-[75%] mx-auto">">
+      <div className="flex flex-col md:flex-row gap-4 justify-center items-stretch max-w-[75%] mx-auto">
         {/* Newsletter */}
         <div className="flex-1 bg-card border border-border p-6 md:p-8 space-y-4">
           <h3 className="font-serif text-xl md:text-2xl font-light">
