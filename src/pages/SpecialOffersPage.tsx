@@ -66,7 +66,7 @@ const SpecialOffersPage = () => {
               </div>
 
               {/* Price / Duration */}
-              <div className="md:w-[240px] flex-shrink-0 p-6 md:p-8 flex flex-col justify-center space-y-3 md:border-l md:border-border">
+              <div className="md:w-[240px] flex-shrink-0 p-6 md:p-8 flex flex-col justify-center space-y-3 md:border-l md:border-border/30">
                 <div className="flex items-center gap-3 text-sm text-foreground/80">
                   <Moon className="w-4 h-4 text-primary shrink-0" />
                   <span>{tour.days} дней / {tour.days - 1} ночей</span>
