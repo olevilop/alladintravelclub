@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import NewsletterSocial from "@/components/NewsletterSocial";
 import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours } from "@/data/tours";
 
 const SpecialOffersPage = () => {
@@ -79,6 +80,7 @@ const SpecialOffersPage = () => {
         ))}
       </section>
 
+      <NewsletterSocial />
       <Footer />
     </div>
   );
