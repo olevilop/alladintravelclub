@@ -22,7 +22,7 @@ const ToursSection = () => {
   const filtered = activeRegion === "Все" ? tours : tours.filter((t) => t.region === activeRegion);
 
   const categories = [
-    { tours: japanTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Японии</span></> },
+    { tours: japanTours, link: "/japan-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Японии</span></> },
     { tours: koreaTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Южной Корее</span></> },
     { tours: chinaTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Китаю</span></> },
     { tours: northKoreaTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Северной Корее</span></> },
