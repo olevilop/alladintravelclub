@@ -66,14 +66,24 @@ const SpecialOffersPage = () => {
               </div>
 
               {/* Price / Duration */}
-              <div className="md:w-[200px] flex-shrink-0 p-6 md:p-8 flex flex-row md:flex-col items-center justify-center gap-4 text-center">
-                <div>
-                  <span className="block text-xs text-muted-foreground uppercase tracking-wider mb-1">Стоимость от</span>
-                  <span className="text-2xl md:text-3xl font-bold text-primary">{tour.price}</span>
+              <div className="md:w-[240px] flex-shrink-0 p-6 md:p-8 flex flex-col justify-center space-y-3">
+                <div className="flex items-center gap-3 text-sm text-foreground/80">
+                  <Moon className="w-4 h-4 text-primary shrink-0" />
+                  <span>{tour.days} дней / {tour.days - 1} ночей</span>
                 </div>
-                <div>
-                  <span className="block text-xs text-muted-foreground uppercase tracking-wider mb-1">Длительность</span>
-                  <span className="text-lg text-foreground">от {tour.days} ночей</span>
+                <div className="flex items-center gap-3 text-sm text-foreground/80">
+                  <MapPin className="w-4 h-4 text-primary shrink-0" />
+                  <span>{tour.region}</span>
+                </div>
+                {tour.shipName && (
+                  <div className="flex items-center gap-3 text-sm text-foreground/80">
+                    <Ship className="w-4 h-4 text-primary shrink-0" />
+                    <span>{tour.shipName}</span>
+                  </div>
+                )}
+                <div className="flex items-center gap-3 text-sm text-foreground/80">
+                  <Banknote className="w-4 h-4 text-primary shrink-0" />
+                  <span>от {tour.price}</span>
                 </div>
               </div>
             </div>
