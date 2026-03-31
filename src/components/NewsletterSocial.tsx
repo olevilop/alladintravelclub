@@ -19,9 +19,9 @@ const NewsletterSocial = () => {
 
   return (
     <section className="container mx-auto px-6 py-12">
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_240px] gap-4">
+      <div className="flex flex-col md:flex-row gap-4 justify-center items-start max-w-[75%] mx-auto">
         {/* Newsletter */}
-        <div className="bg-card border border-border p-6 md:p-8 space-y-4">
+        <div className="flex-1 bg-card border border-border p-6 md:p-8 space-y-4">
           <h3 className="font-serif text-xl md:text-2xl font-light">
             Подпишитесь на нашу <span className="italic text-gold-gradient">рассылку</span>
           </h3>
@@ -54,7 +54,7 @@ const NewsletterSocial = () => {
         </div>
 
         {/* Social */}
-        <div className="bg-card border border-border p-6 md:p-8 space-y-4 flex flex-col">
+        <div className="md:w-[240px] shrink-0 bg-card border border-border p-6 md:p-8 space-y-4 flex flex-col">
           <h3 className="font-serif text-xl md:text-2xl font-light">
             Мы в <span className="italic text-gold-gradient">соцсетях</span>
           </h3>
