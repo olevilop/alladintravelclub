@@ -1,17 +1,11 @@
 import { useState } from "react";
 import { Send } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { toast } from "sonner";
 
 const NewsletterSocial = () => {
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
