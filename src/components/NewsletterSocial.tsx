@@ -30,18 +30,18 @@ const NewsletterSocial = () => {
           </p>
           <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
             <Input
-              type="email"
-              placeholder="Ваш email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-background border-border"
-            />
-            <Input
               type="text"
               placeholder="Ваше имя"
               value={name}
               onChange={(e) => setName(e.target.value)}
               className="w-full sm:w-[160px] bg-background border-border"
+            />
+            <Input
+              type="email"
+              placeholder="Ваш email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="flex-1 bg-background border-border"
             />
             <button
               type="submit"
