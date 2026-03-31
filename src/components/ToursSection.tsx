@@ -90,7 +90,13 @@ const ToursSection = () => {
               transition={{ duration: 0.8, delay: 0.4 + idx * 0.1 }}
               className="text-center mt-20 mb-12"
             >
-              <SectionHeading>{cat.label}</SectionHeading>
+              {cat.link ? (
+                <Link to={cat.link} className="hover:opacity-80 transition-opacity">
+                  <SectionHeading>{cat.label}</SectionHeading>
+                </Link>
+              ) : (
+                <SectionHeading>{cat.label}</SectionHeading>
+              )}
             </motion.div>
             <TourCarousel tours={cat.tours} />
           </div>
