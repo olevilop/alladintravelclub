@@ -8,6 +8,7 @@ import TourDetail from "./pages/TourDetail.tsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import SpecialOffersPage from "./pages/SpecialOffersPage.tsx";
+import JapanToursPage from "./pages/JapanToursPage.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 
 const queryClient = new QueryClient();
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/tour/:id" element={<TourDetail />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/special-offers" element={<SpecialOffersPage />} />
+          <Route path="/japan-tours" element={<JapanToursPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
