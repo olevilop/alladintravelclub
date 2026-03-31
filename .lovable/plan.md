@@ -1,14 +1,16 @@
 
 
-## Переместить блок FAQ после блока «Что включено»
+## Центрировать блок FAQ на странице тура
 
-### Изменение в `src/pages/TourDetail.tsx`
+### Проблема
+Сейчас `<FAQSection>` находится внутри левой колонки (`lg:col-span-2`) двухколоночного layout, поэтому он ограничен шириной ~66% страницы и не выглядит центрированным.
 
-Сейчас `<FAQSection>` находится в конце страницы (после SimilarTours и SpecialOffers, строка 249). Нужно переместить его внутрь основного контента (левая колонка `lg:col-span-2`), сразу после блока «Что включено / Не включено» (после строки ~163).
+### Решение
 
-1. Удалить строку 249: `<FAQSection isCruise={isCruise} />`
-2. Вставить `<FAQSection isCruise={isCruise} />` после закрывающего `</motion.div>` блока «Что включено» (после существующих секций Description → Itinerary → Included/NotIncluded)
+**Файл: `src/pages/TourDetail.tsx`**
 
-### Файл
-- `src/pages/TourDetail.tsx`
+Вынести `<FAQSection isCruise={isCruise} />` из двухколоночного grid и разместить его как отдельный полноширинный блок — после grid-контейнера, но до `<SimilarTours>`. Компонент уже имеет собственный `container mx-auto max-w-3xl`, поэтому он автоматически отцентрируется.
+
+1. Удалить `<FAQSection isCruise={isCruise} />` из `lg:col-span-2`
+2. Вставить его после закрывающего `</div>` контейнера с grid, перед `<SimilarTours>`
 
