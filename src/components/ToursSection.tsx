@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours } from "@/data/tours";
 import TourCarousel from "./TourCarousel";
 
@@ -21,7 +22,7 @@ const ToursSection = () => {
   const filtered = activeRegion === "Все" ? tours : tours.filter((t) => t.region === activeRegion);
 
   const categories = [
-    { tours: japanTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Японии</span></> },
+    { tours: japanTours, link: "/japan-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Японии</span></> },
     { tours: koreaTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Южной Корее</span></> },
     { tours: chinaTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Китаю</span></> },
     { tours: northKoreaTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Северной Корее</span></> },
@@ -89,7 +90,13 @@ const ToursSection = () => {
               transition={{ duration: 0.8, delay: 0.4 + idx * 0.1 }}
               className="text-center mt-20 mb-12"
             >
-              <SectionHeading>{cat.label}</SectionHeading>
+              {cat.link ? (
+                <Link to={cat.link} className="hover:opacity-80 transition-opacity">
+                  <SectionHeading>{cat.label}</SectionHeading>
+                </Link>
+              ) : (
+                <SectionHeading>{cat.label}</SectionHeading>
+              )}
             </motion.div>
             <TourCarousel tours={cat.tours} />
           </div>
