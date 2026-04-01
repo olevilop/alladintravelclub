@@ -25,9 +25,9 @@ const JapanToursPage = () => {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
-          <Link to="/" className="text-white/70 hover:text-white transition-colors text-sm tracking-widest uppercase flex items-center gap-2 mb-4">
-            ← Главная
+        <div className="relative z-10 h-full flex flex-col justify-end items-start pb-12 md:pb-20 container mx-auto px-6">
+          <Link to="/" className="inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors mb-6">
+            <ArrowLeft className="w-4 h-4" /> На главную
           </Link>
           <h1 className="font-serif text-4xl md:text-6xl font-light text-white">
             Туры по <span className="italic">Японии</span>
