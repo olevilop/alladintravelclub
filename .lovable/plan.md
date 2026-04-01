@@ -1,19 +1,16 @@
 
 
-## Прокрутка к верху страницы при переходе на /japan-tours
+## Добавить ссылку «Назад на главную» в Hero на странице туров по Японии
 
-### Проблема
-При клике на «Туры по Японии» переход происходит, но страница не прокручивается наверх — пользователь видит середину страницы.
+### Файл: `src/pages/JapanToursPage.tsx`
 
-### Решение
-
-**Файл: `src/pages/JapanToursPage.tsx`**
-
-Добавить `useEffect` с `window.scrollTo(0, 0)` при монтировании компонента — страница будет открываться с самого верха.
+В Hero-секцию (внутри `div` с `relative z-10`) добавить ссылку-навигацию вверху, над заголовком:
 
 ```tsx
-useEffect(() => {
-  window.scrollTo(0, 0);
-}, []);
+<Link to="/" className="text-white/70 hover:text-white transition-colors text-sm tracking-widest uppercase flex items-center gap-2">
+  ← Главная
+</Link>
 ```
+
+Разместить её в начале flex-контейнера (перед `h1`), с `mb-4`. Импортировать `Link` из `react-router-dom`.
 
