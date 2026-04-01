@@ -1,41 +1,29 @@
 
 
-## Создать 6 страниц по образцу JapanToursPage
+## Возврат на место на главной, откуда зашли
 
-### Обзор
-Создать отдельные страницы для каждой категории туров по аналогии с `/japan-tours`, добавить маршруты и ссылки.
+### Подход
+Использовать `navigate(-1)` (браузерная история) вместо `<Link to="/">`. Это автоматически вернёт пользователя на то место страницы, откуда он пришёл, включая позицию прокрутки. Если истории нет (прямой заход по ссылке) — fallback на `/`.
 
-### Страницы
+### Изменения
 
-| Страница | Путь | Данные | Заголовок Hero | Подзаголовок |
-|----------|------|--------|----------------|--------------|
-| Экспедиционные круизы | `/expedition-cruises` | `tours.slice(0, 4)` | Экспедиционные *круизы* | Путешествия к краю земли |
-| Классические круизы | `/classic-cruises` | `tours.slice(4)` | Классические *круизы* | Откройте мир с комфортом |
-| Туры по Южной Корее | `/korea-tours` | `koreaTours` | Туры по *Южной Корее* | Страна утренней свежести |
-| Туры по Китаю | `/china-tours` | `chinaTours` | Туры по *Китаю* | Империя тысячелетий |
-| Туры по Северной Корее | `/nkorea-tours` | `northKoreaTours` | Туры по *Северной Корее* | Самая закрытая страна мира |
-| Туры по России | `/russia-tours` | `russiaTours` | Туры по *России* | От Байкала до Камчатки |
+**1. `src/pages/CategoryToursPage.tsx`**
+- Заменить `<Link to={backLink}>` на `<button onClick={goBack}>` с логикой: если есть история — `navigate(-1)`, иначе — `navigate("/")`
 
-### Файлы
+**2. `src/pages/TourDetail.tsx`**
+- Аналогичная замена `<Link to="/">` на кнопку с `navigate(-1)` / fallback на `"/"`
 
-**1. Создать универсальный компонент `src/pages/CategoryToursPage.tsx`**
-- Принимает пропсы: `tours`, `title` (JSX), `subtitle`, `backLink = "/"`
-- Полностью повторяет структуру JapanToursPage: Hero с рандомным изображением, карточки, SpecialOffers, NewsletterSocial, Footer
+### Техническая деталь
+```tsx
+const navigate = useNavigate();
+const goBack = () => {
+  if (window.history.length > 1) {
+    navigate(-1);
+  } else {
+    navigate("/");
+  }
+};
+```
 
-**2. Создать 6 файлов страниц** (каждый — обёртка над CategoryToursPage с нужными данными):
-- `src/pages/ExpeditionCruisesPage.tsx`
-- `src/pages/ClassicCruisesPage.tsx`
-- `src/pages/KoreaToursPage.tsx`
-- `src/pages/ChinaToursPage.tsx`
-- `src/pages/NorthKoreaToursPage.tsx`
-- `src/pages/RussiaToursPage.tsx`
-
-**3. `src/App.tsx`** — добавить 6 маршрутов
-
-**4. `src/components/ToursSection.tsx`** — добавить ссылки (`link`) в массив `categories` для каждой категории, а также ссылки на экспедиционные и классические круизы (обернуть заголовки в `<Link>`)
-
-### Технические детали
-- JapanToursPage переписать на использование CategoryToursPage для единообразия
-- CategoryToursPage — единый компонент, все 7 страниц (включая Japan) используют его
-- Итого: 1 общий компонент + 7 тонких обёрток + правки App.tsx и ToursSection.tsx
+Внешний вид ссылки сохраняется — меняется только тег и обработчик.
 
