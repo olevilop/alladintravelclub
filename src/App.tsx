@@ -15,6 +15,7 @@ import KoreaToursPage from "./pages/KoreaToursPage.tsx";
 import ChinaToursPage from "./pages/ChinaToursPage.tsx";
 import NorthKoreaToursPage from "./pages/NorthKoreaToursPage.tsx";
 import RussiaToursPage from "./pages/RussiaToursPage.tsx";
+import MaldivesPage from "./pages/MaldivesPage.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/china-tours" element={<ChinaToursPage />} />
           <Route path="/nkorea-tours" element={<NorthKoreaToursPage />} />
           <Route path="/russia-tours" element={<RussiaToursPage />} />
+          <Route path="/maldives" element={<MaldivesPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
