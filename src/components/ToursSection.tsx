@@ -76,9 +76,11 @@ const ToursSection = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-center mt-20 mb-12"
             >
-              <SectionHeading>
-                <span style={{ fontSize: '0.85em' }}>К</span>лассические <span className="italic text-gold-gradient">круизы</span>
-              </SectionHeading>
+              <Link to="/classic-cruises" className="hover:opacity-80 transition-opacity">
+                <SectionHeading>
+                  <span style={{ fontSize: '0.85em' }}>К</span>лассические <span className="italic text-gold-gradient">круизы</span>
+                </SectionHeading>
+              </Link>
             </motion.div>
             <TourCarousel tours={filtered.slice(4)} />
           </>
