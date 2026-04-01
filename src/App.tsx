@@ -38,6 +38,7 @@ const App = () => (
           <Route path="/china-tours" element={<ChinaToursPage />} />
           <Route path="/nkorea-tours" element={<NorthKoreaToursPage />} />
           <Route path="/russia-tours" element={<RussiaToursPage />} />
+          <Route path="/maldives" element={<MaldivesPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
