@@ -23,10 +23,10 @@ const ToursSection = () => {
 
   const categories = [
     { tours: japanTours, link: "/japan-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Японии</span></> },
-    { tours: koreaTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Южной Корее</span></> },
-    { tours: chinaTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Китаю</span></> },
-    { tours: northKoreaTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Северной Корее</span></> },
-    { tours: russiaTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">России</span></> },
+    { tours: koreaTours, link: "/korea-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Южной Корее</span></> },
+    { tours: chinaTours, link: "/china-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Китаю</span></> },
+    { tours: northKoreaTours, link: "/nkorea-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Северной Корее</span></> },
+    { tours: russiaTours, link: "/russia-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">России</span></> },
   ];
 
   return (
@@ -42,9 +42,11 @@ const ToursSection = () => {
             Каталог туров
           </span>
           <div className="mt-4">
-            <SectionHeading>
-              <span style={{ fontSize: '0.85em' }}>Э</span>кспедиционные <span className="italic text-gold-gradient">круизы</span>
-            </SectionHeading>
+            <Link to="/expedition-cruises" className="hover:opacity-80 transition-opacity">
+              <SectionHeading>
+                <span style={{ fontSize: '0.85em' }}>Э</span>кспедиционные <span className="italic text-gold-gradient">круизы</span>
+              </SectionHeading>
+            </Link>
           </div>
         </motion.div>
 
@@ -74,9 +76,11 @@ const ToursSection = () => {
               transition={{ duration: 0.8, delay: 0.3 }}
               className="text-center mt-20 mb-12"
             >
-              <SectionHeading>
-                <span style={{ fontSize: '0.85em' }}>К</span>лассические <span className="italic text-gold-gradient">круизы</span>
-              </SectionHeading>
+              <Link to="/classic-cruises" className="hover:opacity-80 transition-opacity">
+                <SectionHeading>
+                  <span style={{ fontSize: '0.85em' }}>К</span>лассические <span className="italic text-gold-gradient">круизы</span>
+                </SectionHeading>
+              </Link>
             </motion.div>
             <TourCarousel tours={filtered.slice(4)} />
           </>
