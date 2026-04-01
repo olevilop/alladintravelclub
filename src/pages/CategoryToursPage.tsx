@@ -14,7 +14,9 @@ interface CategoryToursPageProps {
   backLink?: string;
 }
 
-const CategoryToursPage = ({ tours, title, subtitle, backLink = "/" }: CategoryToursPageProps) => {
+const CategoryToursPage = ({ tours, title, subtitle }: CategoryToursPageProps) => {
+  const navigate = useNavigate();
+  const goBack = () => { if (window.history.length > 1) navigate(-1); else navigate("/"); };
   const heroTour = useMemo(() => tours[Math.floor(Math.random() * tours.length)], []);
 
   useEffect(() => {
