@@ -23,10 +23,10 @@ const ToursSection = () => {
 
   const categories = [
     { tours: japanTours, link: "/japan-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Японии</span></> },
-    { tours: koreaTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Южной Корее</span></> },
-    { tours: chinaTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Китаю</span></> },
-    { tours: northKoreaTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Северной Корее</span></> },
-    { tours: russiaTours, label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">России</span></> },
+    { tours: koreaTours, link: "/korea-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Южной Корее</span></> },
+    { tours: chinaTours, link: "/china-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Китаю</span></> },
+    { tours: northKoreaTours, link: "/nkorea-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Северной Корее</span></> },
+    { tours: russiaTours, link: "/russia-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">России</span></> },
   ];
 
   return (
