@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsletterSocial from "@/components/NewsletterSocial";
-import { Moon, MapPin, Ship, Banknote } from "lucide-react";
+import { Moon, MapPin, Ship, Banknote, ArrowLeft } from "lucide-react";
 import { japanTours } from "@/data/tours";
 
 const JapanToursPage = () => {
