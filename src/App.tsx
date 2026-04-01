@@ -9,6 +9,12 @@ import PrivacyPolicy from "./pages/PrivacyPolicy.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import SpecialOffersPage from "./pages/SpecialOffersPage.tsx";
 import JapanToursPage from "./pages/JapanToursPage.tsx";
+import ExpeditionCruisesPage from "./pages/ExpeditionCruisesPage.tsx";
+import ClassicCruisesPage from "./pages/ClassicCruisesPage.tsx";
+import KoreaToursPage from "./pages/KoreaToursPage.tsx";
+import ChinaToursPage from "./pages/ChinaToursPage.tsx";
+import NorthKoreaToursPage from "./pages/NorthKoreaToursPage.tsx";
+import RussiaToursPage from "./pages/RussiaToursPage.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 
 const queryClient = new QueryClient();
