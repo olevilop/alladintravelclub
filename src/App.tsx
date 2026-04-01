@@ -15,6 +15,7 @@ import KoreaToursPage from "./pages/KoreaToursPage.tsx";
 import ChinaToursPage from "./pages/ChinaToursPage.tsx";
 import NorthKoreaToursPage from "./pages/NorthKoreaToursPage.tsx";
 import RussiaToursPage from "./pages/RussiaToursPage.tsx";
+import MaldivesPage from "./pages/MaldivesPage.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 
 const queryClient = new QueryClient();
