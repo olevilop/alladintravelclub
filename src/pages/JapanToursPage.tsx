@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,6 +8,10 @@ import { japanTours } from "@/data/tours";
 
 const JapanToursPage = () => {
   const heroTour = useMemo(() => japanTours[Math.floor(Math.random() * japanTours.length)], []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
