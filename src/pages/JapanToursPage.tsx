@@ -99,6 +99,7 @@ const JapanToursPage = () => {
         ))}
       </section>
 
+      <SpecialOffers />
       <NewsletterSocial />
       <Footer />
     </div>
