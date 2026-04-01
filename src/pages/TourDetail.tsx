@@ -62,12 +62,12 @@ const TourDetail = () => {
         <div className="absolute inset-0 bg-dark-overlay" />
         <div className="absolute inset-0 flex flex-col justify-end pb-12 md:pb-20 container mx-auto px-6">
           <motion.div initial="hidden" animate="visible" variants={fadeIn} transition={{ duration: 0.8 }}>
-            <Link
-              to="/"
+            <button
+              onClick={goBack}
               className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors mb-6"
             >
               <ArrowLeft className="w-4 h-4" /> На главную
-            </Link>
+            </button>
             <span className="block text-primary text-sm font-sans uppercase tracking-[0.3em] mb-3">
               {tour.region} · {tour.days} дней
             </span>
