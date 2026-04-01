@@ -42,9 +42,11 @@ const ToursSection = () => {
             Каталог туров
           </span>
           <div className="mt-4">
-            <SectionHeading>
-              <span style={{ fontSize: '0.85em' }}>Э</span>кспедиционные <span className="italic text-gold-gradient">круизы</span>
-            </SectionHeading>
+            <Link to="/expedition-cruises" className="hover:opacity-80 transition-opacity">
+              <SectionHeading>
+                <span style={{ fontSize: '0.85em' }}>Э</span>кспедиционные <span className="italic text-gold-gradient">круизы</span>
+              </SectionHeading>
+            </Link>
           </div>
         </motion.div>
 
