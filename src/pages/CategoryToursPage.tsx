@@ -1,10 +1,10 @@
 import { useMemo, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsletterSocial from "@/components/NewsletterSocial";
 import SpecialOffers from "@/components/SpecialOffers";
-import { Moon, MapPin, Ship, Banknote, ArrowLeft } from "lucide-react";
+import { Moon, MapPin, Ship, Banknote } from "lucide-react";
 import type { Tour } from "@/data/tours";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
