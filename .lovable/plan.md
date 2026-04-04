@@ -4,7 +4,7 @@
 
 **Файл: `src/components/NewsletterSocial.tsx`**
 
-Заменить `href="http://www.youtube.com/@travelcluballadin1"` на `href="https://www.youtube.com/channel/UCJ7KA_bT8GS02nmW9rytefA"`.
+Заменить текущий `href="https://www.youtube.com/channel/UCJ7KA_bT8GS02nmW9rytefA"` на `href="https://youtube.com/@travelcluballadin1?si=-HJJtTnc1seChWTL"`.
 
 Одна строка, одно изменение.
 
