@@ -54,21 +54,21 @@ const Footer = () => {
             <div className="space-y-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary shrink-0" />
-                <span>+7 (495) 123-45-67</span>
+                <span>+7 (423) 205-65-61</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary shrink-0" />
-                <span>+7 (800) 100-20-30</span>
+                <span>+7 (914) 705-17-05</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary shrink-0" />
-                <span>info@alladin.travel</span>
+                <span>info@alladin-club.ru</span>
               </div>
             </div>
             <div className="space-y-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-primary shrink-0" />
-                <span>Москва, Пресненская наб., 12</span>
+                <span>г. Владивосток, ул. 1-я Круговая 25А, офис 211</span>
               </div>
               <div className="flex items-center gap-3">
                 <Clock className="w-4 h-4 text-primary shrink-0" />
