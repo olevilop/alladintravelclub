@@ -6,15 +6,17 @@ import NewsletterSocial from "@/components/NewsletterSocial";
 import SpecialOffers from "@/components/SpecialOffers";
 import { Moon, MapPin, Ship, Banknote, ArrowLeft } from "lucide-react";
 import type { Tour } from "@/data/tours";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 interface CategoryToursPageProps {
   tours: Tour[];
   title: React.ReactNode;
   subtitle: string;
   backLink?: string;
+  breadcrumbLabel: string;
 }
 
-const CategoryToursPage = ({ tours, title, subtitle }: CategoryToursPageProps) => {
+const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel }: CategoryToursPageProps) => {
   const navigate = useNavigate();
   const goBack = () => { if (window.history.length > 1) navigate(-1); else navigate("/"); };
   const heroTour = useMemo(() => tours[Math.floor(Math.random() * tours.length)], []);
@@ -47,6 +49,8 @@ const CategoryToursPage = ({ tours, title, subtitle }: CategoryToursPageProps) =
           </p>
         </div>
       </section>
+
+      <Breadcrumbs items={[{ label: breadcrumbLabel }]} />
 
       {/* Tour cards */}
       <section className="container mx-auto px-10 md:px-16 lg:px-24 py-12 md:py-20 space-y-6">

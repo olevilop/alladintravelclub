@@ -20,6 +20,7 @@ import RouteMap from "@/components/RouteMap";
 import FAQSection from "@/components/FAQSection";
 import SpecialOffers from "@/components/SpecialOffers";
 import NewsletterSocial from "@/components/NewsletterSocial";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const fadeIn = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
@@ -97,6 +98,8 @@ const TourDetail = () => {
           ))}
         </div>
       </div>
+
+      <Breadcrumbs items={[{ label: tour.region || "Туры", href: "/" }, { label: tour.name }]} />
 
       <div className="container mx-auto px-6 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">

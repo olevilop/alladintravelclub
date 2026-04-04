@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const seasons = [
   { icon: Sun, title: "Декабрь — Март", subtitle: "Сухой сезон", desc: "Идеальная погода: +28–30 °C, минимум осадков, спокойный океан. Лучшее время для снорклинга и дайвинга." },
@@ -75,6 +76,8 @@ const MaldivesPage = () => {
           <ArrowLeft className="w-4 h-4" /> На главную
         </button>
       </section>
+
+      <Breadcrumbs items={[{ label: "Мальдивы" }]} />
 
       {/* Когда ехать */}
       <SectionBlock label="Сезоны" title="Когда" accent="ехать">

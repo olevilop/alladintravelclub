@@ -6,6 +6,7 @@ const ChinaToursPage = () => (
     tours={chinaTours}
     title={<>Туры по <span className="italic">Китаю</span></>}
     subtitle="Империя тысячелетий"
+    breadcrumbLabel="Туры по Китаю"
   />
 );
 

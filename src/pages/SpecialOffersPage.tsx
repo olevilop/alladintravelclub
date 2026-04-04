@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsletterSocial from "@/components/NewsletterSocial";
@@ -35,6 +36,8 @@ const SpecialOffersPage = () => {
           </p>
         </div>
       </section>
+
+      <Breadcrumbs items={[{ label: "Спецпредложения" }]} />
 
       {/* Tour cards */}
       <section className="container mx-auto px-10 md:px-16 lg:px-24 py-12 md:py-20 space-y-6">

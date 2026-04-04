@@ -6,6 +6,7 @@ const RussiaToursPage = () => (
     tours={russiaTours}
     title={<>Туры по <span className="italic">России</span></>}
     subtitle="От Байкала до Камчатки"
+    breadcrumbLabel="Туры по России"
   />
 );
 

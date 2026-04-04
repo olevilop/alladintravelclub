@@ -6,6 +6,7 @@ const ExpeditionCruisesPage = () => (
     tours={tours.slice(0, 4)}
     title={<>Экспедиционные <span className="italic">круизы</span></>}
     subtitle="Путешествия к краю земли"
+    breadcrumbLabel="Экспедиционные круизы"
   />
 );
 
