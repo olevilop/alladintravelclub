@@ -219,6 +219,7 @@ export const tours: Tour[] = [
     id: "serengeti-safari",
     name: "Сафари в Серенгети Deluxe",
     region: "Африка",
+    category: "expedition",
     days: 10,
     price: "от €9 200",
     image: tourSafari,
