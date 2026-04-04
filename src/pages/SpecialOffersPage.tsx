@@ -37,6 +37,8 @@ const SpecialOffersPage = () => {
         </div>
       </section>
 
+      <Breadcrumbs items={[{ label: "Спецпредложения" }]} />
+
       {/* Tour cards */}
       <section className="container mx-auto px-10 md:px-16 lg:px-24 py-12 md:py-20 space-y-6">
         {/* Мальдивы — фиксированная первая карточка */}

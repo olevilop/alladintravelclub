@@ -6,6 +6,7 @@ import NewsletterSocial from "@/components/NewsletterSocial";
 import SpecialOffers from "@/components/SpecialOffers";
 import { Moon, MapPin, Ship, Banknote, ArrowLeft } from "lucide-react";
 import type { Tour } from "@/data/tours";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 interface CategoryToursPageProps {
   tours: Tour[];

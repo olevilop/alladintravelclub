@@ -6,6 +6,7 @@ const NorthKoreaToursPage = () => (
     tours={northKoreaTours}
     title={<>Туры по <span className="italic">Северной Корее</span></>}
     subtitle="Самая закрытая страна мира"
+    breadcrumbLabel="Туры по Северной Корее"
   />
 );
 

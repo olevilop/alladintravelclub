@@ -77,6 +77,8 @@ const MaldivesPage = () => {
         </button>
       </section>
 
+      <Breadcrumbs items={[{ label: "Мальдивы" }]} />
+
       {/* Когда ехать */}
       <SectionBlock label="Сезоны" title="Когда" accent="ехать">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
