@@ -26,8 +26,6 @@ const fadeIn = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
 const TourDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
-  const goBack = () => { if (window.history.length > 1) navigate(-1); else navigate("/"); };
   const tour = getTourById(id || "");
   const [galleryIndex, setGalleryIndex] = useState(0);
   const isCruise = tour?.name.toLowerCase().includes("круиз");
