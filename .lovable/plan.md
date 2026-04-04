@@ -1,20 +1,22 @@
 
 
-## Сместить текст копирайта вправо на половину страницы
+## Сместить текст копирайта влево
 
-**Файл: `src/components/Footer.tsx`** (строка 153)
+**Файл: `src/components/Footer.tsx`** (строка ~153–155)
 
-Изменить контейнер нижней строки: вместо `flex justify-center` использовать `flex justify-end`, а тексту задать `max-w-[50%]` и `text-right`, чтобы он занимал правую половину страницы.
+Изменить выравнивание нижней строки подвала с правого на левое:
 
 **Было:**
-```tsx
-<div className="container mx-auto px-6 py-6 flex justify-center items-center">
-  <p className="text-xs text-muted-foreground text-center">
-```
-
-**Станет:**
 ```tsx
 <div className="container mx-auto px-6 py-6 flex justify-end items-center">
   <p className="text-xs text-muted-foreground text-right max-w-[50%]">
 ```
+
+**Станет:**
+```tsx
+<div className="container mx-auto px-6 py-6 flex justify-start items-center">
+  <p className="text-xs text-muted-foreground text-left max-w-[50%]">
+```
+
+Текст останется ограничен половиной ширины, но будет прижат к левому краю.
 
