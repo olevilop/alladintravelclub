@@ -49,6 +49,8 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel }: Category
         </div>
       </section>
 
+      <Breadcrumbs items={[{ label: breadcrumbLabel }]} />
+
       {/* Tour cards */}
       <section className="container mx-auto px-10 md:px-16 lg:px-24 py-12 md:py-20 space-y-6">
         {tours.map((tour) => (
