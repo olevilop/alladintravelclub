@@ -352,6 +352,7 @@ export const tours: Tour[] = [
     id: "bhutan-temples",
     name: "Затерянные храмы Бутана",
     region: "Азия",
+    category: "classic",
     days: 9,
     price: "от €7 800",
     image: asiaImg,
