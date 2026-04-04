@@ -307,6 +307,7 @@ export const tours: Tour[] = [
     id: "galapagos-islands",
     name: "Галапагосские острова",
     region: "Острова",
+    category: "classic",
     days: 11,
     shipName: "Galápagos Explorer",
     shipImage: "https://images.unsplash.com/photo-1559825481-12a05cc00344?w=800&auto=format&fit=crop",
