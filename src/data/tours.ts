@@ -1,4 +1,5 @@
 import arcticImg from "@/assets/arctic.jpg";
+import antarcticPenguinsHero from "@/assets/antarctic-penguins-hero.jpg";
 import antarcticaImg from "@/assets/antarctica.jpg";
 import tourExpedition from "@/assets/tour-expedition.jpg";
 import tourPenguins from "@/assets/tour-penguins.jpg";
@@ -174,8 +175,8 @@ export const tours: Tour[] = [
     shipName: "Antarctic Dream",
     shipImage: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=800&auto=format&fit=crop",
     price: "от €15 800",
-    image: tourPenguins,
-    gallery: [tourPenguins, antarcticaImg, arcticImg, tourExpedition, southAmericaImg],
+    image: antarcticPenguinsHero,
+    gallery: [antarcticPenguinsHero, antarcticaImg, arcticImg, tourExpedition, southAmericaImg],
     subtitle: "Встреча с самыми элегантными обитателями ледяного континента",
     description:
       "Экспедиция к крупнейшим колониям королевских пингвинов в Антарктиде. Вы увидите тысячи пингвинов в их естественной среде обитания, пройдёте по следам Шеклтона и откроете для себя потрясающую красоту Южной Георгии и Фолклендских островов.",
