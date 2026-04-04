@@ -12,15 +12,15 @@ const tourLinks = [
 ];
 
 const cruiseLinks = [
-  "Арктика",
-  "Антарктида",
-  "Африка",
-  "Австралия и Океания",
-  "Ближний Восток",
-  "Северная Америка",
-  "Южная Америка",
-  "Россия",
-  "Азия",
+  { label: "Арктика", to: "/cruises/arctic" },
+  { label: "Антарктида", to: "/cruises/antarctica" },
+  { label: "Африка", to: "/cruises/africa" },
+  { label: "Австралия и Океания", to: "/cruises/oceania" },
+  { label: "Ближний Восток", to: "/cruises/middle-east" },
+  { label: "Северная Америка", to: "/cruises/north-america" },
+  { label: "Южная Америка", to: "/cruises/south-america" },
+  { label: "Россия", to: "/cruises/russia" },
+  { label: "Азия", to: "/cruises/asia" },
 ];
 
 const footerLinks = [
