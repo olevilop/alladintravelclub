@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
-import lampLogo from "@/assets/lamp-logo.png";
+
 
 const tourLinks = [
   { label: "Япония", to: "/japan-tours" },
@@ -45,10 +45,6 @@ const Footer = () => {
       <div className="container mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <img src={lampLogo} alt="Лампа Алладина" className="h-16 w-auto lamp-logo-gold" />
-              <span className="font-serif text-2xl font-semibold text-gold-gradient">Travel Club Alladin</span>
-            </div>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">
               Клуб Путешественников Алладин был создан в 2011 году. Это молодая, динамично развивающаяся компания. Путешественники нашего клуба уже посетили множество стран: США, Австралию, Новую Зеландию, континенты Южной Америки, Антарктиды, Европы, Африки, и многие другие места. Наш клуб посещают VIP-персоны, директора и менеджеры компаний. В нашей копилке туры различной сложности. Для VIP-клиентов нами разрабатывались туры с индивидуальными особенностями. Практически все туристы, обратившись к нам однажды, по сей день пользуются услугами Клуба Алладин для формирования своих путешествий.
             </p>
