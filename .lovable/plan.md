@@ -1,20 +1,17 @@
 
 
-## Убрать полосу прокрутки в карусели туров
+## Заменить основную картинку тура «Королевские пингвины Антарктиды»
 
-**Файл: `src/components/TourCarousel.tsx`** (строка 66)
+**Что делаем:** Копируем загруженное фото пингвинов в `src/assets/` и заменяем им основное изображение тура `antarctic-penguins`.
 
-Проблема: CSS-класс `.tour-carousel::-webkit-scrollbar` определён в `<style>`, но класс `tour-carousel` не добавлен к контейнеру прокрутки. Из-за этого в Chrome/Safari видна горизонтальная полоса прокрутки.
+**Шаги:**
 
-**Исправление:** добавить класс `tour-carousel` к `div` с `ref={scrollRef}`:
+1. **Скопировать изображение** `user-uploads://IMG_9778.jpg` → `src/assets/antarctic-penguins-hero.jpg`
 
-```tsx
-// Было:
-className="flex gap-6 overflow-x-auto snap-x snap-mandatory"
+2. **Файл `src/data/tours.ts`:**
+   - Добавить импорт: `import antarcticPenguinsHero from "@/assets/antarctic-penguins-hero.jpg";`
+   - Строка 177: заменить `image: tourPenguins` → `image: antarcticPenguinsHero`
+   - Строка 178: заменить первый элемент gallery `tourPenguins` → `antarcticPenguinsHero`
 
-// Станет:
-className="tour-carousel flex gap-6 overflow-x-auto snap-x snap-mandatory"
-```
-
-Одна строка — одно изменение.
+Остальные туры, использующие `tourPenguins` в своих gallery, останутся без изменений.
 
