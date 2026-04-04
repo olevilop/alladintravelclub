@@ -16,6 +16,15 @@ import ChinaToursPage from "./pages/ChinaToursPage.tsx";
 import NorthKoreaToursPage from "./pages/NorthKoreaToursPage.tsx";
 import RussiaToursPage from "./pages/RussiaToursPage.tsx";
 import MaldivesPage from "./pages/MaldivesPage.tsx";
+import ArcticCruisesPage from "./pages/cruises/ArcticCruisesPage.tsx";
+import AntarcticaCruisesPage from "./pages/cruises/AntarcticaCruisesPage.tsx";
+import AfricaCruisesPage from "./pages/cruises/AfricaCruisesPage.tsx";
+import OceaniaCruisesPage from "./pages/cruises/OceaniaCruisesPage.tsx";
+import MiddleEastCruisesPage from "./pages/cruises/MiddleEastCruisesPage.tsx";
+import NorthAmericaCruisesPage from "./pages/cruises/NorthAmericaCruisesPage.tsx";
+import SouthAmericaCruisesPage from "./pages/cruises/SouthAmericaCruisesPage.tsx";
+import RussiaCruisesPage from "./pages/cruises/RussiaCruisesPage.tsx";
+import AsiaCruisesPage from "./pages/cruises/AsiaCruisesPage.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 
 const queryClient = new QueryClient();
@@ -39,6 +48,15 @@ const App = () => (
           <Route path="/nkorea-tours" element={<NorthKoreaToursPage />} />
           <Route path="/russia-tours" element={<RussiaToursPage />} />
           <Route path="/maldives" element={<MaldivesPage />} />
+          <Route path="/cruises/arctic" element={<ArcticCruisesPage />} />
+          <Route path="/cruises/antarctica" element={<AntarcticaCruisesPage />} />
+          <Route path="/cruises/africa" element={<AfricaCruisesPage />} />
+          <Route path="/cruises/oceania" element={<OceaniaCruisesPage />} />
+          <Route path="/cruises/middle-east" element={<MiddleEastCruisesPage />} />
+          <Route path="/cruises/north-america" element={<NorthAmericaCruisesPage />} />
+          <Route path="/cruises/south-america" element={<SouthAmericaCruisesPage />} />
+          <Route path="/cruises/russia" element={<RussiaCruisesPage />} />
+          <Route path="/cruises/asia" element={<AsiaCruisesPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

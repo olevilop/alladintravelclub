@@ -18,8 +18,19 @@ const tourSubLinks = [
   { label: "Мальдивы", path: "/maldives" },
 ];
 
+const cruiseSubLinks = [
+  { label: "Арктика", path: "/cruises/arctic" },
+  { label: "Антарктида", path: "/cruises/antarctica" },
+  { label: "Африка", path: "/cruises/africa" },
+  { label: "Австралия и Океания", path: "/cruises/oceania" },
+  { label: "Ближний Восток", path: "/cruises/middle-east" },
+  { label: "Северная Америка", path: "/cruises/north-america" },
+  { label: "Южная Америка", path: "/cruises/south-america" },
+  { label: "Россия", path: "/cruises/russia" },
+  { label: "Азия", path: "/cruises/asia" },
+];
+
 const navLinks = [
-  { label: "Круизы", href: "#destinations" },
   { label: "Спецпредложения", href: "/special-offers" },
   { label: "Бронирование авиабилетов", href: "#about" },
   { label: "Контакты", href: "#contact" },
@@ -29,6 +40,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [toursExpanded, setToursExpanded] = useState(false);
+  const [cruisesExpanded, setCruisesExpanded] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -55,6 +67,7 @@ const Navbar = () => {
   const goToTour = (path: string) => {
     setMenuOpen(false);
     setToursExpanded(false);
+    setCruisesExpanded(false);
     navigate(path);
     window.scrollTo(0, 0);
   };
@@ -80,6 +93,25 @@ const Navbar = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start">
               {tourSubLinks.map((link) => (
+                <DropdownMenuItem
+                  key={link.path}
+                  onClick={() => goToTour(link.path)}
+                  className="cursor-pointer"
+                >
+                  {link.label}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          {/* Cruises dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-sans uppercase tracking-widest text-foreground/70 hover:text-primary transition-colors duration-300 outline-none">
+              Круизы
+              <ChevronDown className="h-3.5 w-3.5" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start">
+              {cruiseSubLinks.map((link) => (
                 <DropdownMenuItem
                   key={link.path}
                   onClick={() => goToTour(link.path)}
@@ -130,9 +162,33 @@ const Navbar = () => {
                 Туры
                 <ChevronDown className={`h-3.5 w-3.5 transition-transform ${toursExpanded ? "rotate-180" : ""}`} />
               </button>
-              {toursExpanded && (
+            {toursExpanded && (
                 <div className="pl-4 flex flex-col gap-2 mt-1">
                   {tourSubLinks.map((link) => (
+                    <button
+                      key={link.path}
+                      onClick={() => goToTour(link.path)}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors text-left py-1"
+                    >
+                      {link.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Mobile Cruises */}
+            <div>
+              <button
+                onClick={() => setCruisesExpanded(!cruisesExpanded)}
+                className="flex items-center gap-1 text-sm font-sans uppercase tracking-widest text-foreground/70 hover:text-primary transition-colors text-left py-2 w-full"
+              >
+                Круизы
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${cruisesExpanded ? "rotate-180" : ""}`} />
+              </button>
+              {cruisesExpanded && (
+                <div className="pl-4 flex flex-col gap-2 mt-1">
+                  {cruiseSubLinks.map((link) => (
                     <button
                       key={link.path}
                       onClick={() => goToTour(link.path)}
