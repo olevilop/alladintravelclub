@@ -150,14 +150,10 @@ const Footer = () => {
       </div>
 
       {/* Bottom bar */}
-      <div className="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div className="container mx-auto px-6 py-6 flex justify-center items-center">
         <p className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} Travel Club Alladin. Все права защищены.
         </p>
-        <div className="flex gap-6 text-xs text-muted-foreground">
-          <Link to="/privacy" className="hover:text-primary transition-colors">Политика конфиденциальности</Link>
-          <Link to="/privacy" className="hover:text-primary transition-colors">Условия использования</Link>
-        </div>
       </div>
     </footer>
   );
