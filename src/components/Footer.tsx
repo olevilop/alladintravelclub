@@ -150,8 +150,8 @@ const Footer = () => {
       </div>
 
       {/* Bottom bar */}
-      <div className="container mx-auto px-6 py-6 flex justify-center items-center">
-        <p className="text-xs text-muted-foreground text-center">
+      <div className="container mx-auto px-6 py-6 flex justify-end items-center">
+        <p className="text-xs text-muted-foreground text-right max-w-[50%]">
           2011-2026 © Клуб путешественников Алладин — круизы и туры. Использование фотографий и текстов с сайта alladintravelclub.ru возможно только при указании источника. Данный сайт не является публичной офертой и носит исключительно информационный характер.
         </p>
       </div>
