@@ -11,12 +11,7 @@ const Breadcrumbs = ({ items }: { items: BreadcrumbItem[] }) => {
 
   const handleHomeClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (window.history.length > 2) {
-      // Try to go back to where user came from to preserve scroll
-      navigate(-1);
-    } else {
-      navigate("/");
-    }
+    navigate("/");
   };
 
   return (
