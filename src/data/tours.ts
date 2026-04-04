@@ -1356,6 +1356,17 @@ export const regionToPath: Record<string, string> = {
   "Мальдивы": "/maldives",
 };
 
+export const regionToBreadcrumb: Record<string, { label: string; path: string }> = {
+  "Япония": { label: "Туры по Японии", path: "/japan-tours" },
+  "Южная Корея": { label: "Туры по Южной Корее", path: "/korea-tours" },
+  "Китай": { label: "Туры по Китаю", path: "/china-tours" },
+  "Северная Корея": { label: "Туры по Северной Корее", path: "/nkorea-tours" },
+  "Россия": { label: "Туры по России", path: "/russia-tours" },
+  "Арктика": { label: "Экспедиционные круизы", path: "/expedition-cruises" },
+  "Антарктика": { label: "Экспедиционные круизы", path: "/expedition-cruises" },
+  "Мальдивы": { label: "Мальдивы", path: "/maldives" },
+};
+
 export const getTourById = (id: string) => {
   const allTours = [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours];
   return allTours.find((t) => t.id === id);

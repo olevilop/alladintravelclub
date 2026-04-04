@@ -99,7 +99,7 @@ const TourDetail = () => {
         </div>
       </div>
 
-      <Breadcrumbs items={[{ label: tour.region || "Туры", href: regionToPath[tour.region] || "/" }, { label: tour.name }]} />
+      <Breadcrumbs items={[{ label: regionToBreadcrumb[tour.region]?.label || tour.region || "Туры", href: regionToBreadcrumb[tour.region]?.path || "/" }, { label: tour.name }]} />
 
       <div className="container mx-auto px-6 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
