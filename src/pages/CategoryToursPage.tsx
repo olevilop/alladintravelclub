@@ -36,9 +36,6 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel }: Category
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
         <div className="relative z-10 h-full flex flex-col justify-end items-start pb-12 md:pb-20 container mx-auto px-6">
-          <button onClick={goBack} className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors mb-6">
-            <ArrowLeft className="w-4 h-4" /> На главную
-          </button>
           <h1 className="font-serif text-4xl md:text-6xl font-light text-white">
             {title}
           </h1>
