@@ -11,11 +11,19 @@ const tourLinks = [
   { label: "Мальдивы", to: "/maldives" },
 ];
 
+const cruiseLinks = [
+  "Арктика",
+  "Антарктида",
+  "Африка",
+  "Австралия и Океания",
+  "Ближний Восток",
+  "Северная Америка",
+  "Южная Америка",
+  "Россия",
+  "Азия",
+];
+
 const footerLinks = [
-  {
-    title: "Программы",
-    links: ["Экспедиционные круизы", "Авторские туры", "Групповые туры", "Индивидуальные туры", "Корпоративные туры"],
-  },
   {
     title: "Виды туров",
     links: ["Экспедиции", "Сафари", "Круизы", "Треккинг", "Дайвинг", "Культурные туры"],
@@ -94,6 +102,21 @@ const Footer = () => {
                       <span className="text-primary mr-1.5">›</span>
                       {item.label}
                     </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-sans text-xs uppercase tracking-widest font-bold text-foreground mb-4">
+                Круизы
+              </h4>
+              <ul className="space-y-2">
+                {cruiseLinks.map((label) => (
+                  <li key={label}>
+                    <span className="text-sm text-muted-foreground">
+                      <span className="text-primary mr-1.5">›</span>
+                      {label}
+                    </span>
                   </li>
                 ))}
               </ul>
