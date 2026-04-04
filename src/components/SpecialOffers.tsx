@@ -24,7 +24,7 @@ const SpecialOffers = ({ excludeTourId }: SpecialOffersProps) => {
     <div className="px-6 md:px-12 pb-16 md:pb-24">
       <div className="flex items-center justify-center gap-4 mb-8">
         <span className="hidden sm:block flex-shrink-0 h-[1px] w-24 bg-gradient-to-r from-transparent to-primary" />
-        <Link to="/special-offers" className="hover:text-primary transition-colors">
+        <Link to="/special-offers" onClick={() => window.scrollTo(0, 0)} className="hover:text-primary transition-colors">
           <h2 className="font-serif text-2xl md:text-3xl font-light text-foreground">
             Спец<span className="italic text-gold-gradient">предложения</span>
           </h2>
