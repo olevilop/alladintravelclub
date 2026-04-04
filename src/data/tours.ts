@@ -262,6 +262,7 @@ export const tours: Tour[] = [
     id: "norway-fjords",
     name: "Фьорды Норвегии на яхте",
     region: "Арктика",
+    category: "classic",
     days: 12,
     price: "от €18 000",
     image: tourExpedition,
