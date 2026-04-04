@@ -1,20 +1,20 @@
 
 
-## Обновить текст в нижней строке подвала
+## Сместить текст копирайта вправо на половину страницы
 
-**Файл: `src/components/Footer.tsx`**
+**Файл: `src/components/Footer.tsx`** (строка 153)
 
-Заменить текущий текст копирайта в нижней секции (строка ~144) на:
+Изменить контейнер нижней строки: вместо `flex justify-center` использовать `flex justify-end`, а тексту задать `max-w-[50%]` и `text-right`, чтобы он занимал правую половину страницы.
 
 **Было:**
-```
-© 2026 Travel Club Alladin. Все права защищены.
+```tsx
+<div className="container mx-auto px-6 py-6 flex justify-center items-center">
+  <p className="text-xs text-muted-foreground text-center">
 ```
 
 **Станет:**
+```tsx
+<div className="container mx-auto px-6 py-6 flex justify-end items-center">
+  <p className="text-xs text-muted-foreground text-right max-w-[50%]">
 ```
-2011-2026 © Клуб путешественников Алладин — круизы и туры. Использование фотографий и текстов с сайта alladintravelclub.ru возможно только при указании источника. Данный сайт не является публичной офертой и носит исключительно информационный характер.
-```
-
-Год будет зафиксирован как `2011-2026` (без динамической генерации). Стили остаются без изменений.
 
