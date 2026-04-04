@@ -1371,9 +1371,12 @@ export const regionToBreadcrumb: Record<string, { label: string; path: string }>
   "Китай": { label: "Туры по Китаю", path: "/china-tours" },
   "Северная Корея": { label: "Туры по Северной Корее", path: "/nkorea-tours" },
   "Россия": { label: "Туры по России", path: "/russia-tours" },
-  "Арктика": { label: "Экспедиционные круизы", path: "/expedition-cruises" },
-  "Антарктика": { label: "Экспедиционные круизы", path: "/expedition-cruises" },
   "Мальдивы": { label: "Мальдивы", path: "/maldives" },
+};
+
+export const categoryToBreadcrumb: Record<string, { label: string; path: string }> = {
+  "expedition": { label: "Экспедиционные круизы", path: "/expedition-cruises" },
+  "classic": { label: "Классические круизы", path: "/classic-cruises" },
 };
 
 export const getTourById = (id: string) => {
