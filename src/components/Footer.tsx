@@ -2,11 +2,15 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import lampLogo from "@/assets/lamp-logo.png";
 
+const tourLinks = [
+  { label: "Япония", to: "/japan-tours" },
+  { label: "Китай", to: "/china-tours" },
+  { label: "Россия", to: "/russia-tours" },
+  { label: "Южная Корея", to: "/korea-tours" },
+  { label: "Северная Корея", to: "/nkorea-tours" },
+];
+
 const footerLinks = [
-  {
-    title: "Направления",
-    links: ["Арктика", "Антарктида", "Африка", "Азия", "Острова", "Южная Америка"],
-  },
   {
     title: "Программы",
     links: ["Экспедиционные круизы", "Авторские туры", "Групповые туры", "Индивидуальные туры", "Корпоративные туры"],
