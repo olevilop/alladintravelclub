@@ -15,7 +15,7 @@ const Breadcrumbs = ({ items }: { items: BreadcrumbItem[] }) => {
   };
 
   return (
-    <nav className="container mx-auto px-6 py-4 flex items-center gap-2 text-sm text-foreground">
+    <nav className="container mx-auto px-6 py-4 flex items-center gap-2 text-sm text-muted-foreground">
       <a href="/" onClick={handleHomeClick} className="hover:text-primary transition-colors cursor-pointer">
         Главная
       </a>
