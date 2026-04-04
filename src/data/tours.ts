@@ -1345,6 +1345,17 @@ export const russiaTours: Tour[] = [
   },
 ];
 
+export const regionToPath: Record<string, string> = {
+  "Япония": "/japan-tours",
+  "Южная Корея": "/korea-tours",
+  "Китай": "/china-tours",
+  "Северная Корея": "/nkorea-tours",
+  "Россия": "/russia-tours",
+  "Арктика": "/expedition-cruises",
+  "Антарктика": "/expedition-cruises",
+  "Мальдивы": "/maldives",
+};
+
 export const getTourById = (id: string) => {
   const allTours = [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours];
   return allTours.find((t) => t.id === id);
