@@ -12,6 +12,7 @@ interface CategoryToursPageProps {
   title: React.ReactNode;
   subtitle: string;
   backLink?: string;
+  breadcrumbLabel: string;
 }
 
 const CategoryToursPage = ({ tours, title, subtitle }: CategoryToursPageProps) => {
