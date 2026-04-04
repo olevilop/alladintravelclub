@@ -63,7 +63,7 @@ const TourCarousel = ({ tours }: { tours: Tour[] }) => {
 
       <div
         ref={scrollRef}
-        className="flex gap-6 overflow-x-auto snap-x snap-mandatory"
+        className="tour-carousel flex gap-6 overflow-x-auto snap-x snap-mandatory"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none", WebkitOverflowScrolling: "touch" }}
       >
         <style>{`.tour-carousel::-webkit-scrollbar { display: none; }`}</style>
