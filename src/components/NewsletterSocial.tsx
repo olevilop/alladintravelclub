@@ -80,7 +80,7 @@ const NewsletterSocial = () => {
               VKонтакте
             </a>
             <a
-              href="http://www.youtube.com/@travelcluballadin1"
+              href="https://www.youtube.com/channel/UCJ7KA_bT8GS02nmW9rytefA"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-sm text-[10px] font-sans uppercase tracking-wider transition-colors w-full"
