@@ -11,15 +11,20 @@ const regionLabels: Record<string, string> = {
 };
 
 interface SimilarToursProps {
-  currentTour: { id: string; region: string };
+  currentTour: { id: string; region: string; category?: string };
 }
 
 const SimilarTours = ({ currentTour }: SimilarToursProps) => {
   const allTours = [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours];
-  const similarTours = allTours.filter(t => t.id !== currentTour.id && t.region === currentTour.region);
-
   const isCruise = tours.some(t => t.id === currentTour.id);
-  const label = isCruise ? "экспедиционные круизы" : (regionLabels[currentTour.region] || `туры — ${currentTour.region}`);
+  const similarTours = allTours.filter(t => {
+    if (t.id === currentTour.id) return false;
+    if (isCruise && currentTour.category) return t.category === currentTour.category;
+    return t.region === currentTour.region;
+  });
+  const label = isCruise
+    ? (currentTour.category === "classic" ? "классические круизы" : "экспедиционные круизы")
+    : (regionLabels[currentTour.region] || `туры — ${currentTour.region}`);
 
   return (
     <div className="px-6 md:px-12 pb-16 md:pb-24">
