@@ -37,6 +37,7 @@ export interface Tour {
   id: string;
   name: string;
   region: string;
+  category?: string;
   days: number;
   price: string;
   image: string;
@@ -58,6 +59,7 @@ export const tours: Tour[] = [
     id: "arctic-spitsbergen",
     name: "Арктический круиз на Шпицберген",
     region: "Арктика",
+    category: "expedition",
     days: 14,
     price: "от €12 500",
     image: arcticImg,
@@ -108,6 +110,7 @@ export const tours: Tour[] = [
     id: "south-pole-expedition",
     name: "Экспедиция к Южному полюсу",
     region: "Антарктида",
+    category: "expedition",
     days: 21,
     price: "по запросу",
     image: antarcticaImg,
@@ -166,6 +169,7 @@ export const tours: Tour[] = [
     id: "antarctic-penguins",
     name: "Королевские пингвины Антарктиды",
     region: "Антарктида",
+    category: "expedition",
     days: 16,
     shipName: "Antarctic Dream",
     shipImage: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=800&auto=format&fit=crop",
@@ -215,6 +219,7 @@ export const tours: Tour[] = [
     id: "serengeti-safari",
     name: "Сафари в Серенгети Deluxe",
     region: "Африка",
+    category: "expedition",
     days: 10,
     price: "от €9 200",
     image: tourSafari,
@@ -257,6 +262,7 @@ export const tours: Tour[] = [
     id: "norway-fjords",
     name: "Фьорды Норвегии на яхте",
     region: "Арктика",
+    category: "classic",
     days: 12,
     price: "от €18 000",
     image: tourExpedition,
@@ -301,6 +307,7 @@ export const tours: Tour[] = [
     id: "galapagos-islands",
     name: "Галапагосские острова",
     region: "Острова",
+    category: "classic",
     days: 11,
     shipName: "Galápagos Explorer",
     shipImage: "https://images.unsplash.com/photo-1559825481-12a05cc00344?w=800&auto=format&fit=crop",
@@ -345,6 +352,7 @@ export const tours: Tour[] = [
     id: "bhutan-temples",
     name: "Затерянные храмы Бутана",
     region: "Азия",
+    category: "classic",
     days: 9,
     price: "от €7 800",
     image: asiaImg,
@@ -385,6 +393,7 @@ export const tours: Tour[] = [
     id: "patagonia-edge",
     name: "Патагония: край земли",
     region: "Южная Америка",
+    category: "classic",
     days: 15,
     price: "от €13 200",
     image: southAmericaImg,
@@ -1362,9 +1371,12 @@ export const regionToBreadcrumb: Record<string, { label: string; path: string }>
   "Китай": { label: "Туры по Китаю", path: "/china-tours" },
   "Северная Корея": { label: "Туры по Северной Корее", path: "/nkorea-tours" },
   "Россия": { label: "Туры по России", path: "/russia-tours" },
-  "Арктика": { label: "Экспедиционные круизы", path: "/expedition-cruises" },
-  "Антарктика": { label: "Экспедиционные круизы", path: "/expedition-cruises" },
   "Мальдивы": { label: "Мальдивы", path: "/maldives" },
+};
+
+export const categoryToBreadcrumb: Record<string, { label: string; path: string }> = {
+  "expedition": { label: "Экспедиционные круизы", path: "/expedition-cruises" },
+  "classic": { label: "Классические круизы", path: "/classic-cruises" },
 };
 
 export const getTourById = (id: string) => {
