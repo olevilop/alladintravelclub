@@ -393,6 +393,7 @@ export const tours: Tour[] = [
     id: "patagonia-edge",
     name: "Патагония: край земли",
     region: "Южная Америка",
+    category: "classic",
     days: 15,
     price: "от €13 200",
     image: southAmericaImg,
