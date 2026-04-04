@@ -106,6 +106,21 @@ const Footer = () => {
                 ))}
               </ul>
             </div>
+            <div>
+              <h4 className="font-sans text-xs uppercase tracking-widest font-bold text-foreground mb-4">
+                Круизы
+              </h4>
+              <ul className="space-y-2">
+                {cruiseLinks.map((label) => (
+                  <li key={label}>
+                    <span className="text-sm text-muted-foreground">
+                      <span className="text-primary mr-1.5">›</span>
+                      {label}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
             {footerLinks.map((col) => (
               <div key={col.title}>
                 <h4 className="font-sans text-xs uppercase tracking-widest font-bold text-foreground mb-4">
