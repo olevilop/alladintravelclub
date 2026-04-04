@@ -2,11 +2,15 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 import lampLogo from "@/assets/lamp-logo.png";
 
+const tourLinks = [
+  { label: "Япония", to: "/japan-tours" },
+  { label: "Китай", to: "/china-tours" },
+  { label: "Россия", to: "/russia-tours" },
+  { label: "Южная Корея", to: "/korea-tours" },
+  { label: "Северная Корея", to: "/nkorea-tours" },
+];
+
 const footerLinks = [
-  {
-    title: "Направления",
-    links: ["Арктика", "Антарктида", "Африка", "Азия", "Острова", "Южная Америка"],
-  },
   {
     title: "Программы",
     links: ["Экспедиционные круизы", "Авторские туры", "Групповые туры", "Индивидуальные туры", "Корпоративные туры"],
@@ -74,6 +78,25 @@ const Footer = () => {
       <div className="border-t border-b border-border/30">
         <div className="container mx-auto px-6 py-10">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+            <div>
+              <h4 className="font-sans text-xs uppercase tracking-widest font-bold text-foreground mb-4">
+                Туры
+              </h4>
+              <ul className="space-y-2">
+                {tourLinks.map((item) => (
+                  <li key={item.to}>
+                    <Link
+                      to={item.to}
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <span className="text-primary mr-1.5">›</span>
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
             {footerLinks.map((col) => (
               <div key={col.title}>
                 <h4 className="font-sans text-xs uppercase tracking-widest font-bold text-foreground mb-4">
