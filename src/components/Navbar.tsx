@@ -104,6 +104,25 @@ const Navbar = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
+          {/* Cruises dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-sans uppercase tracking-widest text-foreground/70 hover:text-primary transition-colors duration-300 outline-none">
+              Круизы
+              <ChevronDown className="h-3.5 w-3.5" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start">
+              {cruiseSubLinks.map((link) => (
+                <DropdownMenuItem
+                  key={link.path}
+                  onClick={() => goToTour(link.path)}
+                  className="cursor-pointer"
+                >
+                  {link.label}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           {navLinks.map((link) => (
             <button
               key={link.href}
