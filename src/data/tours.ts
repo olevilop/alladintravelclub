@@ -169,6 +169,7 @@ export const tours: Tour[] = [
     id: "antarctic-penguins",
     name: "Королевские пингвины Антарктиды",
     region: "Антарктида",
+    category: "expedition",
     days: 16,
     shipName: "Antarctic Dream",
     shipImage: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=800&auto=format&fit=crop",
