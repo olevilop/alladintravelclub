@@ -24,9 +24,11 @@ const SpecialOffers = ({ excludeTourId }: SpecialOffersProps) => {
     <div className="px-6 md:px-12 pb-16 md:pb-24">
       <div className="flex items-center justify-center gap-4 mb-8">
         <span className="hidden sm:block flex-shrink-0 h-[1px] w-24 bg-gradient-to-r from-transparent to-primary" />
-        <h2 className="font-serif text-2xl md:text-3xl font-light text-foreground">
-          Спец<span className="italic text-gold-gradient">предложения</span>
-        </h2>
+        <Link to="/special-offers" className="hover:text-primary transition-colors">
+          <h2 className="font-serif text-2xl md:text-3xl font-light text-foreground">
+            Спец<span className="italic text-gold-gradient">предложения</span>
+          </h2>
+        </Link>
         <span className="hidden sm:block flex-shrink-0 h-[1px] w-24 bg-gradient-to-l from-transparent to-primary" />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
