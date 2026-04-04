@@ -20,6 +20,7 @@ import RouteMap from "@/components/RouteMap";
 import FAQSection from "@/components/FAQSection";
 import SpecialOffers from "@/components/SpecialOffers";
 import NewsletterSocial from "@/components/NewsletterSocial";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const fadeIn = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
