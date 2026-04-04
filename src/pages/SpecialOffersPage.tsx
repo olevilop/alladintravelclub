@@ -8,6 +8,10 @@ import { Moon, MapPin, Ship, Banknote } from "lucide-react";
 import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours } from "@/data/tours";
 
 const SpecialOffersPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const allTours = useMemo(
     () => [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours],
     []
