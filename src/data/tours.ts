@@ -110,6 +110,7 @@ export const tours: Tour[] = [
     id: "south-pole-expedition",
     name: "Экспедиция к Южному полюсу",
     region: "Антарктида",
+    category: "expedition",
     days: 21,
     price: "по запросу",
     image: antarcticaImg,
