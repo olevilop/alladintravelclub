@@ -18,8 +18,19 @@ const tourSubLinks = [
   { label: "Мальдивы", path: "/maldives" },
 ];
 
+const cruiseSubLinks = [
+  { label: "Арктика", path: "/cruises/arctic" },
+  { label: "Антарктида", path: "/cruises/antarctica" },
+  { label: "Африка", path: "/cruises/africa" },
+  { label: "Австралия и Океания", path: "/cruises/oceania" },
+  { label: "Ближний Восток", path: "/cruises/middle-east" },
+  { label: "Северная Америка", path: "/cruises/north-america" },
+  { label: "Южная Америка", path: "/cruises/south-america" },
+  { label: "Россия", path: "/cruises/russia" },
+  { label: "Азия", path: "/cruises/asia" },
+];
+
 const navLinks = [
-  { label: "Круизы", href: "#destinations" },
   { label: "Спецпредложения", href: "/special-offers" },
   { label: "Бронирование авиабилетов", href: "#about" },
   { label: "Контакты", href: "#contact" },
