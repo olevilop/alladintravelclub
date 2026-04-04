@@ -67,6 +67,7 @@ const Navbar = () => {
   const goToTour = (path: string) => {
     setMenuOpen(false);
     setToursExpanded(false);
+    setCruisesExpanded(false);
     navigate(path);
     window.scrollTo(0, 0);
   };
