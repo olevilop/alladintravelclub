@@ -1,8 +1,8 @@
 
 
-## Сделать цвет хлебных крошек светлее
+## Убрать кнопку «На главную» из Hero-секции
 
-**Файл: `src/components/Breadcrumbs.tsx`**
+**Файл: `src/pages/CategoryToursPage.tsx`**
 
-Заменить `text-foreground` на `text-muted-foreground` в контейнере `<nav>`, чтобы крошки были светлее основного текста и не привлекали лишнего внимания.
+Удалить кнопку с текстом «На главную» (строка с `<button onClick={goBack}...>`) из Hero-секции. Также убрать неиспользуемые импорты `useNavigate` и `ArrowLeft`.
 
