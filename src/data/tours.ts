@@ -1,4 +1,5 @@
 import arcticImg from "@/assets/arctic.jpg";
+import antarcticPenguinsHero from "@/assets/antarctic-penguins-hero.jpg";
 import antarcticaImg from "@/assets/antarctica.jpg";
 import tourExpedition from "@/assets/tour-expedition.jpg";
 import tourPenguins from "@/assets/tour-penguins.jpg";
