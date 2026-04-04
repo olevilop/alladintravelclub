@@ -34,7 +34,7 @@ const footerLinks = [
   },
   {
     title: "Полезное",
-    links: ["Отзывы", "Спецпредложения", "Блог", "Политика конфиденциальности"],
+    links: ["Отзывы", "Спецпредложения", "Политика конфиденциальности"],
   },
 ];
 
@@ -129,10 +129,21 @@ const Footer = () => {
                 <ul className="space-y-2">
                   {col.links.map((link) => (
                     <li key={link}>
-                      <button className="text-sm text-muted-foreground hover:text-primary transition-colors text-left">
-                        <span className="text-primary mr-1.5">›</span>
-                        {link}
-                      </button>
+                      {link === "Политика конфиденциальности" ? (
+                        <Link
+                          to="/privacy"
+                          onClick={() => window.scrollTo(0, 0)}
+                          className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <span className="text-primary mr-1.5">›</span>
+                          {link}
+                        </Link>
+                      ) : (
+                        <button className="text-sm text-muted-foreground hover:text-primary transition-colors text-left">
+                          <span className="text-primary mr-1.5">›</span>
+                          {link}
+                        </button>
+                      )}
                     </li>
                   ))}
                 </ul>
