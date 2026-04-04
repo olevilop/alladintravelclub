@@ -1,17 +1,34 @@
 
 
-## Заменить основную картинку тура «Королевские пингвины Антарктиды»
+## Показывать все экспедиционные круизы в блоке «Похожие»
 
-**Что делаем:** Копируем загруженное фото пингвинов в `src/assets/` и заменяем им основное изображение тура `antarctic-penguins`.
+**Проблема:** `SimilarTours` фильтрует по `region`. Экспедиционные круизы имеют разные регионы (Арктика, Антарктида, Африка…), поэтому показывается только 1–2 тура вместо всех.
 
-**Шаги:**
+**Решение:** Для круизов фильтровать по `category` вместо `region`.
 
-1. **Скопировать изображение** `user-uploads://IMG_9778.jpg` → `src/assets/antarctic-penguins-hero.jpg`
+**Файл: `src/components/SimilarTours.tsx`**
 
-2. **Файл `src/data/tours.ts`:**
-   - Добавить импорт: `import antarcticPenguinsHero from "@/assets/antarctic-penguins-hero.jpg";`
-   - Строка 177: заменить `image: tourPenguins` → `image: antarcticPenguinsHero`
-   - Строка 178: заменить первый элемент gallery `tourPenguins` → `antarcticPenguinsHero`
+1. Расширить интерфейс `currentTour` — добавить `category?: string`
+2. Изменить фильтрацию (строка 19):
+   ```tsx
+   // Было:
+   const similarTours = allTours.filter(t => t.id !== currentTour.id && t.region === currentTour.region);
 
-Остальные туры, использующие `tourPenguins` в своих gallery, останутся без изменений.
+   // Станет:
+   const isCruise = tours.some(t => t.id === currentTour.id);
+   const similarTours = allTours.filter(t => {
+     if (t.id === currentTour.id) return false;
+     if (isCruise && currentTour.category) return t.category === currentTour.category;
+     return t.region === currentTour.region;
+   });
+   ```
+3. Убрать дублирующее определение `isCruise` со строки 21 (теперь оно выше)
+4. Обновить label (строка 22) — для `category === "classic"` показывать «классические круизы»:
+   ```tsx
+   const label = isCruise
+     ? (currentTour.category === "classic" ? "классические круизы" : "экспедиционные круизы")
+     : (regionLabels[currentTour.region] || `туры — ${currentTour.region}`);
+   ```
+
+Один файл, одна логическая правка. Все остальные компоненты уже передают полный объект тура с полем `category`.
 
