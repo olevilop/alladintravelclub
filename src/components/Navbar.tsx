@@ -40,6 +40,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [toursExpanded, setToursExpanded] = useState(false);
+  const [cruisesExpanded, setCruisesExpanded] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
