@@ -1,8 +1,8 @@
 
 
-## Убрать кнопку «На главную» из Hero на странице тура
+## Обновить ссылку ВКонтакте
 
-**Файл: `src/pages/TourDetail.tsx`**
+**Файл: `src/components/NewsletterSocial.tsx`**
 
-Удалить блок `<button onClick={goBack}...>На главную</button>` из Hero-секции (строки ~68-72). Убрать неиспользуемый `goBack`, а также импорт `ArrowLeft` (если больше нигде не используется).
+Заменить `href="https://vk.com/"` на `href="https://vk.ru/alladinturz"` в кнопке ВКонтакте.
 
