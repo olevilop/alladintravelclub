@@ -1,8 +1,8 @@
 
 
-## Обновить ссылку ВКонтакте
+## Сделать заголовок «Спецпредложения» кликабельной ссылкой
 
-**Файл: `src/components/NewsletterSocial.tsx`**
+**Файл: `src/components/SpecialOffers.tsx`**
 
-Заменить `href="https://vk.com/"` на `href="https://vk.ru/alladinturz"` в кнопке ВКонтакте.
+Обернуть текст заголовка `<h2>` в `<Link to="/special-offers">`, аналогично тому, как это сделано в заголовках категорий туров (TourCarousel). Добавить импорт `Link` из `react-router-dom` (уже импортирован в файле). Стилизация останется прежней, добавится hover-эффект.
 
