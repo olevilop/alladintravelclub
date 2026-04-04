@@ -16,6 +16,15 @@ import ChinaToursPage from "./pages/ChinaToursPage.tsx";
 import NorthKoreaToursPage from "./pages/NorthKoreaToursPage.tsx";
 import RussiaToursPage from "./pages/RussiaToursPage.tsx";
 import MaldivesPage from "./pages/MaldivesPage.tsx";
+import ArcticCruisesPage from "./pages/cruises/ArcticCruisesPage.tsx";
+import AntarcticaCruisesPage from "./pages/cruises/AntarcticaCruisesPage.tsx";
+import AfricaCruisesPage from "./pages/cruises/AfricaCruisesPage.tsx";
+import OceaniaCruisesPage from "./pages/cruises/OceaniaCruisesPage.tsx";
+import MiddleEastCruisesPage from "./pages/cruises/MiddleEastCruisesPage.tsx";
+import NorthAmericaCruisesPage from "./pages/cruises/NorthAmericaCruisesPage.tsx";
+import SouthAmericaCruisesPage from "./pages/cruises/SouthAmericaCruisesPage.tsx";
+import RussiaCruisesPage from "./pages/cruises/RussiaCruisesPage.tsx";
+import AsiaCruisesPage from "./pages/cruises/AsiaCruisesPage.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 
 const queryClient = new QueryClient();
