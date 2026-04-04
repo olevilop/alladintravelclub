@@ -48,6 +48,15 @@ const App = () => (
           <Route path="/nkorea-tours" element={<NorthKoreaToursPage />} />
           <Route path="/russia-tours" element={<RussiaToursPage />} />
           <Route path="/maldives" element={<MaldivesPage />} />
+          <Route path="/cruises/arctic" element={<ArcticCruisesPage />} />
+          <Route path="/cruises/antarctica" element={<AntarcticaCruisesPage />} />
+          <Route path="/cruises/africa" element={<AfricaCruisesPage />} />
+          <Route path="/cruises/oceania" element={<OceaniaCruisesPage />} />
+          <Route path="/cruises/middle-east" element={<MiddleEastCruisesPage />} />
+          <Route path="/cruises/north-america" element={<NorthAmericaCruisesPage />} />
+          <Route path="/cruises/south-america" element={<SouthAmericaCruisesPage />} />
+          <Route path="/cruises/russia" element={<RussiaCruisesPage />} />
+          <Route path="/cruises/asia" element={<AsiaCruisesPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

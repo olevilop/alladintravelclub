@@ -107,12 +107,16 @@ const Footer = () => {
                 Круизы
               </h4>
               <ul className="space-y-2">
-                {cruiseLinks.map((label) => (
-                  <li key={label}>
-                    <span className="text-sm text-muted-foreground">
+                {cruiseLinks.map((item) => (
+                  <li key={item.to}>
+                    <Link
+                      to={item.to}
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
                       <span className="text-primary mr-1.5">›</span>
-                      {label}
-                    </span>
+                      {item.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
