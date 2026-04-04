@@ -70,7 +70,7 @@ const NewsletterSocial = () => {
               Telegram
             </a>
             <a
-              href="https://vk.com/"
+              href="https://vk.ru/alladinturz"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-sm text-[10px] font-sans uppercase tracking-wider transition-colors w-full"
