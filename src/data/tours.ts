@@ -59,6 +59,7 @@ export const tours: Tour[] = [
     id: "arctic-spitsbergen",
     name: "Арктический круиз на Шпицберген",
     region: "Арктика",
+    category: "expedition",
     days: 14,
     price: "от €12 500",
     image: arcticImg,
