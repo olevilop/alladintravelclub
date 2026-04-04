@@ -1,10 +1,10 @@
 import { useMemo, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsletterSocial from "@/components/NewsletterSocial";
 import SpecialOffers from "@/components/SpecialOffers";
-import { Moon, MapPin, Ship, Banknote, ArrowLeft } from "lucide-react";
+import { Moon, MapPin, Ship, Banknote } from "lucide-react";
 import type { Tour } from "@/data/tours";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
@@ -17,8 +17,6 @@ interface CategoryToursPageProps {
 }
 
 const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel }: CategoryToursPageProps) => {
-  const navigate = useNavigate();
-  const goBack = () => { if (window.history.length > 1) navigate(-1); else navigate("/"); };
   const heroTour = useMemo(() => tours[Math.floor(Math.random() * tours.length)], []);
 
   useEffect(() => {
@@ -38,9 +36,6 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel }: Category
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
         <div className="relative z-10 h-full flex flex-col justify-end items-start pb-12 md:pb-20 container mx-auto px-6">
-          <button onClick={goBack} className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors mb-6">
-            <ArrowLeft className="w-4 h-4" /> На главную
-          </button>
           <h1 className="font-serif text-4xl md:text-6xl font-light text-white">
             {title}
           </h1>
