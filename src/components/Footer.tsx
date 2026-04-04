@@ -151,8 +151,8 @@ const Footer = () => {
 
       {/* Bottom bar */}
       <div className="container mx-auto px-6 py-6 flex justify-center items-center">
-        <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Travel Club Alladin. Все права защищены.
+        <p className="text-xs text-muted-foreground text-center">
+          2011-2026 © Клуб путешественников Алладин — круизы и туры. Использование фотографий и текстов с сайта alladintravelclub.ru возможно только при указании источника. Данный сайт не является публичной офертой и носит исключительно информационный характер.
         </p>
       </div>
     </footer>
