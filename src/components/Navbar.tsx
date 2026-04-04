@@ -1,10 +1,24 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ShoppingCart, User } from "lucide-react";
+import { Menu, X, ShoppingCart, User, ChevronDown } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import lampLogo from "@/assets/lamp-logo.png";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "@/components/ui/dropdown-menu";
+
+const tourSubLinks = [
+  { label: "Япония", path: "/japan-tours" },
+  { label: "Китай", path: "/china-tours" },
+  { label: "Россия", path: "/russia-tours" },
+  { label: "Южная Корея", path: "/korea-tours" },
+  { label: "Северная Корея", path: "/nkorea-tours" },
+  { label: "Мальдивы", path: "/maldives" },
+];
 
 const navLinks = [
-  { label: "Туры", href: "#tours" },
   { label: "Круизы", href: "#destinations" },
   { label: "Спецпредложения", href: "/special-offers" },
   { label: "Бронирование авиабилетов", href: "#about" },
@@ -14,6 +28,7 @@ const navLinks = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [toursExpanded, setToursExpanded] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -37,6 +52,13 @@ const Navbar = () => {
     el?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const goToTour = (path: string) => {
+    setMenuOpen(false);
+    setToursExpanded(false);
+    navigate(path);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-background border-b border-border`}
@@ -50,6 +72,25 @@ const Navbar = () => {
         </button>
 
         <nav className="hidden lg:flex items-center gap-8">
+          {/* Tours dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-sans uppercase tracking-widest text-foreground/70 hover:text-primary transition-colors duration-300 outline-none">
+              Туры
+              <ChevronDown className="h-3.5 w-3.5" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start">
+              {tourSubLinks.map((link) => (
+                <DropdownMenuItem
+                  key={link.path}
+                  onClick={() => goToTour(link.path)}
+                  className="cursor-pointer"
+                >
+                  {link.label}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           {navLinks.map((link) => (
             <button
               key={link.href}
@@ -80,6 +121,30 @@ const Navbar = () => {
       {menuOpen && (
         <div className="lg:hidden bg-background/95 backdrop-blur-md border-t border-border">
           <nav className="container mx-auto px-6 py-6 flex flex-col gap-4">
+            {/* Mobile Tours with expandable sub-links */}
+            <div>
+              <button
+                onClick={() => setToursExpanded(!toursExpanded)}
+                className="flex items-center gap-1 text-sm font-sans uppercase tracking-widest text-foreground/70 hover:text-primary transition-colors text-left py-2 w-full"
+              >
+                Туры
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${toursExpanded ? "rotate-180" : ""}`} />
+              </button>
+              {toursExpanded && (
+                <div className="pl-4 flex flex-col gap-2 mt-1">
+                  {tourSubLinks.map((link) => (
+                    <button
+                      key={link.path}
+                      onClick={() => goToTour(link.path)}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors text-left py-1"
+                    >
+                      {link.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
             {navLinks.map((link) => (
               <button
                 key={link.href}
