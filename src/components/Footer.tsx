@@ -8,6 +8,7 @@ const tourLinks = [
   { label: "Россия", to: "/russia-tours" },
   { label: "Южная Корея", to: "/korea-tours" },
   { label: "Северная Корея", to: "/nkorea-tours" },
+  { label: "Мальдивы", to: "/maldives" },
 ];
 
 const footerLinks = [
