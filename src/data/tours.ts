@@ -37,6 +37,7 @@ export interface Tour {
   id: string;
   name: string;
   region: string;
+  category?: string;
   days: number;
   price: string;
   image: string;
