@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
-import lampLogo from "@/assets/lamp-logo.png";
+
 
 const tourLinks = [
   { label: "Япония", to: "/japan-tours" },
