@@ -1,12 +1,33 @@
 
 
-## Обновить ссылку YouTube в блоке соцсетей
+## Добавить хлебные крошки на все внутренние страницы
 
-### Изменение
+### Что будет сделано
 
-**Файл: `src/components/NewsletterSocial.tsx`**
+На каждой внутренней странице (кроме главной) появится строка хлебных крошек чёрного цвета, расположенная сразу под hero-изображением. Формат: **Главная > Название страницы** (или **Главная > Категория > Тур** для деталей тура).
 
-Заменить `href="https://youtube.com/"` на `href="http://www.youtube.com/@travelcluballadin1"` в кнопке YouTube.
+### Компонент Breadcrumbs
 
-Одна строка, одно изменение.
+**Новый файл: `src/components/Breadcrumbs.tsx`**
+
+Универсальный компонент, принимающий массив `items: { label: string, href?: string }[]`. Рендерит горизонтальный список ссылок, разделённых `>`, чёрным цветом текста. Контейнер — `container mx-auto px-6 py-4`.
+
+### Страницы, где добавляются крошки
+
+| Страница | Крошки | Место вставки |
+|---|---|---|
+| `CategoryToursPage.tsx` | Главная > {title} | После `</section>` hero, перед карточками |
+| `SpecialOffersPage.tsx` | Главная > Спецпредложения | После hero section |
+| `MaldivesPage.tsx` | Главная > Мальдивы | После hero section |
+| `TourDetail.tsx` | Главная > {tour.region || «Туры»} > {tour.name} | После hero + thumbnail strip |
+| `PrivacyPolicy.tsx` | Главная > Политика конфиденциальности | В начале `<main>`, перед заголовком |
+
+### Технические детали
+
+- Компонент использует `Link` из react-router-dom для навигации
+- Текст и разделители — чёрный цвет (`text-foreground`)
+- Последний элемент — обычный текст (не ссылка), полужирный
+- Разделитель: символ `›` или иконка `ChevronRight`
+- Для `CategoryToursPage` нужно добавить проп `breadcrumbLabel: string` чтобы передавать текстовое название категории из каждой страницы-обёртки (JapanToursPage и т.д.)
+- 6 файлов: 1 новый + 5 редактируемых + обновление всех обёрток CategoryToursPage (Japan, Korea, China, NorthKorea, Russia, ExpeditionCruises, ClassicCruises — ~7 файлов)
 
