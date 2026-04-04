@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const seasons = [
   { icon: Sun, title: "Декабрь — Март", subtitle: "Сухой сезон", desc: "Идеальная погода: +28–30 °C, минимум осадков, спокойный океан. Лучшее время для снорклинга и дайвинга." },
