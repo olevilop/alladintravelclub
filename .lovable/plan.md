@@ -1,24 +1,21 @@
 
 
-## Добавить блок «Похожие экспедиционные круизы» на страницу категории
+## Исправить блок «Похожие экспедиционные круизы» на странице категории
 
-**Проблема:** На странице «Экспедиционные круизы» (`ExpeditionCruisesPage`) нет блока «Похожие экспедиционные круизы» — компонент `CategoryToursPage` его не рендерит.
+**Проблема:** На строке 19 `SimilarTours.tsx` переменная `isCruise` определяется через `tours.some(t => t.id === currentTour.id)`. Когда компонент вызывается из `CategoryToursPage` с `id: ""`, ни один тур не совпадает → `isCruise = false` → фильтрация идёт по `region` (тоже пустой) → результат пуст.
 
-**Решение:** Добавить компонент `SimilarTours` в `CategoryToursPage`, передавая ему данные о категории.
+**Решение:** Изменить определение `isCruise` — считать круизом также когда передан `category`.
 
-**Файл: `src/pages/CategoryToursPage.tsx`**
+**Файл: `src/components/SimilarTours.tsx`**
 
-1. Добавить необязательный проп `category?: string` в интерфейс `CategoryToursPageProps`
-2. Импортировать `SimilarTours`
-3. Если `category` задан — рендерить `<SimilarTours currentTour={{ id: "", region: "", category }} />` перед `SpecialOffers`. Пустой `id` гарантирует, что ни один тур не будет исключён (все туры категории покажутся)
+Строка 19 — заменить:
+```tsx
+const isCruise = tours.some(t => t.id === currentTour.id);
+```
+на:
+```tsx
+const isCruise = !!currentTour.category || tours.some(t => t.id === currentTour.id);
+```
 
-**Файл: `src/pages/ExpeditionCruisesPage.tsx`**
-
-1. Передать проп `category="expedition"` в `CategoryToursPage`
-
-**Файл: `src/pages/ClassicCruisesPage.tsx`**
-
-1. Аналогично передать `category="classic"` (для единообразия)
-
-Остальные страницы категорий (региональные туры) не затрагиваются — для них блок похожих туров не нужен.
+Одна строка, одно изменение. Если `category` задан (как при вызове из `CategoryToursPage`), `isCruise` будет `true`, и фильтрация пойдёт по категории, показывая все экспедиционные круизы.
 
