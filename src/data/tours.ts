@@ -174,7 +174,7 @@ export const tours: Tour[] = [
     category: "expedition",
     days: 16,
     shipName: "Scenic Eclipse 6*",
-    shipImage: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=800&auto=format&fit=crop",
+    shipImage: scenicEclipseShip,
     price: "от €21 665",
     image: antarcticPenguinsHero,
     gallery: [antarcticPenguinsHero, antarcticaImg, arcticImg, tourExpedition, southAmericaImg],
