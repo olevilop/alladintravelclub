@@ -1465,6 +1465,22 @@ export const regionToBreadcrumb: Record<string, { label: string; path: string }>
   "Россия": { label: "Туры по России", path: "/russia-tours" },
   "Мальдивы": { label: "Мальдивы", path: "/maldives" },
 };
+export const regionToContinent: Record<string, string> = {
+  "Арктика": "Арктика",
+  "Антарктида": "Антарктида",
+  "Африка": "Африка",
+  "Россия": "Азия",
+  "Ближний Восток": "Азия",
+  "Острова": "Южная Америка",
+  "Азия": "Азия",
+  "Южная Америка": "Южная Америка",
+  "Средиземноморье": "Европа",
+  "Япония": "Азия",
+  "Южная Корея": "Азия",
+  "Китай": "Азия",
+  "Северная Корея": "Азия",
+  "Мальдивы": "Азия",
+};
 
 export const categoryToBreadcrumb: Record<string, { label: string; path: string }> = {
   "expedition": { label: "Экспедиционные круизы", path: "/expedition-cruises" },

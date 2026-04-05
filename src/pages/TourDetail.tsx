@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { getTourById, regionToBreadcrumb, categoryToBreadcrumb } from "@/data/tours";
+import { getTourById, regionToBreadcrumb, categoryToBreadcrumb, regionToContinent } from "@/data/tours";
 import SimilarTours from "@/components/SimilarTours";
 import { tourRoutes } from "@/data/tourRoutes";
 import Navbar from "@/components/Navbar";
