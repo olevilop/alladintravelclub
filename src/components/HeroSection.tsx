@@ -66,7 +66,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.8 }}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white max-w-4xl leading-tight"
+            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white max-w-4xl leading-tight text-center"
           >
             {slides[currentIndex].title}
           </motion.h1>
