@@ -56,7 +56,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/15 to-black/40" />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-start justify-center px-6 sm:px-12 lg:px-24">
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 sm:px-12 lg:px-24">
 
         {/* Slide title */}
         <AnimatePresence mode="wait">
