@@ -45,9 +45,9 @@ const ToursSection = () => {
           </div>
         </motion.div>
 
-        <TourCarousel tours={tours.slice(0, Math.max(tours.length, 4))} />
+        <TourCarousel tours={tours.filter(t => t.category === "expedition")} />
 
-        {tours.length > 4 && (
+        {tours.some(t => t.category === "classic") && (
           <>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -61,7 +61,7 @@ const ToursSection = () => {
                 </SectionHeading>
               </Link>
             </motion.div>
-            <TourCarousel tours={tours.slice(4)} />
+            <TourCarousel tours={tours.filter(t => t.category === "classic")} />
           </>
         )}
 
