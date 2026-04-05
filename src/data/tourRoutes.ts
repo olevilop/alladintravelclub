@@ -224,4 +224,13 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
     { lat: 61.19, lng: 36.57, label: "Валаам" },
     { lat: 59.93, lng: 30.32, label: "Санкт-Петербург" },
   ],
+  "chukotka-polar-bears": [
+    { lat: 64.73, lng: 177.51, label: "Анадырь" },
+    { lat: 64.43, lng: -173.23, label: "Провидения" },
+    { lat: 66.08, lng: -169.65, label: "Мыс Дежнёва" },
+    { lat: 71.00, lng: -179.50, label: "Остров Врангеля" },
+    { lat: 67.05, lng: -174.64, label: "Колючинская губа" },
+    { lat: 65.50, lng: -171.72, label: "Лорино" },
+    { lat: 64.73, lng: 177.51, label: "Анадырь" },
+  ],
 };
