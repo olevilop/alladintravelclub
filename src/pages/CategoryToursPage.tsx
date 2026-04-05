@@ -102,6 +102,9 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category }
         ))}
       </section>
 
+      {category && (
+        <SimilarTours currentTour={{ id: "", region: "", category }} />
+      )}
       <SpecialOffers />
       <NewsletterSocial />
       <Footer />
