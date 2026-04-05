@@ -3,7 +3,7 @@ import { tours } from "@/data/tours";
 
 const ClassicCruisesPage = () => (
   <CategoryToursPage
-    tours={tours.slice(4)}
+    tours={tours.filter(t => t.category === "classic")}
     title={<>Классические <span className="italic">круизы</span></>}
     subtitle="Откройте мир с комфортом"
     breadcrumbLabel="Классические круизы"

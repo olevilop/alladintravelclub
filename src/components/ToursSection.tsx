@@ -61,7 +61,7 @@ const ToursSection = () => {
                 </SectionHeading>
               </Link>
             </motion.div>
-            <TourCarousel tours={tours.slice(4)} />
+            <TourCarousel tours={tours.filter(t => t.category === "classic")} />
           </>
         )}
 
