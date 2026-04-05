@@ -29,7 +29,7 @@ import russiaAltaiImg from "@/assets/russia-altai.jpg";
 import russiaSpbImg from "@/assets/russia-spb.jpg";
 
 export interface TourDay {
-  day: number;
+  day: number | string;
   title: string;
   description: string;
 }
