@@ -76,7 +76,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9 }}
-          className="mt-6 text-white/70 font-sans text-lg md:text-xl max-w-2xl"
+          className="mt-6 text-white/70 font-sans text-lg md:text-xl max-w-2xl text-center"
         >
           Авторские туры по всему миру
         </motion.p>
