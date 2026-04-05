@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { ArrowRight, Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, ChevronLeft, ChevronRight, Compass } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import {
   Select,
