@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import arcticImg from "@/assets/arctic.jpg";
 import antarcticaImg from "@/assets/antarctica.jpg";
 import africaImg from "@/assets/africa.jpg";
@@ -11,7 +12,7 @@ const destinations = [
   { name: "Арктика", desc: "Северный полюс, Шпицберген, Гренландия", image: arcticImg },
   { name: "Антарктида", desc: "Ледяной континент и Южный океан", image: antarcticaImg },
   { name: "Африка", desc: "Сафари, Килиманджаро, Мадагаскар", image: africaImg },
-  { name: "Азия", desc: "Бутан, Монголия, Камчатка", image: asiaImg },
+  { name: "Азия", desc: "Япония, Китай, Россия, Южная Корея, Мальдивы", image: asiaImg, link: "/destinations/asia" },
   { name: "Острова", desc: "Галапагосы, Мальдивы, Сейшелы", image: islandsImg },
   { name: "Южная Америка", desc: "Патагония, Амазонка, Мачу-Пикчу", image: southAmericaImg },
 ];
