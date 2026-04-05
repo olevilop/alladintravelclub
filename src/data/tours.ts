@@ -214,7 +214,7 @@ export const tours: Tour[] = [
     ],
     difficulty: "Лёгкая",
     groupSize: "до 100 человек",
-    startDates: ["20 ноября — 5 декабря 2025", "18 декабря 2025 — 2 января 2026"],
+    startDates: ["3 декабря — 18 декабря 2026"],
   },
   {
     id: "serengeti-safari",
