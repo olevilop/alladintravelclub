@@ -1,25 +1,21 @@
 
 
-## Заменить «Фьорды Норвегии на яхте» на «Круиз по Ближнему Востоку»
+## Исправить разделение туров на экспедиционные и классические
 
-**Что делаем:** Удаляем тур `norway-fjords` из массива `tours` и на его место вставляем новый классический круиз по Ближнему Востоку.
+**Проблема:** В `ToursSection.tsx` строка 48 использует `tours.slice(0, Math.max(tours.length, 4))` — это возвращает ВСЕ туры, а не только первые 4 экспедиционных. Круиз по Ближнему Востоку (category: classic) попадает в оба блока.
 
-**Файл: `src/data/tours.ts`**
+**Решение:** Заменить жёсткую нарезку по индексу на фильтрацию по полю `category`.
 
-Заменить объект на строках 262–306 (тур `norway-fjords`) на новый тур:
+**Файл: `src/pages/ExpeditionCruisesPage.tsx`**
+- Заменить `tours.slice(0, 4)` на `tours.filter(t => t.category === "expedition")`
 
-- `id: "middle-east-cruise"`
-- `name: "Круиз по Ближнему Востоку"`
-- `region: "Ближний Восток"`, `category: "classic"`
-- `days: 10`, `price: "от €7 500"`
-- `image: asiaImg` (заглушка из существующих)
-- `gallery` — 5 существующих изображений
-- `subtitle` — «Роскошный круиз по жемчужинам Персидского залива и Аравийского моря»
-- `description` — описание маршрута (Дубай, Абу-Даби, Оман, Бахрейн)
-- `itinerary` — 10 дней: Дубай → Абу-Даби → Маскат → Хасаб → Бахрейн → Доха → Дубай
-- `included` / `notIncluded` — стандартные пункты
-- `shipName: "Arabian Pearl"`, `shipImage` — ссылка на Unsplash
-- `difficulty: "Лёгкая"`, `groupSize: "до 40 человек"`, 3 даты старта
+**Файл: `src/pages/ClassicCruisesPage.tsx`**
+- Заменить `tours.slice(4)` на `tours.filter(t => t.category === "classic")`
 
-Других файлов менять не нужно — тур подхватится автоматически в блоке классических круизов.
+**Файл: `src/components/ToursSection.tsx`**
+- Строка 48: заменить `tours.slice(0, Math.max(tours.length, 4))` на `tours.filter(t => t.category === "expedition")`
+- Строка 64 (внутри условного блока): заменить `tours.slice(4)` на `tours.filter(t => t.category === "classic")`
+- Условие `tours.length > 4` заменить на проверку наличия классических круизов: `tours.some(t => t.category === "classic")`
+
+Все три файла — одинаковый принцип: фильтрация по `category` вместо нарезки по индексу.
 
