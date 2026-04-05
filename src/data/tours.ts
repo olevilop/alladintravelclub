@@ -174,7 +174,7 @@ export const tours: Tour[] = [
     days: 16,
     shipName: "Scenic Eclipse 6*",
     shipImage: "https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=800&auto=format&fit=crop",
-    price: "от €15 800",
+    price: "от €21 665",
     image: antarcticPenguinsHero,
     gallery: [antarcticPenguinsHero, antarcticaImg, arcticImg, tourExpedition, southAmericaImg],
     subtitle: "Встреча с самыми элегантными обитателями ледяного континента",
