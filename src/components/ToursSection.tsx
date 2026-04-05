@@ -1,10 +1,8 @@
 import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours } from "@/data/tours";
 import TourCarousel from "./TourCarousel";
-
-const regions = ["Все", "Арктика", "Антарктида", "Африка", "Азия", "Острова", "Южная Америка"];
 
 const SectionHeading = ({ children }: { children: React.ReactNode }) => (
   <div className="flex items-center justify-center gap-4">
@@ -17,9 +15,6 @@ const SectionHeading = ({ children }: { children: React.ReactNode }) => (
 const ToursSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-  const [activeRegion, setActiveRegion] = useState("Все");
-
-  const filtered = activeRegion === "Все" ? tours : tours.filter((t) => t.region === activeRegion);
 
   const categories = [
     { tours: japanTours, link: "/japan-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Японии</span></> },
@@ -50,25 +45,9 @@ const ToursSection = () => {
           </div>
         </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {regions.map((region) => (
-            <button
-              key={region}
-              onClick={() => setActiveRegion(region)}
-              className={`px-5 py-2 text-sm font-sans uppercase tracking-wider transition-all duration-300 border ${
-                activeRegion === region
-                  ? "border-primary bg-primary/10 text-primary"
-                  : "border-border text-muted-foreground hover:border-primary/50 hover:text-foreground"
-              }`}
-            >
-              {region}
-            </button>
-          ))}
-        </div>
+        <TourCarousel tours={tours.slice(0, Math.max(tours.length, 4))} />
 
-        <TourCarousel tours={filtered.slice(0, Math.max(filtered.length, 4))} />
-
-        {filtered.length > 4 && (
+        {tours.length > 4 && (
           <>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -82,7 +61,7 @@ const ToursSection = () => {
                 </SectionHeading>
               </Link>
             </motion.div>
-            <TourCarousel tours={filtered.slice(4)} />
+            <TourCarousel tours={tours.slice(4)} />
           </>
         )}
 
