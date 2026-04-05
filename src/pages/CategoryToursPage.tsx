@@ -18,7 +18,7 @@ interface CategoryToursPageProps {
   category?: string;
 }
 
-const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel }: CategoryToursPageProps) => {
+const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category }: CategoryToursPageProps) => {
   const heroTour = useMemo(() => tours[Math.floor(Math.random() * tours.length)], []);
 
   useEffect(() => {
