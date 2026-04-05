@@ -7,6 +7,7 @@ const ExpeditionCruisesPage = () => (
     title={<>Экспедиционные <span className="italic">круизы</span></>}
     subtitle="Путешествия к краю земли"
     breadcrumbLabel="Экспедиционные круизы"
+    category="expedition"
   />
 );
 

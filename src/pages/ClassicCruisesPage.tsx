@@ -7,6 +7,7 @@ const ClassicCruisesPage = () => (
     title={<>Классические <span className="italic">круизы</span></>}
     subtitle="Откройте мир с комфортом"
     breadcrumbLabel="Классические круизы"
+    category="classic"
   />
 );
 

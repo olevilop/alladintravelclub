@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsletterSocial from "@/components/NewsletterSocial";
 import SpecialOffers from "@/components/SpecialOffers";
+import SimilarTours from "@/components/SimilarTours";
 import { Moon, MapPin, Ship, Banknote } from "lucide-react";
 import type { Tour } from "@/data/tours";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -14,9 +15,10 @@ interface CategoryToursPageProps {
   subtitle: string;
   backLink?: string;
   breadcrumbLabel: string;
+  category?: string;
 }
 
-const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel }: CategoryToursPageProps) => {
+const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category }: CategoryToursPageProps) => {
   const heroTour = useMemo(() => tours[Math.floor(Math.random() * tours.length)], []);
 
   useEffect(() => {
@@ -100,6 +102,9 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel }: Category
         ))}
       </section>
 
+      {category && (
+        <SimilarTours currentTour={{ id: "", region: "", category }} />
+      )}
       <SpecialOffers />
       <NewsletterSocial />
       <Footer />
