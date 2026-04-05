@@ -25,6 +25,7 @@ import NorthAmericaCruisesPage from "./pages/cruises/NorthAmericaCruisesPage.tsx
 import SouthAmericaCruisesPage from "./pages/cruises/SouthAmericaCruisesPage.tsx";
 import RussiaCruisesPage from "./pages/cruises/RussiaCruisesPage.tsx";
 import AsiaCruisesPage from "./pages/cruises/AsiaCruisesPage.tsx";
+import AsiaDestinationPage from "./pages/destinations/AsiaDestinationPage.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 
 const queryClient = new QueryClient();
