@@ -56,7 +56,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/15 to-black/40" />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 sm:px-12 lg:px-24">
+      <div className="relative z-10 h-full flex flex-col items-start justify-center px-6 sm:px-12 lg:px-24">
 
         {/* Slide title */}
         <AnimatePresence mode="wait">
@@ -66,7 +66,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.8 }}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white max-w-4xl leading-tight text-center"
+            className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light text-white max-w-4xl leading-tight"
           >
             {slides[currentIndex].title}
           </motion.h1>
@@ -76,7 +76,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.9 }}
-          className="mt-6 text-white/70 font-sans text-lg md:text-xl max-w-2xl text-center"
+          className="mt-6 text-white/70 font-sans text-lg md:text-xl max-w-2xl"
         >
           Авторские туры по всему миру
         </motion.p>
@@ -87,7 +87,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
           onClick={() => document.querySelector("#tours")?.scrollIntoView({ behavior: "smooth" })}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-3 px-6 py-3 rounded-full text-white font-sans text-lg tracking-wide hover:brightness-110 transition-all duration-300"
+          className="absolute bottom-12 left-6 sm:left-12 lg:left-24 flex items-center gap-3 px-6 py-3 rounded-full text-white font-sans text-lg tracking-wide hover:brightness-110 transition-all duration-300"
           style={{ backgroundColor: "#a87f39" }}
         >
           <img src={lampButton} alt="Лампа" className="h-8 w-auto invert" />
