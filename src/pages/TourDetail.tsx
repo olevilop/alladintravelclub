@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { ArrowRight, Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, ChevronLeft, ChevronRight, Compass } from "lucide-react";
+import { ArrowRight, Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, ChevronLeft, ChevronRight, Compass, Globe } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import {
   Select,
@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { getTourById, regionToBreadcrumb, categoryToBreadcrumb } from "@/data/tours";
+import { getTourById, regionToBreadcrumb, categoryToBreadcrumb, regionToContinent } from "@/data/tours";
 import SimilarTours from "@/components/SimilarTours";
 import { tourRoutes } from "@/data/tourRoutes";
 import Navbar from "@/components/Navbar";
@@ -175,9 +175,21 @@ const TourDetail = () => {
                 {tour.category === "expedition" && (
                   <div className="flex items-center gap-3 text-sm text-foreground/80">
                     <Compass className="w-4 h-4 text-primary shrink-0" />
-                    <span>Экспедиционный круиз · {tour.region}</span>
+                    <span>Экспедиционный круиз</span>
                   </div>
                 )}
+                {tour.category === "classic" && (
+                  <div className="flex items-center gap-3 text-sm text-foreground/80">
+                    <Ship className="w-4 h-4 text-primary shrink-0" />
+                    <span>Классический круиз</span>
+                  </div>
+                )}
+                <div className="space-y-3 text-sm">
+                  <div className="flex items-center gap-3 text-foreground/80">
+                    <Globe className="w-4 h-4 text-primary shrink-0" />
+                    <span>{regionToContinent[tour.region] || tour.region}</span>
+                  </div>
+                </div>
                 <div>
                   <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground mb-3">{isCruise ? "Дата круиза" : "Дата тура"}</h4>
                   <Select>
