@@ -262,7 +262,7 @@ export const tours: Tour[] = [
   {
     id: "chukotka-polar-bears",
     name: "Чукотка: белые медведи",
-    region: "Арктика",
+    region: "Азия",
     category: "expedition",
     days: 12,
     price: "от €14 000",
