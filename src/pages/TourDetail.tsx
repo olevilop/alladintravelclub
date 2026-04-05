@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { ArrowRight, Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, ChevronLeft, ChevronRight, Compass } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import {
   Select,
@@ -172,6 +172,12 @@ const TourDetail = () => {
               {/* Quick info card */}
               <div className="bg-card border border-border p-6 space-y-5">
                 <h3 className="font-serif text-lg md:text-xl font-light leading-snug">{tour.name}</h3>
+                {tour.category === "expedition" && (
+                  <div className="flex items-center gap-3 text-sm text-foreground/80">
+                    <Compass className="w-4 h-4 text-primary shrink-0" />
+                    <span>Экспедиционный круиз · {tour.region}</span>
+                  </div>
+                )}
                 <div>
                   <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground mb-3">{isCruise ? "Дата круиза" : "Дата тура"}</h4>
                   <Select>
