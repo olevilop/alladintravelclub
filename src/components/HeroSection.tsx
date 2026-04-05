@@ -87,7 +87,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
           onClick={() => document.querySelector("#tours")?.scrollIntoView({ behavior: "smooth" })}
-          className="absolute bottom-12 left-6 sm:left-12 lg:left-24 flex items-center gap-3 px-6 py-3 rounded-full text-white font-sans text-lg tracking-wide hover:brightness-110 transition-all duration-300"
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-3 px-6 py-3 rounded-full text-white font-sans text-lg tracking-wide hover:brightness-110 transition-all duration-300"
           style={{ backgroundColor: "#a87f39" }}
         >
           <img src={lampButton} alt="Лампа" className="h-8 w-auto invert" />
