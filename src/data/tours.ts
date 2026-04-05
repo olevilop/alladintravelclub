@@ -168,7 +168,7 @@ export const tours: Tour[] = [
   },
   {
     id: "antarctic-penguins",
-    name: "Королевские пингвины Антарктиды",
+    name: "Антарктический полуостров и море Уэдделла на Scenic Eclipse",
     region: "Антарктида",
     category: "expedition",
     days: 16,
