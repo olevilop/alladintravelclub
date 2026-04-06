@@ -122,7 +122,7 @@ const TourDetail = () => {
                     transition={{ delay: 0.03 * i, duration: 0.4 }}
                     className="flex gap-4 md:gap-6 group"
                   >
-                    <div className="flex flex-col items-center">
+                    <div className="flex flex-col items-start min-w-[140px]">
                       <div className="rounded-full border border-primary/50 bg-card flex items-center justify-center px-3 py-1 text-xs text-primary font-sans shrink-0 whitespace-nowrap">
                         {typeof day.day === 'number' ? `${day.day} день` : day.day}
                       </div>
