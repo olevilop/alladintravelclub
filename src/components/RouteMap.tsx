@@ -49,8 +49,8 @@ const RouteMap = ({ tourId }: RouteMapProps) => {
       )}
 
       <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
-        {uniqueLabels.map((p, i) => (
-          <span key={p.label} className="flex items-center gap-1">
+        {routeLabels.map((p, i) => (
+          <span key={i} className="flex items-center gap-1">
             <span className="text-primary font-medium">{i + 1}.</span> {p.label}
           </span>
         ))}
