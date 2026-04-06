@@ -54,11 +54,9 @@ const MAP_H = 280;
 
 const RouteMap = ({ tourId }: RouteMapProps) => {
   const points = tourRoutes[tourId];
-  if (!points || points.length === 0) return null;
-
-  const routeLabels = points.filter((p) => p.label);
 
   const mapData = useMemo(() => {
+    if (!points || points.length === 0) return null;
     const lats = points.map((p) => p.lat);
     const lngs = points.map((p) => p.lng);
     const minLat = Math.min(...lats);
