@@ -108,6 +108,9 @@ const RouteMap = ({ tourId }: RouteMapProps) => {
     return { tiles, projected, zoom };
   }, [points]);
 
+  if (!mapData) return null;
+
+  const routeLabels = (points || []).filter((p) => p.label);
   const polylineStr = mapData.projected.map((p) => `${p.x},${p.y}`).join(" ");
 
   return (
