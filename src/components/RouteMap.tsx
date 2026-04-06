@@ -22,9 +22,7 @@ const RouteMap = ({ tourId }: RouteMapProps) => {
 
   const embedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=${minLng - padLng},${minLat - padLat},${maxLng + padLng},${maxLat + padLat}&layer=mapnik`;
 
-  const uniqueLabels = points.filter(
-    (p, i, arr) => p.label && arr.findIndex((a) => a.label === p.label) === i
-  );
+  const routeLabels = points.filter((p) => p.label);
 
   return (
     <div className="bg-card border border-border p-4 space-y-3">
