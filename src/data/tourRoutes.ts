@@ -28,12 +28,11 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
     { lat: -54.81, lng: -68.31, label: "Ушуайя" },
   ],
   "antarctic-penguins": [
+    { lat: -34.60, lng: -58.38, label: "Буэнос-Айрес" },
     { lat: -54.81, lng: -68.31, label: "Ушуайя" },
-    { lat: -62.50, lng: -60.00, label: "Южные Шетландские о-ва" },
-    { lat: -64.77, lng: -64.05, label: "Порт Локрой" },
-    { lat: -65.00, lng: -63.50, label: "Залив Неко" },
-    { lat: -54.28, lng: -36.51, label: "Южная Георгия" },
-    { lat: -51.00, lng: -59.00, label: "Фолклендские о-ва" },
+    { lat: -60.00, lng: -65.00, label: "Пролив Дрейка" },
+    { lat: -65.00, lng: -64.00, label: "Антарктида" },
+    { lat: -60.00, lng: -65.00, label: "Пролив Дрейка" },
     { lat: -54.81, lng: -68.31, label: "Ушуайя" },
   ],
   "serengeti-safari": [
