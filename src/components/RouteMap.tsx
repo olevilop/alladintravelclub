@@ -102,8 +102,23 @@ const RouteMap = ({ tourId }: RouteMapProps) => {
       }
     }
 
-    // Project route points
-    const projected = points.map((p) => latLngToPixel(p.lat, p.lng, zoom, originX, originY));
+    // Project route points and apply offset for duplicates
+    const raw = points.map((p) => latLngToPixel(p.lat, p.lng, zoom, originX, originY));
+    const seen: Record<string, number[]> = {};
+    raw.forEach((p, i) => {
+      const key = `${Math.round(p.x)},${Math.round(p.y)}`;
+      if (!seen[key]) seen[key] = [];
+      seen[key].push(i);
+    });
+    const projected = raw.map((p, i) => {
+      const key = `${Math.round(p.x)},${Math.round(p.y)}`;
+      const group = seen[key];
+      if (group.length <= 1) return p;
+      const idx = group.indexOf(i);
+      const offsetX = idx === 0 ? -10 : 10;
+      const offsetY = idx === 0 ? -6 : 6;
+      return { x: p.x + offsetX, y: p.y + offsetY };
+    });
 
     return { tiles, projected, zoom };
   }, [points]);
@@ -162,44 +177,31 @@ const RouteMap = ({ tourId }: RouteMapProps) => {
               opacity={0.9}
             />
 
-            {/* Markers (grouped by same coordinates) */}
-            {(() => {
-              const groups: Record<string, { x: number; y: number; labels: number[] }> = {};
-              mapData.projected.forEach((p, i) => {
-                const key = `${Math.round(p.x)},${Math.round(p.y)}`;
-                if (!groups[key]) groups[key] = { x: p.x, y: p.y, labels: [] };
-                groups[key].labels.push(i + 1);
-              });
-              return Object.values(groups).map((g, i) => {
-                const text = g.labels.join(",");
-                const r = g.labels.length > 1 ? 12 : 9;
-                const fontSize = g.labels.length > 1 ? 7 : 8;
-                return (
-                  <g key={i}>
-                    <circle
-                      cx={g.x}
-                      cy={g.y}
-                      r={r}
-                      fill="hsl(var(--primary))"
-                      stroke="hsl(var(--primary-foreground))"
-                      strokeWidth={1.5}
-                    />
-                    <text
-                      x={g.x}
-                      y={g.y + 0.5}
-                      textAnchor="middle"
-                      dominantBaseline="central"
-                      fill="hsl(var(--primary-foreground))"
-                      fontSize={fontSize}
-                      fontWeight={700}
-                      fontFamily="sans-serif"
-                    >
-                      {text}
-                    </text>
-                  </g>
-                );
-              });
-            })()}
+            {/* Markers */}
+            {mapData.projected.map((p, i) => (
+              <g key={i}>
+                <circle
+                  cx={p.x}
+                  cy={p.y}
+                  r={9}
+                  fill="hsl(var(--primary))"
+                  stroke="hsl(var(--primary-foreground))"
+                  strokeWidth={1.5}
+                />
+                <text
+                  x={p.x}
+                  y={p.y + 0.5}
+                  textAnchor="middle"
+                  dominantBaseline="central"
+                  fill="hsl(var(--primary-foreground))"
+                  fontSize={8}
+                  fontWeight={700}
+                  fontFamily="sans-serif"
+                >
+                  {i + 1}
+                </text>
+              </g>
+            ))}
           </svg>
         </div>
       </div>
