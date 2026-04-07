@@ -102,8 +102,23 @@ const RouteMap = ({ tourId }: RouteMapProps) => {
       }
     }
 
-    // Project route points
-    const projected = points.map((p) => latLngToPixel(p.lat, p.lng, zoom, originX, originY));
+    // Project route points and apply offset for duplicates
+    const raw = points.map((p) => latLngToPixel(p.lat, p.lng, zoom, originX, originY));
+    const seen: Record<string, number[]> = {};
+    raw.forEach((p, i) => {
+      const key = `${Math.round(p.x)},${Math.round(p.y)}`;
+      if (!seen[key]) seen[key] = [];
+      seen[key].push(i);
+    });
+    const projected = raw.map((p, i) => {
+      const key = `${Math.round(p.x)},${Math.round(p.y)}`;
+      const group = seen[key];
+      if (group.length <= 1) return p;
+      const idx = group.indexOf(i);
+      const offsetX = idx === 0 ? -10 : 10;
+      const offsetY = idx === 0 ? -6 : 6;
+      return { x: p.x + offsetX, y: p.y + offsetY };
+    });
 
     return { tiles, projected, zoom };
   }, [points]);
