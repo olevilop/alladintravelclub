@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+
 
 import heroBg from "@/assets/hero-bg.jpg";
 import heroChinaMountains from "@/assets/hero-china-mountains.jpg";
@@ -110,14 +110,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-      >
-        <ChevronDown className="w-6 h-6 text-white animate-scroll-indicator" />
-      </motion.div>
     </section>
   );
 };
