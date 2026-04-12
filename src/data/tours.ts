@@ -49,8 +49,8 @@ export interface Tour {
   itinerary: TourDay[];
   included: string[];
   notIncluded: string[];
-  difficulty: string;
-  groupSize: string;
+  difficulty?: string;
+  groupSize?: string;
   startDates: string[];
   shipName?: string;
   shipImage?: string;
