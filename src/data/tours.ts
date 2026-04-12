@@ -28,6 +28,11 @@ import russiaBaikalImg from "@/assets/russia-baikal.jpg";
 import russiaKamchatkaImg from "@/assets/russia-kamchatka.jpg";
 import russiaAltaiImg from "@/assets/russia-altai.jpg";
 import russiaSpbImg from "@/assets/russia-spb.jpg";
+import tokyoOnsen1 from "@/assets/tokyo-onsen-trail-1.jpg";
+import tokyoOnsen2 from "@/assets/tokyo-onsen-trail-2.jpg";
+import tokyoOnsen3 from "@/assets/tokyo-onsen-trail-3.jpg";
+import tokyoOnsen4 from "@/assets/tokyo-onsen-trail-4.jpg";
+import tokyoOnsen5 from "@/assets/tokyo-onsen-trail-5.jpg";
 
 export interface TourDay {
   day: number | string;
