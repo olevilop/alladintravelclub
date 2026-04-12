@@ -138,7 +138,7 @@ const TourDetail = () => {
 
             {/* Extras */}
             {tour.extras && (
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} transition={{ duration: 0.6 }}>
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} transition={{ duration: 0.6 }} className="my-[4px]">
                 <h2 className="font-serif text-2xl md:text-3xl font-light mb-6">
                   <span className="italic text-gold-gradient text-lg font-serif">Дополнительно</span>
                 </h2>
