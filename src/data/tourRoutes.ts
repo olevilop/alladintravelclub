@@ -92,10 +92,9 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
   ],
   "japan-onsen-trail": [
     { lat: 35.68, lng: 139.69, label: "Токио" },
-    { lat: 35.23, lng: 139.08, label: "Хаконе" },
-    { lat: 35.04, lng: 135.76, label: "Киото" },
-    { lat: 33.26, lng: 131.49, label: "Беппу" },
-    { lat: 32.80, lng: 130.71, label: "Кумамото" },
+    { lat: 35.47, lng: 138.76, label: "Фудзи-Кавагучико" },
+    { lat: 35.10, lng: 139.07, label: "Атами" },
+    { lat: 34.71, lng: 137.73, label: "Хамамацу" },
     { lat: 35.68, lng: 139.69, label: "Токио" },
   ],
   "japan-spiritual-path": [
