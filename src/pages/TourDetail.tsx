@@ -202,7 +202,7 @@ const TourDetail = () => {
                 )}
                 {(!tour.category || (tour.category !== "expedition" && tour.category !== "classic")) && (
                   <div className="flex items-center gap-3 text-sm text-foreground/80">
-                    <MapPin className="w-4 h-4 text-primary shrink-0" />
+                    <Compass className="w-4 h-4 text-primary shrink-0" />
                     <span>Экскурсионный тур</span>
                   </div>
                 )}
