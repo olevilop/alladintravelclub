@@ -28,6 +28,11 @@ import russiaBaikalImg from "@/assets/russia-baikal.jpg";
 import russiaKamchatkaImg from "@/assets/russia-kamchatka.jpg";
 import russiaAltaiImg from "@/assets/russia-altai.jpg";
 import russiaSpbImg from "@/assets/russia-spb.jpg";
+import tokyoOnsen1 from "@/assets/tokyo-onsen-trail-1.jpg";
+import tokyoOnsen2 from "@/assets/tokyo-onsen-trail-2.jpg";
+import tokyoOnsen3 from "@/assets/tokyo-onsen-trail-3.jpg";
+import tokyoOnsen4 from "@/assets/tokyo-onsen-trail-4.jpg";
+import tokyoOnsen5 from "@/assets/tokyo-onsen-trail-5.jpg";
 
 export interface TourDay {
   day: number | string;
@@ -622,8 +627,8 @@ export const japanTours: Tour[] = [
     region: "Япония",
     days: 8,
     price: "от $2 130",
-    image: japanOnsenImg,
-    gallery: [japanOnsenImg, japanFujiImg, japanKyotoImg, japanToriiImg, asiaImg],
+    image: tokyoOnsen1,
+    gallery: [tokyoOnsen1, tokyoOnsen2, tokyoOnsen3, tokyoOnsen4, tokyoOnsen5],
     subtitle: "Токио, Фудзи и термальный релакс у океана — всё в одном туре",
     description:
       "Откройте Японию с двух сторон — динамичной и умиротворённой. Три дня в Токио подарят вам погружение в контрасты мегаполиса: древние храмы и святилища соседствуют здесь с футуристическими небоскрёбами и неоновыми кварталами. Затем — живописное озеро Кавагучико у подножия легендарной Фудзи, откуда открываются захватывающие виды на священную гору. Финальный аккорд — курортный городок Атами на берегу океана, где вас ждут традиционные термальные источники онсен, растворяющие усталость и дарящие истинный японский релакс. И снова Токио — чтобы увезти с собой последние впечатления и сувениры.",
