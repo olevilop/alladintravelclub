@@ -144,7 +144,7 @@ const TourDetail = () => {
                 </h2>
                 <div className="space-y-4 text-foreground/80 leading-relaxed text-base md:text-lg">
                   {tour.extras.split('\n').filter(Boolean).map((paragraph, idx) => (
-                    <p key={idx} className={paragraph.startsWith('!!!') ? 'text-primary font-medium text-sm' : ''}>
+                    <p key={idx} className={paragraph.startsWith('!!!') ? 'text-primary font-medium text-sm' : 'text-sm'}>
                       {paragraph.startsWith('!!!') ? paragraph.replace(/^!+\s*/, '') : paragraph}
                     </p>
                   ))}
