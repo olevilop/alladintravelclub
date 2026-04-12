@@ -136,6 +136,22 @@ const TourDetail = () => {
               </div>
             </motion.div>
 
+            {/* Extras */}
+            {tour.extras && (
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} transition={{ duration: 0.6 }}>
+                <h2 className="font-serif text-2xl md:text-3xl font-light mb-6">
+                  <span className="italic text-gold-gradient">Дополнительно</span>
+                </h2>
+                <div className="space-y-4 text-foreground/80 leading-relaxed text-base md:text-lg">
+                  {tour.extras.split('\n').filter(Boolean).map((paragraph, idx) => (
+                    <p key={idx} className={paragraph.startsWith('!!!') ? 'text-primary font-medium text-sm' : ''}>
+                      {paragraph.startsWith('!!!') ? paragraph.replace(/^!+\s*/, '') : paragraph}
+                    </p>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+
             {/* Included / Not Included */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} transition={{ duration: 0.6 }}>
               <h2 className="font-serif text-2xl md:text-3xl font-light mb-8">
