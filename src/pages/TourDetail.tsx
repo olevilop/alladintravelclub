@@ -200,6 +200,12 @@ const TourDetail = () => {
                     <span>Классический круиз</span>
                   </div>
                 )}
+                {(!tour.category || (tour.category !== "expedition" && tour.category !== "classic")) && (
+                  <div className="flex items-center gap-3 text-sm text-foreground/80">
+                    <MapPin className="w-4 h-4 text-primary shrink-0" />
+                    <span>Экскурсионный тур</span>
+                  </div>
+                )}
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center gap-3 text-foreground/80">
                     <Globe className="w-4 h-4 text-primary shrink-0" />
