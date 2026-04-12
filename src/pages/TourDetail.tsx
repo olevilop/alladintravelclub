@@ -140,7 +140,7 @@ const TourDetail = () => {
             {tour.extras && (
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} transition={{ duration: 0.6 }} className="my-[4px]">
                 <h2 className="font-serif text-2xl md:text-3xl font-light mb-6">
-                  <span className="italic text-gold-gradient text-lg font-serif">Дополнительно</span>
+                  <span className="italic text-gold-gradient text-lg font-serif text-primary">Дополнительно</span>
                 </h2>
                 <div className="space-y-4 text-foreground/80 leading-relaxed text-base md:text-lg">
                   {tour.extras.split('\n').filter(Boolean).map((paragraph, idx) => (
