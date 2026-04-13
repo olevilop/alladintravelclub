@@ -105,6 +105,13 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
     { lat: 35.01, lng: 135.77, label: "Киото" },
     { lat: 35.68, lng: 139.69, label: "Токио" },
   ],
+  "japan-hokkaido-winter": [
+    { lat: 35.68, lng: 139.69, label: "Токио" },
+    { lat: 35.47, lng: 138.76, label: "Фудзи-Кавагучико" },
+    { lat: 35.10, lng: 139.07, label: "Атами" },
+    { lat: 34.71, lng: 137.73, label: "Хамамацу" },
+    { lat: 35.01, lng: 135.77, label: "Киото" },
+  ],
   "korea-seoul-palaces": [
     { lat: 37.57, lng: 126.98, label: "Сеул" },
     { lat: 37.58, lng: 126.99, label: "Кёнбоккун" },
