@@ -256,6 +256,39 @@ const TourDetail = () => {
               {/* Route map */}
               <RouteMap tourId={tour.id} />
 
+              {/* Hotel pricing table */}
+              {tour.hotelPricing && (
+                <div className="bg-card border border-border p-4 space-y-3">
+                  <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground">Отели</h4>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-xs border-collapse">
+                      <thead>
+                        <tr>
+                          <th className="text-left p-1.5 border-b border-border text-muted-foreground font-medium"></th>
+                          {tour.hotelPricing.rows.map((row) => (
+                            <th key={row.hotel} className="text-center p-1.5 border-b border-border text-primary font-medium whitespace-nowrap">
+                              {row.hotel}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {tour.hotelPricing.categories.map((cat, ci) => (
+                          <tr key={cat} className={ci % 2 === 0 ? "bg-muted/30" : ""}>
+                            <td className="p-1.5 border-b border-border text-foreground/70 whitespace-nowrap">{cat}</td>
+                            {tour.hotelPricing!.rows.map((row) => (
+                              <td key={row.hotel} className="text-center p-1.5 border-b border-border text-foreground/90 whitespace-nowrap">
+                                {row.prices[ci]}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
               {/* Ship photo */}
               {tour.shipName && tour.shipImage && (
                 <div className="bg-card border border-border p-4 space-y-3">

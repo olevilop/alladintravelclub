@@ -75,6 +75,10 @@ export interface Tour {
   shipName?: string;
   shipImage?: string;
   extras?: string;
+  hotelPricing?: {
+    categories: string[];
+    rows: { hotel: string; prices: string[] }[];
+  };
 }
 
 export const tours: Tour[] = [
@@ -707,6 +711,21 @@ export const japanTours: Tour[] = [
       "13.09 — 22.09.2026",
       "20.09 — 29.09.2026",
     ],
+    hotelPricing: {
+      categories: [
+        "½ TWIN",
+        "Доплата за SGL",
+        "Доп. кровать (взр.)",
+        "Доп. кровать (реб. до 11)",
+        "Дети 6–11 лет (осн. место)",
+        "Дети до 6 лет (без кровати)",
+      ],
+      rows: [
+        { hotel: "Отели 2–3*", prices: ["2 990 $", "650 $", "N/A", "N/A", "2 860 $", "950 $"] },
+        { hotel: "Отели 3* комфорт", prices: ["3 390 $", "960 $", "3 310 $", "3 180 $", "3 250 $", "950 $"] },
+        { hotel: "Отели 4*", prices: ["4 160 $", "1 960 $", "4 080 $", "3 950 $", "4 020 $", "950 $"] },
+      ],
+    },
   },
   {
     id: "japan-onsen-trail",
