@@ -1,7 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, Compass, Globe } from "lucide-react";
+import { Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, Compass, Globe, ChevronDown } from "lucide-react";
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import {
   Select,
   SelectContent,
