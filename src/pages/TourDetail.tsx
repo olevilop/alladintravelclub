@@ -261,32 +261,33 @@ const TourDetail = () => {
               {tour.hotelPricing && (
                 <div className="bg-card border border-border p-4 space-y-3">
                   <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground">Отели</h4>
-                  <div className="overflow-x-auto">
-                    <table className="w-full text-xs border-collapse">
-                      <thead>
-                        <tr>
-                          <th className="text-left p-1.5 border-b border-border text-muted-foreground font-medium"></th>
-                          {tour.hotelPricing.rows.map((row) => (
-                            <th key={row.hotel} className="text-center p-1.5 border-b border-border text-primary font-medium whitespace-nowrap">
-                              {row.hotel}
-                            </th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {tour.hotelPricing.categories.map((cat, ci) => (
-                          <tr key={cat} className={ci % 2 === 0 ? "bg-muted/30" : ""}>
-                            <td className="p-1.5 border-b border-border text-foreground/70 whitespace-nowrap">{cat}</td>
-                            {tour.hotelPricing!.rows.map((row) => (
-                              <td key={row.hotel} className="text-center p-1.5 border-b border-border text-foreground/90 whitespace-nowrap">
-                                {row.prices[ci]}
-                              </td>
-                            ))}
-                          </tr>
+                  <Select value={selectedHotel || tour.hotelPricing.rows[0]?.hotel} onValueChange={setSelectedHotel}>
+                    <SelectTrigger className="w-full bg-background border-border text-foreground">
+                      <SelectValue placeholder="Выберите отель" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {tour.hotelPricing.rows.map((row) => (
+                        <SelectItem key={row.hotel} value={row.hotel}>
+                          {row.hotel}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {(() => {
+                    const hotel = selectedHotel || tour.hotelPricing!.rows[0]?.hotel;
+                    const row = tour.hotelPricing!.rows.find(r => r.hotel === hotel);
+                    if (!row) return null;
+                    return (
+                      <div className="space-y-2 pt-1">
+                        {tour.hotelPricing!.categories.map((cat, i) => (
+                          <div key={cat} className="flex items-center justify-between text-xs">
+                            <span className="text-muted-foreground">{cat}</span>
+                            <span className="text-foreground font-medium">{row.prices[i]}</span>
+                          </div>
                         ))}
-                      </tbody>
-                    </table>
-                  </div>
+                      </div>
+                    );
+                  })()}
                 </div>
               )}
 
