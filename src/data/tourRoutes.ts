@@ -84,10 +84,12 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
   ],
   "japan-fuji-lakes": [
     { lat: 35.68, lng: 139.69, label: "Токио" },
-    { lat: 35.36, lng: 138.73, label: "Фудзи" },
-    { lat: 35.47, lng: 138.76, label: "Кавагутико" },
-    { lat: 35.23, lng: 138.90, label: "Хаконе" },
-    { lat: 35.10, lng: 139.08, label: "Камакура" },
+    { lat: 35.47, lng: 138.76, label: "Фудзи-Кавагучико" },
+    { lat: 35.10, lng: 139.07, label: "Атами" },
+    { lat: 34.71, lng: 137.73, label: "Хамамацу" },
+    { lat: 35.01, lng: 135.77, label: "Киото" },
+    { lat: 34.40, lng: 132.45, label: "Хиросима" },
+    { lat: 34.30, lng: 132.32, label: "Миядзима" },
     { lat: 35.68, lng: 139.69, label: "Токио" },
   ],
   "japan-onsen-trail": [
