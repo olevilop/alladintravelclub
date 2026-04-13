@@ -1,8 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { ArrowRight, Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, ChevronLeft, ChevronRight, Compass, Globe } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, Compass, Globe } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -100,25 +99,22 @@ const TourDetail = () => {
             {/* Gallery */}
 
             {/* Description */}
-            <motion.div initial="hidden" animate="visible" variants={fadeIn} transition={{ duration: 0.6 }}>
+            <div>
               <h2 className="font-serif text-2xl md:text-3xl font-light mb-6">
                 О <span className="italic text-gold-gradient">путешествии</span>
               </h2>
               <p className="text-foreground/80 leading-relaxed text-base md:text-lg">{tour.description}</p>
-            </motion.div>
+            </div>
 
             {/* Itinerary */}
-            <motion.div initial="hidden" animate="visible" variants={fadeIn} transition={{ duration: 0.6 }}>
+            <div>
               <h2 className="font-serif text-2xl md:text-3xl font-light mb-8">
                 Маршрут <span className="italic text-gold-gradient">по дням</span>
               </h2>
               <div className="space-y-0">
                 {tour.itinerary.map((day, i) => (
-                  <motion.div
+                  <div
                     key={day.day}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.03 * i, duration: 0.4 }}
                     className="flex gap-4 md:gap-6 group"
                   >
                     <div className="flex flex-col items-start min-w-[140px]">
@@ -130,14 +126,14 @@ const TourDetail = () => {
                       <h3 className="font-serif text-lg text-foreground">{day.title}</h3>
                       <p className="text-sm text-muted-foreground mt-1">{day.description}</p>
                     </div>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
 
             {/* Extras */}
             {tour.extras && (
-              <motion.div initial="hidden" animate="visible" variants={fadeIn} transition={{ duration: 0.6 }} className="my-[4px]">
+              <div className="my-[4px]">
                 <h2 className="font-serif text-2xl md:text-3xl font-light mb-6">
                   <span className="italic text-gold-gradient text-lg font-serif text-primary">Дополнительно</span>
                 </h2>
@@ -148,11 +144,11 @@ const TourDetail = () => {
                     </p>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             )}
 
             {/* Included / Not Included */}
-            <motion.div initial="hidden" animate="visible" variants={fadeIn} transition={{ duration: 0.6 }}>
+            <div>
               <h2 className="font-serif text-2xl md:text-3xl font-light mb-8">
                 Что <span className="italic text-gold-gradient">включено</span>
               </h2>
@@ -176,7 +172,7 @@ const TourDetail = () => {
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
 
 
           </div>
