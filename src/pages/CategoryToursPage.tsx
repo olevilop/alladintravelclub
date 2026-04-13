@@ -94,7 +94,7 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category }
                 )}
                 <div className="flex items-center gap-3 text-sm text-foreground/80">
                   <Banknote className="w-4 h-4 text-primary shrink-0" />
-                  <span>от {tour.price}</span>
+                  <span>{tour.price}</span>
                 </div>
               </div>
             </div>
