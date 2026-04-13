@@ -100,7 +100,7 @@ const TourDetail = () => {
             {/* Gallery */}
 
             {/* Description */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} transition={{ duration: 0.6 }}>
+            <motion.div initial="hidden" animate="visible" variants={fadeIn} transition={{ duration: 0.6 }}>
               <h2 className="font-serif text-2xl md:text-3xl font-light mb-6">
                 О <span className="italic text-gold-gradient">путешествии</span>
               </h2>
@@ -108,7 +108,7 @@ const TourDetail = () => {
             </motion.div>
 
             {/* Itinerary */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} transition={{ duration: 0.6 }}>
+            <motion.div initial="hidden" animate="visible" variants={fadeIn} transition={{ duration: 0.6 }}>
               <h2 className="font-serif text-2xl md:text-3xl font-light mb-8">
                 Маршрут <span className="italic text-gold-gradient">по дням</span>
               </h2>
@@ -117,8 +117,7 @@ const TourDetail = () => {
                   <motion.div
                     key={day.day}
                     initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
+                    animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.03 * i, duration: 0.4 }}
                     className="flex gap-4 md:gap-6 group"
                   >
@@ -138,7 +137,7 @@ const TourDetail = () => {
 
             {/* Extras */}
             {tour.extras && (
-              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} transition={{ duration: 0.6 }} className="my-[4px]">
+              <motion.div initial="hidden" animate="visible" variants={fadeIn} transition={{ duration: 0.6 }} className="my-[4px]">
                 <h2 className="font-serif text-2xl md:text-3xl font-light mb-6">
                   <span className="italic text-gold-gradient text-lg font-serif text-primary">Дополнительно</span>
                 </h2>
@@ -153,7 +152,7 @@ const TourDetail = () => {
             )}
 
             {/* Included / Not Included */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeIn} transition={{ duration: 0.6 }}>
+            <motion.div initial="hidden" animate="visible" variants={fadeIn} transition={{ duration: 0.6 }}>
               <h2 className="font-serif text-2xl md:text-3xl font-light mb-8">
                 Что <span className="italic text-gold-gradient">включено</span>
               </h2>
