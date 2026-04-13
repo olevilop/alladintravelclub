@@ -43,6 +43,11 @@ import japanClassic2_2 from "@/assets/japan-classic2-2.jpg";
 import japanClassic2_3 from "@/assets/japan-classic2-3.jpg";
 import japanClassic2_4 from "@/assets/japan-classic2-4.jpg";
 import japanClassic2_5 from "@/assets/japan-classic2-5.jpg";
+import japanEastwest1 from "@/assets/japan-eastwest-1.jpg";
+import japanEastwest2 from "@/assets/japan-eastwest-2.jpg";
+import japanEastwest3 from "@/assets/japan-eastwest-3.jpg";
+import japanEastwest4 from "@/assets/japan-eastwest-4.jpg";
+import japanEastwest5 from "@/assets/japan-eastwest-5.jpg";
 
 export interface TourDay {
   day: number | string;
