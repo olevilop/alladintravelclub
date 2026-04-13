@@ -75,6 +75,10 @@ export interface Tour {
   shipName?: string;
   shipImage?: string;
   extras?: string;
+  hotelPricing?: {
+    categories: string[];
+    rows: { hotel: string; prices: string[] }[];
+  };
 }
 
 export const tours: Tour[] = [
