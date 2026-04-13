@@ -28,6 +28,11 @@ import russiaBaikalImg from "@/assets/russia-baikal.jpg";
 import russiaKamchatkaImg from "@/assets/russia-kamchatka.jpg";
 import russiaAltaiImg from "@/assets/russia-altai.jpg";
 import russiaSpbImg from "@/assets/russia-spb.jpg";
+import japanClassic1 from "@/assets/japan-classic-1.jpg";
+import japanClassic2 from "@/assets/japan-classic-2.jpg";
+import japanClassic3 from "@/assets/japan-classic-3.jpg";
+import japanClassic4 from "@/assets/japan-classic-4.jpg";
+import japanClassic5 from "@/assets/japan-classic-5.jpg";
 import tokyoOnsen1 from "@/assets/tokyo-onsen-trail-1.jpg";
 import tokyoOnsen2 from "@/assets/tokyo-onsen-trail-2.jpg";
 import tokyoOnsen3 from "@/assets/tokyo-onsen-trail-3.jpg";
@@ -724,8 +729,8 @@ export const japanTours: Tour[] = [
     region: "Япония",
     days: 8,
     price: "от $2 490",
-    image: japanToriiImg,
-    gallery: [japanToriiImg, japanKyotoImg, japanOnsenImg, japanFujiImg, asiaImg],
+    image: japanClassic1,
+    gallery: [japanClassic1, japanClassic2, japanClassic3, japanClassic4, japanClassic5],
     subtitle: "Откройте Японию, которую вы давно мечтали увидеть",
     description:
       "Это путешествие для тех, кто хочет увидеть Японию такой, какой она должна быть — во всём её многообразии. За 8 насыщенных дней вы пройдёте путь от футуристического Токио до древнего Киото, окунувшись в тысячелетнюю историю страны восходящего солнца. По пути в Киото вас ждёт остановка в Хамамацу — замок сёгуна Токугавы, цветочный парк и знаменитый обед со свежим угрём. Киото откроет свои главные сокровища: Золотой павильон Кинкакудзи, сад 15 камней в Рёандзи и тысячу статуй богини Каннон в храме Сандзюсангендо. А в качестве бонуса — возможность посетить древнюю Нару с ручными оленями и живую Осаку с её гастрономией и ночной жизнью.",
