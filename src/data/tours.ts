@@ -48,6 +48,11 @@ import japanEastwest2 from "@/assets/japan-eastwest-2.jpg";
 import japanEastwest3 from "@/assets/japan-eastwest-3.jpg";
 import japanEastwest4 from "@/assets/japan-eastwest-4.jpg";
 import japanEastwest5 from "@/assets/japan-eastwest-5.jpg";
+import japanEastwest2_1 from "@/assets/japan-eastwest2-1.jpg";
+import japanEastwest2_2 from "@/assets/japan-eastwest2-2.jpg";
+import japanEastwest2_3 from "@/assets/japan-eastwest2-3.jpg";
+import japanEastwest2_4 from "@/assets/japan-eastwest2-4.jpg";
+import japanEastwest2_5 from "@/assets/japan-eastwest2-5.jpg";
 
 export interface TourDay {
   day: number | string;
@@ -573,8 +578,8 @@ export const japanTours: Tour[] = [
     region: "Япония",
     days: 10,
     price: "от $2 930",
-    image: japanEastwest1,
-    gallery: [japanEastwest1, japanEastwest2, japanEastwest3, japanEastwest4, japanEastwest5],
+    image: japanEastwest2_1,
+    gallery: [japanEastwest2_1, japanEastwest2_2, japanEastwest2_3, japanEastwest2_4, japanEastwest2_5],
     subtitle: "Между двух берегов одной страны",
     description:
       "Это 10-дневное путешествие через всю страну: от ультрасовременного Токио до священного острова Миядзима. За 10 дней вы пройдёте по маршруту, который объединяет самое яркое из японских контрастов — шумные мегаполисы и тысячелетние храмы, горячие источники и заснеженные вершины, самурайские замки и кварталы высоких технологий. В Киото — тысячелетней столице Японии — вас ждут Золотой павильон Кинкакудзи, загадочный сад 15 камней в Рёандзи, тысяча деревянных статуй Каннон в Сандзюсангендо и вечерние прогулки по кварталу гейш Гион. Финальный аккорд — Хиросима с Мемориальным парком Мира и остров Миядзима, где в бухте стоит знаменитые ворота тории синтоистского святилища Ицукусима.",
