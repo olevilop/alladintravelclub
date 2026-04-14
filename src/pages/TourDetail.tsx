@@ -295,7 +295,7 @@ const TourDetail = () => {
               {/* Excursion pricing */}
               {tour.excursionPricing && (
                 <div className="bg-card border border-border p-4 space-y-3">
-                  <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground">СТОИМОСТЬ ЭКСКУРСИЙ</h4>
+                  <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground">СТОИМОСТЬ ДОП. ЭКСКУРСИЙ</h4>
                   <Select value={selectedExcursion || tour.excursionPricing.excursions[0]?.name} onValueChange={setSelectedExcursion}>
                     <SelectTrigger className="w-full bg-background border-border text-foreground">
                       <SelectValue placeholder="Выберите экскурсию" />
