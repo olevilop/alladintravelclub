@@ -732,6 +732,35 @@ export const japanTours: Tour[] = [
         { hotel: "Отели 4*", prices: ["4 160 $", "1 960 $", "4 080 $", "3 950 $", "4 020 $", "950 $"] },
       ],
     },
+    excursionPricing: {
+      excursions: [
+        {
+          name: "Вечерний Токио",
+          prices: [
+            { label: "Взрослые", value: "190 $" },
+            { label: "Дети 6–11 лет", value: "160 $" },
+            { label: "Дети 0–3 года", value: "бесплатно" },
+            { label: "Дети 4–5 лет", value: "20 $" },
+          ],
+        },
+        {
+          name: "Традиции Токио",
+          prices: [
+            { label: "Взрослые", value: "210 $" },
+            { label: "Дети 6–11 лет", value: "170 $" },
+            { label: "Дети 0–5 лет", value: "бесплатно без места и питания" },
+          ],
+        },
+        {
+          name: "Нара и Осака",
+          prices: [
+            { label: "Взрослые", value: "220 $" },
+            { label: "Дети 6–11 лет", value: "190 $" },
+            { label: "Дети 0–5 лет", value: "бесплатно без питания" },
+          ],
+        },
+      ],
+    },
   },
   {
     id: "japan-onsen-trail",

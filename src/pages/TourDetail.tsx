@@ -292,7 +292,39 @@ const TourDetail = () => {
                 </div>
               )}
 
-              {/* Ship photo */}
+              {/* Excursion pricing */}
+              {tour.excursionPricing && (
+                <div className="bg-card border border-border p-4 space-y-3">
+                  <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground">СТОИМОСТЬ ЭКСКУРСИЙ</h4>
+                  <Select value={selectedExcursion || tour.excursionPricing.excursions[0]?.name} onValueChange={setSelectedExcursion}>
+                    <SelectTrigger className="w-full bg-background border-border text-foreground">
+                      <SelectValue placeholder="Выберите экскурсию" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {tour.excursionPricing.excursions.map((exc) => (
+                        <SelectItem key={exc.name} value={exc.name}>
+                          {exc.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {(() => {
+                    const excName = selectedExcursion || tour.excursionPricing!.excursions[0]?.name;
+                    const exc = tour.excursionPricing!.excursions.find(e => e.name === excName);
+                    if (!exc) return null;
+                    return (
+                      <div className="space-y-2 pt-1">
+                        {exc.prices.map((p) => (
+                          <div key={p.label} className="flex items-center justify-between text-xs">
+                            <span className="text-muted-foreground">{p.label}</span>
+                            <span className="text-foreground font-medium">{p.value}</span>
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  })()}
+                </div>
+              )}
               {tour.shipName && tour.shipImage && (
                 <div className="bg-card border border-border p-4 space-y-3">
                   <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground flex items-center gap-2">
