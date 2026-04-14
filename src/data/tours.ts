@@ -79,6 +79,12 @@ export interface Tour {
     categories: string[];
     rows: { hotel: string; prices: string[] }[];
   };
+  excursionPricing?: {
+    excursions: {
+      name: string;
+      prices: { label: string; value: string }[];
+    }[];
+  };
 }
 
 export const tours: Tour[] = [
@@ -724,6 +730,35 @@ export const japanTours: Tour[] = [
         { hotel: "Отели 2–3*", prices: ["2 990 $", "650 $", "N/A", "N/A", "2 860 $", "950 $"] },
         { hotel: "Отели 3* комфорт", prices: ["3 390 $", "960 $", "3 310 $", "3 180 $", "3 250 $", "950 $"] },
         { hotel: "Отели 4*", prices: ["4 160 $", "1 960 $", "4 080 $", "3 950 $", "4 020 $", "950 $"] },
+      ],
+    },
+    excursionPricing: {
+      excursions: [
+        {
+          name: "Вечерний Токио",
+          prices: [
+            { label: "Взрослые", value: "190 $" },
+            { label: "Дети 6–11 лет", value: "160 $" },
+            { label: "Дети 0–3 года", value: "бесплатно" },
+            { label: "Дети 4–5 лет", value: "20 $" },
+          ],
+        },
+        {
+          name: "Традиции Токио",
+          prices: [
+            { label: "Взрослые", value: "210 $" },
+            { label: "Дети 6–11 лет", value: "170 $" },
+            { label: "Дети 0–5 лет", value: "бесплатно без места и питания" },
+          ],
+        },
+        {
+          name: "Нара и Осака",
+          prices: [
+            { label: "Взрослые", value: "220 $" },
+            { label: "Дети 6–11 лет", value: "190 $" },
+            { label: "Дети 0–5 лет", value: "бесплатно без питания" },
+          ],
+        },
       ],
     },
   },
