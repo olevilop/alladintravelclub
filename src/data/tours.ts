@@ -739,8 +739,8 @@ export const japanTours: Tour[] = [
           prices: [
             { label: "Взрослые", value: "190 $" },
             { label: "Дети 6–11 лет", value: "160 $" },
-            { label: "Дети 0–3 года", value: "бесплатно" },
             { label: "Дети 4–5 лет", value: "20 $" },
+            { label: "Дети от 0-3 лет", value: "бесплатно" },
           ],
         },
         {
