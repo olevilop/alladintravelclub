@@ -79,6 +79,12 @@ export interface Tour {
     categories: string[];
     rows: { hotel: string; prices: string[] }[];
   };
+  excursionPricing?: {
+    excursions: {
+      name: string;
+      prices: { label: string; value: string }[];
+    }[];
+  };
 }
 
 export const tours: Tour[] = [

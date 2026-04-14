@@ -28,6 +28,7 @@ const TourDetail = () => {
   const tour = getTourById(id || "");
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [selectedHotel, setSelectedHotel] = useState<string>("");
+  const [selectedExcursion, setSelectedExcursion] = useState<string>("");
   const isCruise = tour?.name.toLowerCase().includes("круиз");
 
   useEffect(() => {
