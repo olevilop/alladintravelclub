@@ -58,6 +58,11 @@ import japanGrand2 from "@/assets/japan-grand-2.jpg";
 import japanGrand3 from "@/assets/japan-grand-3.jpg";
 import japanGrand4 from "@/assets/japan-grand-4.jpg";
 import japanGrand5 from "@/assets/japan-grand-5.jpg";
+import koreaAndong1 from "@/assets/korea-andong-1.jpg";
+import koreaAndong2 from "@/assets/korea-andong-2.jpg";
+import koreaAndong3 from "@/assets/korea-andong-3.jpg";
+import koreaAndong4 from "@/assets/korea-andong-4.jpg";
+import koreaAndong5 from "@/assets/korea-andong-5.jpg";
 
 export interface TourDay {
   day: number | string;
