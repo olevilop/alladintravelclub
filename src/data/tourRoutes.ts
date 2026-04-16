@@ -127,9 +127,14 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
   ],
   "korea-seoul-palaces": [
     { lat: 37.57, lng: 126.98, label: "Сеул" },
-    { lat: 37.58, lng: 126.99, label: "Кёнбоккун" },
-    { lat: 37.53, lng: 127.00, label: "Каннам" },
-    { lat: 37.55, lng: 127.01, label: "Тондэмун" },
+    { lat: 37.28, lng: 127.18, label: "Йонин" },
+    { lat: 37.27, lng: 127.01, label: "Сувон" },
+    { lat: 35.82, lng: 127.15, label: "Чончжу" },
+    { lat: 35.06, lng: 126.99, label: "Хвасун" },
+    { lat: 34.95, lng: 127.49, label: "Сунчхон" },
+    { lat: 35.13, lng: 129.04, label: "Пусан" },
+    { lat: 35.80, lng: 128.63, label: "Кёнчжу" },
+    { lat: 36.57, lng: 128.73, label: "Андон" },
     { lat: 37.57, lng: 126.98, label: "Сеул" },
   ],
   "korea-jeju-island": [
