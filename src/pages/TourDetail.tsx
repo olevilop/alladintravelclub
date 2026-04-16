@@ -20,6 +20,7 @@ import FAQSection from "@/components/FAQSection";
 import SpecialOffers from "@/components/SpecialOffers";
 import NewsletterSocial from "@/components/NewsletterSocial";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import TourManagerCard from "@/components/TourManagerCard";
 
 const fadeIn = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
@@ -339,6 +340,7 @@ const TourDetail = () => {
 
               {/* Booking form */}
               <TourBookingForm tourName={tour.name} startDates={tour.startDates} />
+              {tour.region === "Япония" && <TourManagerCard />}
             </div>
           </div>
         </div>
