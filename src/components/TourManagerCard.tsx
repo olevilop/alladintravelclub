@@ -4,7 +4,7 @@ const TourManagerCard = () => {
   return (
     <div className="bg-card border border-border p-6 space-y-4">
       <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground">
-        Менеджер по Японии
+        Менеджер по Японии — Елена
       </h4>
       <div className="space-y-3">
         <a
