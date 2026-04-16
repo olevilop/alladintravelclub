@@ -346,7 +346,7 @@ const TourDetail = () => {
         </div>
       </div>
 
-      <FAQSection isCruise={isCruise} />
+      <FAQSection isCruise={isCruise} customFaq={tour.faq} />
 
       {/* Similar Tours — full width */}
       <SimilarTours currentTour={tour} />

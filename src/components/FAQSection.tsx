@@ -53,10 +53,10 @@ const tourFaqItems = [
   },
 ];
 
-const FAQSection = ({ isCruise = false }: { isCruise?: boolean }) => {
+const FAQSection = ({ isCruise = false, customFaq }: { isCruise?: boolean; customFaq?: { q: string; a: string }[] }) => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-  const items = isCruise ? cruiseFaqItems : tourFaqItems;
+  const items = customFaq ?? (isCruise ? cruiseFaqItems : tourFaqItems);
 
   return (
     <section id="faq" className="py-24 md:py-32">
