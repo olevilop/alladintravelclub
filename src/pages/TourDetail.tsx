@@ -259,6 +259,21 @@ const TourDetail = () => {
               {/* Route map */}
               <RouteMap tourId={tour.id} />
 
+              {/* Occupancy pricing (per-person by room occupancy) */}
+              {tour.occupancyPricing && (
+                <div className="bg-card border border-border p-4 space-y-3">
+                  <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground">Стоимость тура на 1 человека</h4>
+                  <div className="space-y-2 pt-1">
+                    {tour.occupancyPricing.rows.map((row) => (
+                      <div key={row.label} className="flex items-center justify-between text-xs">
+                        <span className="text-muted-foreground">{row.label}</span>
+                        <span className="text-foreground font-medium">{row.price}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {/* Hotel pricing table */}
               {tour.hotelPricing && (
                 <div className="bg-card border border-border p-4 space-y-3">
