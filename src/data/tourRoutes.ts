@@ -169,6 +169,17 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
     { lat: 35.80, lng: 128.63, label: "Кёнчжу" },
     { lat: 37.57, lng: 126.98, label: "Сеул" },
   ],
+  "korea-busan-coastal": [
+    { lat: 37.57, lng: 126.98, label: "Сеул" },
+    { lat: 37.70, lng: 127.46, label: "Сад Утреннего Спокойствия" },
+    { lat: 38.12, lng: 128.46, label: "Сораксан / Сокчо" },
+    { lat: 37.44, lng: 129.16, label: "Самчхок (Хвансонгуль)" },
+    { lat: 37.27, lng: 129.30, label: "Парк Хэсиндан" },
+    { lat: 35.99, lng: 129.35, label: "Деревня Яндон" },
+    { lat: 35.80, lng: 129.33, label: "Кёнчжу (Пульгукса/Соккурам)" },
+    { lat: 35.13, lng: 129.04, label: "Пусан" },
+    { lat: 37.57, lng: 126.98, label: "Сеул" },
+  ],
   "china-great-wall": [
     { lat: 39.90, lng: 116.40, label: "Пекин" },
     { lat: 40.43, lng: 116.57, label: "Бадалин" },
