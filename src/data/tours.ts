@@ -128,9 +128,9 @@ export interface Tour {
 
 export const koreaOccupancyPricing = {
   rows: [
-    { label: "1 чел. в номере", price: "$3 312 (273 250 ₽)" },
-    { label: "2 чел. в номере", price: "$2 374 (195 900 ₽)" },
-    { label: "3 чел. в номере", price: "$2 255 (186 050 ₽)" },
+    { label: "1 чел. в номере", price: "$3 312" },
+    { label: "2 чел. в номере", price: "$2 374" },
+    { label: "3 чел. в номере", price: "$2 255" },
   ],
 };
 
