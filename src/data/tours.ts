@@ -120,8 +120,19 @@ export interface Tour {
       prices: { label: string; value: string }[];
     }[];
   };
+  occupancyPricing?: {
+    rows: { label: string; price: string }[];
+  };
   faq?: { q: string; a: string }[];
 }
+
+export const koreaOccupancyPricing = {
+  rows: [
+    { label: "1 чел. в номере", price: "$3 312 (273 250 ₽)" },
+    { label: "2 чел. в номере", price: "$2 374 (195 900 ₽)" },
+    { label: "3 чел. в номере", price: "$2 255 (186 050 ₽)" },
+  ],
+};
 
 export const tours: Tour[] = [
   {
