@@ -78,6 +78,11 @@ import koreaBuddha2 from "@/assets/korea-buddha-2.jpg";
 import koreaBuddha3 from "@/assets/korea-buddha-3.jpg";
 import koreaBuddha4 from "@/assets/korea-buddha-4.jpg";
 import koreaBuddha5 from "@/assets/korea-buddha-5.jpg";
+import koreaGrand1 from "@/assets/korea-grand-1.jpg";
+import koreaGrand2 from "@/assets/korea-grand-2.jpg";
+import koreaGrand3 from "@/assets/korea-grand-3.jpg";
+import koreaGrand4 from "@/assets/korea-grand-4.jpg";
+import koreaGrand5 from "@/assets/korea-grand-5.jpg";
 
 export interface TourDay {
   day: number | string;
