@@ -68,6 +68,11 @@ import koreaNamwon2 from "@/assets/korea-namwon-2.jpg";
 import koreaNamwon3 from "@/assets/korea-namwon-3.jpg";
 import koreaNamwon4 from "@/assets/korea-namwon-4.jpg";
 import koreaNamwon5 from "@/assets/korea-namwon-5.jpg";
+import koreaLotus1 from "@/assets/korea-lotus-1.jpg";
+import koreaLotus2 from "@/assets/korea-lotus-2.jpg";
+import koreaLotus3 from "@/assets/korea-lotus-3.jpg";
+import koreaLotus4 from "@/assets/korea-lotus-4.jpg";
+import koreaLotus5 from "@/assets/korea-lotus-5.jpg";
 
 export interface TourDay {
   day: number | string;
