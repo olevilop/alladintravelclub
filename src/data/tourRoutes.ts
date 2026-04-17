@@ -158,9 +158,15 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
   ],
   "korea-hanok-culture": [
     { lat: 37.57, lng: 126.98, label: "Сеул" },
-    { lat: 36.57, lng: 128.73, label: "Андон" },
-    { lat: 35.97, lng: 128.63, label: "Кёнджу" },
-    { lat: 35.82, lng: 127.15, label: "Чонджу" },
+    { lat: 36.78, lng: 126.45, label: "Сосан" },
+    { lat: 36.72, lng: 126.52, label: "Хэми" },
+    { lat: 35.82, lng: 127.15, label: "Чончжу" },
+    { lat: 35.76, lng: 127.40, label: "Маисан" },
+    { lat: 35.32, lng: 126.99, label: "Тамян" },
+    { lat: 35.06, lng: 126.99, label: "Хвасун" },
+    { lat: 34.95, lng: 127.49, label: "Сунчхон" },
+    { lat: 35.13, lng: 129.04, label: "Пусан" },
+    { lat: 35.80, lng: 128.63, label: "Кёнчжу" },
     { lat: 37.57, lng: 126.98, label: "Сеул" },
   ],
   "china-great-wall": [
