@@ -151,9 +151,15 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
   ],
   "korea-temple-stay": [
     { lat: 37.57, lng: 126.98, label: "Сеул" },
-    { lat: 35.80, lng: 128.63, label: "Кёнджу" },
+    { lat: 37.27, lng: 127.01, label: "Сувон" },
+    { lat: 36.67, lng: 126.62, label: "Судокса" },
+    { lat: 35.82, lng: 127.15, label: "Чончжу" },
+    { lat: 33.25, lng: 126.56, label: "Чечжу (Согвипхо)" },
     { lat: 35.13, lng: 129.04, label: "Пусан" },
-    { lat: 35.19, lng: 128.10, label: "Хаинса" },
+    { lat: 35.80, lng: 129.33, label: "Кёнчжу" },
+    { lat: 36.57, lng: 128.73, label: "Андон" },
+    { lat: 37.34, lng: 128.74, label: "High1 (Чонсон)" },
+    { lat: 37.79, lng: 127.52, label: "о. Нами (Капхён)" },
     { lat: 37.57, lng: 126.98, label: "Сеул" },
   ],
   "korea-hanok-culture": [
