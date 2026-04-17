@@ -128,9 +128,9 @@ export interface Tour {
 
 export const koreaOccupancyPricing = {
   rows: [
-    { label: "1 чел. в номере", price: "$3 312" },
-    { label: "2 чел. в номере", price: "$2 374" },
-    { label: "3 чел. в номере", price: "$2 255" },
+    { label: "1 чел. в номере", price: "$2 200" },
+    { label: "2 чел. в номере", price: "$1 599" },
+    { label: "3 чел. в номере", price: "$1 549" },
   ],
 };
 
@@ -1433,7 +1433,7 @@ export const koreaTours: Tour[] = [
     name: "12 дней: столица, регионы, Чечжу",
     region: "Южная Корея",
     days: 12,
-    price: "от $2 255",
+    price: "от $1 549",
     image: koreaGrand1,
     gallery: [koreaGrand1, koreaGrand2, koreaGrand3, koreaGrand4, koreaGrand5],
     subtitle: "Классический большой маршрут по Корее с ключевыми регионами, объектами ЮНЕСКО и живыми культурными впечатлениями.",
