@@ -355,7 +355,7 @@ const TourDetail = () => {
 
               {/* Booking form */}
               <TourBookingForm tourName={tour.name} startDates={tour.startDates} />
-              {tour.region === "Япония" && <TourManagerCard />}
+              {(tour.region === "Япония" || tour.region === "Южная Корея") && <TourManagerCard />}
             </div>
           </div>
         </div>
