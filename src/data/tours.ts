@@ -2387,6 +2387,7 @@ export const regionToBreadcrumb: Record<string, { label: string; path: string }>
   "Северная Корея": { label: "Туры по Северной Корее", path: "/nkorea-tours" },
   "Россия": { label: "Туры по России", path: "/russia-tours" },
   "Мальдивы": { label: "Мальдивы", path: "/maldives" },
+  "Событийные туры": { label: "Событийные туры", path: "/event-tours" },
 };
 export const regionToContinent: Record<string, string> = {
   "Арктика": "Арктика",
