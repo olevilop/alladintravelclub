@@ -1,4 +1,4 @@
-import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours } from "@/data/tours";
+import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours, eventTours } from "@/data/tours";
 import TourCarousel from "@/components/TourCarousel";
 
 const regionLabels: Record<string, string> = {
@@ -7,6 +7,7 @@ const regionLabels: Record<string, string> = {
   "Китай": "туры в Китай",
   "Северная Корея": "туры в Северную Корею",
   "Россия": "туры по России",
+  "Событийные туры": "событийные туры",
 };
 
 interface SimilarToursProps {
