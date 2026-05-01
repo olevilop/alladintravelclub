@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours } from "@/data/tours";
+import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours, eventTours } from "@/data/tours";
 import TourCarousel from "./TourCarousel";
 
 const SectionHeading = ({ children }: { children: React.ReactNode }) => (
@@ -22,6 +22,7 @@ const ToursSection = () => {
     { tours: chinaTours, link: "/china-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Китаю</span></> },
     { tours: northKoreaTours, link: "/nkorea-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">Северной Корее</span></> },
     { tours: russiaTours, link: "/russia-tours", label: <><span style={{ fontSize: '0.85em' }}>Т</span>уры по <span className="italic text-gold-gradient">России</span></> },
+    { tours: eventTours, link: "/event-tours", label: <><span style={{ fontSize: '0.85em' }}>С</span>обытийные <span className="italic text-gold-gradient">туры</span></> },
   ];
 
   return (

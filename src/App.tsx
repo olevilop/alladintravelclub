@@ -15,6 +15,7 @@ import KoreaToursPage from "./pages/KoreaToursPage.tsx";
 import ChinaToursPage from "./pages/ChinaToursPage.tsx";
 import NorthKoreaToursPage from "./pages/NorthKoreaToursPage.tsx";
 import RussiaToursPage from "./pages/RussiaToursPage.tsx";
+import EventToursPage from "./pages/EventToursPage.tsx";
 import MaldivesPage from "./pages/MaldivesPage.tsx";
 import ArcticCruisesPage from "./pages/cruises/ArcticCruisesPage.tsx";
 import AntarcticaCruisesPage from "./pages/cruises/AntarcticaCruisesPage.tsx";
@@ -48,6 +49,7 @@ const App = () => (
           <Route path="/china-tours" element={<ChinaToursPage />} />
           <Route path="/nkorea-tours" element={<NorthKoreaToursPage />} />
           <Route path="/russia-tours" element={<RussiaToursPage />} />
+          <Route path="/event-tours" element={<EventToursPage />} />
           <Route path="/maldives" element={<MaldivesPage />} />
           <Route path="/cruises/arctic" element={<ArcticCruisesPage />} />
           <Route path="/cruises/antarctica" element={<AntarcticaCruisesPage />} />
