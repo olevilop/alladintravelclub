@@ -2238,6 +2238,148 @@ export const regionToPath: Record<string, string> = {
   "Мальдивы": "/maldives",
 };
 
+import eventSakuraImg from "@/assets/event-sakura.jpg";
+import eventRioImg from "@/assets/event-rio.jpg";
+import eventOktoberfestImg from "@/assets/event-oktoberfest.jpg";
+import eventHoliImg from "@/assets/event-holi.jpg";
+import eventVeniceImg from "@/assets/event-venice.jpg";
+
+export const eventTours: Tour[] = [
+  {
+    id: "event-sakura-japan",
+    name: "Ханами в Японии — цветение сакуры",
+    region: "Событийные туры",
+    days: 9,
+    price: "от $4 200",
+    image: eventSakuraImg,
+    gallery: [eventSakuraImg],
+    subtitle: "Киото, Токио и древние храмы под розовыми облаками сакуры",
+    description:
+      "Девять дней в Японии в самый волшебный сезон — пик цветения сакуры. Чайные церемонии в Киото, ночные подсветки садов, прогулки по аллее Философа и пикники-ханами в парке Уэно.",
+    itinerary: [
+      { day: 1, title: "Токио", description: "Прибытие, ужин и ночная подсветка в саду Чидоригафути." },
+      { day: 2, title: "Токио", description: "Парк Уэно, святилище Мейдзи, ханами-пикник." },
+      { day: 3, title: "Хаконе", description: "Виды Фудзи в обрамлении сакуры, онсэн." },
+      { day: 4, title: "Киото", description: "Переезд синкансэном, аллея Философа." },
+      { day: 5, title: "Киото", description: "Бамбуковая роща Арасияма, храм Тэнрюдзи." },
+      { day: 6, title: "Киото", description: "Чайная церемония, гейша-квартал Гион." },
+      { day: 7, title: "Нара", description: "Парк с оленями, храм Тодайдзи." },
+      { day: 8, title: "Осака", description: "Замок Осака, гастрономическая прогулка по Дотонбори." },
+      { day: 9, title: "Вылет", description: "Трансфер в аэропорт." },
+    ],
+    included: ["Отели 4–5*", "Завтраки и 4 ужина", "JR Pass", "Гид-русскоговорящий", "Все экскурсии"],
+    notIncluded: ["Перелёты", "Виза", "Личные расходы"],
+    difficulty: "Лёгкая",
+    groupSize: "до 10 человек",
+    startDates: ["28 марта — 5 апреля 2026", "1 — 9 апреля 2026"],
+  },
+  {
+    id: "event-rio-carnival",
+    name: "Карнавал в Рио-де-Жанейро",
+    region: "Событийные туры",
+    days: 8,
+    price: "от $5 800",
+    image: eventRioImg,
+    gallery: [eventRioImg],
+    subtitle: "Самбадром, парады школ самбы и пляжи Копакабаны",
+    description:
+      "Главный карнавал планеты — VIP-ложи на Самбадроме, закрытые балы Copacabana Palace, экскурсии к Христу-Искупителю и Сахарной голове, вертолётный облёт Рио.",
+    itinerary: [
+      { day: 1, title: "Рио-де-Жанейро", description: "Прибытие, ужин на Копакабане." },
+      { day: 2, title: "Обзорный день", description: "Христос-Искупитель, Сахарная голова, район Санта-Тереза." },
+      { day: 3, title: "Парад школ самбы", description: "VIP-ложа на Самбадроме, ночной парад Группы Специаль." },
+      { day: 4, title: "Отдых", description: "Пляж Ипанема, послеобеденный коктейль с видом." },
+      { day: 5, title: "Парад чемпионов", description: "Парад победителей, ужин в фейжоаде." },
+      { day: 6, title: "Бал Magic Ball", description: "Легендарный бал в Copacabana Palace (опц.)." },
+      { day: 7, title: "Вертолётный тур", description: "Облёт Рио, прощальный ужин в Леблоне." },
+      { day: 8, title: "Вылет", description: "Трансфер в аэропорт." },
+    ],
+    included: ["Отель 5* на Копакабане", "Завтраки", "VIP-ложа Самбадрома (2 ночи)", "Все трансферы", "Гид"],
+    notIncluded: ["Перелёты", "Виза", "Бал Magic Ball", "Алкоголь"],
+    difficulty: "Лёгкая",
+    groupSize: "до 12 человек",
+    startDates: ["13 — 20 февраля 2026"],
+  },
+  {
+    id: "event-oktoberfest",
+    name: "Октоберфест в Мюнхене",
+    region: "Событийные туры",
+    days: 6,
+    price: "от $3 400",
+    image: eventOktoberfestImg,
+    gallery: [eventOktoberfestImg],
+    subtitle: "Зарезервированные столы в исторических шатрах и замки Баварии",
+    description:
+      "Главный пивной фестиваль мира с гарантированными местами в шатрах Hofbräu, Paulaner и Schottenhamel. Дополнительно — экскурсии по Нойшванштайну и Зальцбургу.",
+    itinerary: [
+      { day: 1, title: "Мюнхен", description: "Прибытие, обзорная по Старому городу, Хофбройхаус." },
+      { day: 2, title: "Октоберфест", description: "Зарезервированный стол в шатре Schottenhamel, ужин." },
+      { day: 3, title: "Нойшванштайн", description: "Поездка к замкам Людвига II." },
+      { day: 4, title: "Октоберфест", description: "Шатёр Paulaner, парад костюмов и стрелков." },
+      { day: 5, title: "Зальцбург", description: "Экскурсия в город Моцарта, концерт классики." },
+      { day: 6, title: "Вылет", description: "Трансфер в аэропорт." },
+    ],
+    included: ["Отель 4* в центре", "Завтраки", "Резерв столов в шатрах (2 дня)", "Экскурсии", "Гид"],
+    notIncluded: ["Перелёты", "Виза", "Пиво и еда сверх включённого"],
+    difficulty: "Лёгкая",
+    groupSize: "до 14 человек",
+    startDates: ["25 — 30 сентября 2026", "2 — 7 октября 2026"],
+  },
+  {
+    id: "event-holi-india",
+    name: "Холи — фестиваль красок в Индии",
+    region: "Событийные туры",
+    days: 10,
+    price: "от $3 900",
+    image: eventHoliImg,
+    gallery: [eventHoliImg],
+    subtitle: "Вриндаван, Матхура и Золотой треугольник в самый яркий день года",
+    description:
+      "Празднование Холи в священных городах Кришны — Вриндаване и Матхуре, шествие во дворце Барсана, ритуалы в храмах. Плюс классический маршрут Дели — Агра — Джайпур.",
+    itinerary: [
+      { day: 1, title: "Дели", description: "Прибытие, отдых." },
+      { day: 2, title: "Дели", description: "Старый и Новый Дели, рикши по Чандни Чоук." },
+      { day: 3, title: "Матхура — Вриндаван", description: "Переезд, храмы Кришны, вечерняя ария." },
+      { day: 4, title: "Холи", description: "Празднование Холи во Вриндаване, шествие Lathmar." },
+      { day: 5, title: "Агра", description: "Тадж-Махал на рассвете, Красный форт." },
+      { day: 6, title: "Фатехпур-Сикри", description: "Город-призрак Великих Моголов, переезд в Джайпур." },
+      { day: 7, title: "Джайпур", description: "Дворец Амбер, на слонах к воротам, Хава-Махал." },
+      { day: 8, title: "Джайпур", description: "Городской дворец, обсерватория Джантар-Мантар." },
+      { day: 9, title: "Дели", description: "Возвращение, прощальный ужин." },
+      { day: 10, title: "Вылет", description: "Трансфер в аэропорт." },
+    ],
+    included: ["Отели 4–5*", "Завтраки и 5 ужинов", "Гид-русскоговорящий", "Все трансферы", "Входные билеты"],
+    notIncluded: ["Перелёты", "Виза", "Алкоголь"],
+    difficulty: "Лёгкая",
+    groupSize: "до 10 человек",
+    startDates: ["28 февраля — 9 марта 2026", "3 — 12 марта 2027"],
+  },
+  {
+    id: "event-venice-carnival",
+    name: "Венецианский карнавал",
+    region: "Событийные туры",
+    days: 5,
+    price: "от $4 600",
+    image: eventVeniceImg,
+    gallery: [eventVeniceImg],
+    subtitle: "Маски, балы во дворцах и гондолы по каналам Венеции",
+    description:
+      "Аристократический карнавал Венеции — закрытые балы в палаццо XVIII века, шествие масок на площади Сан-Марко, прогулки на гондолах и ужины в исторических ресторанах.",
+    itinerary: [
+      { day: 1, title: "Венеция", description: "Прибытие, прогулка по Сан-Марко, ужин с видом на канал." },
+      { day: 2, title: "Карнавал", description: "Шествие масок, конкурс костюмов на Сан-Марко." },
+      { day: 3, title: "Острова лагуны", description: "Мурано и Бурано, мастер-класс стеклодувов." },
+      { day: 4, title: "Бал в палаццо", description: "Ужин и бал в историческом дворце с дресс-кодом эпохи." },
+      { day: 5, title: "Вылет", description: "Гондола до Сан-Марко, трансфер в аэропорт." },
+    ],
+    included: ["Отель 5* у канала", "Завтраки", "Билет на бал", "Прогулка на гондоле", "Гид"],
+    notIncluded: ["Перелёты", "Виза", "Аренда костюмов"],
+    difficulty: "Лёгкая",
+    groupSize: "до 12 человек",
+    startDates: ["7 — 11 февраля 2026", "13 — 17 февраля 2027"],
+  },
+];
+
 export const regionToBreadcrumb: Record<string, { label: string; path: string }> = {
   "Япония": { label: "Туры по Японии", path: "/japan-tours" },
   "Южная Корея": { label: "Туры по Южной Корее", path: "/korea-tours" },
@@ -2269,6 +2411,6 @@ export const categoryToBreadcrumb: Record<string, { label: string; path: string 
 };
 
 export const getTourById = (id: string) => {
-  const allTours = [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours];
+  const allTours = [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours, ...eventTours];
   return allTours.find((t) => t.id === id);
 };
