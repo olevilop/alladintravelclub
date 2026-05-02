@@ -896,6 +896,7 @@ export const japanTours: Tour[] = [
         { hotel: "Отели 4*", prices: ["4 160 $", "1 960 $", "4 080 $", "3 950 $", "4 020 $", "950 $"] },
       ],
     },
+    excursionPricing: japanExcursionPricing,
   },
   {
     id: "japan-onsen-trail",
@@ -993,6 +994,8 @@ export const japanTours: Tour[] = [
       "13.09 — 20.09.2026",
       "20.09 — 27.09.2026",
     ],
+    hotelPricing: japanHotelPricing,
+    excursionPricing: japanExcursionPricing,
   },
   {
     id: "japan-spiritual-path",
@@ -1091,6 +1094,8 @@ export const japanTours: Tour[] = [
       "13.09 — 20.09.2026",
       "20.09 — 27.09.2026",
     ],
+    hotelPricing: japanHotelPricing,
+    excursionPricing: japanExcursionPricing,
   },
   {
     id: "japan-hokkaido-winter",
@@ -1150,6 +1155,8 @@ export const japanTours: Tour[] = [
       "13.09 — 20.09.2026",
       "20.09 — 27.09.2026",
     ],
+    hotelPricing: japanHotelPricing,
+    excursionPricing: japanExcursionPricing,
   },
   {
     id: "japan-grand-tour",
