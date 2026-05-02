@@ -134,6 +134,52 @@ export const koreaOccupancyPricing = {
   ],
 };
 
+export const japanHotelPricing = {
+  categories: [
+    "½ TWIN",
+    "Доплата за SGL",
+    "Доп. кровать (взр.)",
+    "Доп. кровать (реб. до 11)",
+    "Дети 6–11 лет (осн. место)",
+    "Дети до 6 лет (без кровати)",
+  ],
+  rows: [
+    { hotel: "Отели 2–3*", prices: ["2 930 $", "650 $", "N/A", "N/A", "2 810 $", "950 $"] },
+    { hotel: "Отели 3* комфорт", prices: ["3 330 $", "960 $", "3 250 $", "3 130 $", "3 200 $", "950 $"] },
+    { hotel: "Отели 4*", prices: ["4 100 $", "1 960 $", "4 020 $", "3 900 $", "3 970 $", "950 $"] },
+  ],
+};
+
+export const japanExcursionPricing = {
+  excursions: [
+    {
+      name: "Вечерний Токио",
+      prices: [
+        { label: "Взрослые", value: "190 $" },
+        { label: "Дети 6–11 лет", value: "160 $" },
+        { label: "Дети 4–5 лет", value: "20 $" },
+        { label: "Дети от 0-3 года", value: "бесплатно" },
+      ],
+    },
+    {
+      name: "Традиции Токио",
+      prices: [
+        { label: "Взрослые", value: "210 $" },
+        { label: "Дети 6–11 лет", value: "170 $" },
+        { label: "Дети 0–5 лет", value: "бесплатно без места и питания" },
+      ],
+    },
+    {
+      name: "Нара и Осака",
+      prices: [
+        { label: "Взрослые", value: "220 $" },
+        { label: "Дети 6–11 лет", value: "190 $" },
+        { label: "Дети 0–5 лет", value: "бесплатно без питания" },
+      ],
+    },
+  ],
+};
+
 export const tours: Tour[] = [
   {
     id: "arctic-spitsbergen",
