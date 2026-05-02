@@ -2239,10 +2239,30 @@ export const regionToPath: Record<string, string> = {
 };
 
 import eventSakuraImg from "@/assets/event-sakura.jpg";
+import eventSakura2 from "@/assets/event-sakura-2.jpg";
+import eventSakura3 from "@/assets/event-sakura-3.jpg";
+import eventSakura4 from "@/assets/event-sakura-4.jpg";
+import eventSakura5 from "@/assets/event-sakura-5.jpg";
 import eventRioImg from "@/assets/event-rio.jpg";
+import eventRio2 from "@/assets/event-rio-2.jpg";
+import eventRio3 from "@/assets/event-rio-3.jpg";
+import eventRio4 from "@/assets/event-rio-4.jpg";
+import eventRio5 from "@/assets/event-rio-5.jpg";
 import eventOktoberfestImg from "@/assets/event-oktoberfest.jpg";
+import eventOktoberfest2 from "@/assets/event-oktoberfest-2.jpg";
+import eventOktoberfest3 from "@/assets/event-oktoberfest-3.jpg";
+import eventOktoberfest4 from "@/assets/event-oktoberfest-4.jpg";
+import eventOktoberfest5 from "@/assets/event-oktoberfest-5.jpg";
 import eventHoliImg from "@/assets/event-holi.jpg";
+import eventHoli2 from "@/assets/event-holi-2.jpg";
+import eventHoli3 from "@/assets/event-holi-3.jpg";
+import eventHoli4 from "@/assets/event-holi-4.jpg";
+import eventHoli5 from "@/assets/event-holi-5.jpg";
 import eventVeniceImg from "@/assets/event-venice.jpg";
+import eventVenice2 from "@/assets/event-venice-2.jpg";
+import eventVenice3 from "@/assets/event-venice-3.jpg";
+import eventVenice4 from "@/assets/event-venice-4.jpg";
+import eventVenice5 from "@/assets/event-venice-5.jpg";
 
 export const eventTours: Tour[] = [
   {
@@ -2252,7 +2272,7 @@ export const eventTours: Tour[] = [
     days: 9,
     price: "от $4 200",
     image: eventSakuraImg,
-    gallery: [eventSakuraImg],
+    gallery: [eventSakuraImg, eventSakura2, eventSakura3, eventSakura4, eventSakura5],
     subtitle: "Киото, Токио и древние храмы под розовыми облаками сакуры",
     description:
       "Девять дней в Японии в самый волшебный сезон — пик цветения сакуры. Чайные церемонии в Киото, ночные подсветки садов, прогулки по аллее Философа и пикники-ханами в парке Уэно.",
@@ -2280,7 +2300,7 @@ export const eventTours: Tour[] = [
     days: 8,
     price: "от $5 800",
     image: eventRioImg,
-    gallery: [eventRioImg],
+    gallery: [eventRioImg, eventRio2, eventRio3, eventRio4, eventRio5],
     subtitle: "Самбадром, парады школ самбы и пляжи Копакабаны",
     description:
       "Главный карнавал планеты — VIP-ложи на Самбадроме, закрытые балы Copacabana Palace, экскурсии к Христу-Искупителю и Сахарной голове, вертолётный облёт Рио.",
@@ -2307,7 +2327,7 @@ export const eventTours: Tour[] = [
     days: 6,
     price: "от $3 400",
     image: eventOktoberfestImg,
-    gallery: [eventOktoberfestImg],
+    gallery: [eventOktoberfestImg, eventOktoberfest2, eventOktoberfest3, eventOktoberfest4, eventOktoberfest5],
     subtitle: "Зарезервированные столы в исторических шатрах и замки Баварии",
     description:
       "Главный пивной фестиваль мира с гарантированными местами в шатрах Hofbräu, Paulaner и Schottenhamel. Дополнительно — экскурсии по Нойшванштайну и Зальцбургу.",
@@ -2332,7 +2352,7 @@ export const eventTours: Tour[] = [
     days: 10,
     price: "от $3 900",
     image: eventHoliImg,
-    gallery: [eventHoliImg],
+    gallery: [eventHoliImg, eventHoli2, eventHoli3, eventHoli4, eventHoli5],
     subtitle: "Вриндаван, Матхура и Золотой треугольник в самый яркий день года",
     description:
       "Празднование Холи в священных городах Кришны — Вриндаване и Матхуре, шествие во дворце Барсана, ритуалы в храмах. Плюс классический маршрут Дели — Агра — Джайпур.",
@@ -2361,7 +2381,7 @@ export const eventTours: Tour[] = [
     days: 5,
     price: "от $4 600",
     image: eventVeniceImg,
-    gallery: [eventVeniceImg],
+    gallery: [eventVeniceImg, eventVenice2, eventVenice3, eventVenice4, eventVenice5],
     subtitle: "Маски, балы во дворцах и гондолы по каналам Венеции",
     description:
       "Аристократический карнавал Венеции — закрытые балы в палаццо XVIII века, шествие масок на площади Сан-Марко, прогулки на гондолах и ужины в исторических ресторанах.",
