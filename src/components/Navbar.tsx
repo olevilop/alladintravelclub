@@ -76,9 +76,12 @@ const Navbar = () => {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-background border-b border-border`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between h-20">
-        <button onClick={() => location.pathname === "/" ? scrollTo("#hero") : navigate("/")} className="flex items-center gap-2">
-          <span className="font-serif text-2xl font-semibold tracking-wider text-gold-gradient">
-            Travel Club Alladin
+        <button onClick={() => location.pathname === "/" ? scrollTo("#hero") : navigate("/")} className="flex items-baseline gap-2">
+          <span className="font-serif text-3xl md:text-4xl font-semibold tracking-wider text-gold-gradient">
+            Alladin
+          </span>
+          <span className="font-serif text-lg md:text-xl font-medium tracking-wider text-gold-gradient">
+            Travel Club
           </span>
         </button>
 

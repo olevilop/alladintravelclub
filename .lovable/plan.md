@@ -1,10 +1,9 @@
-Удалить изображение лампы из логотипа в шапке (Navbar), оставив только текст "Travel Club Alladin".
+Изменить логотип в шапке: поставить «Alladin» первым (крупнее), затем «Travel Club» (чуть меньше).
 
 ## Изменения
 
-**`src/components/Navbar.tsx`**
-- Удалить `<img src={lampLogo} ... />` внутри кнопки логотипа.
-- Удалить неиспользуемый импорт `lampLogo`.
-- Текст "Travel Club Alladin" остаётся без изменений и продолжает вести на главную.
-
-Логотип в футере и иконка-лампа на кнопке "Потри лампу" в Hero не затрагиваются.
+**`src/components/Navbar.tsx`** (строки 79-83)
+- Разделить текст логотипа на два `<span>`.
+- Первый: «Alladin» — `text-3xl md:text-4xl font-semibold`.
+- Второй: «Travel Club» — `text-lg md:text-xl font-medium`.
+- Контейнер кнопки: `flex items-baseline gap-2`, стиль `text-gold-gradient` и `font-serif` сохраняются.
