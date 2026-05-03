@@ -106,7 +106,11 @@ const TourDetail = () => {
               <h2 className="font-serif text-2xl md:text-3xl font-light mb-6">
                 О <span className="italic text-gold-gradient">путешествии</span>
               </h2>
-              <p className="text-foreground/80 leading-relaxed text-base md:text-lg">{tour.description}</p>
+              <div className="space-y-4 text-foreground/80 leading-relaxed text-base md:text-lg">
+                {tour.description.split('\n').filter(Boolean).map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
             </div>
 
             {/* Itinerary */}
