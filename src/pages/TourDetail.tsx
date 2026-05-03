@@ -155,6 +155,23 @@ const TourDetail = () => {
               </div>
             )}
 
+            {/* Cancellation terms */}
+            {tour.cancellationTerms && tour.cancellationTerms.length > 0 && (
+              <div>
+                <h2 className="font-serif text-2xl md:text-3xl font-light mb-6">
+                  Условия <span className="italic text-gold-gradient">аннуляции</span>
+                </h2>
+                <div className="bg-card border border-border p-6 space-y-3">
+                  {tour.cancellationTerms.map((term) => (
+                    <div key={term} className="flex items-start gap-3">
+                      <X className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" />
+                      <span className="text-foreground/80 text-sm md:text-base">{term}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Extras */}
             {tour.extras && (
               <div className="my-[4px]">
