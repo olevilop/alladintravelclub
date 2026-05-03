@@ -222,8 +222,8 @@ export const tours: Tour[] = [
     ],
     difficulty: "Лёгкая",
     groupSize: "до 100 человек",
-    startDates: ["10 — 17 марта 2026", "14 — 21 апреля 2026", "12 — 19 мая 2026"],
-    shipName: "Silver Origin",
+    startDates: ["27.12.2026 — 03.01.2027"],
+    shipName: "Яхта Emerald Kaia",
   },
   {
     id: "arctic-spitsbergen",
@@ -2479,6 +2479,7 @@ export const regionToContinent: Record<string, string> = {
   "Китай": "Азия",
   "Северная Корея": "Азия",
   "Мальдивы": "Азия",
+  "Сейшелы": "Африка",
 };
 
 export const categoryToBreadcrumb: Record<string, { label: string; path: string }> = {

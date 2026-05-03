@@ -283,4 +283,14 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
     { lat: 65.50, lng: -171.72, label: "Лорино" },
     { lat: 64.73, lng: 177.51, label: "Анадырь" },
   ],
+  "seychelles-tropical-rhythms": [
+    { lat: -4.6796, lng: 55.4920, label: "Маэ" },
+    { lat: -4.5833, lng: 55.4900, label: "Сент-Анн" },
+    { lat: -4.3300, lng: 55.6600, label: "Кузен" },
+    { lat: -4.3260, lng: 55.7370, label: "Праслин" },
+    { lat: -4.3590, lng: 55.8370, label: "Ла-Диг" },
+    { lat: -4.2830, lng: 55.7370, label: "Кюрьёз" },
+    { lat: -4.2160, lng: 55.6670, label: "Ариде" },
+    { lat: -4.6796, lng: 55.4920, label: "Маэ" },
+  ],
 };
