@@ -110,6 +110,7 @@ export interface Tour {
   shipName?: string;
   shipImage?: string;
   extras?: string;
+  badge?: string;
   hotelPricing?: {
     categories: string[];
     rows: { hotel: string; prices: string[] }[];
@@ -188,6 +189,7 @@ export const tours: Tour[] = [
     category: "expedition",
     days: 8,
     price: "от €7 025",
+    badge: "🇷🇺 РУССКАЯ ГРУППА",
     image: islandsImg,
     gallery: [islandsImg, tourSafari, tourExpedition, antarcticaImg, arcticImg],
     subtitle: "Экспедиционный круиз по жемчужинам Индийского океана",
