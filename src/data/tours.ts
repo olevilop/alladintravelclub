@@ -126,6 +126,12 @@ export interface Tour {
   occupancyPricing?: {
     rows: { label: string; price: string }[];
   };
+  cabinPricing?: {
+    note?: string;
+    footnote?: string;
+    defaultCabin?: string;
+    cabins: { name: string; price?: string; soldOut?: boolean }[];
+  };
   faq?: { q: string; a: string }[];
 }
 
