@@ -231,6 +231,10 @@ export const tours: Tour[] = [
     groupSize: "до 100 человек",
     startDates: ["27.12.2026 — 03.01.2027"],
     shipName: "Яхта Emerald Kaia",
+    paymentTerms: [
+      "Депозит 30% для подтверждения бронирования",
+      "Финальная оплата за 60 дней до начала круиза",
+    ],
   },
   {
     id: "arctic-spitsbergen",
