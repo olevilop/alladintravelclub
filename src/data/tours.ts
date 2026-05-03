@@ -112,6 +112,7 @@ export interface Tour {
   extras?: string;
   badge?: string;
   paymentTerms?: string[];
+  cancellationTerms?: string[];
   hotelPricing?: {
     categories: string[];
     rows: { hotel: string; prices: string[] }[];
@@ -234,6 +235,11 @@ export const tours: Tour[] = [
     paymentTerms: [
       "Депозит 30% для подтверждения бронирования",
       "Финальная оплата за 60 дней до начала круиза",
+    ],
+    cancellationTerms: [
+      "365–182 дня до начала круиза: 3% от стоимости тура",
+      "181–61 дней до начала круиза: 30% от стоимости тура",
+      "60 дней и менее до начала круиза: 100% от стоимости тура",
     ],
   },
   {
