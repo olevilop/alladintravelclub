@@ -30,6 +30,7 @@ const TourDetail = () => {
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [selectedHotel, setSelectedHotel] = useState<string>("");
   const [selectedExcursion, setSelectedExcursion] = useState<string>("");
+  const [selectedCabin, setSelectedCabin] = useState<string>("");
   const isCruise = tour?.name.toLowerCase().includes("круиз");
 
   useEffect(() => {
