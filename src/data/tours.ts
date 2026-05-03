@@ -112,6 +112,7 @@ export interface Tour {
   extras?: string;
   badge?: string;
   paymentTerms?: string[];
+  cancellationTerms?: string[];
   hotelPricing?: {
     categories: string[];
     rows: { hotel: string; prices: string[] }[];
