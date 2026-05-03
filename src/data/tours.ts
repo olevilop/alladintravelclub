@@ -111,6 +111,7 @@ export interface Tour {
   shipImage?: string;
   extras?: string;
   badge?: string;
+  paymentTerms?: string[];
   hotelPricing?: {
     categories: string[];
     rows: { hotel: string; prices: string[] }[];
