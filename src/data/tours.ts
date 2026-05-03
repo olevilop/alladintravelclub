@@ -1,5 +1,6 @@
 import arcticImg from "@/assets/arctic.jpg";
 import scenicEclipseShip from "@/assets/scenic-eclipse.png";
+import emeraldKaiaShip from "@/assets/yacht-emerald-kaia.jpg";
 import antarcticPenguinsHero from "@/assets/antarctic-penguins-hero.jpg";
 import antarcticaImg from "@/assets/antarctica.jpg";
 import tourExpedition from "@/assets/tour-expedition.jpg";
@@ -238,6 +239,7 @@ export const tours: Tour[] = [
     groupSize: "до 100 человек",
     startDates: ["27.12.2026 — 03.01.2027"],
     shipName: "Яхта Emerald Kaia",
+    shipImage: emeraldKaiaShip,
     paymentTerms: [
       "Депозит 30% для подтверждения бронирования",
       "Финальная оплата за 60 дней до начала круиза",
