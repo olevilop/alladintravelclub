@@ -6,11 +6,12 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 interface TourBookingFormProps {
   tourName: string;
   startDates: string[];
+  cabins?: string[];
 }
 
-const TourBookingForm = ({ tourName, startDates }: TourBookingFormProps) => {
+const TourBookingForm = ({ tourName, startDates, cabins }: TourBookingFormProps) => {
   const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", phone: "", email: "", date: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", email: "", date: "", cabin: "", message: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,7 +20,7 @@ const TourBookingForm = ({ tourName, startDates }: TourBookingFormProps) => {
       return;
     }
     toast({ title: "Заявка отправлена!", description: `Мы свяжемся с вами по поводу тура «${tourName}»` });
-    setForm({ name: "", phone: "", email: "", date: "", message: "" });
+    setForm({ name: "", phone: "", email: "", date: "", cabin: "", message: "" });
   };
 
   const inputClass =
@@ -70,6 +71,18 @@ const TourBookingForm = ({ tourName, startDates }: TourBookingFormProps) => {
             ))}
           </SelectContent>
         </Select>
+        {cabins && cabins.length > 0 && (
+          <Select value={form.cabin} onValueChange={(value) => setForm({ ...form, cabin: value })}>
+            <SelectTrigger className={`${inputClass} h-auto`}>
+              <SelectValue placeholder="Желаемая каюта" />
+            </SelectTrigger>
+            <SelectContent>
+              {cabins.map((c) => (
+                <SelectItem key={c} value={c}>{c}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        )}
         <textarea
           placeholder="Пожелания"
           value={form.message}
