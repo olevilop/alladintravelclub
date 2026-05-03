@@ -1,25 +1,16 @@
-## Добавить бейдж «🇷🇺 РУССКАЯ ГРУППА» на карточку «Тропические ритмы Сейшельских островов»
+## Изменить стиль бейджа «🇷🇺 РУССКАЯ ГРУППА»
 
-### Что сделать
+В `src/components/TourCarousel.tsx` сделать бейдж в том же стиле, что и тег региона «СЕЙШЕЛЫ» — полупрозрачный светлый фон с золотым текстом, без красного цвета. Флаг и текст сохраняются.
 
-На главной странице в блоке «Экспедиционные круизы» на карточке тура `seychelles-tropical-rhythms` отобразить дополнительный бейдж с флагом России и текстом «РУССКАЯ ГРУППА».
-
-### Технические детали
-
-1. **`src/data/tours.ts`** — добавить опциональное поле `badge?: string` в интерфейс `Tour` и проставить значение `"🇷🇺 РУССКАЯ ГРУППА"` в туре `seychelles-tropical-rhythms`.
-
-2. **`src/components/TourCarousel.tsx`**:
-   - расширить локальный интерфейс `Tour` полем `badge?: string`;
-   - если `badge` задан, показать его на изображении в **левом верхнем углу** (чтобы не конфликтовать с тегом региона «СЕЙШЕЛЫ» в правом верхнем углу).
-   - Стиль бейджа: тёмно-красный фон (`bg-[#a02828]`) с белым текстом, тот же размер шрифта/трекинг, что и у тега региона (`text-xs uppercase tracking-wider`), padding `px-3 py-1`, без скруглений (в стиле сайта).
-
+Заменить:
 ```tsx
-{tour.badge && (
-  <div className="absolute top-3 left-3 bg-[#a02828] text-white px-3 py-1 text-xs font-sans uppercase tracking-wider">
-    {tour.badge}
-  </div>
-)}
+<div className="absolute top-3 left-3 bg-[#a02828] text-white px-3 py-1 text-xs font-sans uppercase tracking-wider">
+  {tour.badge}
+</div>
 ```
-
-### Результат
-Карточка Сейшел в карусели «Экспедиционные круизы» получит заметный бейдж «🇷🇺 РУССКАЯ ГРУППА» слева сверху, а тег «СЕЙШЕЛЫ» останется справа сверху. Остальные карточки не изменятся.
+на:
+```tsx
+<div className="absolute top-3 left-3 bg-background/80 backdrop-blur-sm px-3 py-1 text-xs text-primary font-sans uppercase tracking-wider">
+  {tour.badge}
+</div>
+```
