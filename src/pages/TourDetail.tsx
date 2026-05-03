@@ -21,6 +21,7 @@ import SpecialOffers from "@/components/SpecialOffers";
 import NewsletterSocial from "@/components/NewsletterSocial";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import TourManagerCard from "@/components/TourManagerCard";
+import ExpeditionManagerCard from "@/components/ExpeditionManagerCard";
 
 const fadeIn = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
@@ -444,7 +445,9 @@ const TourDetail = () => {
               )}
               {/* Booking form */}
               <TourBookingForm tourName={tour.name} startDates={tour.startDates} cabins={tour.cabinPricing?.cabins.map(c => c.name)} />
-              {(tour.region === "Япония" || tour.region === "Южная Корея") && <TourManagerCard />}
+              {(tour.region === "Япония" || tour.region === "Южная Корея")
+                ? <TourManagerCard />
+                : <ExpeditionManagerCard />}
             </div>
           </div>
         </div>
