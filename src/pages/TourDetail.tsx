@@ -303,6 +303,51 @@ const TourDetail = () => {
               {/* Route map */}
               <RouteMap tourId={tour.id} />
 
+              {/* Cabin pricing */}
+              {tour.cabinPricing && (() => {
+                const def = tour.cabinPricing.defaultCabin
+                  || tour.cabinPricing.cabins.find(c => !c.soldOut)?.name
+                  || "";
+                const current = selectedCabin || def;
+                const cabin = tour.cabinPricing.cabins.find(c => c.name === current);
+                return (
+                  <div className="bg-card border border-border p-4 space-y-3">
+                    <div>
+                      <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground mb-1">Стоимость кают</h4>
+                      {tour.cabinPricing.note && (
+                        <p className="text-xs text-muted-foreground">{tour.cabinPricing.note}</p>
+                      )}
+                    </div>
+                    <Select value={current} onValueChange={setSelectedCabin}>
+                      <SelectTrigger className="w-full bg-background border-border text-foreground">
+                        <SelectValue placeholder="Выбрать каюту" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {tour.cabinPricing.cabins.map(c => (
+                          <SelectItem
+                            key={c.name}
+                            value={c.name}
+                            disabled={c.soldOut}
+                            className={c.soldOut ? "opacity-50" : ""}
+                          >
+                            <span>{c.name}</span>
+                            {c.soldOut
+                              ? <span className="ml-2 text-muted-foreground">— продано</span>
+                              : c.price && <span className="ml-2 text-primary">— {c.price}</span>}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                    {cabin?.price && (
+                      <div className="font-serif text-3xl text-primary pt-1">{cabin.price}</div>
+                    )}
+                    {tour.cabinPricing.footnote && (
+                      <p className="text-[11px] text-muted-foreground leading-snug">{tour.cabinPricing.footnote}</p>
+                    )}
+                  </div>
+                );
+              })()}
+
               {/* Occupancy pricing (per-person by room occupancy) */}
               {tour.occupancyPricing && (
                 <div className="bg-card border border-border p-4 space-y-3">
