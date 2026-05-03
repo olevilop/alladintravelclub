@@ -63,7 +63,7 @@ const TourBookingForm = ({ tourName, startDates, cabins }: TourBookingFormProps)
         />
         <Select value={form.date} onValueChange={(value) => setForm({ ...form, date: value })}>
           <SelectTrigger className={`${inputClass} h-auto`}>
-            <SelectValue placeholder="Желаемая дата" />
+            <SelectValue placeholder="Даты" />
           </SelectTrigger>
           <SelectContent>
             {startDates.map((date) => (
@@ -74,7 +74,7 @@ const TourBookingForm = ({ tourName, startDates, cabins }: TourBookingFormProps)
         {cabins && cabins.length > 0 && (
           <Select value={form.cabin} onValueChange={(value) => setForm({ ...form, cabin: value })}>
             <SelectTrigger className={`${inputClass} h-auto`}>
-              <SelectValue placeholder="Желаемая каюта" />
+              <SelectValue placeholder="Каюты" />
             </SelectTrigger>
             <SelectContent>
               {cabins.map((c) => (
