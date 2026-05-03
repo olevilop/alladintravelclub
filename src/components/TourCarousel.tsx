@@ -9,6 +9,7 @@ interface Tour {
   region: string;
   days: number;
   price: string;
+  badge?: string;
 }
 
 const TourCarousel = ({ tours }: { tours: Tour[] }) => {
@@ -82,6 +83,11 @@ const TourCarousel = ({ tours }: { tours: Tour[] }) => {
               <div className="absolute top-3 right-3 bg-background/80 backdrop-blur-sm px-3 py-1 text-xs text-primary font-sans uppercase tracking-wider">
                 {tour.region}
               </div>
+              {tour.badge && (
+                <div className="absolute top-3 left-3 bg-[#a02828] text-white px-3 py-1 text-xs font-sans uppercase tracking-wider">
+                  {tour.badge}
+                </div>
+              )}
             </div>
             <div className="p-5">
               <h3 className="font-serif text-lg text-foreground leading-snug">{tour.name}</h3>
