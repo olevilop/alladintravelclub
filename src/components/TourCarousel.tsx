@@ -84,7 +84,7 @@ const TourCarousel = ({ tours }: { tours: Tour[] }) => {
                 {tour.region}
               </div>
               {tour.badge && (
-                <div className="absolute top-3 left-3 bg-[#a02828] text-white px-3 py-1 text-xs font-sans uppercase tracking-wider">
+                <div className="absolute top-3 left-3 bg-background/80 backdrop-blur-sm px-3 py-1 text-xs text-primary font-sans uppercase tracking-wider">
                   {tour.badge}
                 </div>
               )}
