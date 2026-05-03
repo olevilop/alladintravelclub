@@ -443,7 +443,7 @@ const TourDetail = () => {
                 </div>
               )}
               {/* Booking form */}
-              <TourBookingForm tourName={tour.name} startDates={tour.startDates} />
+              <TourBookingForm tourName={tour.name} startDates={tour.startDates} cabins={tour.cabinPricing?.cabins.map(c => c.name)} />
               {(tour.region === "Япония" || tour.region === "Южная Корея") && <TourManagerCard />}
             </div>
           </div>
