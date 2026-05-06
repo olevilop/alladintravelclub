@@ -10,7 +10,7 @@ interface SpecialOffersProps {
 const SpecialOffers = ({ excludeTourId }: SpecialOffersProps) => {
   const selected = useMemo(() => {
     const all = [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours]
-      .filter(t => t.id !== excludeTourId);
+      .filter(t => t.id !== excludeTourId && t.id !== "china-grand-tour-2026");
     const shuffled = [...all];
     for (let i = shuffled.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
