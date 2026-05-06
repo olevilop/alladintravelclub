@@ -17,15 +17,6 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
     { lat: -54.81, lng: -68.31, label: "Ушуайя" },
     { lat: -34.61, lng: -58.38, label: "Буэнос-Айрес" },
   ],
-  "south-pole-expedition": [
-    { lat: -54.81, lng: -68.31, label: "Ушуайя" },
-    { lat: -62.00, lng: -58.00, label: "Пролив Дрейка" },
-    { lat: -64.77, lng: -64.05, label: "Порт Локрой" },
-    { lat: -65.25, lng: -64.27, label: "Залив Парадайз" },
-    { lat: -66.00, lng: -65.50, label: "Остров Петерманн" },
-    { lat: -64.00, lng: -61.00, label: "Десепшен" },
-    { lat: -54.81, lng: -68.31, label: "Ушуайя" },
-  ],
   "antarctic-penguins": [
     { lat: -34.60, lng: -58.38, label: "Буэнос-Айрес" },
     { lat: -54.81, lng: -68.31, label: "Ушуайя" },
