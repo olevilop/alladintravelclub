@@ -133,6 +133,11 @@ export interface Tour {
     defaultCabin?: string;
     cabins: { name: string; price?: string; soldOut?: boolean }[];
   };
+  groupPricing?: {
+    title?: string;
+    defaultGroup?: string;
+    groups: { label: string; rows: { label: string; price: string }[] }[];
+  };
   faq?: { q: string; a: string }[];
 }
 
