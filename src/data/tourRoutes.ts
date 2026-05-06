@@ -214,6 +214,11 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
     { lat: 29.12, lng: 110.48, label: "Чжанцзяцзе" },
     { lat: 31.23, lng: 121.47, label: "Шанхай" },
   ],
+  "china-avatar-mountains-2026": [
+    { lat: 39.90, lng: 116.40, label: "Пекин" },
+    { lat: 29.12, lng: 110.48, label: "Чжанцзяцзе" },
+    { lat: 39.90, lng: 116.40, label: "Пекин" },
+  ],
   "nkorea-pyongyang": [
     { lat: 39.90, lng: 116.40, label: "Пекин" },
     { lat: 39.02, lng: 125.74, label: "Пхеньян" },
