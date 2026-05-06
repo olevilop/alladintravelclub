@@ -208,6 +208,12 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
     { lat: 30.27, lng: 120.15, label: "Ханчжоу" },
     { lat: 31.23, lng: 121.47, label: "Шанхай" },
   ],
+  "china-zhangjiajie-2026": [
+    { lat: 39.90, lng: 116.40, label: "Пекин" },
+    { lat: 34.34, lng: 108.94, label: "Сиань" },
+    { lat: 29.12, lng: 110.48, label: "Чжанцзяцзе" },
+    { lat: 31.23, lng: 121.47, label: "Шанхай" },
+  ],
   "nkorea-pyongyang": [
     { lat: 39.90, lng: 116.40, label: "Пекин" },
     { lat: 39.02, lng: 125.74, label: "Пхеньян" },
