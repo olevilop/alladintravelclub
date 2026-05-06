@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, Compass, Globe } from "lucide-react";
+import { Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, Compass, Globe, Users } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -32,6 +32,7 @@ const TourDetail = () => {
   const [selectedHotel, setSelectedHotel] = useState<string>("");
   const [selectedExcursion, setSelectedExcursion] = useState<string>("");
   const [selectedCabin, setSelectedCabin] = useState<string>("");
+  const [selectedGroup, setSelectedGroup] = useState<string>("");
   const isCruise = tour?.name.toLowerCase().includes("круиз");
 
   useEffect(() => {
@@ -238,7 +239,13 @@ const TourDetail = () => {
                     <span>Классический круиз</span>
                   </div>
                 )}
-                {(!tour.category || (tour.category !== "expedition" && tour.category !== "classic")) && (
+                {tour.category === "Групповой тур" && (
+                  <div className="flex items-center gap-3 text-sm text-foreground/80">
+                    <Users className="w-4 h-4 text-primary shrink-0" />
+                    <span>Групповой тур</span>
+                  </div>
+                )}
+                {(!tour.category || (tour.category !== "expedition" && tour.category !== "classic" && tour.category !== "Групповой тур")) && (
                   <div className="flex items-center gap-3 text-sm text-foreground/80">
                     <Compass className="w-4 h-4 text-primary shrink-0" />
                     <span>Экскурсионный тур</span>
