@@ -2606,6 +2606,9 @@ export const regionToContinent: Record<string, string> = {
   "Северная Корея": "Азия",
   "Мальдивы": "Азия",
   "Сейшелы": "Африка",
+  "Бразилия": "Южная Америка",
+  "Аргентина": "Южная Америка",
+  "Уругвай": "Южная Америка",
 };
 
 export const categoryToBreadcrumb: Record<string, { label: string; path: string }> = {
