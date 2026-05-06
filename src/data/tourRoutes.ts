@@ -17,18 +17,6 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
     { lat: -54.81, lng: -68.31, label: "Ушуайя" },
     { lat: -34.61, lng: -58.38, label: "Буэнос-Айрес" },
   ],
-  "arctic-spitsbergen": [
-    { lat: 59.91, lng: 10.75, label: "Осло" },
-    { lat: 78.22, lng: 15.63, label: "Лонгйир" },
-    { lat: 79.50, lng: 12.50, label: "Ледник Монакобреен" },
-    { lat: 80.02, lng: 14.56, label: "Остров Моффен" },
-    { lat: 80.50, lng: 16.00, label: "Пак-лёд" },
-    { lat: 79.80, lng: 18.50, label: "Северо-восточная земля" },
-    { lat: 79.40, lng: 18.80, label: "Хинлопенский пролив" },
-    { lat: 78.06, lng: 14.22, label: "Баренцбург" },
-    { lat: 78.92, lng: 11.93, label: "Ню-Олесунн" },
-    { lat: 78.22, lng: 15.63, label: "Лонгйир" },
-  ],
   "south-pole-expedition": [
     { lat: -54.81, lng: -68.31, label: "Ушуайя" },
     { lat: -62.00, lng: -58.00, label: "Пролив Дрейка" },
