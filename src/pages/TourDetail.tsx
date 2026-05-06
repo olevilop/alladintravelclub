@@ -450,6 +450,45 @@ const TourDetail = () => {
                   })()}
                 </div>
               )}
+              {/* Group pricing (per group size) */}
+              {tour.groupPricing && (() => {
+                const def = tour.groupPricing.defaultGroup || tour.groupPricing.groups[0]?.label;
+                const current = selectedGroup || def;
+                const group = tour.groupPricing.groups.find(g => g.label === current);
+                return (
+                  <div className="bg-card border border-border p-4 space-y-3">
+                    <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground">
+                      {tour.groupPricing.title || "Стоимость тура на 1 человека"}
+                    </h4>
+                    <div>
+                      <label className="text-xs text-muted-foreground mb-1 block">Размер группы</label>
+                      <Select value={current} onValueChange={setSelectedGroup}>
+                        <SelectTrigger className="w-full bg-background border-border text-foreground">
+                          <SelectValue placeholder="Выберите размер группы" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {tour.groupPricing.groups.map(g => (
+                            <SelectItem key={g.label} value={g.label}>{g.label}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    {group && (
+                      <div className="space-y-2 pt-1">
+                        {group.rows.map(row => {
+                          const isDash = row.price.trim() === "—" || row.price.trim() === "-";
+                          return (
+                            <div key={row.label} className="flex items-center justify-between text-xs">
+                              <span className="text-muted-foreground">{row.label}</span>
+                              <span className={isDash ? "text-muted-foreground/50" : "text-foreground font-medium"}>{row.price}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
               {/* Booking form */}
               <TourBookingForm tourName={tour.name} startDates={tour.startDates} cabins={tour.cabinPricing?.cabins.map(c => c.name)} />
               {(tour.region === "Япония" || tour.region === "Южная Корея")
