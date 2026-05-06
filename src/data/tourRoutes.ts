@@ -34,13 +34,6 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
     { lat: -60.00, lng: -65.00, label: "Пролив Дрейка" },
     { lat: -54.81, lng: -68.31, label: "Ушуайя" },
   ],
-  "serengeti-safari": [
-    { lat: -3.37, lng: 36.69, label: "Аруша" },
-    { lat: -2.33, lng: 34.83, label: "Серенгети" },
-    { lat: -3.07, lng: 37.35, label: "Килиманджаро" },
-    { lat: -2.52, lng: 34.74, label: "Нгоронгоро" },
-    { lat: -3.37, lng: 36.69, label: "Аруша" },
-  ],
   "norway-fjords": [
     { lat: 60.39, lng: 5.32, label: "Берген" },
     { lat: 60.86, lng: 6.85, label: "Согнефьорд" },
