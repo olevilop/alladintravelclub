@@ -243,19 +243,18 @@ const TourDetail = () => {
                   </div>
                 )}
                 {tour.category === "Групповой тур" && (
-                  <div className="flex items-center gap-3 text-sm text-foreground/80">
-                    {tour.badge === "Экскурсионный тур" ? (
-                      <>
+                  <>
+                    {tour.badge === "Экскурсионный тур" && (
+                      <div className="flex items-center gap-3 text-sm text-foreground/80">
                         <Compass className="w-4 h-4 text-primary shrink-0" />
                         <span>Экскурсионный тур</span>
-                      </>
-                    ) : (
-                      <>
-                        <Users className="w-4 h-4 text-primary shrink-0" />
-                        <span>Групповой тур</span>
-                      </>
+                      </div>
                     )}
-                  </div>
+                    <div className="flex items-center gap-3 text-sm text-foreground/80">
+                      <Users className="w-4 h-4 text-primary shrink-0" />
+                      <span>Групповой тур</span>
+                    </div>
+                  </>
                 )}
                 {(!tour.category || (tour.category !== "expedition" && tour.category !== "classic" && tour.category !== "Групповой тур")) && (
                   <div className="flex items-center gap-3 text-sm text-foreground/80">
@@ -310,11 +309,6 @@ const TourDetail = () => {
                     <div className="flex items-start gap-3 text-foreground/80">
                       <Route className="w-4 h-4 text-primary shrink-0 mt-0.5" />
                       <span className="leading-relaxed">{routePoints.map(p => p.label).join(" → ")}</span>
-                    </div>
-                  )}
-                  {tour.badge && (
-                    <div className="flex items-center gap-2 pt-1 text-sm text-primary font-sans uppercase tracking-wider">
-                      <span>{tour.badge}</span>
                     </div>
                   )}
                 </div>
