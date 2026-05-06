@@ -311,11 +311,6 @@ const TourDetail = () => {
                       <span className="leading-relaxed">{routePoints.map(p => p.label).join(" → ")}</span>
                     </div>
                   )}
-                  {tour.badge && (
-                    <div className="flex items-center gap-2 pt-1 text-sm text-primary font-sans uppercase tracking-wider">
-                      <span>{tour.badge}</span>
-                    </div>
-                  )}
                 </div>
               </div>
 
