@@ -67,6 +67,11 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category }
                 />
               </div>
               <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
+                {tour.badge && (
+                  <span className="text-xs text-primary font-sans uppercase tracking-[0.25em] mb-2">
+                    {tour.badge}
+                  </span>
+                )}
                 <h2 className="text-xl md:text-2xl font-bold text-foreground uppercase tracking-wide">
                   {tour.name}
                 </h2>

@@ -2002,6 +2002,7 @@ export const chinaTours: Tour[] = [
     name: "Гранд Тур по Китаю",
     region: "Китай",
     category: "Групповой тур",
+    badge: "Экскурсионный тур",
     days: 11,
     price: "от 12 166 ¥",
     image: "https://placehold.co/1600x900?text=Beijing+Forbidden+City",

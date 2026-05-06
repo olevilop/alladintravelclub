@@ -16,7 +16,7 @@ interface SimilarToursProps {
 
 const SimilarTours = ({ currentTour }: SimilarToursProps) => {
   const allTours = [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours, ...eventTours];
-  const isCruise = !!currentTour.category || tours.some(t => t.id === currentTour.id);
+  const isCruise = currentTour.category === "expedition" || currentTour.category === "classic";
   const similarTours = allTours.filter(t => {
     if (t.id === currentTour.id) return false;
     if (isCruise && currentTour.category) return t.category === currentTour.category;

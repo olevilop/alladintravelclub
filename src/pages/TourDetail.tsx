@@ -96,7 +96,10 @@ const TourDetail = () => {
         </div>
       </div>
 
-      <Breadcrumbs items={[{ label: (tour.category ? categoryToBreadcrumb[tour.category] : regionToBreadcrumb[tour.region])?.label || tour.region || "Туры", href: (tour.category ? categoryToBreadcrumb[tour.category] : regionToBreadcrumb[tour.region])?.path || "/" }, { label: tour.name }]} />
+      {(() => {
+        const crumb = (tour.category && categoryToBreadcrumb[tour.category]) || regionToBreadcrumb[tour.region];
+        return <Breadcrumbs items={[{ label: crumb?.label || tour.region || "Туры", href: crumb?.path || "/" }, { label: tour.name }]} />;
+      })()}
 
       <div className="container mx-auto px-6 py-16 md:py-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
