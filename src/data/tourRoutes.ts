@@ -6,6 +6,17 @@ export interface RoutePoint {
 }
 
 export const tourRoutes: Record<string, RoutePoint[]> = {
+  "antarctica-newyear-2027": [
+    { lat: -34.61, lng: -58.38, label: "Буэнос-Айрес" },
+    { lat: -54.81, lng: -68.31, label: "Ушуайя" },
+    { lat: -60.00, lng: -65.00, label: "Пролив Дрейка" },
+    { lat: -64.50, lng: -62.50, label: "Антарктический полуостров" },
+    { lat: -64.83, lng: -63.49, label: "Порт-Локрой" },
+    { lat: -65.07, lng: -63.97, label: "Лемэр-канал" },
+    { lat: -60.00, lng: -65.00, label: "Пролив Дрейка" },
+    { lat: -54.81, lng: -68.31, label: "Ушуайя" },
+    { lat: -34.61, lng: -58.38, label: "Буэнос-Айрес" },
+  ],
   "arctic-spitsbergen": [
     { lat: 59.91, lng: 10.75, label: "Осло" },
     { lat: 78.22, lng: 15.63, label: "Лонгйир" },
