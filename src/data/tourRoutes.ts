@@ -169,28 +169,6 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
     { lat: 35.13, lng: 129.04, label: "Пусан" },
     { lat: 37.57, lng: 126.98, label: "Сеул" },
   ],
-  "china-great-wall": [
-    { lat: 39.90, lng: 116.40, label: "Пекин" },
-    { lat: 40.43, lng: 116.57, label: "Бадалин" },
-    { lat: 40.44, lng: 116.63, label: "Мутяньюй" },
-    { lat: 40.68, lng: 117.23, label: "Цзиньшаньлин" },
-    { lat: 40.35, lng: 118.00, label: "Сыматай" },
-    { lat: 39.90, lng: 116.40, label: "Пекин" },
-  ],
-  "china-zhangjiajie": [
-    { lat: 28.19, lng: 112.97, label: "Чанша" },
-    { lat: 29.33, lng: 110.43, label: "Чжанцзяцзе" },
-    { lat: 29.72, lng: 110.48, label: "Тяньмэньшань" },
-    { lat: 27.71, lng: 109.60, label: "Фэнхуан" },
-    { lat: 28.19, lng: 112.97, label: "Чанша" },
-  ],
-  "china-guilin-li-river": [
-    { lat: 25.27, lng: 110.29, label: "Гуйлинь" },
-    { lat: 24.78, lng: 110.49, label: "Яншо" },
-    { lat: 25.10, lng: 110.30, label: "Река Ли" },
-    { lat: 24.82, lng: 110.40, label: "Рисовые террасы" },
-    { lat: 25.27, lng: 110.29, label: "Гуйлинь" },
-  ],
   "china-beijing-imperial": [
     { lat: 39.90, lng: 116.40, label: "Пекин" },
     { lat: 39.92, lng: 116.39, label: "Запретный город" },
