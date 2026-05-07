@@ -189,14 +189,6 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
     { lat: 31.11, lng: 121.05, label: "Чжуцзяцзяо" },
     { lat: 31.23, lng: 121.47, label: "Шанхай (центр)" },
   ],
-  "china-beijing-imperial": [
-    { lat: 39.90, lng: 116.40, label: "Пекин" },
-    { lat: 39.92, lng: 116.39, label: "Запретный город" },
-    { lat: 40.00, lng: 116.27, label: "Летний дворец" },
-    { lat: 39.87, lng: 116.55, label: "Храм Неба" },
-    { lat: 40.43, lng: 116.57, label: "Великая стена" },
-    { lat: 39.90, lng: 116.40, label: "Пекин" },
-  ],
   "china-grand-tour-2026": [
     { lat: 39.90, lng: 116.40, label: "Пекин" },
     { lat: 34.34, lng: 108.94, label: "Сиань" },
