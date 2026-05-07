@@ -359,6 +359,7 @@ export const tours: Tour[] = [
     },
   },
   {
+    id: "vietnam-cambodia-mekong-cruise",
     name: "Роскошный круиз по Меконгу",
     region: "Камбоджа",
     category: "expedition",
