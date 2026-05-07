@@ -112,6 +112,7 @@ export interface Tour {
   shipImage?: string;
   extras?: string;
   badge?: string;
+  specialOfferTag?: "hot-deal" | "new-year" | "exclusive" | "russian-group" | "author-tour" | "best-seller" | "early-booking";
   paymentTerms?: string[];
   cancellationTerms?: string[];
   hotelPricing?: {
@@ -218,6 +219,7 @@ export const tours: Tour[] = [
     days: 8,
     price: "от €7 025",
     badge: "🇷🇺 РУССКАЯ ГРУППА",
+    specialOfferTag: "russian-group",
     image: "https://images.unsplash.com/photo-1589979481223-deb893043163?w=1600&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1589979481223-deb893043163?w=1600&q=80",
@@ -543,6 +545,7 @@ export const tours: Tour[] = [
     days: 12,
     price: "от €9 435",
     badge: "🇷🇺 РУССКАЯ ГРУППА",
+    specialOfferTag: "russian-group",
     image: "https://placehold.co/1600x1000/1f4068/e7d9b4?text=Rio+de+Janeiro+%E2%80%94+Christ+the+Redeemer",
     gallery: [
       "https://placehold.co/1600x1000/1f4068/e7d9b4?text=Rio+de+Janeiro",

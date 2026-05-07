@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { Link } from "react-router-dom";
-import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours } from "@/data/tours";
+import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours, eventTours } from "@/data/tours";
 import TourCarousel from "@/components/TourCarousel";
 
 interface SpecialOffersProps {
@@ -9,15 +9,11 @@ interface SpecialOffersProps {
 
 const SpecialOffers = ({ excludeTourId }: SpecialOffersProps) => {
   const selected = useMemo(() => {
-    const all = [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours]
-      .filter(t => t.id !== excludeTourId && t.id !== "china-grand-tour-2026");
-    const shuffled = [...all];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled.slice(0, 8);
+    return [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours, ...eventTours]
+      .filter(t => t.specialOfferTag && t.id !== excludeTourId);
   }, [excludeTourId]);
+
+  if (selected.length === 0) return null;
 
   return (
     <div className="px-6 md:px-12 pb-16 md:pb-24">
