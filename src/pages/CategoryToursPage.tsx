@@ -17,9 +17,10 @@ interface CategoryToursPageProps {
   backLink?: string;
   breadcrumbLabel: string;
   category?: string;
+  hideSpecialOfferTag?: boolean;
 }
 
-const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category }: CategoryToursPageProps) => {
+const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category, hideSpecialOfferTag }: CategoryToursPageProps) => {
   const heroTour = useMemo(() => tours[Math.floor(Math.random() * tours.length)], []);
 
   useEffect(() => {
@@ -102,7 +103,7 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category }
                   <Banknote className="w-4 h-4 text-primary shrink-0" />
                   <span>{tour.price}</span>
                 </div>
-                {getSpecialOfferLabel(tour.specialOfferTag) && (
+                {!hideSpecialOfferTag && getSpecialOfferLabel(tour.specialOfferTag) && (
                   <div className="pt-3 mt-1 border-t border-primary/20 text-[11px] uppercase tracking-[0.25em] text-primary text-center">
                     {getSpecialOfferLabel(tour.specialOfferTag)}
                   </div>

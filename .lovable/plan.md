@@ -1,12 +1,26 @@
 ## Цель
-Увеличить размер эмодзи-флага 🇷🇺 в бейдже «Русская группа» в сайдбаре страниц туров.
+На странице «Экспедиционные круизы» убрать бейдж спецпредложения (например, «Русская группа») из карточки тура.
 
-## Изменение
-
-**`src/pages/TourDetail.tsx`** — добавить классы размера к `<span aria-hidden>`:
+## Контекст
+Карточки рендерит общий компонент `src/pages/CategoryToursPage.tsx`. В правой колонке (под ценой) выводится блок:
 
 ```tsx
-<span aria-hidden className="text-base leading-none">🇷🇺</span>
+{getSpecialOfferLabel(tour.specialOfferTag) && (
+  <div className="pt-3 mt-1 border-t border-primary/20 ...">
+    {getSpecialOfferLabel(tour.specialOfferTag)}
+  </div>
+)}
 ```
 
-(Текст «Русская группа» остаётся прежним размером — `text-[12px]`.)
+Этот же компонент используется и на других категорийных страницах (Япония, Корея, Китай, Россия и т. д.), поэтому удалять блок безусловно нельзя — нужно скрыть только для экспедиционных круизов.
+
+## Изменения
+
+1. **`src/pages/CategoryToursPage.tsx`**
+   - Добавить в `CategoryToursPageProps` опциональный флаг `hideSpecialOfferTag?: boolean`.
+   - Обернуть рендер блока спецпредложения условием `!hideSpecialOfferTag && getSpecialOfferLabel(...)`.
+
+2. **`src/pages/ExpeditionCruisesPage.tsx`**
+   - Передать `hideSpecialOfferTag` в `<CategoryToursPage />`.
+
+Никаких других страниц это не затронет — бейджи спецпредложений на остальных категорийных страницах сохранятся.
