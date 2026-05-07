@@ -146,7 +146,11 @@ export interface Tour {
     twinLabel?: string;
     sglLabel?: string;
     sglByHotel: Record<string, string>;
-    groups: { label: string; twinByHotel: Record<string, string> }[];
+    groups: {
+      label: string;
+      twinByHotel?: Record<string, string>;
+      rows?: { label: string; pricesByHotel: Record<string, string> }[];
+    }[];
   };
   faq?: { q: string; a: string }[];
 }
