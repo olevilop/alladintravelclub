@@ -1,35 +1,20 @@
 ## Цель
-В сайдбаре «Информация о туре» (карточка справа на странице тура) добавить золотой тег «🇷🇺 Русская группа» внизу карточки для 6 указанных туров.
+Убрать золотую полоску-плашку у бейджа «🇷🇺 Русская группа» в сайдбаре страниц туров — оставить только надпись с флагом, без рамки и подложки.
 
-## Затронутые туры
-- Тропические ритмы Сейшельских островов
-- Острова Раджа-Ампат
-- Роскошный круиз по Меконгу
-- Гранд-круиз по реке Янцзы
-- Ритмы бразильского побережья на мега-яхте Scenic Eclipse
-- Новый год в Антарктиде на Scenic Eclipse 6*
+## Изменение
 
-(У первых 5 уже стоит `specialOfferTag: "russian-group"`. У «Новый год в Антарктиде» — `new-year`, поэтому используем отдельный флаг, чтобы сохранить новогодний ярлык.)
+**`src/pages/TourDetail.tsx`** (блок `tour.russianGroup`, ~строки 317–322)
 
-## Изменения
+Заменить:
+```tsx
+<div className="-mx-6 -mb-6 mt-2 px-6 py-3 border-t border-primary/30 bg-primary/10 flex items-center justify-center gap-2 text-[12px] uppercase tracking-[0.25em] text-primary font-sans">
+```
+на простой инлайн-блок без фона/границ, в стилистике остальных строк сайдбара:
+```tsx
+<div className="flex items-center gap-2 text-[12px] uppercase tracking-[0.25em] text-primary font-sans">
+  <span aria-hidden>🇷🇺</span>
+  <span>Русская группа</span>
+</div>
+```
 
-1. **`src/data/tours.ts`**
-   - В интерфейс тура добавить поле `russianGroup?: boolean`.
-   - Проставить `russianGroup: true` для всех 6 туров выше.
-
-2. **`src/pages/TourDetail.tsx`** (карточка info, строки ~233–317)
-   - Перед закрывающим `</div>` карточки добавить блок (только при `tour.russianGroup === true`):
-     ```
-     <div className="-mx-6 -mb-6 mt-2 px-6 py-3 border-t border-primary/30 bg-primary/10
-                     flex items-center justify-center gap-2
-                     text-[12px] uppercase tracking-[0.25em] text-primary font-sans">
-       <span aria-hidden>🇷🇺</span>
-       <span>Русская группа</span>
-     </div>
-     ```
-   - Флаг — emoji 🇷🇺 (без новых зависимостей), цвет — `text-primary` (золотой по теме).
-
-## Не меняется
-- `specialOfferTag` существующих туров (новогодний ярлык на карточке Антарктиды сохранится).
-- Карточки на главной/в каталогах — там уже выводится метка через `getSpecialOfferLabel`.
-- Прочая логика и стили.
+Остальное не меняется.
