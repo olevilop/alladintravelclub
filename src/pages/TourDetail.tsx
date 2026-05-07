@@ -33,6 +33,8 @@ const TourDetail = () => {
   const [selectedExcursion, setSelectedExcursion] = useState<string>("");
   const [selectedCabin, setSelectedCabin] = useState<string>("");
   const [selectedGroup, setSelectedGroup] = useState<string>("");
+  const [selectedGroupGH, setSelectedGroupGH] = useState<string>("");
+  const [selectedHotelGH, setSelectedHotelGH] = useState<string>("");
   const isCruise = tour?.name.toLowerCase().includes("круиз");
 
   useEffect(() => {
@@ -490,6 +492,69 @@ const TourDetail = () => {
                             </div>
                           );
                         })}
+                      </div>
+                    )}
+                  </div>
+                );
+              })()}
+              {/* Group + hotel pricing (two selectors) */}
+              {tour.groupHotelPricing && (() => {
+                const gh = tour.groupHotelPricing;
+                const defGroup = gh.defaultGroup || gh.groups[0]?.label;
+                const defHotel = gh.defaultHotel || gh.hotels[0];
+                const curGroup = selectedGroupGH || defGroup;
+                const curHotel = selectedHotelGH || defHotel;
+                const grp = gh.groups.find(g => g.label === curGroup);
+                return (
+                  <div className="bg-card border border-border p-4 space-y-3">
+                    <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground">
+                      {gh.title || "Стоимость тура на 1 человека"}
+                    </h4>
+                    <div>
+                      <label className="text-xs text-muted-foreground mb-1 block">Размер группы</label>
+                      <Select value={curGroup} onValueChange={setSelectedGroupGH}>
+                        <SelectTrigger className="w-full bg-background border-border text-foreground">
+                          <SelectValue placeholder="Выберите размер группы" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {gh.groups.map(g => (
+                            <SelectItem key={g.label} value={g.label}>{g.label}</SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <label className="text-xs text-muted-foreground mb-1 block">Категория отеля</label>
+                      <div className="flex gap-2">
+                        {gh.hotels.map(h => {
+                          const active = h === curHotel;
+                          return (
+                            <button
+                              key={h}
+                              type="button"
+                              onClick={() => setSelectedHotelGH(h)}
+                              className={`flex-1 px-3 py-2 text-xs border transition-colors ${
+                                active
+                                  ? "bg-primary text-primary-foreground border-primary"
+                                  : "bg-background text-foreground border-border hover:border-primary/50"
+                              }`}
+                            >
+                              {h}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    {grp && (
+                      <div className="space-y-2 pt-1">
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-muted-foreground">{gh.twinLabel || "Двухместный (½ TWIN)"}</span>
+                          <span className="text-foreground font-medium">{grp.twinByHotel[curHotel]}</span>
+                        </div>
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="text-muted-foreground">{gh.sglLabel || "Доплата за SGL"}</span>
+                          <span className="text-foreground font-medium">{gh.sglByHotel[curHotel]}</span>
+                        </div>
                       </div>
                     )}
                   </div>
