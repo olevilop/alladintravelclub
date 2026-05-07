@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import NewsletterSocial from "@/components/NewsletterSocial";
 import { Moon, MapPin, Ship, Banknote } from "lucide-react";
 import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours, eventTours } from "@/data/tours";
+import { getSpecialOfferLabel } from "@/config/specialOfferTags";
 
 const SpecialOffersPage = () => {
   useEffect(() => {
@@ -105,6 +106,11 @@ const SpecialOffersPage = () => {
                   <Banknote className="w-4 h-4 text-primary shrink-0" />
                   <span>от {tour.price}</span>
                 </div>
+                {getSpecialOfferLabel(tour.specialOfferTag) && (
+                  <div className="pt-3 mt-1 border-t border-primary/20 text-[11px] uppercase tracking-[0.25em] text-primary text-center">
+                    {getSpecialOfferLabel(tour.specialOfferTag)}
+                  </div>
+                )}
               </div>
             </div>
           </Link>
