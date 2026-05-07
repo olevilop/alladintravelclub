@@ -2354,6 +2354,8 @@ export const chinaTours: Tour[] = [
     },
   },
 ];
+
+export const northKoreaTours: Tour[] = [
   {
     id: "nkorea-pyongyang",
     name: "Пхеньян — закрытая столица",
