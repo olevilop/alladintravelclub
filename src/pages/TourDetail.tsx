@@ -316,7 +316,7 @@ const TourDetail = () => {
                 </div>
                 {tour.russianGroup && (
                   <div className="flex items-center gap-2 text-[12px] uppercase tracking-[0.25em] text-primary font-sans">
-                    <span aria-hidden>🇷🇺</span>
+                    <span aria-hidden className="text-base leading-none">🇷🇺</span>
                     <span>Русская группа</span>
                   </div>
                 )}
