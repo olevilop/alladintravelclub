@@ -1,1 +1,35 @@
-## Plan: Show special-offer tag label at the bottom of tour cards\n\n### Goal\nOn tour cards everywhere on the site, when a tour has `specialOfferTag`, render a human-readable label (e.g. «Русская группа», «Новогодний тур») at the very bottom of the card.\n\n### Tag → label mapping (new file `src/config/specialOfferTags.ts`)\n- `hot-deal` → «Горячее предложение»\n- `new-year` → «Новогодний тур»\n- `exclusive` → «Эксклюзив»\n- `russian-group` → «Русская группа»\n- `author-tour` → «Авторский тур»\n- `best-seller` → «Бестселлер»\n- `early-booking` → «Раннее бронирование»\n\nExport `specialOfferTagLabels` and a helper `getSpecialOfferLabel(tag)`.\n\n### Edits\n\n1. **`src/components/TourCarousel.tsx`** (cards in all home-page carousels and `SpecialOffers`)\n   - Extend `Tour` interface with `specialOfferTag?: string`.\n   - After the existing `border-t` price/«Подробнее» row, append a thin bottom strip:\n     - Only rendered if `getSpecialOfferLabel(tour.specialOfferTag)` returns non-null.\n     - Style: `mt-4 -mx-5 -mb-5 px-5 py-2 border-t border-primary/20 bg-primary/5 text-center text-[11px] uppercase tracking-[0.25em] text-primary font-sans`.\n\n2. **`src/pages/CategoryToursPage.tsx`** (list cards on `/japan-tours`, `/china-tours`, etc.)\n   - In the right-hand price column, after the price row, add a small label line shown only when the tour has a `specialOfferTag`.\n   - Style: `pt-3 mt-1 border-t border-primary/20 text-[11px] uppercase tracking-[0.25em] text-primary text-center`.\n\n3. **`src/pages/SpecialOffersPage.tsx`** (list cards on `/special-offers`)\n   - Same bottom label inside the right column as in `CategoryToursPage`.\n\n### Not changed\n- Filtering logic of `SpecialOffers` block / page.\n- Sidebar `TourInfo` on tour detail page.\n- Existing top-l
+## Цель
+В сайдбаре «Информация о туре» (карточка справа на странице тура) добавить золотой тег «🇷🇺 Русская группа» внизу карточки для 6 указанных туров.
+
+## Затронутые туры
+- Тропические ритмы Сейшельских островов
+- Острова Раджа-Ампат
+- Роскошный круиз по Меконгу
+- Гранд-круиз по реке Янцзы
+- Ритмы бразильского побережья на мега-яхте Scenic Eclipse
+- Новый год в Антарктиде на Scenic Eclipse 6*
+
+(У первых 5 уже стоит `specialOfferTag: "russian-group"`. У «Новый год в Антарктиде» — `new-year`, поэтому используем отдельный флаг, чтобы сохранить новогодний ярлык.)
+
+## Изменения
+
+1. **`src/data/tours.ts`**
+   - В интерфейс тура добавить поле `russianGroup?: boolean`.
+   - Проставить `russianGroup: true` для всех 6 туров выше.
+
+2. **`src/pages/TourDetail.tsx`** (карточка info, строки ~233–317)
+   - Перед закрывающим `</div>` карточки добавить блок (только при `tour.russianGroup === true`):
+     ```
+     <div className="-mx-6 -mb-6 mt-2 px-6 py-3 border-t border-primary/30 bg-primary/10
+                     flex items-center justify-center gap-2
+                     text-[12px] uppercase tracking-[0.25em] text-primary font-sans">
+       <span aria-hidden>🇷🇺</span>
+       <span>Русская группа</span>
+     </div>
+     ```
+   - Флаг — emoji 🇷🇺 (без новых зависимостей), цвет — `text-primary` (золотой по теме).
+
+## Не меняется
+- `specialOfferTag` существующих туров (новогодний ярлык на карточке Антарктиды сохранится).
+- Карточки на главной/в каталогах — там уже выводится метка через `getSpecialOfferLabel`.
+- Прочая логика и стили.
