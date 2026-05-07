@@ -8,7 +8,6 @@ const ExpeditionCruisesPage = () => (
     subtitle="Путешествия к краю земли"
     breadcrumbLabel="Экспедиционные круизы"
     category="expedition"
-    hideBadge
   />
 );
 
