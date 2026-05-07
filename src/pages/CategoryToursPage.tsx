@@ -17,10 +17,10 @@ interface CategoryToursPageProps {
   backLink?: string;
   breadcrumbLabel: string;
   category?: string;
-  hideSpecialOfferTag?: boolean;
+  hideBadge?: boolean;
 }
 
-const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category, hideSpecialOfferTag }: CategoryToursPageProps) => {
+const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category, hideBadge }: CategoryToursPageProps) => {
   const heroTour = useMemo(() => tours[Math.floor(Math.random() * tours.length)], []);
 
   useEffect(() => {
@@ -69,7 +69,7 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category, 
                 />
               </div>
               <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
-                {tour.badge && (
+                {!hideBadge && tour.badge && (
                   <span className="text-xs text-primary font-sans uppercase tracking-[0.25em] mb-2">
                     {tour.badge}
                   </span>
@@ -103,7 +103,7 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category, 
                   <Banknote className="w-4 h-4 text-primary shrink-0" />
                   <span>{tour.price}</span>
                 </div>
-                {!hideSpecialOfferTag && getSpecialOfferLabel(tour.specialOfferTag) && (
+                {getSpecialOfferLabel(tour.specialOfferTag) && (
                   <div className="pt-3 mt-1 border-t border-primary/20 text-[11px] uppercase tracking-[0.25em] text-primary text-center">
                     {getSpecialOfferLabel(tour.specialOfferTag)}
                   </div>
