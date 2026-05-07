@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsletterSocial from "@/components/NewsletterSocial";
 import { Moon, MapPin, Ship, Banknote } from "lucide-react";
-import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours } from "@/data/tours";
+import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours, eventTours } from "@/data/tours";
 
 const SpecialOffersPage = () => {
   useEffect(() => {
@@ -13,11 +13,16 @@ const SpecialOffersPage = () => {
   }, []);
 
   const allTours = useMemo(
-    () => [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours],
+    () =>
+      [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours, ...eventTours]
+        .filter((t) => t.specialOfferTag),
     []
   );
 
-  const heroTour = useMemo(() => allTours[Math.floor(Math.random() * allTours.length)], [allTours]);
+  const heroTour = useMemo(
+    () => (allTours.length > 0 ? allTours[Math.floor(Math.random() * allTours.length)] : null),
+    [allTours]
+  );
 
   return (
     <div className="min-h-screen bg-background text-foreground">
