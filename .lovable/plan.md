@@ -1,83 +1,107 @@
-## План: тур «Шанхай, Чжанцзяцзе и Фэнхуан» (china-shanghai-fenghuang-2026)
+## План: тур «Три волшебных мира: Шанхай для всей семьи» (`china-shanghai-disney-2026`)
 
-Структура и UI берутся от `china-grand-tour-2026` / `china-zhangjiajie-2026` — повторно используем `Tour` из `src/data/tours.ts`, существующий `TourDetail.tsx`, `SimilarTours`, `ToursSection`, `ChinaToursPage`. Нужен один новый блок UI — двойной селектор (размер группы + категория отеля).
+Повторно используем модель `Tour`, страницу `TourDetail`, `ChinaToursPage`, `ToursSection`, `SimilarTours`, `RouteMap`. Нужно расширить дуальный селектор так, чтобы поддерживал 4 строки (TWIN/SGL/EXB/NOBED) с собственной ценой по каждому отелю — текущий `groupHotelPricing` поддерживает только 2 строки (TWIN + SGL-доплата).
 
-## 1. Расширить модель Tour — `src/data/tours.ts`
+## 1. Расширить модель `Tour` — `src/data/tours.ts`
 
-Добавить опциональное поле в интерфейс `Tour` (рядом с `groupPricing`):
+В `groupHotelPricing` добавить опциональное поле `rows` для каждой группы:
 
 ```ts
-groupHotelPricing?: {
-  title?: string;
-  defaultGroup?: string;
-  defaultHotel?: string;          // напр. "4★"
-  hotels: string[];               // ["4★", "5★"]
-  twinLabel?: string;             // "Двухместный (½ TWIN)"
-  sglLabel?: string;              // "Доплата за SGL"
-  sglByHotel: Record<string, string>; // { "4★": "+1 575 ¥", "5★": "+2 725 ¥" }
-  groups: {
-    label: string;                // "3-6 человек"
-    twinByHotel: Record<string, string>; // { "4★": "9 450 ¥", "5★": "10 700 ¥" }
-  }[];
-};
+groups: {
+  label: string;
+  twinByHotel?: Record<string, string>;       // (старый формат, оставляем)
+  rows?: { label: string; pricesByHotel: Record<string, string> }[]; // новый формат
+}[];
 ```
 
-Это новое поле, чтобы не ломать существующий `groupPricing` (один селектор) — он остаётся как есть для других туров.
+Если у группы есть `rows`, рендерим этот список; иначе — текущий рендер TWIN + SGL-доплата (бэкомпат с уже существующим `china-shanghai-fenghuang-2026`).
 
 ## 2. Новый объект тура в `chinaTours`
 
-Вставить в конец массива `chinaTours` (как делали с предыдущим китайским туром):
+В конец массива `chinaTours`:
 
-- `id: "china-shanghai-fenghuang-2026"`
-- `name: "Шанхай, Чжанцзяцзе и Фэнхуан"`
+- `id: "china-shanghai-disney-2026"`
+- `name: "Три волшебных мира: Шанхай для всей семьи"`
 - `region: "Китай"`, `category: "Групповой тур"`, `badge: "Экскурсионный тур"`
-- `days: 8`, `price: "от 6 290 ¥"`
-- `image` + `gallery` — placehold.co (5 картинок)
-- `subtitle: "Идеальное сочетание мегаполиса, парящих гор и древнего города на воде"`
-- `description` — 4 абзаца из ТЗ (Шанхай / Чжанцзяцзе / Фэнхуан / общий)
+- `days: 8`, `price: "от 4 935 ¥"`
+- `image` + `gallery` — 5 placehold.co (Disney/Legoland/Safari/Yu Garden/Pearl Tower)
+- `subtitle: "Семейный тур по паркам развлечений Шанхая для детей и взрослых"`
+- `description` — 3 абзаца из ТЗ (вступление + парки + центр + финальный абзац)
 - `itinerary` — 8 дней из ТЗ
-- `included` — 9 пунктов (включая VIP-проходы списком)
-- `notIncluded` — 5 пунктов
-- `extras` — две доплаты:
-  - «✈ Авиабилеты Шанхай ↔ Чжанцзяцзе: базовая 2 940 ¥/чел; со скидкой обычно 1 800–2 300 ¥/чел в зависимости от даты. Точная цена при подтверждении.»
-  - «🛏 Ранний заезд в Шанхае: 4★ — +300 ¥/чел, 5★ — +500 ¥/чел (двухместный номер)»
-- `groupSize: "от 2 до 15 человек"`, `startDates: ["По запросу — 2026"]`
-- `groupHotelPricing` с 7 группами (2, 3-6, 7-9, 10, 10+1, 15, 15+1) × {4★, 5★} по таблице из ТЗ; `defaultGroup: "3-6 человек"`, `defaultHotel: "4★"`, SGL: 4★ +1 575 ¥, 5★ +2 725 ¥.
+- `included` — 6 пунктов из ТЗ
+- `notIncluded` — 4 пункта
+- `extras: undefined` — accordion «Доплаты» НЕ показывать. Особенности обслуживания вынесем в текст последнего абзаца `description` (или добавим отдельной строкой) — accordion в шаблоне рендерится только если `extras` непустой, проверим в TourDetail и оставим без `extras`. Особенности перенесём в `description` (последним абзацем) — это укладывается в текущий шаблон без правок UI.
+- `groupSize: "от 2 до 40+ человек"`, `startDates: ["По запросу — 2026"]`
+- `groupHotelPricing`:
+  - `title: "Стоимость тура на 1 человека (CNY, ¥)"`
+  - `defaultGroup: "6-9 человек"`, `defaultHotel: "3★"`
+  - `hotels: ["3★", "4★"]`
+  - `sglByHotel: {}` (пустое, не используется в новом формате)
+  - `groups`: 8 элементов (`2-3 человека`, `4-5 человек`, `6-9 человек`, `10+1`, `15+1`, `20+1`, `30+2`, `40+3`), каждый с `rows` из 4 строк (TWIN, SGL, EXB, NOBED) и ценами по `3★` и `4★` из таблицы ТЗ.
 
 ## 3. Маршрут — `src/data/tourRoutes.ts`
 
-Добавить ключ:
 ```ts
-"china-shanghai-fenghuang-2026": [
-  { lat: 31.23, lng: 121.47, label: "Шанхай" },
-  { lat: 29.12, lng: 110.48, label: "Чжанцзяцзе" },
-  { lat: 28.72, lng: 109.74, label: "Фурун" },
-  { lat: 27.95, lng: 109.60, label: "Фэнхуан" },
-  { lat: 31.23, lng: 121.47, label: "Шанхай" },
+"china-shanghai-disney-2026": [
+  { lat: 31.15, lng: 121.67, label: "Диснейленд" },
+  { lat: 31.13, lng: 121.71, label: "Леголенд" },
+  { lat: 31.10, lng: 121.66, label: "Сафари-парк" },
+  { lat: 31.11, lng: 121.05, label: "Чжуцзяцзяо" },
+  { lat: 31.23, lng: 121.47, label: "Шанхай (центр)" },
 ],
 ```
 
-## 4. Двойной селектор в `src/pages/TourDetail.tsx`
+## 4. UI — `src/pages/TourDetail.tsx`
 
-В сайдбаре после блока `groupPricing` (строка ~497) добавить новый блок, отрисовывающий `tour.groupHotelPricing`:
+В блоке `groupHotelPricing` (строки 548–559) заменить жёсткие два ряда на:
 
-- два состояния: `selectedGroup2` и `selectedHotel2` (новые `useState`, чтобы не конфликтовать с уже существующими `selectedGroup`/`selectedHotel`)
-- стилистика 1:1 с существующим блоком `groupPricing` (`bg-card border border-border p-4`, тот же заголовок-крошка)
-- сверху `<Select>` «Размер группы» (как сейчас)
-- ниже — toggle-кнопки «4★ / 5★» (две `<button>` с активным состоянием через `cn(...)`, цвет primary для активной — паттерн уже используется в проекте)
-- ниже — две строки таблицы:
-  - «Двухместный (½ TWIN)» → `group.twinByHotel[hotel]`
-  - «Доплата за SGL» → `sglByHotel[hotel]`
+```tsx
+{grp && (
+  <div className="space-y-2 pt-1">
+    {grp.rows ? (
+      grp.rows.map(r => {
+        const v = r.pricesByHotel[curHotel];
+        const isDash = !v || v.trim() === "—" || v.trim() === "-";
+        return (
+          <div key={r.label} className="flex items-center justify-between text-xs">
+            <span className="text-muted-foreground">{r.label}</span>
+            <span className={isDash ? "text-muted-foreground/50" : "text-foreground font-medium"}>{v || "—"}</span>
+          </div>
+        );
+      })
+    ) : (
+      <>
+        <div className="flex items-center justify-between text-xs">
+          <span className="text-muted-foreground">{gh.twinLabel || "Двухместный (½ TWIN)"}</span>
+          <span className="text-foreground font-medium">{grp.twinByHotel?.[curHotel]}</span>
+        </div>
+        <div className="flex items-center justify-between text-xs">
+          <span className="text-muted-foreground">{gh.sglLabel || "Доплата за SGL"}</span>
+          <span className="text-foreground font-medium">{gh.sglByHotel[curHotel]}</span>
+        </div>
+      </>
+    )}
+  </div>
+)}
+```
+
+Обратная совместимость с `china-shanghai-fenghuang-2026` сохраняется (он использует ветку `else`).
 
 ## 5. Что заработает автоматически
 
-- Карточка в `/china-tours` (через `chinaTours` → `ChinaToursPage`).
-- Карточка на главной в блоке «Туры по Китаю» (через `ToursSection`).
-- Страница тура `/tour/china-shanghai-fenghuang-2026` (общий route `/tour/:id`).
-- Хлебные крошки «Главная → Туры по Китаю → …» по `region`.
-- TourInfo сайдбар, RouteMap, accordion «Доплаты», менеджер Виктория.
-- `SimilarTours` — текущий тур исключается, показываются остальные китайские; новый автоматически появится на других китайских турах.
+- Карточка в `/china-tours` (через `chinaTours` → `ChinaToursPage`)
+- Карточка на главной в блоке «Туры по Китаю» (через `ToursSection`)
+- Страница тура `/tour/china-shanghai-disney-2026` (общий route `/tour/:id`)
+- Хлебные крошки «Главная → Туры по Китаю → Три волшебных мира…»
+- TourInfo сайдбар (region «Китай», category «Групповой тур», badge «Экскурсионный тур», days, price, маршрут)
+- RouteMap по новым координатам
+- Менеджер Виктория (Китай → `ExpeditionManagerCard`)
+- `SimilarChinaToursSection`/`SimilarTours` — текущий тур исключается, появляется на других китайских
 
 ## Замечание про URL
 
-ТЗ указывает `/china-shanghai-fenghuang-2026`, но проект использует `/tour/:id`. Тур будет доступен по `/tour/china-shanghai-fenghuang-2026`. Если нужен короткий URL без `/tour/` — добавлю отдельный редирект-роут в `App.tsx`, скажите.
+ТЗ просит `/china-shanghai-disney-2026`, проект использует `/tour/:id`. Тур будет доступен по `/tour/china-shanghai-disney-2026`. Если нужен короткий URL без `/tour/` — добавлю редирект-роут в `App.tsx`, скажите.
+
+## Замечание про accordion «Доплаты»
+
+В этом туре ТЗ просит НЕ показывать accordion. Для этого оставляем `extras` пустым; «Особенности обслуживания» (про трансфер с гидом для группы 10+ и про отель Heyitang) добавим последним абзацем поля `description` без правок UI.
