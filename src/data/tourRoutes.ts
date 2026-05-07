@@ -6,6 +6,17 @@ export interface RoutePoint {
 }
 
 export const tourRoutes: Record<string, RoutePoint[]> = {
+  "vietnam-cambodia-mekong-cruise": [
+    { lat: 10.7626, lng: 106.6602, label: "Хошимин" },
+    { lat: 10.3833, lng: 106.1167, label: "Кай Бе" },
+    { lat: 10.2922, lng: 105.7589, label: "Шадек" },
+    { lat: 10.8021, lng: 105.2440, label: "Тан Чау" },
+    { lat: 11.5564, lng: 104.9282, label: "Пномпень" },
+    { lat: 11.8089, lng: 104.7456, label: "Удонг" },
+    { lat: 12.1167, lng: 105.1500, label: "Ангкор Бан" },
+    { lat: 11.9934, lng: 105.4636, label: "Кампонгтям" },
+    { lat: 13.4125, lng: 103.8667, label: "Сиемреап (Ангкор-Ват)" },
+  ],
   "antarctica-newyear-2027": [
     { lat: -34.61, lng: -58.38, label: "Буэнос-Айрес" },
     { lat: -54.81, lng: -68.31, label: "Ушуайя" },
