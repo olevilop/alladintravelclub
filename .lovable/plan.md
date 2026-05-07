@@ -1,21 +1,15 @@
-## Проблема
+## Добавить specialOfferTag к экспедиционным турам
 
-В сайдбаре «Информация о туре» на странице `/tour/indonesia-raja-ampat-cruise`:
-- Строка «Материк» (иконка глобуса) показывает `Индонезия` вместо `Азия`.
-- Строка «Регион» (иконка пина) корректно показывает `Индонезия`.
+В `src/data/tours.ts` добавить поле `specialOfferTag` к турам экспедиционной категории, кроме «Антарктический полуостров и море Уэдделла» (`antarctic-penguins`).
 
-Причина: в `src/data/tours.ts` карта `regionToContinent` не содержит ключа `"Индонезия"`, поэтому отображается фолбэк `tour.region`.
+| ID тура | specialOfferTag |
+|---|---|
+| seychelles-tropical-rhythms | russian-group (уже есть) |
+| indonesia-raja-ampat-cruise | russian-group |
+| vietnam-cambodia-mekong-cruise | russian-group |
+| china-yangtze-cruise-2026 | russian-group |
+| brazil-scenic-eclipse-2027 | russian-group (уже есть) |
+| antarctica-newyear-2027 | new-year |
+| antarctic-penguins | — (не добавлять) |
 
-## Изменение
-
-Файл `src/data/tours.ts`, объект `regionToContinent` (строки 3158–3177): добавить запись:
-
-```ts
-"Индонезия": "Азия",
-```
-
-Это даст:
-- Материк: Азия
-- Регион: Индонезия
-
-Других правок не требуется — `tour.region` уже `"Индонезия"`.
+Итог: блок «Спецпредложения» на главной автоматически покажет 6 туров.

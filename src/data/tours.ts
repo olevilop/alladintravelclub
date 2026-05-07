@@ -292,6 +292,7 @@ export const tours: Tour[] = [
     days: 8,
     price: "от $12 150",
     badge: "🇷🇺 РУССКАЯ ГРУППА",
+    specialOfferTag: "russian-group",
     image: "https://placehold.co/1600x1000/0d4f6e/e7d9b4?text=Raja+Ampat+Islands",
     gallery: [
       "https://placehold.co/1600x1000/0d4f6e/e7d9b4?text=Raja+Ampat",
@@ -368,6 +369,7 @@ export const tours: Tour[] = [
     days: 13,
     price: "от €5 895",
     badge: "🇷🇺 РУССКАЯ ГРУППА",
+    specialOfferTag: "russian-group",
     image: "https://placehold.co/1600x1000/1f4068/e7d9b4?text=Mekong+River+Cruise",
     gallery: [
       "https://placehold.co/1600x1000/1f4068/e7d9b4?text=Mekong+River",
@@ -455,6 +457,7 @@ export const tours: Tour[] = [
     days: 15,
     price: "от $7 242",
     badge: "🇷🇺 РУССКАЯ ГРУППА",
+    specialOfferTag: "russian-group",
     image: "https://placehold.co/1600x1000/1f4068/e7d9b4?text=Yangtze+River+Cruise",
     gallery: [
       "https://placehold.co/1600x1000/1f4068/e7d9b4?text=Shanghai+Skyline",
@@ -634,6 +637,7 @@ export const tours: Tour[] = [
     days: 13,
     price: "от €19 765",
     badge: "🎄 НОВЫЙ ГОД",
+    specialOfferTag: "new-year",
     image: "https://placehold.co/1600x1000/0d1b2a/e7d9b4?text=Antarctica+%E2%80%94+Scenic+Eclipse",
     gallery: [
       "https://placehold.co/1600x1000/0d1b2a/e7d9b4?text=Antarctica+%E2%80%94+Icebergs",
