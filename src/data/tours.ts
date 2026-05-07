@@ -113,6 +113,7 @@ export interface Tour {
   extras?: string;
   badge?: string;
   specialOfferTag?: "hot-deal" | "new-year" | "exclusive" | "russian-group" | "author-tour" | "best-seller" | "early-booking";
+  russianGroup?: boolean;
   paymentTerms?: string[];
   cancellationTerms?: string[];
   hotelPricing?: {
