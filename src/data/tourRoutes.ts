@@ -182,6 +182,13 @@ export const tourRoutes: Record<string, RoutePoint[]> = {
     { lat: 27.95, lng: 109.60, label: "Фэнхуан" },
     { lat: 31.23, lng: 121.47, label: "Шанхай" },
   ],
+  "china-shanghai-disney-2026": [
+    { lat: 31.15, lng: 121.67, label: "Диснейленд" },
+    { lat: 31.13, lng: 121.71, label: "Леголенд" },
+    { lat: 31.10, lng: 121.66, label: "Сафари-парк" },
+    { lat: 31.11, lng: 121.05, label: "Чжуцзяцзяо" },
+    { lat: 31.23, lng: 121.47, label: "Шанхай (центр)" },
+  ],
   "china-beijing-imperial": [
     { lat: 39.90, lng: 116.40, label: "Пекин" },
     { lat: 39.92, lng: 116.39, label: "Запретный город" },
