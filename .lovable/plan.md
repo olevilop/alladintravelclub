@@ -1,24 +1,26 @@
-## Проблема
+## Plan: Remove "Экскурсионный тур" badge from China tour cards on the home page
 
-На странице `/special-offers` сейчас выводятся ВСЕ туры (`allTours.map(...)`) плюс фиксированная карточка Мальдив. Это противоречит логике: должны показываться только туры с `specialOfferTag`.
+### Goal
+Remove the "Экскурсионный тур" label that appears on the cards in the **Туры по Китаю** section on the home page.
 
-## Что изменить
+### Where it appears
+The label comes from the `badge` field on each tour object. In `src/data/tours.ts`, all 6 tours inside `chinaTours` currently have:
+```ts
+badge: "Экскурсионный тур",
+```
 
-Файл: `src/pages/SpecialOffersPage.tsx`
+### What will change
+In `src/data/tours.ts`, remove the `badge: "Экскурсионный тур"` line from the following 6 tours:
+1. `china-grand-tour-2026` (line ~2055)
+2. `china-zhangjiajie-2026` (line ~2149)
+3. `china-avatar-mountains-2026` (line ~2244)
+4. `china-beijing-xian-luoyang-2026` (line ~2345)
+5. `china-shanghai-fenghuang-2026` (line ~2435)
+6. `china-shanghai-disney-2026` (line ~2505)
 
-1. Подключить также `eventTours` (как в `SpecialOffers.tsx`), чтобы источники были одинаковые.
-2. Отфильтровать `allTours` по наличию `specialOfferTag`:
-   ```ts
-   const allTours = useMemo(
-     () => [...tours, ...japanTours, ...koreaTours, ...chinaTours,
-            ...northKoreaTours, ...russiaTours, ...eventTours]
-            .filter(t => t.specialOfferTag),
-     []
-   );
-   ```
-3. Удалить захардкоженную карточку «Мальдивы» — она не имеет `specialOfferTag` и нарушает правило.
-4. Hero-картинку брать из отфильтрованного списка (если пусто — fallback или скрыть hero).
+### Side effects
+- The badge will also disappear from the tour detail pages (`TourDetail.tsx`) for these 6 tours. The remaining "Групповой тур" line will stay.
+- No other tours or sections are affected.
 
-## Итог
-
-Страница `/special-offers` будет показывать ровно те же туры, что и блок «Спецпредложения» на главной — туры с проставленным `specialOfferTag` (сейчас 6 экспедиционных туров).
+### Files changed
+- `src/data/tours.ts`
