@@ -138,6 +138,16 @@ export interface Tour {
     defaultGroup?: string;
     groups: { label: string; rows: { label: string; price: string }[] }[];
   };
+  groupHotelPricing?: {
+    title?: string;
+    defaultGroup?: string;
+    defaultHotel?: string;
+    hotels: string[];
+    twinLabel?: string;
+    sglLabel?: string;
+    sglByHotel: Record<string, string>;
+    groups: { label: string; twinByHotel: Record<string, string> }[];
+  };
   faq?: { q: string; a: string }[];
 }
 
