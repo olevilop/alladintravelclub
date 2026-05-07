@@ -285,7 +285,7 @@ export const tours: Tour[] = [
   {
     id: "indonesia-raja-ampat-cruise",
     name: "Острова Раджа-Ампат",
-    region: "Австралия и Океания",
+    region: "Азия",
     category: "expedition",
     days: 8,
     price: "от $12 150",
