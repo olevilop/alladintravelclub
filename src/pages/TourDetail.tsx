@@ -547,14 +547,29 @@ const TourDetail = () => {
                     </div>
                     {grp && (
                       <div className="space-y-2 pt-1">
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-muted-foreground">{gh.twinLabel || "Двухместный (½ TWIN)"}</span>
-                          <span className="text-foreground font-medium">{grp.twinByHotel[curHotel]}</span>
-                        </div>
-                        <div className="flex items-center justify-between text-xs">
-                          <span className="text-muted-foreground">{gh.sglLabel || "Доплата за SGL"}</span>
-                          <span className="text-foreground font-medium">{gh.sglByHotel[curHotel]}</span>
-                        </div>
+                        {grp.rows ? (
+                          grp.rows.map(r => {
+                            const v = r.pricesByHotel[curHotel];
+                            const isDash = !v || v.trim() === "—" || v.trim() === "-";
+                            return (
+                              <div key={r.label} className="flex items-center justify-between text-xs">
+                                <span className="text-muted-foreground">{r.label}</span>
+                                <span className={isDash ? "text-muted-foreground/50" : "text-foreground font-medium"}>{v || "—"}</span>
+                              </div>
+                            );
+                          })
+                        ) : (
+                          <>
+                            <div className="flex items-center justify-between text-xs">
+                              <span className="text-muted-foreground">{gh.twinLabel || "Двухместный (½ TWIN)"}</span>
+                              <span className="text-foreground font-medium">{grp.twinByHotel?.[curHotel]}</span>
+                            </div>
+                            <div className="flex items-center justify-between text-xs">
+                              <span className="text-muted-foreground">{gh.sglLabel || "Доплата за SGL"}</span>
+                              <span className="text-foreground font-medium">{gh.sglByHotel[curHotel]}</span>
+                            </div>
+                          </>
+                        )}
                       </div>
                     )}
                   </div>
