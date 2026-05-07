@@ -1,21 +1,14 @@
 ## Цель
-Полностью удалить верхний бейдж (`tour.badge` — «🇷🇺 РУССКАЯ ГРУППА» / «🎄 НОВЫЙ ГОД») из карточек на категорийных страницах туров. Не скрыть условием, а вырезать JSX и связанный проп.
+Убрать нижний бейдж «спецпредложение» (`getSpecialOfferLabel(tour.specialOfferTag)`) в карточках только на странице «Экспедиционные круизы». На остальных категорийных страницах бейдж остаётся.
 
 ## Изменения
 
 1. **`src/pages/CategoryToursPage.tsx`**
-   - Удалить блок:
-     ```tsx
-     {!hideBadge && tour.badge && (
-       <span className="text-xs text-primary font-sans uppercase tracking-[0.25em] mb-2">
-         {tour.badge}
-       </span>
-     )}
-     ```
-   - Убрать поле `hideBadge?: boolean` из `CategoryToursPageProps` и из деструктуризации пропсов.
+   - Добавить опциональный проп `hideSpecialOfferTag?: boolean` в `CategoryToursPageProps` и в деструктуризацию.
+   - Обернуть рендер блока спецпредложения условием: `{!hideSpecialOfferTag && getSpecialOfferLabel(tour.specialOfferTag) && (...)}`.
 
 2. **`src/pages/ExpeditionCruisesPage.tsx`**
-   - Убрать проп `hideBadge` из вызова `<CategoryToursPage />`.
+   - Передать `hideSpecialOfferTag` в `<CategoryToursPage />`.
 
 ## Эффект
-Верхний бейдж больше не будет рендериться ни на одной категорийной странице (Экспедиционные круизы, Классические, Япония, Корея и т. д.). Поле `tour.badge` в данных оставляем как есть — оно ещё используется в `TourCarousel` (домашняя) и в `TourDetail`.
+На карточках страницы «Экспедиционные круизы» нижняя строка-бейдж со спецпредложением не отображается. Блок «Спецпредложения» (карусель внизу страницы) и другие категории не затронуты.
