@@ -28,62 +28,30 @@ const SpecialOffersPage = () => {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
 
-      {/* Hero */}
-      <section className="relative h-[75vh] overflow-hidden">
-        <img
-          src={heroTour.image}
-          alt={heroTour.name}
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
-          <h1 className="font-serif text-4xl md:text-6xl font-light text-white">
-            Спец<span className="italic">предложения</span>
-          </h1>
-          <p className="mt-4 text-white/70 text-lg max-w-xl">
-            Лучшие туры по специальным ценам
-          </p>
-        </div>
-      </section>
+      {heroTour && (
+        <section className="relative h-[75vh] overflow-hidden">
+          <img
+            src={heroTour.image}
+            alt={heroTour.name}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/60" />
+          <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
+            <h1 className="font-serif text-4xl md:text-6xl font-light text-white">
+              Спец<span className="italic">предложения</span>
+            </h1>
+            <p className="mt-4 text-white/70 text-lg max-w-xl">
+              Лучшие туры по специальным ценам
+            </p>
+          </div>
+        </section>
+      )}
 
       <Breadcrumbs items={[{ label: "Спецпредложения" }]} />
 
       {/* Tour cards */}
       <section className="container mx-auto px-10 md:px-16 lg:px-24 py-12 md:py-20 space-y-6">
-        {/* Мальдивы — фиксированная первая карточка */}
-        <Link to="/maldives" className="block bg-card overflow-hidden">
-          <div className="flex flex-col md:flex-row">
-            <div className="md:w-[300px] md:min-h-[220px] flex-shrink-0 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80"
-                alt="Мальдивы"
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="flex-1 p-6 md:p-8 flex flex-col justify-center">
-              <h2 className="text-xl md:text-2xl font-bold text-foreground uppercase tracking-wide">
-                Мальдивы
-              </h2>
-              <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                Там где время останавливается. Бирюзовый океан, виллы над водой и абсолютная приватность.
-              </p>
-            </div>
-            <div className="hidden md:flex items-center">
-              <div className="w-px h-2/3 bg-border" />
-            </div>
-            <div className="md:w-[240px] flex-shrink-0 p-6 md:p-8 flex flex-col justify-center space-y-3">
-              <div className="flex items-center gap-3 text-sm text-foreground/80">
-                <MapPin className="w-4 h-4 text-primary shrink-0" />
-                <span>Мальдивы</span>
-              </div>
-              <div className="flex items-center gap-3 text-sm text-foreground/80">
-                <Banknote className="w-4 h-4 text-primary shrink-0" />
-                <span>Индивидуальный подбор</span>
-              </div>
-            </div>
-          </div>
-        </Link>
+        {/* Мальдивы карточка удалена — на странице только туры с specialOfferTag */}
 
         {allTours.map((tour) => (
           <Link
