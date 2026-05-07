@@ -1,15 +1,24 @@
-## Добавить specialOfferTag к экспедиционным турам
+## Проблема
 
-В `src/data/tours.ts` добавить поле `specialOfferTag` к турам экспедиционной категории, кроме «Антарктический полуостров и море Уэдделла» (`antarctic-penguins`).
+На странице `/special-offers` сейчас выводятся ВСЕ туры (`allTours.map(...)`) плюс фиксированная карточка Мальдив. Это противоречит логике: должны показываться только туры с `specialOfferTag`.
 
-| ID тура | specialOfferTag |
-|---|---|
-| seychelles-tropical-rhythms | russian-group (уже есть) |
-| indonesia-raja-ampat-cruise | russian-group |
-| vietnam-cambodia-mekong-cruise | russian-group |
-| china-yangtze-cruise-2026 | russian-group |
-| brazil-scenic-eclipse-2027 | russian-group (уже есть) |
-| antarctica-newyear-2027 | new-year |
-| antarctic-penguins | — (не добавлять) |
+## Что изменить
 
-Итог: блок «Спецпредложения» на главной автоматически покажет 6 туров.
+Файл: `src/pages/SpecialOffersPage.tsx`
+
+1. Подключить также `eventTours` (как в `SpecialOffers.tsx`), чтобы источники были одинаковые.
+2. Отфильтровать `allTours` по наличию `specialOfferTag`:
+   ```ts
+   const allTours = useMemo(
+     () => [...tours, ...japanTours, ...koreaTours, ...chinaTours,
+            ...northKoreaTours, ...russiaTours, ...eventTours]
+            .filter(t => t.specialOfferTag),
+     []
+   );
+   ```
+3. Удалить захардкоженную карточку «Мальдивы» — она не имеет `specialOfferTag` и нарушает правило.
+4. Hero-картинку брать из отфильтрованного списка (если пусто — fallback или скрыть hero).
+
+## Итог
+
+Страница `/special-offers` будет показывать ровно те же туры, что и блок «Спецпредложения» на главной — туры с проставленным `specialOfferTag` (сейчас 6 экспедиционных туров).
