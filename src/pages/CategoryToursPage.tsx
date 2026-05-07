@@ -8,6 +8,7 @@ import SimilarTours from "@/components/SimilarTours";
 import { Moon, MapPin, Ship, Banknote } from "lucide-react";
 import type { Tour } from "@/data/tours";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { getSpecialOfferLabel } from "@/config/specialOfferTags";
 
 interface CategoryToursPageProps {
   tours: Tour[];
@@ -101,6 +102,11 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category }
                   <Banknote className="w-4 h-4 text-primary shrink-0" />
                   <span>{tour.price}</span>
                 </div>
+                {getSpecialOfferLabel(tour.specialOfferTag) && (
+                  <div className="pt-3 mt-1 border-t border-primary/20 text-[11px] uppercase tracking-[0.25em] text-primary text-center">
+                    {getSpecialOfferLabel(tour.specialOfferTag)}
+                  </div>
+                )}
               </div>
             </div>
           </Link>
