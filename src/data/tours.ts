@@ -221,6 +221,7 @@ export const tours: Tour[] = [
     price: "от €7 025",
     badge: "🇷🇺 РУССКАЯ ГРУППА",
     specialOfferTag: "russian-group",
+    russianGroup: true,
     image: "https://images.unsplash.com/photo-1589979481223-deb893043163?w=1600&q=80",
     gallery: [
       "https://images.unsplash.com/photo-1589979481223-deb893043163?w=1600&q=80",
@@ -294,6 +295,7 @@ export const tours: Tour[] = [
     price: "от $12 150",
     badge: "🇷🇺 РУССКАЯ ГРУППА",
     specialOfferTag: "russian-group",
+    russianGroup: true,
     image: "https://placehold.co/1600x1000/0d4f6e/e7d9b4?text=Raja+Ampat+Islands",
     gallery: [
       "https://placehold.co/1600x1000/0d4f6e/e7d9b4?text=Raja+Ampat",
@@ -371,6 +373,7 @@ export const tours: Tour[] = [
     price: "от €5 895",
     badge: "🇷🇺 РУССКАЯ ГРУППА",
     specialOfferTag: "russian-group",
+    russianGroup: true,
     image: "https://placehold.co/1600x1000/1f4068/e7d9b4?text=Mekong+River+Cruise",
     gallery: [
       "https://placehold.co/1600x1000/1f4068/e7d9b4?text=Mekong+River",
@@ -459,6 +462,7 @@ export const tours: Tour[] = [
     price: "от $7 242",
     badge: "🇷🇺 РУССКАЯ ГРУППА",
     specialOfferTag: "russian-group",
+    russianGroup: true,
     image: "https://placehold.co/1600x1000/1f4068/e7d9b4?text=Yangtze+River+Cruise",
     gallery: [
       "https://placehold.co/1600x1000/1f4068/e7d9b4?text=Shanghai+Skyline",
@@ -550,6 +554,7 @@ export const tours: Tour[] = [
     price: "от €9 435",
     badge: "🇷🇺 РУССКАЯ ГРУППА",
     specialOfferTag: "russian-group",
+    russianGroup: true,
     image: "https://placehold.co/1600x1000/1f4068/e7d9b4?text=Rio+de+Janeiro+%E2%80%94+Christ+the+Redeemer",
     gallery: [
       "https://placehold.co/1600x1000/1f4068/e7d9b4?text=Rio+de+Janeiro",
@@ -639,6 +644,7 @@ export const tours: Tour[] = [
     price: "от €19 765",
     badge: "🎄 НОВЫЙ ГОД",
     specialOfferTag: "new-year",
+    russianGroup: true,
     image: "https://placehold.co/1600x1000/0d1b2a/e7d9b4?text=Antarctica+%E2%80%94+Scenic+Eclipse",
     gallery: [
       "https://placehold.co/1600x1000/0d1b2a/e7d9b4?text=Antarctica+%E2%80%94+Icebergs",
