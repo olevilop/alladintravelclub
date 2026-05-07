@@ -3174,6 +3174,7 @@ export const regionToContinent: Record<string, string> = {
   "Бразилия": "Южная Америка",
   "Аргентина": "Южная Америка",
   "Уругвай": "Южная Америка",
+  "Индонезия": "Азия",
 };
 
 export const categoryToBreadcrumb: Record<string, { label: string; path: string }> = {
