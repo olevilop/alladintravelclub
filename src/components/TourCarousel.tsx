@@ -14,7 +14,7 @@ interface Tour {
   specialOfferTag?: string;
 }
 
-const TourCarousel = ({ tours }: { tours: Tour[] }) => {
+const TourCarousel = ({ tours, hideSpecialOfferTag = false }: { tours: Tour[]; hideSpecialOfferTag?: boolean }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
