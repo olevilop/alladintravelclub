@@ -107,7 +107,7 @@ const TourCarousel = ({ tours, hideSpecialOfferTag = false }: { tours: Tour[]; h
                   <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                 </Link>
               </div>
-              {getSpecialOfferLabel(tour.specialOfferTag) && (
+              {!hideSpecialOfferTag && getSpecialOfferLabel(tour.specialOfferTag) && (
                 <div className="-mx-5 -mb-5 mt-4 px-5 py-2 border-t border-primary/20 bg-primary/5 text-center text-[11px] uppercase tracking-[0.25em] text-primary font-sans">
                   {getSpecialOfferLabel(tour.specialOfferTag)}
                 </div>
