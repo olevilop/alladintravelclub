@@ -46,7 +46,7 @@ const ToursSection = () => {
           </div>
         </motion.div>
 
-        <TourCarousel tours={tours.filter(t => t.category === "expedition")} />
+        <TourCarousel tours={tours.filter(t => t.category === "expedition")} hideSpecialOfferTag />
 
         {tours.some(t => t.category === "classic") && (
           <>
