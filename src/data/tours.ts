@@ -95,6 +95,8 @@ export interface Tour {
   id: string;
   name: string;
   region: string;
+  continent?: string;
+  subRegion?: string;
   category?: string;
   days: number;
   price: string;
