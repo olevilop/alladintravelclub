@@ -16,11 +16,12 @@ interface CategoryToursPageProps {
   subtitle: string;
   backLink?: string;
   breadcrumbLabel: string;
+  breadcrumbParent?: { label: string; href: string };
   category?: string;
   hideSpecialOfferTag?: boolean;
 }
 
-const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category, hideSpecialOfferTag }: CategoryToursPageProps) => {
+const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumbParent, category, hideSpecialOfferTag }: CategoryToursPageProps) => {
   const heroTour = useMemo(() => tours[Math.floor(Math.random() * tours.length)], []);
 
   useEffect(() => {
