@@ -267,7 +267,7 @@ const TourDetail = () => {
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center gap-3 text-foreground/80">
                     <Globe className="w-4 h-4 text-primary shrink-0" />
-                    <span>{regionToContinent[tour.region] || tour.region}</span>
+                    <span>{tour.continent || regionToContinent[tour.region] || tour.region}</span>
                   </div>
                 </div>
                 <div>
