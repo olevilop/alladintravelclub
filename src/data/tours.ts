@@ -95,6 +95,8 @@ export interface Tour {
   id: string;
   name: string;
   region: string;
+  continent?: string;
+  subRegion?: string;
   category?: string;
   days: number;
   price: string;
@@ -787,6 +789,8 @@ export const tours: Tour[] = [
     id: "middle-east-cruise",
     name: "Круиз по Ближнему Востоку",
     region: "Ближний Восток",
+    continent: "Ближний Восток",
+    subRegion: "ОАЭ",
     category: "classic",
     days: 10,
     price: "от €7 500",

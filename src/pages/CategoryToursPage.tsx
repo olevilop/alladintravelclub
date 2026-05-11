@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import NewsletterSocial from "@/components/NewsletterSocial";
 import SpecialOffers from "@/components/SpecialOffers";
 import SimilarTours from "@/components/SimilarTours";
-import { Moon, MapPin, Ship, Banknote } from "lucide-react";
+import { Moon, MapPin, Ship, Banknote, Globe } from "lucide-react";
 import type { Tour } from "@/data/tours";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { getSpecialOfferLabel } from "@/config/specialOfferTags";
@@ -88,12 +88,16 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumb
               </div>
               <div className="md:w-[240px] flex-shrink-0 p-6 md:p-8 flex flex-col justify-center space-y-3">
                 <div className="flex items-center gap-3 text-sm text-foreground/80">
+                  <Globe className="w-4 h-4 text-primary shrink-0" />
+                  <span>{tour.continent || tour.region}</span>
+                </div>
+                <div className="flex items-center gap-3 text-sm text-foreground/80">
                   <Moon className="w-4 h-4 text-primary shrink-0" />
                   <span>{tour.days} дней / {tour.days - 1} ночей</span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-foreground/80">
                   <MapPin className="w-4 h-4 text-primary shrink-0" />
-                  <span>{tour.region}</span>
+                  <span>{tour.subRegion || tour.region}</span>
                 </div>
                 {tour.shipName && (
                   <div className="flex items-center gap-3 text-sm text-foreground/80">
