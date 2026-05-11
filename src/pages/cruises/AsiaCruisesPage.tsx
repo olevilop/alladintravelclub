@@ -12,7 +12,7 @@ const AsiaCruisesPage = () => (
     )}
     title={<>Круизы по <span className="italic">Азии</span></>}
     subtitle="От Японии до Юго-Восточной Азии"
-    breadcrumbLabel="Азия"
+    breadcrumbLabel="Круизы по Азии"
     fallbackHeroImage={asiaHero}
     hideSpecialOfferTag
   />
