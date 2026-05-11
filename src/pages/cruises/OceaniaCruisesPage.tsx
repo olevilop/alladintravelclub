@@ -5,7 +5,7 @@ import oceaniaHero from "@/assets/oceania-hero.jpg";
 const OceaniaCruisesPage = () => (
   <CategoryToursPage
     tours={tours.filter(t => regionToContinent[t.region] === "Австралия и Океания")}
-    title={<>Круизы в <span className="italic">Австралию и Океанию</span></>}
+    title={<>Круизы по <span className="italic">Австралии и Океании</span></>}
     subtitle="Тропические острова и коралловые рифы"
     breadcrumbLabel="Австралия и Океания"
     fallbackHeroImage={oceaniaHero}
