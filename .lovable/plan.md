@@ -1,16 +1,18 @@
-## План: Страница «Круизы на Ближний Восток»
+## План: Страница «Круизы в Северную Америку»
 
-Маршрут `/cruises/middle-east` уже существует. Привести страницу к шаблону Арктики.
+Маршрут `/cruises/north-america` уже существует. Привести страницу к шаблону Арктики.
 
 ### Шаги
 
-1. **Hero-изображение** — сгенерировать `src/assets/middle-east-hero.jpg` (Дубай/Оман/Красное море, роскошный круиз, NatGeo-стиль).
+1. **Hero-изображение** — сгенерировать `src/assets/north-america-hero.jpg` (Аляска/фьорды/Карибы, экспедиционный лайнер, NatGeo-стиль).
 
-2. **`src/pages/cruises/MiddleEastCruisesPage.tsx`** — переписать по образцу `ArcticCruisesPage`:
-   - фильтрация: `tours.filter(t => t.region === "Ближний Восток")`
-   - `fallbackHeroImage={middleEastHero}`
+2. **`src/pages/cruises/NorthAmericaCruisesPage.tsx`** — переписать по образцу Арктики:
+   - фильтрация: `tours.filter(t => regionToContinent[t.region] === "Северная Америка")` (на будущее, когда туры появятся)
+   - `fallbackHeroImage={northAmericaHero}`
    - `hideSpecialOfferTag`
    - title/subtitle/breadcrumb сохранить.
 
+3. **`src/data/tours.ts`** — добавить `"Северная Америка": "Северная Америка"` в маппинг `regionToContinent`.
+
 ### Не меняется
-- Маршрут в `App.tsx`, шаблон `CategoryToursPage`, маппинг `regionToContinent` (там уже есть `"Ближний Восток": "Азия"` — оставляем как есть, фильтрация идёт по точному региону, как в Арктике).
+- Маршрут в `App.tsx`, шаблон `CategoryToursPage`.
