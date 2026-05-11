@@ -27,6 +27,7 @@ const cruiseSubLinks = [
   { label: "Южная Америка", path: "/cruises/south-america" },
   { label: "Россия", path: "/cruises/russia" },
   { label: "Азия", path: "/cruises/asia" },
+  { label: "Европа", path: "/cruises/europe" },
 ];
 
 const navLinks = [

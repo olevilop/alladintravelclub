@@ -26,6 +26,7 @@ import NorthAmericaCruisesPage from "./pages/cruises/NorthAmericaCruisesPage.tsx
 import SouthAmericaCruisesPage from "./pages/cruises/SouthAmericaCruisesPage.tsx";
 import RussiaCruisesPage from "./pages/cruises/RussiaCruisesPage.tsx";
 import AsiaCruisesPage from "./pages/cruises/AsiaCruisesPage.tsx";
+import EuropeCruisesPage from "./pages/cruises/EuropeCruisesPage.tsx";
 import AsiaDestinationPage from "./pages/destinations/AsiaDestinationPage.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 
@@ -60,6 +61,7 @@ const App = () => (
           <Route path="/cruises/south-america" element={<SouthAmericaCruisesPage />} />
           <Route path="/cruises/russia" element={<RussiaCruisesPage />} />
           <Route path="/cruises/asia" element={<AsiaCruisesPage />} />
+          <Route path="/cruises/europe" element={<EuropeCruisesPage />} />
           <Route path="/destinations/asia" element={<AsiaDestinationPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
