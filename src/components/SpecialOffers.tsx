@@ -26,7 +26,7 @@ const SpecialOffers = ({ excludeTourId }: SpecialOffersProps) => {
         </Link>
         <span className="hidden sm:block flex-shrink-0 h-[1px] w-24 bg-gradient-to-l from-transparent to-primary" />
       </div>
-      <TourCarousel tours={selected} />
+      <TourCarousel tours={selected} hideSpecialOfferTag />
     </div>
   );
 };
