@@ -21,6 +21,7 @@ const cruiseLinks = [
   { label: "Южная Америка", to: "/cruises/south-america" },
   { label: "Россия", to: "/cruises/russia" },
   { label: "Азия", to: "/cruises/asia" },
+  { label: "Европа", to: "/cruises/europe" },
 ];
 
 const footerLinks = [
