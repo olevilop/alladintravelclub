@@ -7,7 +7,7 @@ const MiddleEastCruisesPage = () => (
     tours={tours.filter(t => t.region === "Ближний Восток")}
     title={<>Круизы по <span className="italic">Ближнему Востоку</span></>}
     subtitle="Древние цивилизации и современная роскошь"
-    breadcrumbLabel="Ближний Восток"
+    breadcrumbLabel="Круизы по Ближнему Востоку"
     fallbackHeroImage={middleEastHero}
     hideSpecialOfferTag
   />
