@@ -50,7 +50,7 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumb
         </div>
       </section>
 
-      <Breadcrumbs items={[{ label: breadcrumbLabel }]} />
+      <Breadcrumbs items={breadcrumbParent ? [breadcrumbParent, { label: breadcrumbLabel }] : [{ label: breadcrumbLabel }]} />
 
       {/* Tour cards */}
       <section className="container mx-auto px-10 md:px-16 lg:px-24 py-12 md:py-20 space-y-6">
