@@ -295,7 +295,7 @@ const TourDetail = () => {
                   </div>
                   <div className="flex items-center gap-3 text-foreground/80">
                     <MapPin className="w-4 h-4 text-primary shrink-0" />
-                    <span>{tour.region}</span>
+                    <span>{tour.subRegion || tour.region}</span>
                   </div>
                   {tour.shipName && (
                     <div className="flex items-center gap-3 text-foreground/80">
