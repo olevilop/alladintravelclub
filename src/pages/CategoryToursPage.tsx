@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import NewsletterSocial from "@/components/NewsletterSocial";
 import SpecialOffers from "@/components/SpecialOffers";
 import SimilarTours from "@/components/SimilarTours";
-import { Moon, MapPin, Ship, Banknote } from "lucide-react";
+import { Moon, MapPin, Ship, Banknote, Globe } from "lucide-react";
 import type { Tour } from "@/data/tours";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { getSpecialOfferLabel } from "@/config/specialOfferTags";
