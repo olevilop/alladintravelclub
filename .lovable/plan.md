@@ -1,17 +1,17 @@
-## План: Страница «Круизы в Южную Америку»
+## План: Страница «Круизы по России»
 
-Маршрут `/cruises/south-america` уже существует. Привести страницу к шаблону Арктики.
+Маршрут `/cruises/russia` уже существует. Привести страницу к шаблону Арктики.
 
 ### Шаги
 
-1. **Hero-изображение** — сгенерировать `src/assets/south-america-hero.jpg` (Патагония/Галапагосы/Амазонка, экспедиционный лайнер, NatGeo-стиль, 1920×1080).
+1. **Hero-изображение** — сгенерировать `src/assets/russia-cruises-hero.jpg` (Байкал/Камчатка/Алтай, экспедиционный лайнер или дикая природа, NatGeo-стиль, 1920×1080).
 
-2. **`src/pages/cruises/SouthAmericaCruisesPage.tsx`** — переписать по образцу Арктики:
-   - фильтрация: `tours.filter(t => regionToContinent[t.region] === "Южная Америка")`
-   - `fallbackHeroImage={southAmericaHero}`
+2. **`src/pages/cruises/RussiaCruisesPage.tsx`** — переписать по образцу Арктики:
+   - использовать `russiaTours` из `@/data/tours`
+   - `fallbackHeroImage={russiaHero}`
    - `hideSpecialOfferTag`
    - title/subtitle/breadcrumb сохранить.
 
 ### Не меняется
-- Маппинг `regionToContinent` в `src/data/tours.ts` уже содержит `"Южная Америка": "Южная Америка"`.
 - Маршрут в `App.tsx`, шаблон `CategoryToursPage`.
+- Массив `russiaTours` уже экспортирован из `src/data/tours.ts`.
