@@ -6,7 +6,7 @@ const AntarcticaCruisesPage = () => (
     tours={tours.filter(t => t.region === "Антарктида")}
     title={<>Круизы по <span className="italic">Антарктиде</span></>}
     subtitle="К ледяному континенту"
-    breadcrumbLabel="Антарктида"
+    breadcrumbLabel="Круизы по Антарктиде"
     hideSpecialOfferTag
   />
 );
