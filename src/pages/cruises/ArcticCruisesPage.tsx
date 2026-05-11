@@ -1,13 +1,11 @@
 import CategoryToursPage from "../CategoryToursPage";
-import { tours } from "@/data/tours";
 
 const ArcticCruisesPage = () => (
   <CategoryToursPage
-    tours={tours.filter(t => t.region === "Арктика")}
-    title={<>Круизы по <span className="italic">Арктике</span></>}
+    tours={[]}
+    title={<>Круизы в <span className="italic">Арктику</span></>}
     subtitle="Путешествия к вершине мира"
-    breadcrumbLabel="Круизы по Арктике"
-    hideSpecialOfferTag
+    breadcrumbLabel="Арктика"
   />
 );
 
