@@ -7,7 +7,6 @@ const AntarcticaCruisesPage = () => (
     title={<>Круизы по <span className="italic">Антарктиде</span></>}
     subtitle="К ледяному континенту"
     breadcrumbLabel="Антарктида"
-    breadcrumbParent={{ label: "Круизы", href: "/expedition-cruises" }}
     hideSpecialOfferTag
   />
 );
