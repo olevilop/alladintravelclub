@@ -5,7 +5,7 @@ import middleEastHero from "@/assets/middle-east-hero.jpg";
 const MiddleEastCruisesPage = () => (
   <CategoryToursPage
     tours={tours.filter(t => t.region === "Ближний Восток")}
-    title={<>Круизы на <span className="italic">Ближний Восток</span></>}
+    title={<>Круизы по <span className="italic">Ближнему Востоку</span></>}
     subtitle="Древние цивилизации и современная роскошь"
     breadcrumbLabel="Ближний Восток"
     fallbackHeroImage={middleEastHero}
