@@ -1,11 +1,15 @@
 import CategoryToursPage from "../CategoryToursPage";
+import { tours, regionToContinent } from "@/data/tours";
+import southAmericaHero from "@/assets/south-america-hero.jpg";
 
 const SouthAmericaCruisesPage = () => (
   <CategoryToursPage
-    tours={[]}
+    tours={tours.filter(t => regionToContinent[t.region] === "Южная Америка")}
     title={<>Круизы в <span className="italic">Южную Америку</span></>}
     subtitle="Патагония, Амазонка и Галапагосы"
     breadcrumbLabel="Южная Америка"
+    fallbackHeroImage={southAmericaHero}
+    hideSpecialOfferTag
   />
 );
 
