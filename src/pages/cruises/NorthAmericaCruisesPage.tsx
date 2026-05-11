@@ -5,7 +5,7 @@ import northAmericaHero from "@/assets/north-america-hero.jpg";
 const NorthAmericaCruisesPage = () => (
   <CategoryToursPage
     tours={tours.filter(t => regionToContinent[t.region] === "Северная Америка")}
-    title={<>Круизы в <span className="italic">Северную Америку</span></>}
+    title={<>Круизы по <span className="italic">Северной Америке</span></>}
     subtitle="От Аляски до Карибских островов"
     breadcrumbLabel="Северная Америка"
     fallbackHeroImage={northAmericaHero}
