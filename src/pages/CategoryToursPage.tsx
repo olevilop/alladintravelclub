@@ -19,10 +19,13 @@ interface CategoryToursPageProps {
   breadcrumbParent?: { label: string; href: string };
   category?: string;
   hideSpecialOfferTag?: boolean;
+  fallbackHeroImage?: string;
 }
 
-const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumbParent, category, hideSpecialOfferTag }: CategoryToursPageProps) => {
+const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumbParent, category, hideSpecialOfferTag, fallbackHeroImage }: CategoryToursPageProps) => {
   const heroTour = useMemo(() => tours[Math.floor(Math.random() * tours.length)], []);
+  const heroImage = heroTour?.image ?? fallbackHeroImage;
+  const heroAlt = heroTour?.name ?? breadcrumbLabel;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,10 +37,10 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumb
 
       {/* Hero */}
       <section className="relative h-[75vh] overflow-hidden bg-muted">
-        {heroTour && (
+        {heroImage && (
           <img
-            src={heroTour.image}
-            alt={heroTour.name}
+            src={heroImage}
+            alt={heroAlt}
             className="absolute inset-0 w-full h-full object-cover"
           />
         )}
