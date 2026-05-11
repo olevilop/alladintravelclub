@@ -16,11 +16,12 @@ interface CategoryToursPageProps {
   subtitle: string;
   backLink?: string;
   breadcrumbLabel: string;
+  breadcrumbParent?: { label: string; href: string };
   category?: string;
   hideSpecialOfferTag?: boolean;
 }
 
-const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category, hideSpecialOfferTag }: CategoryToursPageProps) => {
+const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumbParent, category, hideSpecialOfferTag }: CategoryToursPageProps) => {
   const heroTour = useMemo(() => tours[Math.floor(Math.random() * tours.length)], []);
 
   useEffect(() => {
@@ -49,7 +50,7 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, category, 
         </div>
       </section>
 
-      <Breadcrumbs items={[{ label: breadcrumbLabel }]} />
+      <Breadcrumbs items={breadcrumbParent ? [breadcrumbParent, { label: breadcrumbLabel }] : [{ label: breadcrumbLabel }]} />
 
       {/* Tour cards */}
       <section className="container mx-auto px-10 md:px-16 lg:px-24 py-12 md:py-20 space-y-6">
