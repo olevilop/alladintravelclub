@@ -7,7 +7,7 @@ const SouthAmericaCruisesPage = () => (
     tours={tours.filter(t => regionToContinent[t.region] === "Южная Америка")}
     title={<>Круизы по <span className="italic">Южной Америке</span></>}
     subtitle="Патагония, Амазонка и Галапагосы"
-    breadcrumbLabel="Южная Америка"
+    breadcrumbLabel="Круизы по Южной Америке"
     fallbackHeroImage={southAmericaHero}
     hideSpecialOfferTag
   />
