@@ -1,11 +1,14 @@
 import CategoryToursPage from "../CategoryToursPage";
+import { tours } from "@/data/tours";
 
 const AntarcticaCruisesPage = () => (
   <CategoryToursPage
-    tours={[]}
-    title={<>Круизы в <span className="italic">Антарктиду</span></>}
+    tours={tours.filter(t => t.region === "Антарктида")}
+    title={<>Круизы по <span className="italic">Антарктиде</span></>}
     subtitle="К ледяному континенту"
     breadcrumbLabel="Антарктида"
+    breadcrumbParent={{ label: "Круизы", href: "/expedition-cruises" }}
+    hideSpecialOfferTag
   />
 );
 
