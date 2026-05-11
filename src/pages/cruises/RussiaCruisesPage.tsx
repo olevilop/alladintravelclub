@@ -9,7 +9,7 @@ const RussiaCruisesPage = () => (
     )}
     title={<>Круизы по <span className="italic">России</span></>}
     subtitle="Речные и морские маршруты по России"
-    breadcrumbLabel="Россия"
+    breadcrumbLabel="Круизы по России"
     fallbackHeroImage={russiaHero}
     hideSpecialOfferTag
   />
