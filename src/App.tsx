@@ -26,6 +26,7 @@ import NorthAmericaCruisesPage from "./pages/cruises/NorthAmericaCruisesPage.tsx
 import SouthAmericaCruisesPage from "./pages/cruises/SouthAmericaCruisesPage.tsx";
 import RussiaCruisesPage from "./pages/cruises/RussiaCruisesPage.tsx";
 import LinersPage from "./pages/cruises/LinersPage.tsx";
+import LinerDetailPage from "./pages/cruises/LinerDetailPage.tsx";
 import AsiaCruisesPage from "./pages/cruises/AsiaCruisesPage.tsx";
 import EuropeCruisesPage from "./pages/cruises/EuropeCruisesPage.tsx";
 import AsiaDestinationPage from "./pages/destinations/AsiaDestinationPage.tsx";
@@ -62,6 +63,7 @@ const App = () => (
           <Route path="/cruises/south-america" element={<SouthAmericaCruisesPage />} />
           <Route path="/cruises/russia" element={<RussiaCruisesPage />} />
           <Route path="/cruises/liners" element={<LinersPage />} />
+          <Route path="/liner/:slug" element={<LinerDetailPage />} />
           <Route path="/cruises/asia" element={<AsiaCruisesPage />} />
           <Route path="/cruises/europe" element={<EuropeCruisesPage />} />
           <Route path="/destinations/asia" element={<AsiaDestinationPage />} />
