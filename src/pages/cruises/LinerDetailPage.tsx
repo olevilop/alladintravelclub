@@ -81,7 +81,7 @@ const LinerPhotoCarousel = ({
             key={i}
             type="button"
             onClick={() => onOpen(src)}
-            className="snap-start flex-shrink-0 w-[calc(100%-0px)] sm:w-[calc(50%-8px)] lg:w-[calc(25%-12px)] group relative aspect-[4/3] overflow-hidden bg-muted border border-border/40"
+            className="snap-start flex-shrink-0 w-[calc(100%-0px)] sm:w-[calc(50%-8px)] md:w-[calc(33.333%-11px)] lg:w-[calc(20%-13px)] group relative aspect-[4/3] overflow-hidden bg-muted border border-border/40"
           >
             <img
               src={src}
