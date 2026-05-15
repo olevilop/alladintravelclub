@@ -307,8 +307,8 @@ const LinerDetailPage = () => {
             {/* Right: specs */}
             {liner.specs && liner.specs.length > 0 && (
               <aside className="lg:col-span-4 order-1 lg:order-2">
-                <div className="lg:sticky lg:top-24 bg-card border border-border p-6 w-full max-w-sm ml-auto">
-                  <h3 className="font-serif text-lg font-light uppercase tracking-[0.15em] leading-snug mb-6">
+                <div className="lg:sticky lg:top-24 bg-card border border-border p-6 w-full max-w-[374px] ml-auto">
+                  <h3 className="font-serif text-[15px] font-light uppercase tracking-[0.1em] leading-snug mb-6 whitespace-nowrap">
                     Технические характеристики
                   </h3>
                   <dl className="space-y-4 text-sm">
