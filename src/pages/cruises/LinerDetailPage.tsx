@@ -154,7 +154,7 @@ const LinerDetailPage = () => {
       {/* Two-column layout */}
       {tabs.length > 0 && (
         <section className="container mx-auto px-6 md:px-10 py-10 md:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
             {/* Left: tabs */}
             <div className="lg:col-span-8 order-2 lg:order-1 min-w-0">
               <Tabs defaultValue={defaultTab} className="w-full">
@@ -199,10 +199,25 @@ const LinerDetailPage = () => {
                             </div>
                           )}
                           <div className="p-5 sm:p-6 flex flex-col flex-1">
-                            <h3 className="font-serif text-xl text-foreground">{c.name}</h3>
-                            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                              {c.description}
-                            </p>
+                            <h3 className="font-serif text-xl uppercase tracking-wide text-foreground">
+                              {c.name}
+                            </h3>
+                            {c.area && (
+                              <p className="mt-2 text-sm font-semibold text-foreground">
+                                Площадь — {c.area}
+                              </p>
+                            )}
+                            {c.features && c.features.length > 0 ? (
+                              <ul className="mt-3 space-y-1.5 text-sm text-muted-foreground leading-relaxed list-disc pl-5">
+                                {c.features.map((f, i) => (
+                                  <li key={i}>{f}</li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                                {c.description}
+                              </p>
+                            )}
                           </div>
                         </div>
                       ))}
@@ -292,11 +307,11 @@ const LinerDetailPage = () => {
             {/* Right: specs */}
             {liner.specs && liner.specs.length > 0 && (
               <aside className="lg:col-span-4 order-1 lg:order-2">
-                <div className="lg:sticky lg:top-24 bg-card border border-border p-6 w-full lg:w-fit lg:max-w-xs lg:ml-auto">
-                  <h3 className="font-serif text-lg md:text-xl font-light leading-snug whitespace-nowrap mb-5">
+                <div className="lg:sticky lg:top-24 bg-card border border-border p-7 w-full">
+                  <h3 className="font-serif text-xl md:text-2xl font-light leading-snug mb-6">
                     Технические характеристики
                   </h3>
-                  <dl className="space-y-3 text-sm">
+                  <dl className="space-y-4 text-base">
                     {liner.specs.map((s) => (
                       <div
                         key={s.label}

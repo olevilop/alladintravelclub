@@ -5,6 +5,8 @@ export interface LinerCabin {
   name: string;
   description: string;
   image?: string;
+  area?: string;
+  features?: string[];
 }
 
 export interface LinerSpec {
@@ -52,20 +54,42 @@ export const liners: Liner[] = [
     cabins: [
       {
         name: "Discovery Suite",
-        description:
-          "44 м² с приватным балконом, гостиной зоной и панорамным окном. Базовая категория, но с дворецким и линейкой L'Occitane в стандарте.",
+        description: "Базовая категория сьютов с дворецким и линейкой L'Occitane в стандарте.",
+        area: "44 м² (включая балкон)",
+        features: [
+          "Приватный балкон с панорамным остеклением",
+          "Гостиная зона с диваном и креслами",
+          "Кровать king-size или две односпальные",
+          "Гардеробная и сейф",
+          "Мраморная ванная комната с душем",
+          "Дворецкий и сервис 24/7",
+        ],
         image: placeholder("Discovery Suite"),
       },
       {
         name: "Spa Suite",
-        description:
-          "Сьюты на спа-палубе с прямым доступом к термальным зонам и приватной джакузи на балконе.",
+        description: "Сьюты на спа-палубе с прямым доступом к термальным зонам.",
+        area: "46 м² (включая балкон)",
+        features: [
+          "Приватная джакузи на балконе",
+          "Прямой доступ к спа Senses",
+          "Кровать king-size",
+          "Авторские косметические наборы",
+          "Дворецкий и сервис 24/7",
+        ],
         image: placeholder("Spa Suite"),
       },
       {
         name: "Owner's Penthouse",
-        description:
-          "240 м² двух-уровневых апартаментов: спальня с гардеробной, библиотека, столовая на 8 персон и приватная терраса с подогреваемой ванной.",
+        description: "Двухуровневые апартаменты — флагманская категория яхты.",
+        area: "240 м² (на двух уровнях)",
+        features: [
+          "Спальня с гардеробной",
+          "Библиотека и столовая на 8 персон",
+          "Приватная терраса с подогреваемой ванной",
+          "Кабинет и кухня",
+          "Личный дворецкий",
+        ],
         image: placeholder("Owner's Penthouse"),
       },
     ],
@@ -103,20 +127,41 @@ export const liners: Liner[] = [
     cabins: [
       {
         name: "Yacht Suite",
-        description:
-          "32 м² с французским балконом, кинг-сайз кроватью и мраморной ванной комнатой.",
+        description: "Базовая категория сьютов на средних палубах.",
+        area: "32 м² (с французским балконом)",
+        features: [
+          "Французский балкон с панорамным остеклением",
+          "Кровать king-size",
+          "Мраморная ванная с дождевым душем",
+          "Кофемашина Nespresso и мини-бар",
+          "Сейф и гардеробная зона",
+        ],
         image: placeholder("Yacht Suite"),
       },
       {
         name: "Panorama Balcony Suite",
-        description:
-          "Угловые сьюты с панорамным остеклением и приватной террасой с шезлонгами.",
+        description: "Угловые сьюты с увеличенной площадью остекления.",
+        area: "38 м² (включая балкон)",
+        features: [
+          "Панорамное остекление на две стороны",
+          "Приватная терраса с шезлонгами",
+          "Гостиная зона",
+          "Мраморная ванная и отдельный душ",
+          "Дворецкий и сервис 24/7",
+        ],
         image: placeholder("Panorama Suite"),
       },
       {
         name: "Owner's Suite",
-        description:
-          "85 м²: отдельная гостиная, гардеробная, ванная с видом на море и батлер-сервис 24/7.",
+        description: "Флагманская категория с расширенной программой сервиса.",
+        area: "85 м² (включая террасу)",
+        features: [
+          "Отдельная гостиная и кабинет",
+          "Гардеробная",
+          "Ванная с видом на море",
+          "Батлер-сервис 24/7",
+          "Приватный трансфер и тендер",
+        ],
         image: placeholder("Owner's Suite"),
       },
     ],
@@ -149,12 +194,30 @@ export const liners: Liner[] = [
       { label: "Дайв-станция", value: "PADI 5*" },
     ],
     cabins: [
-      { name: "Ocean View Suite", description: "Сьюты на главной палубе с панорамными окнами.", image: placeholder("Ocean View Suite") },
-      { name: "Premium Suite", description: "Расширенные сьюты с гостиной зоной и приватной террасой.", image: placeholder("Premium Suite") },
-      { name: "Owner's Suite", description: "Двухкомнатный сьют на верхней палубе с приватной джакузи.", image: placeholder("Owner's Suite") },
+      {
+        name: "Ocean View Suite",
+        description: "Сьюты на главной палубе с панорамными окнами.",
+        area: "22 м²",
+        features: ["Панорамные окна на море", "Кровать king-size или две односпальные", "Ванная с душем", "Кондиционер и сейф"],
+        image: placeholder("Ocean View Suite"),
+      },
+      {
+        name: "Premium Suite",
+        description: "Расширенные сьюты с гостиной зоной и приватной террасой.",
+        area: "30 м² (включая террасу)",
+        features: ["Приватная терраса с шезлонгами", "Гостиная зона", "Мини-бар и кофемашина", "Ванная с тропическим душем"],
+        image: placeholder("Premium Suite"),
+      },
+      {
+        name: "Owner's Suite",
+        description: "Двухкомнатный сьют на верхней палубе.",
+        area: "45 м² (на двух уровнях)",
+        features: ["Приватная джакузи на палубе", "Отдельная гостиная", "Гардеробная", "Сервис дворецкого"],
+        image: placeholder("Owner's Suite"),
+      },
     ],
     deckPlanImage: placeholder("Deck Plan — Aqua Blu", 1800, 1100),
-    gallery: [placeholder("Aqua Blu 1"), placeholder("Aqua Blu 2"), placeholder("Aqua Blu 3"), placeholder("Aqua Blu 4")],
+    gallery: [placeholder("Aqua Blu 1"), placeholder("Aqua Blu 2"), placeholder("Aqua Blu 3"), placeholder("Aqua Blu 4"), placeholder("Aqua Blu 5"), placeholder("Aqua Blu 6")],
   },
   {
     slug: "scenic-spirit",
@@ -175,12 +238,30 @@ export const liners: Liner[] = [
       { label: "Маршруты", value: "Меконг" },
     ],
     cabins: [
-      { name: "Balcony Suite", description: "23 м² с французским балконом и видом на реку.", image: placeholder("Balcony Suite") },
-      { name: "Junior Balcony Suite", description: "Расширенный сьют с гостиной зоной.", image: placeholder("Junior Suite") },
-      { name: "Royal Panorama Suite", description: "65 м² с приватной террасой и джакузи.", image: placeholder("Royal Suite") },
+      {
+        name: "Balcony Suite",
+        description: "Базовая категория с французским балконом и видом на Меконг.",
+        area: "23 м²",
+        features: ["Французский балкон", "Кровать king-size", "Мини-бар и кофемашина", "Ванная с дождевым душем"],
+        image: placeholder("Balcony Suite"),
+      },
+      {
+        name: "Junior Balcony Suite",
+        description: "Расширенный сьют с дополнительной гостиной зоной.",
+        area: "30 м²",
+        features: ["Французский балкон", "Гостиная зона с диваном", "Гардеробная", "Сервис дворецкого"],
+        image: placeholder("Junior Suite"),
+      },
+      {
+        name: "Royal Panorama Suite",
+        description: "Флагманская категория с приватной террасой.",
+        area: "65 м² (включая террасу)",
+        features: ["Приватная терраса с джакузи", "Отдельная гостиная", "Гардеробная", "Личный дворецкий", "Авторские косметические наборы"],
+        image: placeholder("Royal Suite"),
+      },
     ],
     deckPlanImage: placeholder("Deck Plan — Scenic Spirit", 1800, 1100),
-    gallery: [placeholder("Scenic Spirit 1"), placeholder("Scenic Spirit 2"), placeholder("Scenic Spirit 3"), placeholder("Scenic Spirit 4")],
+    gallery: [placeholder("Scenic Spirit 1"), placeholder("Scenic Spirit 2"), placeholder("Scenic Spirit 3"), placeholder("Scenic Spirit 4"), placeholder("Scenic Spirit 5"), placeholder("Scenic Spirit 6")],
   },
   {
     slug: "century-legend",
@@ -201,12 +282,30 @@ export const liners: Liner[] = [
       { label: "Маршруты", value: "Янцзы" },
     ],
     cabins: [
-      { name: "Standard Balcony", description: "Каюта 22 м² с балконом на реку.", image: placeholder("Standard Balcony") },
-      { name: "Executive Suite", description: "44 м² с гостиной и панорамными окнами.", image: placeholder("Executive Suite") },
-      { name: "Presidential Suite", description: "120 м² с приватным дворецким и террасой.", image: placeholder("Presidential Suite") },
+      {
+        name: "Standard Balcony",
+        description: "Каюта с балконом на реку.",
+        area: "22 м²",
+        features: ["Приватный балкон", "Кровать king-size или две односпальные", "Ванная с душем", "Кондиционер и сейф"],
+        image: placeholder("Standard Balcony"),
+      },
+      {
+        name: "Executive Suite",
+        description: "Сьюты с гостиной и панорамными окнами.",
+        area: "44 м²",
+        features: ["Панорамные окна", "Отдельная гостиная зона", "Мини-бар и кофемашина", "Ванная с тропическим душем"],
+        image: placeholder("Executive Suite"),
+      },
+      {
+        name: "Presidential Suite",
+        description: "Флагманская категория с приватной террасой.",
+        area: "120 м² (включая террасу)",
+        features: ["Личный дворецкий", "Терраса с видом на ущелья", "Гостиная и столовая", "Гардеробная", "Ванная с джакузи"],
+        image: placeholder("Presidential Suite"),
+      },
     ],
     deckPlanImage: placeholder("Deck Plan — Century Legend", 1800, 1100),
-    gallery: [placeholder("Century Legend 1"), placeholder("Century Legend 2"), placeholder("Century Legend 3"), placeholder("Century Legend 4")],
+    gallery: [placeholder("Century Legend 1"), placeholder("Century Legend 2"), placeholder("Century Legend 3"), placeholder("Century Legend 4"), placeholder("Century Legend 5"), placeholder("Century Legend 6")],
   },
   {
     slug: "arabian-pearl",
@@ -227,12 +326,30 @@ export const liners: Liner[] = [
       { label: "Маршруты", value: "Персидский залив" },
     ],
     cabins: [
-      { name: "Deluxe Balcony", description: "Каюта с приватным балконом и восточным декором.", image: placeholder("Deluxe Balcony") },
-      { name: "Pearl Suite", description: "Сьюты с гостиной и видом на залив с двух сторон.", image: placeholder("Pearl Suite") },
-      { name: "Royal Terrace", description: "Двухуровневые апартаменты с приватной террасой и джакузи.", image: placeholder("Royal Terrace") },
+      {
+        name: "Deluxe Balcony",
+        description: "Каюта с приватным балконом и восточным декором.",
+        area: "26 м² (включая балкон)",
+        features: ["Приватный балкон с видом на залив", "Кровать king-size", "Мраморная ванная", "Сейф и мини-бар"],
+        image: placeholder("Deluxe Balcony"),
+      },
+      {
+        name: "Pearl Suite",
+        description: "Сьюты с гостиной и панорамным видом на залив с двух сторон.",
+        area: "48 м²",
+        features: ["Угловое остекление", "Отдельная гостиная зона", "Гардеробная", "Ванная с тропическим душем"],
+        image: placeholder("Pearl Suite"),
+      },
+      {
+        name: "Royal Terrace",
+        description: "Двухуровневые апартаменты — флагманская категория лайнера.",
+        area: "110 м² (на двух уровнях)",
+        features: ["Приватная терраса с джакузи", "Гостиная и столовая на 6 персон", "Гардеробная и кабинет", "Личный дворецкий", "Хаммам в номере"],
+        image: placeholder("Royal Terrace"),
+      },
     ],
     deckPlanImage: placeholder("Deck Plan — Arabian Pearl", 1800, 1100),
-    gallery: [placeholder("Arabian Pearl 1"), placeholder("Arabian Pearl 2"), placeholder("Arabian Pearl 3"), placeholder("Arabian Pearl 4")],
+    gallery: [placeholder("Arabian Pearl 1"), placeholder("Arabian Pearl 2"), placeholder("Arabian Pearl 3"), placeholder("Arabian Pearl 4"), placeholder("Arabian Pearl 5"), placeholder("Arabian Pearl 6")],
   },
   {
     slug: "galapagos-explorer",
@@ -253,12 +370,30 @@ export const liners: Liner[] = [
       { label: "Маршруты", value: "Галапагос" },
     ],
     cabins: [
-      { name: "Standard Cabin", description: "Каюта 18 м² с панорамным окном.", image: placeholder("Standard Cabin") },
-      { name: "Suite", description: "30 м² с приватным балконом и зоной отдыха.", image: placeholder("Suite") },
-      { name: "Owner's Suite", description: "55 м² на верхней палубе с террасой 360°.", image: placeholder("Owner's Suite") },
+      {
+        name: "Standard Cabin",
+        description: "Каюта с панорамным окном на главной палубе.",
+        area: "18 м²",
+        features: ["Панорамное окно", "Кровать king-size или две односпальные", "Ванная с душем", "Сейф и кондиционер"],
+        image: placeholder("Standard Cabin"),
+      },
+      {
+        name: "Suite",
+        description: "Сьюты с приватным балконом и зоной отдыха.",
+        area: "30 м² (включая балкон)",
+        features: ["Приватный балкон", "Гостиная зона", "Мини-бар", "Ванная с тропическим душем"],
+        image: placeholder("Suite"),
+      },
+      {
+        name: "Owner's Suite",
+        description: "Флагманская каюта на верхней палубе.",
+        area: "55 м² (с террасой 360°)",
+        features: ["Терраса 360°", "Отдельная гостиная", "Гардеробная", "Сервис дворецкого"],
+        image: placeholder("Owner's Suite"),
+      },
     ],
     deckPlanImage: placeholder("Deck Plan — Galápagos Explorer", 1800, 1100),
-    gallery: [placeholder("Galápagos 1"), placeholder("Galápagos 2"), placeholder("Galápagos 3"), placeholder("Galápagos 4")],
+    gallery: [placeholder("Galápagos 1"), placeholder("Galápagos 2"), placeholder("Galápagos 3"), placeholder("Galápagos 4"), placeholder("Galápagos 5"), placeholder("Galápagos 6")],
   },
   {
     slug: "aegean-star",
@@ -279,12 +414,30 @@ export const liners: Liner[] = [
       { label: "Флаг", value: "Греция" },
     ],
     cabins: [
-      { name: "Aegean Suite", description: "28 м² с французским балконом и видом на море.", image: placeholder("Aegean Suite") },
-      { name: "Cyclades Suite", description: "Угловой сьют с панорамным остеклением.", image: placeholder("Cyclades Suite") },
-      { name: "Olympus Penthouse", description: "70 м² с приватной террасой и джакузи на палубе.", image: placeholder("Olympus Penthouse") },
+      {
+        name: "Aegean Suite",
+        description: "Базовая категория с французским балконом и видом на море.",
+        area: "28 м²",
+        features: ["Французский балкон", "Кровать king-size", "Мраморная ванная с душем", "Кофемашина и мини-бар"],
+        image: placeholder("Aegean Suite"),
+      },
+      {
+        name: "Cyclades Suite",
+        description: "Угловой сьют с панорамным остеклением.",
+        area: "42 м²",
+        features: ["Угловое остекление на две стороны", "Гостиная зона", "Гардеробная", "Ванная с дождевым душем"],
+        image: placeholder("Cyclades Suite"),
+      },
+      {
+        name: "Olympus Penthouse",
+        description: "Флагманская категория с приватной палубой.",
+        area: "70 м² (включая террасу)",
+        features: ["Приватная терраса с джакузи", "Отдельная гостиная и столовая", "Личный дворецкий", "Гардеробная", "Авторские косметические наборы"],
+        image: placeholder("Olympus Penthouse"),
+      },
     ],
     deckPlanImage: placeholder("Deck Plan — Aegean Star", 1800, 1100),
-    gallery: [placeholder("Aegean Star 1"), placeholder("Aegean Star 2"), placeholder("Aegean Star 3"), placeholder("Aegean Star 4")],
+    gallery: [placeholder("Aegean Star 1"), placeholder("Aegean Star 2"), placeholder("Aegean Star 3"), placeholder("Aegean Star 4"), placeholder("Aegean Star 5"), placeholder("Aegean Star 6")],
   },
 ];
 
