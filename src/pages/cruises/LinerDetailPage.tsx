@@ -154,7 +154,7 @@ const LinerDetailPage = () => {
       {/* Two-column layout */}
       {tabs.length > 0 && (
         <section className="container mx-auto px-6 md:px-10 py-10 md:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
             {/* Left: tabs */}
             <div className="lg:col-span-8 order-2 lg:order-1 min-w-0">
               <Tabs defaultValue={defaultTab} className="w-full">
