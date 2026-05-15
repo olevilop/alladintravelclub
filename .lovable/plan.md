@@ -1,8 +1,2 @@
-## Задача
-Сузить карточку «Технические характеристики» ещё на 10 px.
-
 ## Изменение
-В `src/pages/cruises/LinerDetailPage.tsx` (строка 310):
-- `max-w-[374px]` → `max-w-[364px]`.
-
-Заголовок уже в одну строку — менять не нужно.
+В `src/pages/cruises/LinerDetailPage.tsx` (строка 310): `max-w-[364px]` → `max-w-[354px]`.
