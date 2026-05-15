@@ -375,10 +375,21 @@ const TourDetail = () => {
                 const linerForShip = findLinerByShipName(tour.shipName);
                 const inner = (
                   <>
-                    <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                      <Ship className="w-3.5 h-3.5 text-primary" />
-                      {tour.shipName}
-                    </h4>
+                    <div className="flex items-start justify-between gap-2">
+                      <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                        <Ship className="w-3.5 h-3.5 text-primary" />
+                        {tour.shipName}
+                      </h4>
+                      {linerForShip && (
+                        <span
+                          className="shrink-0 inline-flex items-center justify-center w-7 h-7 rounded-full bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
+                          title="Открыть страницу лайнера"
+                          aria-label="Открыть страницу лайнера"
+                        >
+                          <ArrowUpRight className="w-4 h-4" />
+                        </span>
+                      )}
+                    </div>
                     <div className="aspect-[16/10] overflow-hidden rounded-sm border border-border">
                       <img
                         src={tour.shipImage}
@@ -396,7 +407,7 @@ const TourDetail = () => {
                 return linerForShip ? (
                   <Link
                     to={`/liner/${linerForShip.slug}`}
-                    className="group block bg-card border border-border hover:border-primary/40 transition-colors p-4 space-y-3"
+                    className="group block bg-card border border-border hover:border-primary hover:bg-primary/[0.03] hover:shadow-md transition-all p-4 space-y-3 cursor-pointer"
                   >
                     {inner}
                   </Link>
