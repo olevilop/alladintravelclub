@@ -414,12 +414,30 @@ export const liners: Liner[] = [
       { label: "Флаг", value: "Греция" },
     ],
     cabins: [
-      { name: "Aegean Suite", description: "28 м² с французским балконом и видом на море.", image: placeholder("Aegean Suite") },
-      { name: "Cyclades Suite", description: "Угловой сьют с панорамным остеклением.", image: placeholder("Cyclades Suite") },
-      { name: "Olympus Penthouse", description: "70 м² с приватной террасой и джакузи на палубе.", image: placeholder("Olympus Penthouse") },
+      {
+        name: "Aegean Suite",
+        description: "Базовая категория с французским балконом и видом на море.",
+        area: "28 м²",
+        features: ["Французский балкон", "Кровать king-size", "Мраморная ванная с душем", "Кофемашина и мини-бар"],
+        image: placeholder("Aegean Suite"),
+      },
+      {
+        name: "Cyclades Suite",
+        description: "Угловой сьют с панорамным остеклением.",
+        area: "42 м²",
+        features: ["Угловое остекление на две стороны", "Гостиная зона", "Гардеробная", "Ванная с дождевым душем"],
+        image: placeholder("Cyclades Suite"),
+      },
+      {
+        name: "Olympus Penthouse",
+        description: "Флагманская категория с приватной палубой.",
+        area: "70 м² (включая террасу)",
+        features: ["Приватная терраса с джакузи", "Отдельная гостиная и столовая", "Личный дворецкий", "Гардеробная", "Авторские косметические наборы"],
+        image: placeholder("Olympus Penthouse"),
+      },
     ],
     deckPlanImage: placeholder("Deck Plan — Aegean Star", 1800, 1100),
-    gallery: [placeholder("Aegean Star 1"), placeholder("Aegean Star 2"), placeholder("Aegean Star 3"), placeholder("Aegean Star 4")],
+    gallery: [placeholder("Aegean Star 1"), placeholder("Aegean Star 2"), placeholder("Aegean Star 3"), placeholder("Aegean Star 4"), placeholder("Aegean Star 5"), placeholder("Aegean Star 6")],
   },
 ];
 
