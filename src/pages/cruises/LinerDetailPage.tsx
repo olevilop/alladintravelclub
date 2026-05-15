@@ -199,10 +199,25 @@ const LinerDetailPage = () => {
                             </div>
                           )}
                           <div className="p-5 sm:p-6 flex flex-col flex-1">
-                            <h3 className="font-serif text-xl text-foreground">{c.name}</h3>
-                            <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
-                              {c.description}
-                            </p>
+                            <h3 className="font-serif text-xl uppercase tracking-wide text-foreground">
+                              {c.name}
+                            </h3>
+                            {c.area && (
+                              <p className="mt-2 text-sm font-semibold text-foreground">
+                                Площадь — {c.area}
+                              </p>
+                            )}
+                            {c.features && c.features.length > 0 ? (
+                              <ul className="mt-3 space-y-1.5 text-sm text-muted-foreground leading-relaxed list-disc pl-5">
+                                {c.features.map((f, i) => (
+                                  <li key={i}>{f}</li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                                {c.description}
+                              </p>
+                            )}
                           </div>
                         </div>
                       ))}
