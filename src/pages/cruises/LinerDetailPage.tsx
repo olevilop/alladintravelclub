@@ -307,18 +307,19 @@ const LinerDetailPage = () => {
             {/* Right: specs */}
             {liner.specs && liner.specs.length > 0 && (
               <aside className="lg:col-span-4 order-1 lg:order-2">
-                <div className="lg:sticky lg:top-24 bg-card border border-border p-5 w-fit max-w-xs ml-auto">
-                  <h3 className="font-serif text-lg font-light leading-snug mb-5">
+                <div className="lg:sticky lg:top-24 bg-card border border-border p-6 w-full max-w-sm ml-auto">
+                  <h3 className="font-serif text-lg font-light uppercase tracking-[0.15em] leading-snug mb-6">
                     Технические характеристики
                   </h3>
-                  <dl className="space-y-3 text-sm">
+                  <dl className="space-y-4 text-sm">
                     {liner.specs.map((s) => (
                       <div
                         key={s.label}
-                        className="flex items-baseline justify-between gap-6 text-foreground/80"
+                        className="flex items-baseline gap-2"
                       >
-                        <dt className="text-foreground/80">{s.label}</dt>
-                        <dd className="font-serif text-primary text-right text-lg">{s.value}</dd>
+                        <dt className="text-foreground">{s.label}</dt>
+                        <span aria-hidden className="flex-1 border-b border-dotted border-foreground/40 translate-y-[-4px]" />
+                        <dd className="font-serif text-primary text-base">{s.value}</dd>
                       </div>
                     ))}
                   </dl>
