@@ -28,14 +28,7 @@ const LinersPage = () => {
     .filter((l) => usedSlugs.has(l.slug))
     .sort((a, b) => a.name.localeCompare(b.name, "ru"));
 
-  // Fallback link target for each liner — first tour that uses this ship.
-  const firstTourFor = (slug: string) => {
-    const t = tours.find((t) => {
-      const l = findLinerByShipName(t.shipName);
-      return l?.slug === slug;
-    });
-    return t ? `/tour/${t.id}` : "#";
-  };
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
