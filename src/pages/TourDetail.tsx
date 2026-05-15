@@ -371,17 +371,40 @@ const TourDetail = () => {
                 );
               })()}
 
-              {tour.shipName && tour.shipImage && (
-                <div className="bg-card border border-border p-4 space-y-3">
-                  <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                    <Ship className="w-3.5 h-3.5 text-primary" />
-                    {tour.shipName}
-                  </h4>
-                  <div className="aspect-[16/10] overflow-hidden rounded-sm border border-border">
-                    <img src={tour.shipImage} alt={tour.shipName} className="w-full h-full object-cover" />
-                  </div>
-                </div>
-              )}
+              {tour.shipName && tour.shipImage && (() => {
+                const linerForShip = findLinerByShipName(tour.shipName);
+                const inner = (
+                  <>
+                    <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                      <Ship className="w-3.5 h-3.5 text-primary" />
+                      {tour.shipName}
+                    </h4>
+                    <div className="aspect-[16/10] overflow-hidden rounded-sm border border-border">
+                      <img
+                        src={tour.shipImage}
+                        alt={tour.shipName}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    </div>
+                    {linerForShip && (
+                      <div className="text-[11px] uppercase tracking-[0.2em] text-primary group-hover:underline">
+                        Подробнее о лайнере →
+                      </div>
+                    )}
+                  </>
+                );
+                return linerForShip ? (
+                  <Link
+                    to={`/liner/${linerForShip.slug}`}
+                    className="group block bg-card border border-border hover:border-primary/40 transition-colors p-4 space-y-3"
+                  >
+                    {inner}
+                  </Link>
+                ) : (
+                  <div className="bg-card border border-border p-4 space-y-3">{inner}</div>
+                );
+              })()}
+
 
               {/* Occupancy pricing (per-person by room occupancy) */}
               {tour.occupancyPricing && (
