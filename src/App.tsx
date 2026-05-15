@@ -26,6 +26,7 @@ import NorthAmericaCruisesPage from "./pages/cruises/NorthAmericaCruisesPage.tsx
 import SouthAmericaCruisesPage from "./pages/cruises/SouthAmericaCruisesPage.tsx";
 import RussiaCruisesPage from "./pages/cruises/RussiaCruisesPage.tsx";
 import LinersPage from "./pages/cruises/LinersPage.tsx";
+import LinerDetailPage from "./pages/cruises/LinerDetailPage.tsx";
 import AsiaCruisesPage from "./pages/cruises/AsiaCruisesPage.tsx";
 import EuropeCruisesPage from "./pages/cruises/EuropeCruisesPage.tsx";
 import AsiaDestinationPage from "./pages/destinations/AsiaDestinationPage.tsx";
