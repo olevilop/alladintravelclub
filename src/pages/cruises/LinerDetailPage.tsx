@@ -175,10 +175,10 @@ const LinerDetailPage = () => {
                       {t.name}
                     </h3>
                     <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
-                      {t.duration && (
+                      {t.days && (
                         <span className="inline-flex items-center gap-1">
                           <Calendar className="w-3.5 h-3.5" />
-                          {t.duration}
+                          {t.days} дней
                         </span>
                       )}
                       {t.region && (
