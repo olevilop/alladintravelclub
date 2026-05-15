@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { Link, useParams, Navigate } from "react-router-dom";
-import { ArrowRight, Calendar, MapPin, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Moon, MapPin, Ship, Banknote, Globe, X, ChevronLeft, ChevronRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsletterSocial from "@/components/NewsletterSocial";
