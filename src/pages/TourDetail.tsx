@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { getTourById, regionToBreadcrumb, categoryToBreadcrumb, regionToContinent } from "@/data/tours";
+import { findLinerByShipName } from "@/data/liners";
 import SimilarTours from "@/components/SimilarTours";
 import { tourRoutes } from "@/data/tourRoutes";
 import Navbar from "@/components/Navbar";
