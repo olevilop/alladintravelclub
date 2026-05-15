@@ -5,6 +5,8 @@ export interface LinerCabin {
   name: string;
   description: string;
   image?: string;
+  area?: string;
+  features?: string[];
 }
 
 export interface LinerSpec {
