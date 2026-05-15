@@ -1,5 +1,5 @@
-import emeraldKaiaShip from "@/assets/emerald-kaia-ship.jpg";
-import scenicEclipseShip from "@/assets/scenic-eclipse-ship.jpg";
+import emeraldKaiaShip from "@/assets/yacht-emerald-kaia.jpg";
+import scenicEclipseShip from "@/assets/scenic-eclipse.png";
 
 export interface LinerCabin {
   name: string;
