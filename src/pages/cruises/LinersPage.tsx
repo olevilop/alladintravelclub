@@ -60,7 +60,7 @@ const LinersPage = () => {
           {visibleLiners.map((liner) => (
             <Link
               key={liner.slug}
-              to={firstTourFor(liner.slug)}
+              to={`/liner/${liner.slug}`}
               className="group bg-card border border-border/50 overflow-hidden hover:border-primary/40 transition-colors duration-500 flex flex-col"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
