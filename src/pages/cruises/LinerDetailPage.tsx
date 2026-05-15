@@ -163,7 +163,7 @@ const LinerDetailPage = () => {
                     <TabsTrigger
                       key={t.value}
                       value={t.value}
-                      className="flex-1 rounded-none bg-transparent px-4 py-3 text-sm uppercase tracking-[0.18em] text-muted-foreground data-[state=active]:bg-transparent data-[state=active]:text-primary data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-primary"
+                      className="flex-1 rounded-none bg-transparent px-4 py-3 text-base uppercase tracking-[0.18em] text-muted-foreground data-[state=active]:bg-transparent data-[state=active]:text-primary data-[state=active]:shadow-none border-b-2 border-transparent data-[state=active]:border-primary"
                     >
                       {t.label}
                     </TabsTrigger>
