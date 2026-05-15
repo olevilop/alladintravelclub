@@ -18,6 +18,7 @@ const tourSubLinks = [
 ];
 
 const cruiseSubLinks = [
+  { label: "Все лайнеры", path: "/cruises/liners" },
   { label: "Арктика", path: "/cruises/arctic" },
   { label: "Антарктида", path: "/cruises/antarctica" },
   { label: "Африка", path: "/cruises/africa" },
