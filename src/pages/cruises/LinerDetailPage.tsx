@@ -317,7 +317,7 @@ const LinerDetailPage = () => {
       {/* Photo carousel */}
       {liner.gallery && liner.gallery.length > 0 && (
         <section className="container mx-auto px-6 md:px-10 pb-12 md:pb-20">
-          <h2 className="font-serif text-3xl md:text-4xl mb-6 md:mb-8">Галерея</h2>
+          
           <LinerPhotoCarousel
             images={liner.gallery}
             alt={liner.name}
