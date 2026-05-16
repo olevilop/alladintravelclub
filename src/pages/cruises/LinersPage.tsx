@@ -52,7 +52,7 @@ const LinersPage = () => {
         </div>
       </section>
 
-      <Breadcrumbs items={[{ label: "Круизы" }, { label: "Лайнеры" }]} />
+      <Breadcrumbs items={[{ label: "Лайнеры" }]} />
 
       {/* Liner cards grid */}
       <section className="container mx-auto px-6 md:px-10 py-12 md:py-20">
@@ -78,10 +78,7 @@ const LinersPage = () => {
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed line-clamp-4">
                   {liner.shortDescription}
                 </p>
-                <div className="mt-5 pt-4 border-t border-border/50 flex items-center justify-between">
-                  <span className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                    Премиальный флот
-                  </span>
+                <div className="mt-5 pt-4 border-t border-border/50 flex items-center justify-end">
                   <span className="flex items-center gap-1 text-sm text-primary group-hover:gap-2 transition-all">
                     Подробнее
                     <ArrowRight className="w-4 h-4" />
