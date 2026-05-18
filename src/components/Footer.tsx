@@ -130,13 +130,15 @@ const Footer = () => {
                 <ul className="space-y-2">
                   {col.links.map((link) => (
                     <li key={link}>
-                      {link === "Политика конфиденциальности" || link === "Событийный туризм" || link === "Спецпредложения" ? (
+                      {link === "Политика конфиденциальности" || link === "Событийный туризм" || link === "Спецпредложения" || link === "Экскурсионные туры" ? (
                         <Link
                           to={
                             link === "Политика конфиденциальности"
                               ? "/privacy"
                               : link === "Событийный туризм"
                               ? "/event-tours"
+                              : link === "Экскурсионные туры"
+                              ? "/excursion-tours"
                               : "/special-offers"
                           }
                           onClick={() => window.scrollTo(0, 0)}
