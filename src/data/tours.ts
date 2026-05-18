@@ -128,9 +128,12 @@ export interface Tour {
       prices: { label: string; value: string }[];
     }[];
   };
-  occupancyPricing?: {
-    rows: { label: string; price: string }[];
-  };
+  occupancyPricing?:
+    | { rows: { label: string; price: string }[] }
+    | {
+        defaultHotel?: string;
+        hotels: { label: string; rows: { label: string; price: string }[] }[];
+      };
   cabinPricing?: {
     note?: string;
     footnote?: string;
