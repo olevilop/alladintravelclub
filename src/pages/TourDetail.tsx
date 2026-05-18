@@ -36,6 +36,7 @@ const TourDetail = () => {
   const [selectedGroup, setSelectedGroup] = useState<string>("");
   const [selectedGroupGH, setSelectedGroupGH] = useState<string>("");
   const [selectedHotelGH, setSelectedHotelGH] = useState<string>("");
+  const [selectedOccupancyHotel, setSelectedOccupancyHotel] = useState<string>("");
   const isCruise = tour?.name.toLowerCase().includes("круиз");
 
   useEffect(() => {
@@ -421,14 +422,44 @@ const TourDetail = () => {
               {tour.occupancyPricing && (
                 <div className="bg-card border border-border p-4 space-y-3">
                   <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground">Стоимость тура на 1 человека</h4>
-                  <div className="space-y-2 pt-1">
-                    {tour.occupancyPricing.rows.map((row) => (
-                      <div key={row.label} className="flex items-center justify-between text-xs">
-                        <span className="text-muted-foreground">{row.label}</span>
-                        <span className="text-foreground font-medium">{row.price}</span>
+                  {(() => {
+                    const op = tour.occupancyPricing!;
+                    if ("hotels" in op) {
+                      const current = op.hotels.find(h => h.label === selectedOccupancyHotel) || op.hotels.find(h => h.label === op.defaultHotel) || op.hotels[0];
+                      return (
+                        <>
+                          <Select value={current.label} onValueChange={setSelectedOccupancyHotel}>
+                            <SelectTrigger className="w-full bg-background border-border text-foreground">
+                              <SelectValue placeholder="Выберите категорию" />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {op.hotels.map(h => (
+                                <SelectItem key={h.label} value={h.label}>{h.label}</SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          <div className="space-y-2 pt-1">
+                            {current.rows.map((row) => (
+                              <div key={row.label} className="flex items-center justify-between text-xs">
+                                <span className="text-muted-foreground">{row.label}</span>
+                                <span className="text-foreground font-medium">{row.price}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </>
+                      );
+                    }
+                    return (
+                      <div className="space-y-2 pt-1">
+                        {op.rows.map((row) => (
+                          <div key={row.label} className="flex items-center justify-between text-xs">
+                            <span className="text-muted-foreground">{row.label}</span>
+                            <span className="text-foreground font-medium">{row.price}</span>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
+                    );
+                  })()}
                 </div>
               )}
 

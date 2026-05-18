@@ -128,9 +128,12 @@ export interface Tour {
       prices: { label: string; value: string }[];
     }[];
   };
-  occupancyPricing?: {
-    rows: { label: string; price: string }[];
-  };
+  occupancyPricing?:
+    | { rows: { label: string; price: string }[] }
+    | {
+        defaultHotel?: string;
+        hotels: { label: string; rows: { label: string; price: string }[] }[];
+      };
   cabinPricing?: {
     note?: string;
     footnote?: string;
@@ -160,10 +163,24 @@ export interface Tour {
 }
 
 export const koreaOccupancyPricing = {
-  rows: [
-    { label: "1 чел. в номере", price: "$2 200" },
-    { label: "2 чел. в номере", price: "$1 599" },
-    { label: "3 чел. в номере", price: "$1 549" },
+  defaultHotel: "Отели 3*",
+  hotels: [
+    {
+      label: "Отели 3*",
+      rows: [
+        { label: "1 чел. в номере", price: "$2 200" },
+        { label: "2 чел. в номере", price: "$1 599" },
+        { label: "3 чел. в номере", price: "$1 549" },
+      ],
+    },
+    {
+      label: "Отели 4*",
+      rows: [
+        { label: "1 чел. в номере", price: "$2 300" },
+        { label: "2 чел. в номере", price: "$1 699" },
+        { label: "3 чел. в номере", price: "$1 649" },
+      ],
+    },
   ],
 };
 
