@@ -117,6 +117,7 @@ export interface Tour {
   specialOfferTag?: "hot-deal" | "new-year" | "exclusive" | "russian-group" | "author-tour" | "best-seller" | "early-booking";
   russianGroup?: boolean;
   isActive?: boolean;
+  isAuthor?: boolean;
   paymentTerms?: string[];
   cancellationTerms?: string[];
   hotelPricing?: {
