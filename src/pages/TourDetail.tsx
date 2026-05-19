@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, Compass, Globe, Users, ArrowUpRight, Mountain, Feather, Briefcase } from "lucide-react";
+import { Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, Compass, Globe, Users, ArrowUpRight, Mountain, Feather, Briefcase, HeartPulse } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -282,6 +282,12 @@ const TourDetail = () => {
                   <div className="flex items-center gap-3 text-sm text-foreground/80">
                     <Briefcase className="w-4 h-4 text-primary shrink-0" />
                     <span>Корпоративный тур</span>
+                  </div>
+                )}
+                {tour.isWellness && (
+                  <div className="flex items-center gap-3 text-sm text-foreground/80">
+                    <HeartPulse className="w-4 h-4 text-primary shrink-0" />
+                    <span>Оздоровительный тур</span>
                   </div>
                 )}
                 <div className="space-y-3 text-sm">

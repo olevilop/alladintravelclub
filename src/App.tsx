@@ -20,6 +20,7 @@ import ExcursionToursPage from "./pages/ExcursionToursPage.tsx";
 import ActiveToursPage from "./pages/ActiveToursPage.tsx";
 import AuthorToursPage from "./pages/AuthorToursPage.tsx";
 import CorporateToursPage from "./pages/CorporateToursPage.tsx";
+import WellnessToursPage from "./pages/WellnessToursPage.tsx";
 import MaldivesPage from "./pages/MaldivesPage.tsx";
 import ArcticCruisesPage from "./pages/cruises/ArcticCruisesPage.tsx";
 import AntarcticaCruisesPage from "./pages/cruises/AntarcticaCruisesPage.tsx";
@@ -61,6 +62,7 @@ const App = () => (
           <Route path="/active-tours" element={<ActiveToursPage />} />
           <Route path="/author-tours" element={<AuthorToursPage />} />
           <Route path="/corporate-tours" element={<CorporateToursPage />} />
+          <Route path="/wellness-tours" element={<WellnessToursPage />} />
           <Route path="/maldives" element={<MaldivesPage />} />
           <Route path="/cruises/arctic" element={<ArcticCruisesPage />} />
           <Route path="/cruises/antarctica" element={<AntarcticaCruisesPage />} />
