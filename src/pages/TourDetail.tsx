@@ -278,6 +278,12 @@ const TourDetail = () => {
                     <span>Авторский тур</span>
                   </div>
                 )}
+                {tour.isCorporate && (
+                  <div className="flex items-center gap-3 text-sm text-foreground/80">
+                    <Briefcase className="w-4 h-4 text-primary shrink-0" />
+                    <span>Корпоративный тур</span>
+                  </div>
+                )}
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center gap-3 text-foreground/80">
                     <Globe className="w-4 h-4 text-primary shrink-0" />
