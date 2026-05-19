@@ -121,6 +121,7 @@ export interface Tour {
   isCorporate?: boolean;
   isWellness?: boolean;
   isSafari?: boolean;
+  isDiving?: boolean;
   paymentTerms?: string[];
   cancellationTerms?: string[];
   hotelPricing?: {
