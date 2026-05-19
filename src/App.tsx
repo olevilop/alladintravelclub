@@ -17,6 +17,7 @@ import NorthKoreaToursPage from "./pages/NorthKoreaToursPage.tsx";
 import RussiaToursPage from "./pages/RussiaToursPage.tsx";
 import EventToursPage from "./pages/EventToursPage.tsx";
 import ExcursionToursPage from "./pages/ExcursionToursPage.tsx";
+import ActiveToursPage from "./pages/ActiveToursPage.tsx";
 import MaldivesPage from "./pages/MaldivesPage.tsx";
 import ArcticCruisesPage from "./pages/cruises/ArcticCruisesPage.tsx";
 import AntarcticaCruisesPage from "./pages/cruises/AntarcticaCruisesPage.tsx";
