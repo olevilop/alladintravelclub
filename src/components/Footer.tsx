@@ -130,7 +130,7 @@ const Footer = () => {
                 <ul className="space-y-2">
                   {col.links.map((link) => (
                     <li key={link}>
-                      {link === "Политика конфиденциальности" || link === "Событийный туризм" || link === "Спецпредложения" || link === "Экскурсионные туры" ? (
+                      {link === "Политика конфиденциальности" || link === "Событийный туризм" || link === "Спецпредложения" || link === "Экскурсионные туры" || link === "Активные туры" ? (
                         <Link
                           to={
                             link === "Политика конфиденциальности"
@@ -139,6 +139,8 @@ const Footer = () => {
                               ? "/event-tours"
                               : link === "Экскурсионные туры"
                               ? "/excursion-tours"
+                              : link === "Активные туры"
+                              ? "/active-tours"
                               : "/special-offers"
                           }
                           onClick={() => window.scrollTo(0, 0)}
