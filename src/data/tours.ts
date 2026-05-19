@@ -120,6 +120,7 @@ export interface Tour {
   isAuthor?: boolean;
   isCorporate?: boolean;
   isWellness?: boolean;
+  isSafari?: boolean;
   paymentTerms?: string[];
   cancellationTerms?: string[];
   hotelPricing?: {
