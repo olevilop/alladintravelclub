@@ -56,6 +56,7 @@ const App = () => (
           <Route path="/russia-tours" element={<RussiaToursPage />} />
           <Route path="/event-tours" element={<EventToursPage />} />
           <Route path="/excursion-tours" element={<ExcursionToursPage />} />
+          <Route path="/active-tours" element={<ActiveToursPage />} />
           <Route path="/maldives" element={<MaldivesPage />} />
           <Route path="/cruises/arctic" element={<ArcticCruisesPage />} />
           <Route path="/cruises/antarctica" element={<AntarcticaCruisesPage />} />
