@@ -19,6 +19,7 @@ import EventToursPage from "./pages/EventToursPage.tsx";
 import ExcursionToursPage from "./pages/ExcursionToursPage.tsx";
 import ActiveToursPage from "./pages/ActiveToursPage.tsx";
 import AuthorToursPage from "./pages/AuthorToursPage.tsx";
+import CorporateToursPage from "./pages/CorporateToursPage.tsx";
 import MaldivesPage from "./pages/MaldivesPage.tsx";
 import ArcticCruisesPage from "./pages/cruises/ArcticCruisesPage.tsx";
 import AntarcticaCruisesPage from "./pages/cruises/AntarcticaCruisesPage.tsx";
