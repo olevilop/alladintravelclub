@@ -284,6 +284,12 @@ const TourDetail = () => {
                     <span>Корпоративный тур</span>
                   </div>
                 )}
+                {tour.isWellness && (
+                  <div className="flex items-center gap-3 text-sm text-foreground/80">
+                    <HeartPulse className="w-4 h-4 text-primary shrink-0" />
+                    <span>Оздоровительный тур</span>
+                  </div>
+                )}
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center gap-3 text-foreground/80">
                     <Globe className="w-4 h-4 text-primary shrink-0" />
