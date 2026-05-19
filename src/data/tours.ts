@@ -118,6 +118,7 @@ export interface Tour {
   russianGroup?: boolean;
   isActive?: boolean;
   isAuthor?: boolean;
+  isCorporate?: boolean;
   paymentTerms?: string[];
   cancellationTerms?: string[];
   hotelPricing?: {
