@@ -61,7 +61,7 @@ const AboutPage = () => {
 
       <div className="pt-28 md:pt-32">
         <div className="container mx-auto px-6">
-          <Breadcrumbs items={[{ label: "Главная", to: "/" }, { label: "О нас" }]} />
+          <Breadcrumbs items={[{ label: "О нас" }]} />
         </div>
 
         <header className="container mx-auto px-6 pt-8 pb-12 md:pt-10 md:pb-16 text-center max-w-3xl">
