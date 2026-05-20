@@ -21,6 +21,8 @@ import ActiveToursPage from "./pages/ActiveToursPage.tsx";
 import AuthorToursPage from "./pages/AuthorToursPage.tsx";
 import CorporateToursPage from "./pages/CorporateToursPage.tsx";
 import WellnessToursPage from "./pages/WellnessToursPage.tsx";
+import AboutPage from "./pages/AboutPage.tsx";
+
 import SafariToursPage from "./pages/SafariToursPage.tsx";
 import DivingToursPage from "./pages/DivingToursPage.tsx";
 import MaldivesPage from "./pages/MaldivesPage.tsx";
@@ -65,6 +67,8 @@ const App = () => (
           <Route path="/author-tours" element={<AuthorToursPage />} />
           <Route path="/corporate-tours" element={<CorporateToursPage />} />
           <Route path="/wellness-tours" element={<WellnessToursPage />} />
+          <Route path="/about" element={<AboutPage />} />
+
           <Route path="/safari-tours" element={<SafariToursPage />} />
           <Route path="/diving-tours" element={<DivingToursPage />} />
           <Route path="/maldives" element={<MaldivesPage />} />
