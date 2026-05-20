@@ -130,7 +130,7 @@ const Footer = () => {
                 <ul className="space-y-2">
                   {col.links.map((link) => (
                     <li key={link}>
-                      {link === "Политика конфиденциальности" || link === "Событийный туризм" || link === "Спецпредложения" || link === "Экскурсионные туры" || link === "Активные туры" || link === "Авторские туры" || link === "Корпоративные туры" || link === "Оздоровительные" || link === "Сафари" || link === "Дайвинг" ? (
+                      {link === "Политика конфиденциальности" || link === "Событийный туризм" || link === "Спецпредложения" || link === "Экскурсионные туры" || link === "Активные туры" || link === "Авторские туры" || link === "Корпоративные туры" || link === "Оздоровительные" || link === "Сафари" || link === "Дайвинг" || link === "О нас" ? (
                         <Link
                           to={
                             link === "Политика конфиденциальности"
@@ -151,7 +151,10 @@ const Footer = () => {
                               ? "/safari-tours"
                               : link === "Дайвинг"
                               ? "/diving-tours"
+                              : link === "О нас"
+                              ? "/about"
                               : "/special-offers"
+
                           }
                           onClick={() => window.scrollTo(0, 0)}
                           className="text-sm text-muted-foreground hover:text-primary transition-colors"
