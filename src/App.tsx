@@ -39,6 +39,7 @@ import LinerDetailPage from "./pages/cruises/LinerDetailPage.tsx";
 import AsiaCruisesPage from "./pages/cruises/AsiaCruisesPage.tsx";
 import EuropeCruisesPage from "./pages/cruises/EuropeCruisesPage.tsx";
 import AsiaDestinationPage from "./pages/destinations/AsiaDestinationPage.tsx";
+import MaldivesHotelsPage from "./pages/hotels/MaldivesHotelsPage.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 
 const queryClient = new QueryClient();
@@ -85,6 +86,7 @@ const App = () => (
           <Route path="/cruises/asia" element={<AsiaCruisesPage />} />
           <Route path="/cruises/europe" element={<EuropeCruisesPage />} />
           <Route path="/destinations/asia" element={<AsiaDestinationPage />} />
+          <Route path="/hotels/maldives" element={<MaldivesHotelsPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
