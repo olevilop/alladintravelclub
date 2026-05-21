@@ -31,6 +31,10 @@ const cruiseSubLinks = [
   { label: "Европа", path: "/cruises/europe" },
 ];
 
+const hotelSubLinks = [
+  { label: "Мальдивы", path: "/hotels/maldives" },
+];
+
 const navLinks = [
   { label: "Спецпредложения", href: "/special-offers" },
   { label: "Бронирование авиабилетов", href: "#about" },
