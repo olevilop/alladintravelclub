@@ -36,7 +36,6 @@ const hotelSubLinks = [
 ];
 
 const navLinks = [
-  { label: "Спецпредложения", href: "/special-offers" },
   { label: "Бронирование авиабилетов", href: "#about" },
   { label: "Контакты", href: "#contact" },
 ];
