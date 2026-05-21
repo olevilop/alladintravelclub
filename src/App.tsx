@@ -39,6 +39,7 @@ import LinerDetailPage from "./pages/cruises/LinerDetailPage.tsx";
 import AsiaCruisesPage from "./pages/cruises/AsiaCruisesPage.tsx";
 import EuropeCruisesPage from "./pages/cruises/EuropeCruisesPage.tsx";
 import AsiaDestinationPage from "./pages/destinations/AsiaDestinationPage.tsx";
+import MaldivesHotelsPage from "./pages/hotels/MaldivesHotelsPage.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 
 const queryClient = new QueryClient();
