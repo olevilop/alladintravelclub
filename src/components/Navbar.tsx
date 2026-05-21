@@ -46,6 +46,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [toursExpanded, setToursExpanded] = useState(false);
   const [cruisesExpanded, setCruisesExpanded] = useState(false);
+  const [hotelsExpanded, setHotelsExpanded] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
