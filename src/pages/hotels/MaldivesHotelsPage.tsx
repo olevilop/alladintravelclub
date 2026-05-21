@@ -97,15 +97,12 @@ const MaldivesHotelsPage = () => {
         </div>
       </section>
 
-      <div className="container mx-auto px-6 pt-6">
-        <Breadcrumbs
-          items={[
-            { label: "Главная", path: "/" },
-            { label: "Подбор отеля" },
-            { label: "Мальдивы" },
-          ]}
-        />
-      </div>
+      <Breadcrumbs
+        items={[
+          { label: "Подбор отеля" },
+          { label: "Мальдивы" },
+        ]}
+      />
 
       {/* Club Advantage */}
       <section className="py-16 md:py-24 container mx-auto px-6">
