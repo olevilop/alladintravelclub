@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      hotel_leads: {
+        Row: {
+          budget: Json | null
+          composition: Json | null
+          consent: boolean
+          created_at: string
+          dates: Json | null
+          email: string | null
+          id: string
+          messenger: string | null
+          name: string
+          phone: string | null
+          priorities: string[] | null
+          raw: Json | null
+          scenario: string | null
+          source: string
+          style: string | null
+        }
+        Insert: {
+          budget?: Json | null
+          composition?: Json | null
+          consent?: boolean
+          created_at?: string
+          dates?: Json | null
+          email?: string | null
+          id?: string
+          messenger?: string | null
+          name: string
+          phone?: string | null
+          priorities?: string[] | null
+          raw?: Json | null
+          scenario?: string | null
+          source?: string
+          style?: string | null
+        }
+        Update: {
+          budget?: Json | null
+          composition?: Json | null
+          consent?: boolean
+          created_at?: string
+          dates?: Json | null
+          email?: string | null
+          id?: string
+          messenger?: string | null
+          name?: string
+          phone?: string | null
+          priorities?: string[] | null
+          raw?: Json | null
+          scenario?: string | null
+          source?: string
+          style?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
