@@ -131,6 +131,26 @@ const Navbar = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
+          {/* Hotels dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-sans uppercase tracking-widest text-foreground/70 hover:text-primary transition-colors duration-300 outline-none">
+              Подбор отеля
+              <ChevronDown className="h-3.5 w-3.5" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start">
+              {hotelSubLinks.map((link) => (
+                <DropdownMenuItem
+                  key={link.path}
+                  onClick={() => goToTour(link.path)}
+                  className="cursor-pointer"
+                >
+                  {link.label}
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+
           {navLinks.map((link) => (
             <button
               key={link.href}
