@@ -229,6 +229,32 @@ const Navbar = () => {
               )}
             </div>
 
+            {/* Mobile Hotels */}
+            <div>
+              <button
+                onClick={() => setHotelsExpanded(!hotelsExpanded)}
+                className="flex items-center gap-1 text-sm font-sans uppercase tracking-widest text-foreground/70 hover:text-primary transition-colors text-left py-2 w-full"
+              >
+                Подбор отеля
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${hotelsExpanded ? "rotate-180" : ""}`} />
+              </button>
+              {hotelsExpanded && (
+                <div className="pl-4 flex flex-col gap-2 mt-1">
+                  {hotelSubLinks.map((link) => (
+                    <button
+                      key={link.path}
+                      onClick={() => goToTour(link.path)}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors text-left py-1"
+                    >
+                      {link.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+
+
             {navLinks.map((link) => (
               <button
                 key={link.href}
