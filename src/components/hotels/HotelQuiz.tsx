@@ -12,39 +12,129 @@ import { Phone, MessageCircle, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 
-const PRIORITIES = [
-  "Романтика / медовый месяц",
-  "Семья с детьми (детский клуб)",
-  "Дайвинг и снорклинг",
-  "Спа и велнес",
-  "Премиум-кухня / винотека",
-  "Уединение / приватность",
-  "Активный отдых / спорт",
-  "Эксклюзив / лакшери",
-];
+type Variant = "maldives" | "thailand";
 
-const STYLES = [
-  "Современный / минимализм",
-  "Классика / роскошь",
-  "Натуральный / экологичный",
-  "Аутентичный мальдивский",
-];
+interface VariantConfig {
+  priorities: string[];
+  styles: string[];
+  budgets: string[];
+  durations: string[];
+  durationLabel: string;
+  durationIsRadio: boolean;
+  compositionMode: "numeric" | "radio";
+  compositionOptions?: string[];
+  scenarioMap: Record<string, string>;
+  successText: string;
+  submitMode: "supabase" | "console";
+}
 
-const BUDGETS = [
-  "до 500 000 ₽ на двоих",
-  "500 000 – 1 000 000 ₽",
-  "1 000 000 – 2 000 000 ₽",
-  "от 2 000 000 ₽",
-  "Без ограничений",
-];
+const MALDIVES: VariantConfig = {
+  priorities: [
+    "Романтика / медовый месяц",
+    "Семья с детьми (детский клуб)",
+    "Дайвинг и снорклинг",
+    "Спа и велнес",
+    "Премиум-кухня / винотека",
+    "Уединение / приватность",
+    "Активный отдых / спорт",
+    "Эксклюзив / лакшери",
+  ],
+  styles: [
+    "Современный / минимализм",
+    "Классика / роскошь",
+    "Натуральный / экологичный",
+    "Аутентичный мальдивский",
+  ],
+  budgets: [
+    "до 500 000 ₽ на двоих",
+    "500 000 – 1 000 000 ₽",
+    "1 000 000 – 2 000 000 ₽",
+    "от 2 000 000 ₽",
+    "Без ограничений",
+  ],
+  durations: ["5–7 ночей", "8–10 ночей", "11–14 ночей", "Более 14 ночей"],
+  durationLabel: "Длительность",
+  durationIsRadio: true,
+  compositionMode: "numeric",
+  scenarioMap: {
+    "Романтика": "Романтика / медовый месяц",
+    "Семья": "Семья с детьми (детский клуб)",
+    "Дайвинг": "Дайвинг и снорклинг",
+    "Спа": "Спа и велнес",
+    "Гастрономия": "Премиум-кухня / винотека",
+    "Уединение": "Уединение / приватность",
+    "Актив": "Активный отдых / спорт",
+    "Лакшери": "Эксклюзив / лакшери",
+  },
+  successText:
+    "Виктория Цой, основатель клуба, изучит ваши предпочтения и подберёт 3–5 отелей под ваш сценарий. Свяжемся в течение часа в рабочее время.",
+  submitMode: "supabase",
+};
 
-const DURATIONS = ["5–7 ночей", "8–10 ночей", "11–14 ночей", "Более 14 ночей"];
+const THAILAND: VariantConfig = {
+  priorities: [
+    "Уединение и тишина",
+    "Виллы на пляже",
+    "Детский клуб",
+    "Дайвинг / снорклинг",
+    "Спа и wellness",
+    "Гастрономия и стрит-фуд",
+    "Город и культура",
+    "Острова без толпы",
+    "Цена-качество",
+  ],
+  styles: [
+    "Минималистичный бутик",
+    "Классическая роскошь",
+    "Эко / натуральный",
+    "Современный resort",
+    "Доверяюсь вашему вкусу",
+  ],
+  budgets: [
+    "до 200 тыс ₽",
+    "200–500 тыс ₽",
+    "500 тыс — 1 млн ₽",
+    "1 млн+ ₽",
+    "Хочу обсудить лично",
+  ],
+  durations: [
+    "Ближайшие 3 месяца",
+    "Через 3–6 месяцев",
+    "Через 6+ месяцев",
+    "Гибко, под лучшую цену",
+  ],
+  durationLabel: "Горизонт планирования",
+  durationIsRadio: true,
+  compositionMode: "radio",
+  compositionOptions: [
+    "Вдвоём",
+    "Семьёй с детьми",
+    "С друзьями",
+    "Один / одна",
+    "Большая компания",
+  ],
+  scenarioMap: {
+    "Романтика": "Виллы на пляже",
+    "Семья": "Детский клуб",
+    "Дайвинг": "Дайвинг / снорклинг",
+    "Wellness": "Спа и wellness",
+    "Бангкок": "Город и культура",
+    "Бутик": "Виллы на пляже",
+    "Острова": "Острова без толпы",
+    "Премиум": "Цена-качество",
+  },
+  successText:
+    "Виктория подготовит для вас 3 варианта под этот запрос и пришлёт в течение 2 часов в WhatsApp или Telegram.",
+  submitMode: "console",
+};
+
+const VARIANTS: Record<Variant, VariantConfig> = { maldives: MALDIVES, thailand: THAILAND };
 
 const MESSENGERS = ["WhatsApp", "Telegram", "Звонок"];
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Укажите имя").max(80),
-  phone: z.string().trim().min(5, "Укажите телефон").max(40),
+  phone: z.string().trim().min(5, "Укажите телефон / мессенджер").max(80),
   messenger: z.string().min(1),
   email: z.string().trim().email("Некорректный email").max(120).optional().or(z.literal("")),
   consent: z.literal(true, { errorMap: () => ({ message: "Нужно согласие" }) }),
@@ -52,11 +142,14 @@ const contactSchema = z.object({
 
 interface HotelQuizProps {
   presetScenario?: string | null;
+  variant?: Variant;
 }
 
 const TOTAL_STEPS = 6;
 
-const HotelQuiz = ({ presetScenario }: HotelQuizProps) => {
+const HotelQuiz = ({ presetScenario, variant = "maldives" }: HotelQuizProps) => {
+  const cfg = VARIANTS[variant];
+
   const [step, setStep] = useState(1);
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -66,6 +159,7 @@ const HotelQuiz = ({ presetScenario }: HotelQuizProps) => {
   const [adults, setAdults] = useState("2");
   const [children, setChildren] = useState("0");
   const [childrenAges, setChildrenAges] = useState("");
+  const [compositionChoice, setCompositionChoice] = useState("");
   const [budget, setBudget] = useState("");
   const [priorities, setPriorities] = useState<string[]>([]);
   const [style, setStyle] = useState("");
@@ -76,20 +170,9 @@ const HotelQuiz = ({ presetScenario }: HotelQuizProps) => {
   const [consent, setConsent] = useState(false);
   const [comment, setComment] = useState("");
 
-  // Preset from scenario card → jump to priorities (step 4)
   useEffect(() => {
     if (!presetScenario) return;
-    const map: Record<string, string> = {
-      "Романтика": "Романтика / медовый месяц",
-      "Семья": "Семья с детьми (детский клуб)",
-      "Дайвинг": "Дайвинг и снорклинг",
-      "Спа": "Спа и велнес",
-      "Гастрономия": "Премиум-кухня / винотека",
-      "Уединение": "Уединение / приватность",
-      "Актив": "Активный отдых / спорт",
-      "Лакшери": "Эксклюзив / лакшери",
-    };
-    const match = map[presetScenario];
+    const match = cfg.scenarioMap[presetScenario];
     if (match && !priorities.includes(match)) {
       setPriorities([match]);
     }
@@ -108,16 +191,23 @@ const HotelQuiz = ({ presetScenario }: HotelQuizProps) => {
     });
   };
 
+  const showChildrenAges = cfg.compositionMode === "radio"
+    ? compositionChoice === "Семьёй с детьми"
+    : Number(children) > 0;
+
   const canNext = useMemo(() => {
     switch (step) {
-      case 1: return datesPeriod.trim().length > 0 && duration.length > 0;
-      case 2: return Number(adults) >= 1;
+      case 1: return duration.length > 0;
+      case 2:
+        return cfg.compositionMode === "radio"
+          ? compositionChoice.length > 0
+          : Number(adults) >= 1;
       case 3: return budget.length > 0;
       case 4: return priorities.length >= 1;
       case 5: return style.length > 0;
       default: return true;
     }
-  }, [step, datesPeriod, duration, adults, budget, priorities, style]);
+  }, [step, duration, adults, budget, priorities, style, compositionChoice, cfg]);
 
   const submit = async () => {
     const parsed = contactSchema.safeParse({ name, phone, messenger, email, consent });
@@ -132,15 +222,26 @@ const HotelQuiz = ({ presetScenario }: HotelQuizProps) => {
       messenger,
       email: email.trim() || null,
       dates: { period: datesPeriod, duration },
-      composition: { adults: Number(adults), children: Number(children), childrenAges: childrenAges.trim() },
+      composition: cfg.compositionMode === "radio"
+        ? { choice: compositionChoice, childrenAges: childrenAges.trim() }
+        : { adults: Number(adults), children: Number(children), childrenAges: childrenAges.trim() },
       budget: { value: budget },
       priorities,
       style,
       scenario: presetScenario ?? null,
       consent,
-      source: "hotels-maldives",
+      source: `hotels-${variant}`,
       raw: { comment },
     };
+
+    if (cfg.submitMode === "console") {
+      console.log(`[hotel-quiz/${variant}] lead`, payload);
+      setSubmitting(false);
+      toast.success("Заявка получена. Виктория свяжется с вами.");
+      setSubmitted(true);
+      return;
+    }
+
     const { error } = await supabase.from("hotel_leads").insert(payload);
     setSubmitting(false);
     if (error) {
@@ -158,10 +259,7 @@ const HotelQuiz = ({ presetScenario }: HotelQuizProps) => {
           <Check className="w-7 h-7 text-primary" />
         </div>
         <h3 className="font-serif text-3xl md:text-4xl">Спасибо, {name.split(" ")[0]}!</h3>
-        <p className="text-foreground/70 max-w-xl mx-auto">
-          Виктория Цой, основатель клуба, изучит ваши предпочтения и подберёт 3–5 отелей под ваш сценарий.
-          Свяжемся в течение часа в рабочее время.
-        </p>
+        <p className="text-foreground/70 max-w-xl mx-auto">{cfg.successText}</p>
         <img
           src="https://placehold.co/160x160?text=Victoria"
           alt="Виктория Цой"
@@ -197,23 +295,23 @@ const HotelQuiz = ({ presetScenario }: HotelQuizProps) => {
         <div className="space-y-6">
           <h3 className="font-serif text-2xl md:text-3xl">Когда планируете поездку?</h3>
           <div className="space-y-2">
-            <Label>Желаемый период</Label>
-            <Input
-              placeholder="Например: вторая половина февраля 2026"
-              value={datesPeriod}
-              onChange={(e) => setDatesPeriod(e.target.value)}
-              maxLength={120}
-            />
-          </div>
-          <div className="space-y-2">
-            <Label>Длительность</Label>
+            <Label>{cfg.durationLabel}</Label>
             <RadioGroup value={duration} onValueChange={setDuration} className="grid sm:grid-cols-2 gap-2">
-              {DURATIONS.map((d) => (
+              {cfg.durations.map((d) => (
                 <Label key={d} className="flex items-center gap-3 border border-border p-3 cursor-pointer hover:border-primary transition-colors">
                   <RadioGroupItem value={d} /> <span className="text-sm">{d}</span>
                 </Label>
               ))}
             </RadioGroup>
+          </div>
+          <div className="space-y-2">
+            <Label>{variant === "thailand" ? "Конкретные даты, если есть" : "Желаемый период"}</Label>
+            <Input
+              placeholder={variant === "thailand" ? "Например: 12–22 февраля 2026" : "Например: вторая половина февраля 2026"}
+              value={datesPeriod}
+              onChange={(e) => setDatesPeriod(e.target.value)}
+              maxLength={120}
+            />
           </div>
         </div>
       )}
@@ -221,17 +319,27 @@ const HotelQuiz = ({ presetScenario }: HotelQuizProps) => {
       {step === 2 && (
         <div className="space-y-6">
           <h3 className="font-serif text-2xl md:text-3xl">Кто едет?</h3>
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label>Взрослых</Label>
-              <Input type="number" min={1} max={20} value={adults} onChange={(e) => setAdults(e.target.value)} />
+          {cfg.compositionMode === "radio" ? (
+            <RadioGroup value={compositionChoice} onValueChange={setCompositionChoice} className="space-y-2">
+              {cfg.compositionOptions!.map((o) => (
+                <Label key={o} className="flex items-center gap-3 border border-border p-3 cursor-pointer hover:border-primary transition-colors">
+                  <RadioGroupItem value={o} /> <span className="text-sm">{o}</span>
+                </Label>
+              ))}
+            </RadioGroup>
+          ) : (
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label>Взрослых</Label>
+                <Input type="number" min={1} max={20} value={adults} onChange={(e) => setAdults(e.target.value)} />
+              </div>
+              <div className="space-y-2">
+                <Label>Детей</Label>
+                <Input type="number" min={0} max={10} value={children} onChange={(e) => setChildren(e.target.value)} />
+              </div>
             </div>
-            <div className="space-y-2">
-              <Label>Детей</Label>
-              <Input type="number" min={0} max={10} value={children} onChange={(e) => setChildren(e.target.value)} />
-            </div>
-          </div>
-          {Number(children) > 0 && (
+          )}
+          {showChildrenAges && (
             <div className="space-y-2">
               <Label>Возрасты детей</Label>
               <Input
@@ -248,9 +356,9 @@ const HotelQuiz = ({ presetScenario }: HotelQuizProps) => {
       {step === 3 && (
         <div className="space-y-6">
           <h3 className="font-serif text-2xl md:text-3xl">Ориентировочный бюджет</h3>
-          <p className="text-sm text-foreground/60">На всю поездку, без перелёта.</p>
+          <p className="text-sm text-foreground/60">На двоих, на всю поездку, без перелёта.</p>
           <RadioGroup value={budget} onValueChange={setBudget} className="space-y-2">
-            {BUDGETS.map((b) => (
+            {cfg.budgets.map((b) => (
               <Label key={b} className="flex items-center gap-3 border border-border p-3 cursor-pointer hover:border-primary transition-colors">
                 <RadioGroupItem value={b} /> <span className="text-sm">{b}</span>
               </Label>
@@ -264,7 +372,7 @@ const HotelQuiz = ({ presetScenario }: HotelQuizProps) => {
           <h3 className="font-serif text-2xl md:text-3xl">Что важнее всего?</h3>
           <p className="text-sm text-foreground/60">Выберите от 1 до 3 приоритетов.</p>
           <div className="grid sm:grid-cols-2 gap-2">
-            {PRIORITIES.map((p) => {
+            {cfg.priorities.map((p) => {
               const active = priorities.includes(p);
               return (
                 <Label
@@ -286,7 +394,7 @@ const HotelQuiz = ({ presetScenario }: HotelQuizProps) => {
         <div className="space-y-6">
           <h3 className="font-serif text-2xl md:text-3xl">Стиль отеля</h3>
           <RadioGroup value={style} onValueChange={setStyle} className="space-y-2">
-            {STYLES.map((s) => (
+            {cfg.styles.map((s) => (
               <Label key={s} className="flex items-center gap-3 border border-border p-3 cursor-pointer hover:border-primary transition-colors">
                 <RadioGroupItem value={s} /> <span className="text-sm">{s}</span>
               </Label>
@@ -304,8 +412,8 @@ const HotelQuiz = ({ presetScenario }: HotelQuizProps) => {
               <Input value={name} onChange={(e) => setName(e.target.value)} maxLength={80} />
             </div>
             <div className="space-y-2">
-              <Label>Телефон *</Label>
-              <Input value={phone} onChange={(e) => setPhone(e.target.value)} maxLength={40} placeholder="+7..." />
+              <Label>{variant === "thailand" ? "WhatsApp или Telegram *" : "Телефон *"}</Label>
+              <Input value={phone} onChange={(e) => setPhone(e.target.value)} maxLength={80} placeholder="+7..." />
             </div>
             <div className="space-y-2">
               <Label>Email</Label>
@@ -323,7 +431,7 @@ const HotelQuiz = ({ presetScenario }: HotelQuizProps) => {
             </div>
           </div>
           <div className="space-y-2">
-            <Label>Комментарий (необязательно)</Label>
+            <Label>{variant === "thailand" ? "Что-то ещё, что нам важно знать?" : "Комментарий (необязательно)"}</Label>
             <Textarea value={comment} onChange={(e) => setComment(e.target.value)} maxLength={800} rows={3} />
           </div>
           <Label className="flex items-start gap-3 cursor-pointer">
