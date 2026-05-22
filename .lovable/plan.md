@@ -1,69 +1,55 @@
-## Страница "Подбор отеля на Мальдивах"
+## План
 
-### 1. Меню (`src/components/Navbar.tsx`)
-Новый dropdown **"Подбор отеля"** после "Круизы", до "Спецпредложения". Один пункт списка: "Мальдивы" → `/hotels/maldives`. Аналогично в мобильном меню (раскрывающийся блок как у "Туры"/"Круизы").
+### 1. Меню — добавить Тайланд
 
-### 2. Маршрут (`src/App.tsx`)
-`<Route path="/hotels/maldives" element={<MaldivesHotelsPage />} />` выше catch-all.
+`src/components/Navbar.tsx`: в массив `hotelSubLinks` добавить `{ label: "Тайланд", path: "/hotels/thailand" }`. Выпадашка и мобильное меню уже реализованы — структурно ничего менять не нужно.
 
-### 3. Страница `src/pages/hotels/MaldivesHotelsPage.tsx`
-В дизайн-системе страниц туров (cream фон, Cormorant Garamond, золото `#a87f39`, без Framer Motion). Структура:
+### 2. Новая страница `/hotels/thailand`
 
-1. `<Navbar />`
-2. Breadcrumbs: Главная / Подбор отеля / Мальдивы
-3. **HotelHero** — full-width фото (`placehold.co` Maldives overwater villa), заголовок «Один отель из 180. Под вас.», подзаголовок, золотая кнопка «Подобрать отель →» (скролл к `#hotel-quiz`).
-4. **HotelClubAdvantage** — 3 колонки с иконками lucide (`BadgePercent`, `Lock`, `MessageCircle`).
-5. **HotelDestinationMaldives** — фото-карта атоллов + текст, ниже 5 мини-карточек (Северный Мале, Баа, Раа, Ари, Лавияни).
-6. **HotelScenarios** — сетка `md:grid-cols-4` (2 ряда × 4), 8 карточек с иконками (`Heart`, `Users`, `Fish`, `Sparkles`, `Gem`, `UsersRound`, `Palmtree`, `Crown`). Кнопка «Подобрать в этом стиле →» — скроллит к квизу и предзаполняет приоритеты.
-7. **HotelQuiz** (`id="hotel-quiz"`) — отдельный компонент (см. ниже).
-8. **HotelClubPerks** — 6 пунктов с иконками.
-9. **HotelManager** — карточка Виктории (визуал как `TourManagerCard`), телефон +7 (914) 705-17-05, WhatsApp/Telegram.
-10. `<NewsletterSocial />`
-11. `<Footer />`
+- `src/App.tsx` — добавить импорт `ThailandHotelsPage` и роут `/hotels/thailand`.
+- `src/pages/hotels/ThailandHotelsPage.tsx` — клон `MaldivesHotelsPage` с тайским контентом:
+  - **Hero**: фото longtail у скал Краби, заголовок «Тайланд — это не одна страна, а семь.», подзаголовок и кнопка «Подобрать отель →».
+  - **Breadcrumbs**: Подбор отеля / Тайланд.
+  - **ClubAdvantage** (3 колонки): «Цена не выше публичной», «Доступ к закрытым предложениям», «Личный куратор 24/7 в WhatsApp».
+  - **DestinationThailand**: вступление + сетка регионов `sm:grid-cols-2 md:grid-cols-3` (6 регионов: Пхукет, Краби, Самуи, Као Лак, Бангкок, Паттайя) — каждая карточка с мини-картинкой `placehold.co` и описанием.
+  - **Scenarios**: 8 карточек по ТЗ (Медовый месяц, Семья, Дайвинг, Wellness, Бангкок+пляж, Бутик-минимализм, Острова без толпы, Премиум в разумной цене) — те же иконки lucide, кнопка «Подобрать в этом стиле →».
+  - **HotelQuiz** — переиспользуем существующий компонент с пропом `variant="thailand"` (см. ниже).
+  - **ClubPerks** (6 пунктов из ТЗ).
+  - **Manager** — Виктория, телефон, WhatsApp, Telegram.
+  - **NewsletterSocial + Footer**.
+- SEO через `useEffect`: title и meta description по ТЗ, canonical `/hotels/thailand`.
 
-SEO через `useEffect`: `document.title` + `meta description` + canonical (без новых зависимостей).
+### 3. Квиз — тайская вариация
 
-### 4. Компонент `src/components/hotels/HotelQuiz.tsx`
-- State: `step` (1–6), `answers`, `submitting`, `submitted`.
-- Prop `presetScenario?: string`: при изменении прыжок на шаг 4 (приоритеты) с предзаполнением соответствующих чекбоксов.
-- Шаги:
-  1. Даты поездки (период + длительность)
-  2. Состав (взрослые / дети с возрастами)
-  3. Бюджет (диапазон)
-  4. Приоритеты (multi, 1–3)
-  5. Стиль отеля
-  6. Контакты + согласие на 152-ФЗ
-- Прогресс-бар: shadcn `Progress`.
-- Навигация Назад/Далее, валидация обязательных полей на каждом шаге; zod на финальном (имя, телефон/мессенджер обязательны, email опционален).
-- Submit → `supabase.from('hotel_leads').insert(payload)` + toast «Заявка отправлена», переход на финальный экран с фото Виктории и кнопками «Позвонить» / «WhatsApp».
+В `src/components/hotels/HotelQuiz.tsx` добавить проп `variant?: "maldives" | "thailand"` (default `maldives`) и `onSubmitOverride?` для перехвата сабмита:
 
-### 5. Backend — только сохранение заявки (миграция)
-Таблица `public.hotel_leads`:
-- `id uuid pk default gen_random_uuid()`
-- `created_at timestamptz default now()`
-- `name text not null`
-- `phone text`
-- `messenger text` (whatsapp/telegram/phone)
-- `email text`
-- `dates jsonb`, `composition jsonb`, `budget jsonb`
-- `priorities text[]`, `style text`
-- `scenario text` (из карточки сценария, если был)
-- `consent boolean default false`
-- `source text default 'hotels-maldives'`
-- `raw jsonb` (полный payload на всякий)
+- Шаг 1: для `thailand` — radio «Ближайшие 3 месяца / 3–6 / 6+ / Гибко» + опц. поле «Конкретные даты».
+- Шаг 2: для `thailand` — radio «Вдвоём / Семьёй с детьми (возраст) / С друзьями / Один(на) / Большая компания».
+- Шаг 3: бюджеты по ТЗ Тайланда.
+- Шаг 4: приоритеты по ТЗ Тайланда (9 чекбоксов, 1–3 выбора).
+- Шаг 5: стили по ТЗ Тайланда.
+- Шаг 6: контакты (Имя*, WhatsApp/Telegram*, Email опц., textarea, чекбокс согласия). Маппинг сценариев → приоритетов делается локально внутри страницы Тайланда.
 
-RLS:
-- ENABLE RLS
-- Policy `Anyone can insert hotel leads` FOR INSERT TO anon, authenticated WITH CHECK (true)
-- SELECT/UPDATE/DELETE — без публичных политик (приватно). Чтение позже через сервисную роль / админку.
+Маппинги (PRIORITIES/STYLES/BUDGETS/DURATIONS, маппинг scenario→priority) выносятся в объект `VARIANTS[variant]` внутри `HotelQuiz.tsx`, чтобы не дублировать логику.
 
-U-on API + email-дубль — отложено. Edge function добавим следующей итерацией поверх этой же таблицы.
+### 4. Сабмит без сервера (только для Тайланда)
 
-### 6. Что НЕ трогаю
-Туры, круизы, главная, спецпредложения, дизайн-токены, существующие компоненты.
+Для `variant="thailand"` сабмит:
+- НЕ вызывает `supabase.from('hotel_leads').insert`;
+- делает `console.log("[hotel-quiz/thailand] lead", payload)`;
+- показывает финальный экран: «Спасибо! Виктория подготовит для вас 3 варианта под этот запрос и пришлёт в течение 2 часов в WhatsApp или Telegram.» + фото Виктории + кнопка телефона +7 (914) 705-17-05 + WhatsApp.
 
-### Технические детали
-- Папки `src/pages/hotels/` и `src/components/hotels/` — новые.
-- Картинки — `placehold.co/<size>?text=...` согласно ТЗ.
-- Кнопки — существующий вариант `Button` с золотой палитрой (как на страницах туров).
-- Toast — `sonner` (`import { toast } from "sonner"`).
+Мальдивская ветка остаётся без изменений (продолжает писать в Supabase).
+
+### 5. Что НЕ трогаем
+
+- `MaldivesHotelsPage.tsx`, таблицу `hotel_leads`, туры, круизы, главную, дизайн-токены.
+
+### Файлы
+
+```text
+edit   src/components/Navbar.tsx          (+1 строка в hotelSubLinks)
+edit   src/App.tsx                        (импорт + роут)
+edit   src/components/hotels/HotelQuiz.tsx (variant prop + thailand вариант + локальный сабмит)
+new    src/pages/hotels/ThailandHotelsPage.tsx
+```
