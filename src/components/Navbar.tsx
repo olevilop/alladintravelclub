@@ -14,11 +14,9 @@ const tourSubLinks = [
   { label: "Россия", path: "/russia-tours" },
   { label: "Южная Корея", path: "/korea-tours" },
   { label: "Северная Корея", path: "/nkorea-tours" },
-  { label: "Мальдивы", path: "/maldives" },
 ];
 
 const cruiseSubLinks = [
-  { label: "Все лайнеры", path: "/cruises/liners" },
   { label: "Арктика", path: "/cruises/arctic" },
   { label: "Антарктида", path: "/cruises/antarctica" },
   { label: "Африка", path: "/cruises/africa" },
