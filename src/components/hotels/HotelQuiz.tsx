@@ -12,7 +12,7 @@ import { Phone, MessageCircle, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 
-type Variant = "maldives" | "thailand";
+type Variant = "maldives" | "thailand" | "bali";
 
 interface VariantConfig {
   priorities: string[];
@@ -26,6 +26,7 @@ interface VariantConfig {
   scenarioMap: Record<string, string>;
   successText: string;
   submitMode: "supabase" | "console";
+  stepFiveTitle?: string;
 }
 
 const MALDIVES: VariantConfig = {
@@ -128,7 +129,66 @@ const THAILAND: VariantConfig = {
   submitMode: "console",
 };
 
-const VARIANTS: Record<Variant, VariantConfig> = { maldives: MALDIVES, thailand: THAILAND };
+const BALI: VariantConfig = {
+  priorities: [
+    "Романтика и приватность",
+    "Дети и безопасный пляж",
+    "Серфинг",
+    "Йога и духовные практики",
+    "Гастрономия и кафе-культура",
+    "Дайвинг и снорклинг",
+    "Рисовые террасы и природа",
+    "Вилла с приватным бассейном",
+    "Спа и wellness",
+    "Соседние острова в маршруте",
+  ],
+  styles: [
+    "7 ночей",
+    "10 ночей",
+    "14 ночей",
+    "21+ ночь (long-stay)",
+    "Гибкая — зависит от подборки",
+  ],
+  budgets: [
+    "До 200 тыс ₽",
+    "200–500 тыс ₽",
+    "500 тыс – 1 млн ₽",
+    "1 млн+ ₽",
+    "Обсудим — главное результат",
+  ],
+  durations: [
+    "Ближайшие 2 месяца",
+    "Через 3–6 месяцев",
+    "Через 6–12 месяцев",
+    "Пока изучаю варианты",
+  ],
+  durationLabel: "Когда планируете поездку",
+  durationIsRadio: true,
+  compositionMode: "radio",
+  compositionOptions: [
+    "Двое (романтика)",
+    "Семья с детьми",
+    "Компания друзей (3–6 человек)",
+    "Один / одна",
+    "Большая группа (7+)",
+  ],
+  scenarioMap: {
+    "Романтика": "Романтика и приватность",
+    "Семья": "Дети и безопасный пляж",
+    "Серф": "Серфинг",
+    "Йога": "Йога и духовные практики",
+    "Гастро": "Гастрономия и кафе-культура",
+    "Дайвинг": "Дайвинг и снорклинг",
+    "Luxury": "Вилла с приватным бассейном",
+    "Острова": "Соседние острова в маршруте",
+  },
+  successText:
+    "Виктория свяжется с вами в течение 2 часов в рабочее время и пришлёт подборку с фото, ценами и нашими комментариями.",
+  submitMode: "console",
+  stepFiveTitle: "Сколько ночей планируете?",
+};
+
+const VARIANTS: Record<Variant, VariantConfig> = { maldives: MALDIVES, thailand: THAILAND, bali: BALI };
 
 const MESSENGERS = ["WhatsApp", "Telegram", "Звонок"];
 
@@ -392,7 +452,7 @@ const HotelQuiz = ({ presetScenario, variant = "maldives" }: HotelQuizProps) => 
 
       {step === 5 && (
         <div className="space-y-6">
-          <h3 className="font-serif text-2xl md:text-3xl">Стиль отеля</h3>
+          <h3 className="font-serif text-2xl md:text-3xl">{cfg.stepFiveTitle ?? "Стиль отеля"}</h3>
           <RadioGroup value={style} onValueChange={setStyle} className="space-y-2">
             {cfg.styles.map((s) => (
               <Label key={s} className="flex items-center gap-3 border border-border p-3 cursor-pointer hover:border-primary transition-colors">
