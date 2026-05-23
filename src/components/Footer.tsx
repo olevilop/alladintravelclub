@@ -8,7 +8,12 @@ const tourLinks = [
   { label: "Россия", to: "/russia-tours" },
   { label: "Южная Корея", to: "/korea-tours" },
   { label: "Северная Корея", to: "/nkorea-tours" },
-  { label: "Мальдивы", to: "/maldives" },
+];
+
+const hotelLinks = [
+  { label: "Мальдивы", to: "/hotels/maldives" },
+  { label: "Тайланд", to: "/hotels/thailand" },
+  { label: "Бали", to: "/hotels/bali" },
 ];
 
 const cruiseLinks = [
