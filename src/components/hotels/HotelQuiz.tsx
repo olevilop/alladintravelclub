@@ -452,7 +452,7 @@ const HotelQuiz = ({ presetScenario, variant = "maldives" }: HotelQuizProps) => 
 
       {step === 5 && (
         <div className="space-y-6">
-          <h3 className="font-serif text-2xl md:text-3xl">Стиль отеля</h3>
+          <h3 className="font-serif text-2xl md:text-3xl">{cfg.stepFiveTitle ?? "Стиль отеля"}</h3>
           <RadioGroup value={style} onValueChange={setStyle} className="space-y-2">
             {cfg.styles.map((s) => (
               <Label key={s} className="flex items-center gap-3 border border-border p-3 cursor-pointer hover:border-primary transition-colors">
