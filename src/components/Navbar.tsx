@@ -34,6 +34,7 @@ const cruiseSubLinks = [
 const hotelSubLinks = [
   { label: "Мальдивы", path: "/hotels/maldives" },
   { label: "Тайланд", path: "/hotels/thailand" },
+  { label: "Бали", path: "/hotels/bali" },
 ];
 
 const navLinks = [
