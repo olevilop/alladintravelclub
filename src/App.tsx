@@ -22,6 +22,7 @@ import AuthorToursPage from "./pages/AuthorToursPage.tsx";
 import CorporateToursPage from "./pages/CorporateToursPage.tsx";
 import WellnessToursPage from "./pages/WellnessToursPage.tsx";
 import AboutPage from "./pages/AboutPage.tsx";
+import TeamPage from "./pages/TeamPage.tsx";
 
 import SafariToursPage from "./pages/SafariToursPage.tsx";
 import DivingToursPage from "./pages/DivingToursPage.tsx";
@@ -71,6 +72,7 @@ const App = () => (
           <Route path="/corporate-tours" element={<CorporateToursPage />} />
           <Route path="/wellness-tours" element={<WellnessToursPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/team" element={<TeamPage />} />
 
           <Route path="/safari-tours" element={<SafariToursPage />} />
           <Route path="/diving-tours" element={<DivingToursPage />} />
