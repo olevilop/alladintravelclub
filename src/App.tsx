@@ -41,6 +41,7 @@ import EuropeCruisesPage from "./pages/cruises/EuropeCruisesPage.tsx";
 import AsiaDestinationPage from "./pages/destinations/AsiaDestinationPage.tsx";
 import MaldivesHotelsPage from "./pages/hotels/MaldivesHotelsPage.tsx";
 import ThailandHotelsPage from "./pages/hotels/ThailandHotelsPage.tsx";
+import BaliHotelsPage from "./pages/hotels/BaliHotelsPage.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
 
 const queryClient = new QueryClient();
