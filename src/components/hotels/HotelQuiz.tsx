@@ -12,7 +12,7 @@ import { Phone, MessageCircle, Check } from "lucide-react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 
-type Variant = "maldives" | "thailand";
+type Variant = "maldives" | "thailand" | "bali";
 
 interface VariantConfig {
   priorities: string[];
@@ -26,6 +26,7 @@ interface VariantConfig {
   scenarioMap: Record<string, string>;
   successText: string;
   submitMode: "supabase" | "console";
+  stepFiveTitle?: string;
 }
 
 const MALDIVES: VariantConfig = {
