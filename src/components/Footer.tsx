@@ -8,7 +8,12 @@ const tourLinks = [
   { label: "Россия", to: "/russia-tours" },
   { label: "Южная Корея", to: "/korea-tours" },
   { label: "Северная Корея", to: "/nkorea-tours" },
-  { label: "Мальдивы", to: "/maldives" },
+];
+
+const hotelLinks = [
+  { label: "Мальдивы", to: "/hotels/maldives" },
+  { label: "Тайланд", to: "/hotels/thailand" },
+  { label: "Бали", to: "/hotels/bali" },
 ];
 
 const cruiseLinks = [
@@ -83,13 +88,32 @@ const Footer = () => {
       {/* Middle section — nav links */}
       <div className="border-t border-b border-border/30">
         <div className="container mx-auto px-6 py-10">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             <div>
               <h4 className="font-sans text-xs uppercase tracking-widest font-bold text-foreground mb-4">
                 Туры
               </h4>
               <ul className="space-y-2">
                 {tourLinks.map((item) => (
+                  <li key={item.to}>
+                    <Link
+                      to={item.to}
+                      onClick={() => window.scrollTo(0, 0)}
+                      className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                    >
+                      <span className="text-primary mr-1.5">›</span>
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-sans text-xs uppercase tracking-widest font-bold text-foreground mb-4">
+                Подбор тура
+              </h4>
+              <ul className="space-y-2">
+                {hotelLinks.map((item) => (
                   <li key={item.to}>
                     <Link
                       to={item.to}
