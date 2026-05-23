@@ -92,13 +92,13 @@ const TeamPage = () => {
         </header>
 
         <div className="container mx-auto px-6 pb-20 max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12">
+          <div className="flex flex-col gap-10 md:gap-14">
             {team.map((m) => (
               <article
                 key={m.name}
-                className="bg-card border border-border/60 overflow-hidden flex flex-col"
+                className="bg-card border border-border/60 overflow-hidden flex flex-col md:flex-row"
               >
-                <div className="aspect-[4/5] overflow-hidden bg-muted">
+                <div className="md:w-2/5 aspect-[4/5] md:aspect-auto overflow-hidden bg-muted shrink-0">
                   <img
                     src={m.photo}
                     alt={m.name}
@@ -106,7 +106,7 @@ const TeamPage = () => {
                     loading="lazy"
                   />
                 </div>
-                <div className="p-6 md:p-8 flex-1 flex flex-col">
+                <div className="p-6 md:p-8 md:w-3/5 flex flex-col justify-center">
                   <h2 className="font-serif text-2xl md:text-3xl font-light text-foreground">
                     {m.name}
                   </h2>
@@ -120,7 +120,7 @@ const TeamPage = () => {
                     «{m.motto}»
                   </blockquote>
 
-                  <div className="mt-6 pt-5 border-t border-border/60 space-y-3">
+                  <div className="mt-6 pt-5 border-t border-border/60 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3">
                     <a
                       href={m.phoneLink}
                       className="flex items-center gap-3 text-sm text-foreground/80 hover:text-primary transition-colors"
@@ -159,6 +159,7 @@ const TeamPage = () => {
             ))}
           </div>
         </div>
+
       </div>
 
       <NewsletterSocial />
