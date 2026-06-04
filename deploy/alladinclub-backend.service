@@ -1,0 +1,26 @@
+# systemd-юнит для REST API сайта alladintravelclub (Express + PostgreSQL).
+# Ставится скриптом deploy/setup-server.sh в /etc/systemd/system/.
+# Слушает только localhost (127.0.0.1:3101); наружу проксирует Nginx по пути /api.
+
+[Unit]
+Description=Alladin Travel Club API (Express + PostgreSQL)
+After=network.target postgresql.service
+Wants=postgresql.service
+
+[Service]
+Type=simple
+User=alladinclub
+Group=alladinclub
+WorkingDirectory=/var/www/alladintravelclub/backend
+ExecStart=/usr/bin/node src/index.js
+Restart=always
+RestartSec=3
+# Базовое усиление безопасности
+NoNewPrivileges=true
+ProtectSystem=strict
+ReadWritePaths=/var/www/alladintravelclub/backend/uploads
+ProtectHome=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
