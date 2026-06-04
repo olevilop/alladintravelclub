@@ -96,8 +96,15 @@ nginx -t
 systemctl reload nginx
 
 log "Проверки"
-curl -fsS -o /dev/null -H "Host: ${DOMAIN}" -w "Сайт через Nginx: HTTP %{http_code}\n" "http://127.0.0.1/" \
-  || { echo "!! Nginx не отдаёт сайт. Логи: tail -n 50 /var/log/nginx/error.log" >&2; exit 1; }
+# Nginx перезагружается асинхронно — даём ему секунду и пробуем несколько раз,
+# чтобы не получить ложный 404 сразу после reload.
+OK=0
+for i in 1 2 3 4 5; do
+  CODE="$(curl -s -o /dev/null -H "Host: ${DOMAIN}" -w '%{http_code}' "http://127.0.0.1/" || true)"
+  if [[ "$CODE" == "200" ]]; then OK=1; echo "Сайт через Nginx: HTTP 200"; break; fi
+  sleep 1
+done
+[[ "$OK" == "1" ]] || { echo "!! Nginx отдаёт HTTP ${CODE:-?} (ожидался 200). Логи: tail -n 50 /var/log/nginx/error.log" >&2; exit 1; }
 
 cat <<EOF
 
