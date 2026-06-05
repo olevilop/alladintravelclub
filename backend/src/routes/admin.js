@@ -94,8 +94,9 @@ adminRouter.patch("/tours/:id/active", async (req, res, next) => {
   } catch (e) { next(e); }
 });
 
-// Порядок вывода: тело { ids: ["id1","id2",...] } в нужном порядке
-adminRouter.put("/tours/reorder", async (req, res, next) => {
+// Порядок вывода: тело { ids: ["id1","id2",...] } в нужном порядке.
+// Путь без "/tours/" — иначе бы конфликтовал с PUT /tours/:id.
+adminRouter.put("/tours-reorder", async (req, res, next) => {
   const client = await pool.connect();
   try {
     const ids = Array.isArray(req.body.ids) ? req.body.ids : [];

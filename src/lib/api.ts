@@ -55,7 +55,7 @@ export const api = {
   setTourActive: (id: string, isActive: boolean) =>
     request(`/admin/tours/${id}/active`, { method: "PATCH", body: { isActive }, auth: true }),
   reorderTours: (ids: string[]) =>
-    request(`/admin/tours/reorder`, { method: "PUT", body: { ids }, auth: true }),
+    request(`/admin/tours-reorder`, { method: "PUT", body: { ids }, auth: true }),
   deleteTour: (id: string) => request(`/admin/tours/${id}`, { method: "DELETE", auth: true }),
 
   // ── Лайнеры (админ) ──
