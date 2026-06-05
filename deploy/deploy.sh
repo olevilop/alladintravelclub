@@ -35,6 +35,10 @@ log "Фронтенд: зависимости + сборка статики (dis
 # npm install (а не ci): Lovable собирает через bun, и npm-lock бывает рассинхронизирован.
 run_user npm install --no-audit --no-fund
 run_user npm run build
+# Картинки программ — в раздаваемую папку (/tour-assets)
+mkdir -p "$APP_DIR/dist/tour-assets"
+cp -rf "$APP_DIR/src/assets/." "$APP_DIR/dist/tour-assets/" 2>/dev/null || true
+chown -R "$APP_USER:$APP_USER" "$APP_DIR/dist"
 
 log "Перезапускаю API и перечитываю Nginx"
 systemctl restart "$SVC_BACK"

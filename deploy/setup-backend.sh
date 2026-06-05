@@ -82,8 +82,10 @@ sleep 2
 curl -fsS -w "\n/health:  HTTP %{http_code}\n" "http://127.0.0.1:${BACK_PORT}/health" \
   || { echo "!! API не отвечает. Логи: journalctl -u ${SVC_BACK} -n 50 --no-pager" >&2; exit 1; }
 echo "--- первые программы из БД через API: ---"
-curl -fsS "http://127.0.0.1:${BACK_PORT}/tours" | head -c 400; echo " ..."
-COUNT="$(curl -fsS "http://127.0.0.1:${BACK_PORT}/tours" | grep -o '"id"' | wc -l | tr -d ' ')"
+curl -fsS "http://127.0.0.1:${BACK_PORT}/tours" -o /tmp/atc_tours.json || true
+head -c 400 /tmp/atc_tours.json 2>/dev/null; echo " ..."
+COUNT="$(grep -o '"id"' /tmp/atc_tours.json 2>/dev/null | wc -l | tr -d ' ')"
+rm -f /tmp/atc_tours.json
 echo
 
 cat <<EOF

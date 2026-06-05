@@ -44,6 +44,13 @@ import MaldivesHotelsPage from "./pages/hotels/MaldivesHotelsPage.tsx";
 import ThailandHotelsPage from "./pages/hotels/ThailandHotelsPage.tsx";
 import BaliHotelsPage from "./pages/hotels/BaliHotelsPage.tsx";
 import CookieBanner from "./components/CookieBanner.tsx";
+import RequireAuth from "./admin/RequireAuth.tsx";
+import AdminLayout from "./admin/AdminLayout.tsx";
+import LoginPage from "./admin/LoginPage.tsx";
+import ToursAdminPage from "./admin/ToursAdminPage.tsx";
+import TourEditPage from "./admin/TourEditPage.tsx";
+import LinersAdminPage from "./admin/LinersAdminPage.tsx";
+import LeadsAdminPage from "./admin/LeadsAdminPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -93,6 +100,15 @@ const App = () => (
           <Route path="/hotels/maldives" element={<MaldivesHotelsPage />} />
           <Route path="/hotels/thailand" element={<ThailandHotelsPage />} />
           <Route path="/hotels/bali" element={<BaliHotelsPage />} />
+          {/* ── Админка ── */}
+          <Route path="/admin/login" element={<LoginPage />} />
+          <Route path="/admin" element={<RequireAuth><AdminLayout /></RequireAuth>}>
+            <Route index element={<ToursAdminPage />} />
+            <Route path="tours/new" element={<TourEditPage />} />
+            <Route path="tours/:id" element={<TourEditPage />} />
+            <Route path="liners" element={<LinersAdminPage />} />
+            <Route path="leads" element={<LeadsAdminPage />} />
+          </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
