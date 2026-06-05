@@ -45,6 +45,16 @@ export const api = {
   login: (email: string, password: string) =>
     request<{ token: string; user: any }>(`/admin/login`, { method: "POST", body: { email, password } }),
   me: () => request<{ user: any }>(`/admin/me`, { auth: true }),
+  updateAccount: (payload: { email?: string; name?: string; currentPassword: string; newPassword?: string }) =>
+    request<{ token: string; user?: any }>(`/admin/account`, { method: "PUT", body: payload, auth: true }),
+
+  // ── Пользователи админки ──
+  users: () => request<any[]>(`/admin/users`, { auth: true }),
+  createUser: (u: { email: string; password: string; name?: string }) =>
+    request(`/admin/users`, { method: "POST", body: u, auth: true }),
+  updateUser: (id: number, u: { name?: string; newPassword?: string }) =>
+    request(`/admin/users/${id}`, { method: "PUT", body: u, auth: true }),
+  deleteUser: (id: number) => request(`/admin/users/${id}`, { method: "DELETE", auth: true }),
 
   // ── Программы (админ) ──
   adminTours: () => request<any[]>(`/admin/tours`, { auth: true }),

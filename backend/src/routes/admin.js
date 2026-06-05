@@ -33,6 +33,85 @@ adminRouter.get("/me", requireAuth, (req, res) => {
 // Всё ниже — только авторизованным
 adminRouter.use(requireAuth);
 
+// Смена email / пароля своего аккаунта (нужен текущий пароль для подтверждения)
+adminRouter.put("/account", async (req, res, next) => {
+  try {
+    const { email, name, currentPassword, newPassword } = req.body || {};
+    const { rows } = await pool.query("SELECT * FROM admin_users WHERE id=$1", [req.user.sub]);
+    if (!rows.length) return res.status(404).json({ error: "Аккаунт не найден" });
+    const ok = await bcrypt.compare(currentPassword || "", rows[0].password_hash);
+    if (!ok) return res.status(400).json({ error: "Неверный текущий пароль" });
+
+    const sets = [];
+    const vals = [];
+    if (email && email !== rows[0].email) { vals.push(email); sets.push(`email=$${vals.length}`); }
+    if (name) { vals.push(name); sets.push(`name=$${vals.length}`); }
+    if (newPassword) { vals.push(await bcrypt.hash(newPassword, 10)); sets.push(`password_hash=$${vals.length}`); }
+    if (!sets.length) return res.json({ ok: true, token: signToken({ id: rows[0].id, email: rows[0].email, name: rows[0].name }) });
+
+    vals.push(req.user.sub);
+    const upd = await pool.query(
+      `UPDATE admin_users SET ${sets.join(",")} WHERE id=$${vals.length} RETURNING id, email, name`, vals);
+    const u = upd.rows[0];
+    res.json({ ok: true, token: signToken({ id: u.id, email: u.email, name: u.name }), user: u });
+  } catch (e) {
+    if (e.code === "23505") return res.status(409).json({ error: "Этот email уже занят" });
+    next(e);
+  }
+});
+
+// ── Пользователи админки ─────────────────────────────────────────────────────
+adminRouter.get("/users", async (_req, res, next) => {
+  try {
+    const { rows } = await pool.query("SELECT id, email, name, created_at FROM admin_users ORDER BY id");
+    res.json(rows);
+  } catch (e) { next(e); }
+});
+
+adminRouter.post("/users", async (req, res, next) => {
+  try {
+    const { email, password, name } = req.body || {};
+    if (!email || !password) return res.status(400).json({ error: "Нужны email и пароль" });
+    const hash = await bcrypt.hash(password, 10);
+    const { rows } = await pool.query(
+      "INSERT INTO admin_users (email, password_hash, name) VALUES ($1,$2,$3) RETURNING id, email, name, created_at",
+      [email, hash, name || "Сотрудник"]
+    );
+    res.status(201).json(rows[0]);
+  } catch (e) {
+    if (e.code === "23505") return res.status(409).json({ error: "Пользователь с таким email уже есть" });
+    next(e);
+  }
+});
+
+// Изменить имя / сбросить пароль другому пользователю (привилегия админа)
+adminRouter.put("/users/:id", async (req, res, next) => {
+  try {
+    const { name, newPassword } = req.body || {};
+    const sets = []; const vals = [];
+    if (name) { vals.push(name); sets.push(`name=$${vals.length}`); }
+    if (newPassword) { vals.push(await bcrypt.hash(newPassword, 10)); sets.push(`password_hash=$${vals.length}`); }
+    if (!sets.length) return res.status(400).json({ error: "Нечего менять" });
+    vals.push(req.params.id);
+    const { rows } = await pool.query(
+      `UPDATE admin_users SET ${sets.join(",")} WHERE id=$${vals.length} RETURNING id, email, name`, vals);
+    if (!rows.length) return res.status(404).json({ error: "Пользователь не найден" });
+    res.json(rows[0]);
+  } catch (e) { next(e); }
+});
+
+adminRouter.delete("/users/:id", async (req, res, next) => {
+  try {
+    if (String(req.user.sub) === String(req.params.id))
+      return res.status(400).json({ error: "Нельзя удалить самого себя" });
+    const { rows: cnt } = await pool.query("SELECT count(*)::int AS n FROM admin_users");
+    if (cnt[0].n <= 1) return res.status(400).json({ error: "Нельзя удалить последнего пользователя" });
+    const { rowCount } = await pool.query("DELETE FROM admin_users WHERE id=$1", [req.params.id]);
+    if (!rowCount) return res.status(404).json({ error: "Пользователь не найден" });
+    res.json({ ok: true });
+  } catch (e) { next(e); }
+});
+
 // ── Программы (туры/круизы) ──────────────────────────────────────────────────
 adminRouter.get("/tours", async (_req, res, next) => {
   try {

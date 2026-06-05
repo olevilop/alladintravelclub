@@ -51,6 +51,8 @@ import ToursAdminPage from "./admin/ToursAdminPage.tsx";
 import TourEditPage from "./admin/TourEditPage.tsx";
 import LinersAdminPage from "./admin/LinersAdminPage.tsx";
 import LeadsAdminPage from "./admin/LeadsAdminPage.tsx";
+import UsersAdminPage from "./admin/UsersAdminPage.tsx";
+import ProfilePage from "./admin/ProfilePage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -108,6 +110,8 @@ const App = () => (
             <Route path="tours/:id" element={<TourEditPage />} />
             <Route path="liners" element={<LinersAdminPage />} />
             <Route path="leads" element={<LeadsAdminPage />} />
+            <Route path="users" element={<UsersAdminPage />} />
+            <Route path="profile" element={<ProfilePage />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
