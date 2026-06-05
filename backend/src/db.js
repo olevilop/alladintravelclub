@@ -1,11 +1,25 @@
-// Пул подключений к PostgreSQL (управляемая БД Timeweb, SSL verify-full).
+// Пул подключений к PostgreSQL (управляемая БД Timeweb, SSL с CA-сертификатом).
 import pg from "pg";
 import fs from "node:fs";
 import { config } from "./config.js";
 
 const { Pool } = pg;
 
-// Timeweb требует SSL. Если указан CA-сертификат — проверяем цепочку (verify-full),
+// Важно: НЕ оставляем ?sslmode=... в строке подключения — иначе node-postgres
+// конфигурирует SSL по-своему и игнорирует переданный CA (ошибка
+// SELF_SIGNED_CERT_IN_CHAIN). SSL задаём только объектом ssl ниже.
+function stripSslParams(url) {
+  try {
+    const u = new URL(url);
+    u.searchParams.delete("sslmode");
+    u.searchParams.delete("ssl");
+    return u.toString();
+  } catch {
+    return url.replace(/[?&]sslmode=[^&]*/g, "").replace(/[?&]ssl=[^&]*/g, "");
+  }
+}
+
+// Timeweb требует SSL. С CA-сертификатом — полная проверка цепочки (как verify-full),
 // иначе шифруем без проверки (как sslmode=require).
 let ssl;
 if (config.caCertPath && fs.existsSync(config.caCertPath)) {
@@ -18,7 +32,7 @@ if (config.caCertPath && fs.existsSync(config.caCertPath)) {
 }
 
 export const pool = new Pool({
-  connectionString: config.databaseUrl,
+  connectionString: stripSslParams(config.databaseUrl),
   ssl,
   max: 10,
   idleTimeoutMillis: 30000,
