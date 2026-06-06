@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,10 +34,16 @@ export default function TourEditPage() {
   const { id } = useParams();
   const isNew = !id;
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [loading, setLoading] = useState(!isNew);
   const [saving, setSaving] = useState(false);
 
-  const [f, setF] = useState<any>({ source: "tours", isActive: true });
+  // При создании раздел (и категория) могут прийти из ссылки «+ Добавить в раздел»
+  const [f, setF] = useState<any>({
+    source: searchParams.get("source") || "tours",
+    category: searchParams.get("category") || undefined,
+    isActive: true,
+  });
   const [gallery, setGallery] = useState("");
   const [startDates, setStartDates] = useState("");
   const [included, setIncluded] = useState("");
