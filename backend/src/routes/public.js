@@ -48,6 +48,24 @@ publicRouter.get("/liners/:slug", async (req, res, next) => {
   } catch (e) { next(e); }
 });
 
+// Hero-слайды (активные, по порядку)
+publicRouter.get("/hero", async (_req, res, next) => {
+  try {
+    const { rows } = await pool.query(
+      "SELECT id, image, title, target_tour_id, target_url FROM hero_slides WHERE is_active=true ORDER BY sort_order, id");
+    res.json(rows);
+  } catch (e) { next(e); }
+});
+
+// Разделы главной (активные, по порядку)
+publicRouter.get("/sections", async (_req, res, next) => {
+  try {
+    const { rows } = await pool.query(
+      "SELECT id, title, filter_type, filter_value, tour_ids, link FROM home_sections WHERE is_active=true ORDER BY sort_order, id");
+    res.json(rows);
+  } catch (e) { next(e); }
+});
+
 // Маршрут тура (точки на карте)
 publicRouter.get("/routes/:tourId", async (req, res, next) => {
   try {

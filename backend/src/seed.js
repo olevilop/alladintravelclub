@@ -88,6 +88,49 @@ async function seedRoutes() {
   console.log(`✓ Маршруты: добавлено ${inserted}, всего в файле ${Object.keys(routes).length}`);
 }
 
+async function seedHero() {
+  const { rows } = await pool.query("SELECT count(*)::int AS n FROM hero_slides");
+  if (rows[0].n > 0) { console.log("✓ Hero-слайды уже есть — пропускаю"); return; }
+  const slides = [
+    { image: "/tour-assets/hero-bg.jpg", title: "Уникальные путешествия в самые недоступные уголки планеты" },
+    { image: "/tour-assets/hero-china-mountains.jpg", title: "Горы Аватара" },
+    { image: "/tour-assets/hero-great-wall.jpg", title: "Великая Китайская стена" },
+    { image: "/tour-assets/hero-maldives.jpg", title: "Роскошные отели на Мальдивах" },
+    { image: "/tour-assets/hero-shanghai.jpg", title: "Путешествие по Шанхаю" },
+    { image: "/tour-assets/hero-antarctica.jpg", title: "Путешествие к Императорским пингвинам" },
+  ];
+  for (let i = 0; i < slides.length; i++) {
+    await pool.query(
+      "INSERT INTO hero_slides (image, title, sort_order) VALUES ($1,$2,$3)",
+      [slides[i].image, slides[i].title, i]
+    );
+  }
+  console.log(`✓ Hero-слайды: добавлено ${slides.length}`);
+}
+
+async function seedSections() {
+  const { rows } = await pool.query("SELECT count(*)::int AS n FROM home_sections");
+  if (rows[0].n > 0) { console.log("✓ Разделы главной уже есть — пропускаю"); return; }
+  const sections = [
+    { title: "Экспедиционные круизы", filter_type: "category", filter_value: "expedition", link: "/expedition-cruises" },
+    { title: "Классические круизы", filter_type: "category", filter_value: "classic", link: "/classic-cruises" },
+    { title: "Туры по Японии", filter_type: "source", filter_value: "japanTours", link: "/japan-tours" },
+    { title: "Туры по Южной Корее", filter_type: "source", filter_value: "koreaTours", link: "/korea-tours" },
+    { title: "Туры по Китаю", filter_type: "source", filter_value: "chinaTours", link: "/china-tours" },
+    { title: "Туры по Северной Корее", filter_type: "source", filter_value: "northKoreaTours", link: "/nkorea-tours" },
+    { title: "Туры по России", filter_type: "source", filter_value: "russiaTours", link: "/russia-tours" },
+    { title: "Событийные туры", filter_type: "source", filter_value: "eventTours", link: "/event-tours" },
+  ];
+  for (let i = 0; i < sections.length; i++) {
+    const s = sections[i];
+    await pool.query(
+      "INSERT INTO home_sections (title, filter_type, filter_value, link, sort_order) VALUES ($1,$2,$3,$4,$5)",
+      [s.title, s.filter_type, s.filter_value, s.link, i]
+    );
+  }
+  console.log(`✓ Разделы главной: добавлено ${sections.length}`);
+}
+
 async function seedAdmin() {
   const { email, name } = config.admin;
   const exists = await pool.query("SELECT 1 FROM admin_users WHERE email=$1", [email]);
@@ -114,6 +157,8 @@ async function main() {
   await seedTours();
   await seedLiners();
   await seedRoutes();
+  await seedHero();
+  await seedSections();
   await seedAdmin();
   await pool.end();
   console.log("Готово.");

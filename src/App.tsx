@@ -53,6 +53,8 @@ import LinersAdminPage from "./admin/LinersAdminPage.tsx";
 import LeadsAdminPage from "./admin/LeadsAdminPage.tsx";
 import UsersAdminPage from "./admin/UsersAdminPage.tsx";
 import ProfilePage from "./admin/ProfilePage.tsx";
+import HeroAdminPage from "./admin/HeroAdminPage.tsx";
+import SectionsAdminPage from "./admin/SectionsAdminPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -106,6 +108,8 @@ const App = () => (
           <Route path="/admin/login" element={<LoginPage />} />
           <Route path="/admin" element={<RequireAuth><AdminLayout /></RequireAuth>}>
             <Route index element={<ToursAdminPage />} />
+            <Route path="hero" element={<HeroAdminPage />} />
+            <Route path="sections" element={<SectionsAdminPage />} />
             <Route path="tours/new" element={<TourEditPage />} />
             <Route path="tours/:id" element={<TourEditPage />} />
             <Route path="liners" element={<LinersAdminPage />} />

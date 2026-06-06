@@ -19,6 +19,8 @@ export default function AdminLayout() {
         <div className="max-w-6xl mx-auto px-4 h-14 flex items-center gap-2">
           <span className="font-bold mr-4">Админка · Alladin Travel Club</span>
           <NavLink to="/admin" end className={linkCls}>Программы</NavLink>
+          <NavLink to="/admin/hero" className={linkCls}>Баннер</NavLink>
+          <NavLink to="/admin/sections" className={linkCls}>Разделы</NavLink>
           <NavLink to="/admin/liners" className={linkCls}>Лайнеры</NavLink>
           <NavLink to="/admin/leads" className={linkCls}>Заявки</NavLink>
           <NavLink to="/admin/users" className={linkCls}>Пользователи</NavLink>

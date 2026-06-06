@@ -269,6 +269,115 @@ adminRouter.delete("/leads/:id", async (req, res, next) => {
   } catch (e) { next(e); }
 });
 
+// ── Hero-слайды ──────────────────────────────────────────────────────────────
+adminRouter.get("/hero", async (_req, res, next) => {
+  try {
+    const { rows } = await pool.query("SELECT * FROM hero_slides ORDER BY sort_order, id");
+    res.json(rows);
+  } catch (e) { next(e); }
+});
+
+adminRouter.post("/hero", async (req, res, next) => {
+  try {
+    const { image, title, targetTourId, targetUrl, isActive } = req.body || {};
+    const { rows } = await pool.query(
+      `INSERT INTO hero_slides (image, title, target_tour_id, target_url, is_active,
+         sort_order) VALUES ($1,$2,$3,$4,$5, COALESCE((SELECT max(sort_order)+1 FROM hero_slides),0))
+       RETURNING *`,
+      [image || null, title || null, targetTourId || null, targetUrl || null, isActive !== false]
+    );
+    res.status(201).json(rows[0]);
+  } catch (e) { next(e); }
+});
+
+adminRouter.put("/hero/:id", async (req, res, next) => {
+  try {
+    const { image, title, targetTourId, targetUrl, isActive } = req.body || {};
+    const { rows } = await pool.query(
+      `UPDATE hero_slides SET image=$1, title=$2, target_tour_id=$3, target_url=$4, is_active=$5
+       WHERE id=$6 RETURNING *`,
+      [image || null, title || null, targetTourId || null, targetUrl || null, isActive !== false, req.params.id]
+    );
+    if (!rows.length) return res.status(404).json({ error: "Не найдено" });
+    res.json(rows[0]);
+  } catch (e) { next(e); }
+});
+
+adminRouter.delete("/hero/:id", async (req, res, next) => {
+  try {
+    await pool.query("DELETE FROM hero_slides WHERE id=$1", [req.params.id]);
+    res.json({ ok: true });
+  } catch (e) { next(e); }
+});
+
+adminRouter.put("/hero-reorder", async (req, res, next) => {
+  const client = await pool.connect();
+  try {
+    const ids = Array.isArray(req.body.ids) ? req.body.ids : [];
+    await client.query("BEGIN");
+    for (let i = 0; i < ids.length; i++)
+      await client.query("UPDATE hero_slides SET sort_order=$1 WHERE id=$2", [i, ids[i]]);
+    await client.query("COMMIT");
+    res.json({ ok: true });
+  } catch (e) { await client.query("ROLLBACK"); next(e); } finally { client.release(); }
+});
+
+// ── Разделы главной ──────────────────────────────────────────────────────────
+adminRouter.get("/sections", async (_req, res, next) => {
+  try {
+    const { rows } = await pool.query("SELECT * FROM home_sections ORDER BY sort_order, id");
+    res.json(rows);
+  } catch (e) { next(e); }
+});
+
+adminRouter.post("/sections", async (req, res, next) => {
+  try {
+    const { title, filterType, filterValue, tourIds, link, isActive } = req.body || {};
+    if (!title) return res.status(400).json({ error: "Нужно название" });
+    const { rows } = await pool.query(
+      `INSERT INTO home_sections (title, filter_type, filter_value, tour_ids, link, is_active,
+         sort_order) VALUES ($1,$2,$3,$4,$5,$6, COALESCE((SELECT max(sort_order)+1 FROM home_sections),0))
+       RETURNING *`,
+      [title, filterType || "source", filterValue || null,
+       JSON.stringify(Array.isArray(tourIds) ? tourIds : []), link || null, isActive !== false]
+    );
+    res.status(201).json(rows[0]);
+  } catch (e) { next(e); }
+});
+
+adminRouter.put("/sections/:id", async (req, res, next) => {
+  try {
+    const { title, filterType, filterValue, tourIds, link, isActive } = req.body || {};
+    const { rows } = await pool.query(
+      `UPDATE home_sections SET title=$1, filter_type=$2, filter_value=$3, tour_ids=$4,
+         link=$5, is_active=$6 WHERE id=$7 RETURNING *`,
+      [title, filterType || "source", filterValue || null,
+       JSON.stringify(Array.isArray(tourIds) ? tourIds : []), link || null, isActive !== false, req.params.id]
+    );
+    if (!rows.length) return res.status(404).json({ error: "Не найдено" });
+    res.json(rows[0]);
+  } catch (e) { next(e); }
+});
+
+adminRouter.delete("/sections/:id", async (req, res, next) => {
+  try {
+    await pool.query("DELETE FROM home_sections WHERE id=$1", [req.params.id]);
+    res.json({ ok: true });
+  } catch (e) { next(e); }
+});
+
+adminRouter.put("/sections-reorder", async (req, res, next) => {
+  const client = await pool.connect();
+  try {
+    const ids = Array.isArray(req.body.ids) ? req.body.ids : [];
+    await client.query("BEGIN");
+    for (let i = 0; i < ids.length; i++)
+      await client.query("UPDATE home_sections SET sort_order=$1 WHERE id=$2", [i, ids[i]]);
+    await client.query("COMMIT");
+    res.json({ ok: true });
+  } catch (e) { await client.query("ROLLBACK"); next(e); } finally { client.release(); }
+});
+
 // ── Загрузка фото ────────────────────────────────────────────────────────────
 fs.mkdirSync(config.uploadDir, { recursive: true });
 const storage = multer.diskStorage({

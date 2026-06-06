@@ -39,6 +39,8 @@ export const api = {
   getLiners: () => request(`/liners`),
   getLiner: (slug: string) => request(`/liners/${slug}`),
   getRoute: (tourId: string) => request(`/routes/${tourId}`),
+  getHero: () => request<any[]>(`/hero`),
+  getSections: () => request<any[]>(`/sections`),
   submitLead: (payload: unknown) => request(`/leads`, { method: "POST", body: payload }),
 
   // ── Авторизация ──
@@ -74,6 +76,20 @@ export const api = {
   updateLiner: (slug: string, l: unknown) =>
     request(`/admin/liners/${slug}`, { method: "PUT", body: l, auth: true }),
   deleteLiner: (slug: string) => request(`/admin/liners/${slug}`, { method: "DELETE", auth: true }),
+
+  // ── Hero-слайды (админ) ──
+  adminHero: () => request<any[]>(`/admin/hero`, { auth: true }),
+  createHero: (s: unknown) => request(`/admin/hero`, { method: "POST", body: s, auth: true }),
+  updateHero: (id: number, s: unknown) => request(`/admin/hero/${id}`, { method: "PUT", body: s, auth: true }),
+  deleteHero: (id: number) => request(`/admin/hero/${id}`, { method: "DELETE", auth: true }),
+  reorderHero: (ids: number[]) => request(`/admin/hero-reorder`, { method: "PUT", body: { ids }, auth: true }),
+
+  // ── Разделы главной (админ) ──
+  adminSections: () => request<any[]>(`/admin/sections`, { auth: true }),
+  createSection: (s: unknown) => request(`/admin/sections`, { method: "POST", body: s, auth: true }),
+  updateSection: (id: number, s: unknown) => request(`/admin/sections/${id}`, { method: "PUT", body: s, auth: true }),
+  deleteSection: (id: number) => request(`/admin/sections/${id}`, { method: "DELETE", auth: true }),
+  reorderSections: (ids: number[]) => request(`/admin/sections-reorder`, { method: "PUT", body: { ids }, auth: true }),
 
   // ── Заявки (админ) ──
   leads: (type?: string) =>
