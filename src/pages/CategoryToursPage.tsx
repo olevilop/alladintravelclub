@@ -1,5 +1,7 @@
 import { useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import { api } from "@/lib/api";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsletterSocial from "@/components/NewsletterSocial";
@@ -18,12 +20,24 @@ interface CategoryToursPageProps {
   breadcrumbLabel: string;
   breadcrumbParent?: { label: string; href: string };
   category?: string;
+  source?: string;
   hideSpecialOfferTag?: boolean;
   fallbackHeroImage?: string;
 }
 
-const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumbParent, category, hideSpecialOfferTag, fallbackHeroImage }: CategoryToursPageProps) => {
-  const heroTour = useMemo(() => tours[Math.floor(Math.random() * tours.length)], []);
+const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumbParent, category, source, hideSpecialOfferTag, fallbackHeroImage }: CategoryToursPageProps) => {
+  // Берём программы из базы (чтобы фото/данные совпадали с главной и менялись из админки),
+  // иначе — статический список из кода (фолбэк).
+  const { data: apiAll } = useQuery({ queryKey: ["tours-all"], queryFn: () => api.getTours() });
+  const list: Tour[] = useMemo(() => {
+    const all: any[] = apiAll || [];
+    let derived: any[] | null = null;
+    if (source) derived = all.filter((t) => t.source === source);
+    else if (category) derived = all.filter((t) => t.category === category);
+    return derived && derived.length ? derived : tours;
+  }, [apiAll, source, category, tours]);
+
+  const heroTour = useMemo(() => list[Math.floor(Math.random() * list.length)], [list]);
   const heroImage = heroTour?.image ?? fallbackHeroImage;
   const heroAlt = heroTour?.name ?? breadcrumbLabel;
 
@@ -59,7 +73,7 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumb
 
       {/* Tour cards */}
       <section className="container mx-auto px-10 md:px-16 lg:px-24 py-12 md:py-20 space-y-6">
-        {tours.map((tour) => (
+        {list.map((tour) => (
           <Link
             key={tour.id}
             to={`/tour/${tour.id}`}
