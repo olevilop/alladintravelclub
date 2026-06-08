@@ -1,6 +1,8 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { api } from "@/lib/api";
 import { Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, Compass, Globe, Users, ArrowUpRight, Mountain, Feather, Briefcase, HeartPulse, Binoculars, Waves } from "lucide-react";
 import {
   Select,
@@ -28,7 +30,14 @@ const fadeIn = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
 
 const TourDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const tour = getTourById(id || "");
+  // Сначала берём тур из базы (чтобы правки из админки были видны), иначе — из кода.
+  const { data: apiTour } = useQuery({
+    queryKey: ["tour", id],
+    queryFn: () => api.getTour(id!),
+    enabled: !!id,
+    retry: false,
+  });
+  const tour: any = apiTour || getTourById(id || "");
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [selectedHotel, setSelectedHotel] = useState<string>("");
   const [selectedExcursion, setSelectedExcursion] = useState<string>("");
@@ -41,7 +50,8 @@ const TourDetail = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [id]);
+    setGalleryIndex(0);
+  }, [id, apiTour]);
   const routePoints = tour ? tourRoutes[tour.id] : undefined;
 
   if (!tour) {
