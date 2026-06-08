@@ -44,7 +44,8 @@ export default function TourEditPage() {
     category: searchParams.get("category") || undefined,
     isActive: true,
   });
-  const [gallery, setGallery] = useState("");
+  const [gallerySlots, setGallerySlots] = useState<string[]>(["", "", "", "", ""]);
+  const [galleryRest, setGalleryRest] = useState<string[]>([]); // фото сверх 5 (если были) — сохраняем
   const [startDates, setStartDates] = useState("");
   const [included, setIncluded] = useState("");
   const [notIncluded, setNotIncluded] = useState("");
@@ -52,12 +53,18 @@ export default function TourEditPage() {
 
   const imageInput = useRef<HTMLInputElement>(null);
   const galleryInput = useRef<HTMLInputElement>(null);
+  const [uploadSlot, setUploadSlot] = useState<number | null>(null);
+
+  const setSlot = (i: number, url: string) =>
+    setGallerySlots((s) => s.map((v, idx) => (idx === i ? url : v)));
 
   useEffect(() => {
     if (isNew) return;
     api.adminTour(id!)
       .then((t: any) => {
-        setGallery(arrToLines(t.gallery));
+        const g = Array.isArray(t.gallery) ? t.gallery : [];
+        setGallerySlots([0, 1, 2, 3, 4].map((i) => g[i] || ""));
+        setGalleryRest(g.slice(5));
         setStartDates(arrToLines(t.startDates));
         setIncluded(arrToLines(t.included));
         setNotIncluded(arrToLines(t.notIncluded));
@@ -72,15 +79,18 @@ export default function TourEditPage() {
 
   const set = (k: string, v: any) => setF((p: any) => ({ ...p, [k]: v }));
 
-  const uploadImage = async (file: File, target: "image" | "gallery") => {
-    try {
-      const { url } = await api.upload(file);
-      if (target === "image") set("image", url);
-      else setGallery((g) => (g ? g + "\n" + url : url));
-      toast.success("Фото загружено");
-    } catch (e: any) {
-      toast.error(e.message);
-    }
+  // Загрузка главного фото
+  const uploadImage = async (file: File) => {
+    try { const { url } = await api.upload(file); set("image", url); toast.success("Фото загружено"); }
+    catch (e: any) { toast.error(e.message); }
+  };
+
+  // Загрузка фото в конкретное окошко галереи (slot задаётся в uploadSlot)
+  const uploadToSlot = async (file: File) => {
+    if (uploadSlot === null) return;
+    try { const { url } = await api.upload(file); setSlot(uploadSlot, url); toast.success("Фото загружено"); }
+    catch (e: any) { toast.error(e.message); }
+    finally { setUploadSlot(null); }
   };
 
   const save = async () => {
@@ -95,7 +105,7 @@ export default function TourEditPage() {
       ...adv,
       ...f,
       days: f.days ? Number(f.days) : undefined,
-      gallery: linesToArr(gallery),
+      gallery: [...gallerySlots, ...galleryRest].map((s) => s.trim()).filter(Boolean),
       startDates: linesToArr(startDates),
       included: linesToArr(included),
       notIncluded: linesToArr(notIncluded),
@@ -160,7 +170,7 @@ export default function TourEditPage() {
           <Input value={f.image ?? ""} onChange={(e) => set("image", e.target.value)} placeholder="URL или загрузите файл" />
           <Button type="button" variant="outline" onClick={() => imageInput.current?.click()}>Загрузить</Button>
           <input ref={imageInput} type="file" accept="image/*" hidden
-            onChange={(e) => e.target.files?.[0] && uploadImage(e.target.files[0], "image")} />
+            onChange={(e) => e.target.files?.[0] && uploadImage(e.target.files[0])} />
         </div>
         {f.image && <img src={f.image} alt="" className="h-24 rounded object-cover" />}
       </div>
@@ -174,16 +184,34 @@ export default function TourEditPage() {
         <Textarea rows={5} value={f.description ?? ""} onChange={(e) => set("description", e.target.value)} />
       </div>
 
-      <section className="grid sm:grid-cols-2 gap-4">
-        <div className="space-y-1.5">
-          <div className="flex items-center justify-between">
-            <Label>Галерея (по одной ссылке в строке)</Label>
-            <Button type="button" size="sm" variant="outline" onClick={() => galleryInput.current?.click()}>+ фото</Button>
-            <input ref={galleryInput} type="file" accept="image/*" hidden
-              onChange={(e) => e.target.files?.[0] && uploadImage(e.target.files[0], "gallery")} />
-          </div>
-          <Textarea rows={5} value={gallery} onChange={(e) => setGallery(e.target.value)} />
+      {/* Галерея: 5 окошек (показываются в шапке страницы тура) */}
+      <div className="space-y-2">
+        <Label>Галерея — фото в шапке страницы тура (5 окошек)</Label>
+        <input ref={galleryInput} type="file" accept="image/*" hidden
+          onChange={(e) => e.target.files?.[0] && uploadToSlot(e.target.files[0])} />
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          {gallerySlots.map((slot, i) => (
+            <div key={i} className="border rounded-md p-2 space-y-1.5">
+              <div className="text-xs font-medium">{i === 0 ? "Фото 1 (главное)" : `Фото ${i + 1}`}</div>
+              {slot ? (
+                <img src={slot} alt="" className="h-20 w-full object-cover rounded" />
+              ) : (
+                <div className="h-20 w-full rounded bg-muted flex items-center justify-center text-xs text-muted-foreground">пусто</div>
+              )}
+              <Input value={slot} onChange={(e) => setSlot(i, e.target.value)} placeholder="URL" className="text-xs h-8" />
+              <div className="flex gap-1">
+                <Button type="button" size="sm" variant="outline" className="flex-1 h-7 text-xs"
+                  onClick={() => { setUploadSlot(i); galleryInput.current?.click(); }}>Загрузить</Button>
+                {slot && <Button type="button" size="sm" variant="ghost" className="h-7 text-xs text-destructive"
+                  onClick={() => setSlot(i, "")}>✕</Button>}
+              </div>
+            </div>
+          ))}
         </div>
+        <p className="text-xs text-muted-foreground">Фото 1 — большое в шапке; остальные — миниатюры рядом. Пустые окошки не показываются.</p>
+      </div>
+
+      <section className="grid sm:grid-cols-2 gap-4">
         <div className="space-y-1.5">
           <Label>Даты заездов (по одной в строке)</Label>
           <Textarea rows={5} value={startDates} onChange={(e) => setStartDates(e.target.value)} />
