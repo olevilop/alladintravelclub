@@ -71,7 +71,7 @@ const TourDetail = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative h-[60vh] md:h-[70vh] overflow-hidden">
+      <section className="relative h-[72vh] md:h-[88vh] overflow-hidden">
         <img
           src={tour.gallery[galleryIndex]}
           alt={tour.name}
