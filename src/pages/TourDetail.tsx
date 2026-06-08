@@ -77,9 +77,9 @@ const TourDetail = () => {
           alt={tour.name}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-dark-overlay" />
         <div className="absolute inset-0 flex flex-col justify-end pb-12 md:pb-20 container mx-auto px-6">
-          <motion.div initial="hidden" animate="visible" variants={fadeIn} transition={{ duration: 0.8 }}>
+          <motion.div initial="hidden" animate="visible" variants={fadeIn} transition={{ duration: 0.8 }}
+            className="[text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
             <span className="block text-primary text-sm font-sans uppercase tracking-[0.3em] mb-3">
               {tour.region} · {tour.days} дней
             </span>
@@ -94,7 +94,7 @@ const TourDetail = () => {
       </section>
 
       {/* Thumbnail strip */}
-      <div className="container mx-auto px-6 -mt-12 relative z-10">
+      <div className="container mx-auto px-6 mt-4">
         <div className="grid grid-cols-5 gap-2">
           {tour.gallery.slice(0, 5).map((img, i) => (
             <button
