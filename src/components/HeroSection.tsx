@@ -29,7 +29,20 @@ type Slide = { image: string; title: string; target: string | null };
 
 const HeroSection = () => {
   const navigate = useNavigate();
-  const { data } = useQuery({ queryKey: ["hero"], queryFn: api.getHero });
+  const { data } = useQuery({
+    queryKey: ["hero"],
+    queryFn: async () => {
+      const d = await api.getHero();
+      try { localStorage.setItem("atc-hero-cache", JSON.stringify(d)); } catch { /* ignore */ }
+      return d;
+    },
+    initialData: () => {
+      try { const c = localStorage.getItem("atc-hero-cache"); return c ? JSON.parse(c) : undefined; }
+      catch { return undefined; }
+    },
+    initialDataUpdatedAt: 0,
+    staleTime: 5 * 60 * 1000,
+  });
 
   const slides: Slide[] = (data && data.length)
     ? data.map((s: any) => ({

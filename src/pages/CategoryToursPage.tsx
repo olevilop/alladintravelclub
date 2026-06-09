@@ -39,7 +39,8 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumb
     return isError ? tours : [];
   }, [apiAll, source, category, tours, isError]);
 
-  const heroTour = useMemo(() => list[Math.floor(Math.random() * list.length)], [list]);
+  // Стабильно берём первый тур раздела (без случайности) — иначе шапка «мигает» при обновлении данных
+  const heroTour = list[0];
   const heroImage = heroTour?.image ?? fallbackHeroImage;
   const heroAlt = heroTour?.name ?? breadcrumbLabel;
 
