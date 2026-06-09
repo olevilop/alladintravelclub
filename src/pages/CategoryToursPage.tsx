@@ -1,7 +1,6 @@
 import { useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
-import { api } from "@/lib/api";
+import { useTours } from "@/lib/useTours";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import NewsletterSocial from "@/components/NewsletterSocial";
@@ -28,9 +27,7 @@ interface CategoryToursPageProps {
 const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumbParent, category, source, hideSpecialOfferTag, fallbackHeroImage }: CategoryToursPageProps) => {
   // Берём программы из базы (чтобы фото/данные совпадали с главной и менялись из админки),
   // иначе — статический список из кода (фолбэк).
-  const { data: apiAll, isError } = useQuery({
-    queryKey: ["tours-all"], queryFn: () => api.getTours(), staleTime: 5 * 60 * 1000,
-  });
+  const { data: apiAll, isError } = useTours();
   const loading = !apiAll && !isError;
   const list: Tour[] = useMemo(() => {
     const all: any[] = apiAll || [];

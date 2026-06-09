@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "@/lib/api";
+import { useTours } from "@/lib/useTours";
 import TourCarousel from "./TourCarousel";
 
 const SectionHeading = ({ children }: { children: React.ReactNode }) => (
@@ -30,7 +31,7 @@ const ToursSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   const { data: sections = [] } = useQuery({ queryKey: ["sections"], queryFn: api.getSections });
-  const { data: tours = [] } = useQuery({ queryKey: ["tours-all"], queryFn: () => api.getTours() });
+  const { data: tours = [] } = useTours();
 
   return (
     <section id="tours" className="py-24 md:py-32 bg-section-gradient">
