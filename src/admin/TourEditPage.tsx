@@ -25,6 +25,7 @@ const KNOWN = new Set([
   "extras", "badge", "specialOfferTag", "sortOrder",
   ...FLAGS.map((f) => f[0]),
   "gallery", "startDates", "included", "notIncluded",
+  "heroTextColor", "heroTextAlign",
 ]);
 
 const linesToArr = (s: string) => s.split("\n").map((x) => x.trim()).filter(Boolean);
@@ -183,6 +184,27 @@ export default function TourEditPage() {
         <Label>Описание</Label>
         <Textarea rows={5} value={f.description ?? ""} onChange={(e) => set("description", e.target.value)} />
       </div>
+
+      {/* Оформление надписи на главном фото (Hero) */}
+      <section className="grid sm:grid-cols-2 gap-4 border rounded-lg p-4">
+        <div className="space-y-1.5">
+          <Label>Цвет текста на фото (Hero)</Label>
+          <div className="flex gap-2 items-center">
+            <input type="color" value={f.heroTextColor || "#ffffff"}
+              onChange={(e) => set("heroTextColor", e.target.value)}
+              className="h-10 w-14 rounded border cursor-pointer bg-background" />
+            <Input value={f.heroTextColor ?? ""} onChange={(e) => set("heroTextColor", e.target.value)} placeholder="#ffffff" />
+          </div>
+        </div>
+        <div className="space-y-1.5">
+          <Label>Положение текста на фото</Label>
+          <select className="w-full h-10 border rounded-md px-3 bg-background"
+            value={f.heroTextAlign || "left"} onChange={(e) => set("heroTextAlign", e.target.value)}>
+            <option value="left">Слева</option>
+            <option value="right">Справа</option>
+          </select>
+        </div>
+      </section>
 
       {/* Галерея: 5 окошек (показываются в шапке страницы тура) */}
       <div className="space-y-2">

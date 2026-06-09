@@ -77,16 +77,17 @@ const TourDetail = () => {
           alt={tour.name}
           className="absolute inset-0 w-full h-full object-cover"
         />
-        <div className="absolute inset-0 flex flex-col justify-end pb-12 md:pb-20 container mx-auto px-6">
+        <div className={`absolute inset-0 flex flex-col justify-end pb-12 md:pb-20 container mx-auto px-6 ${tour.heroTextAlign === "right" ? "items-end" : "items-start"}`}>
           <motion.div initial="hidden" animate="visible" variants={fadeIn} transition={{ duration: 0.8 }}
-            className="[text-shadow:0_2px_14px_rgba(0,0,0,0.8)]">
+            style={{ color: tour.heroTextColor || "#ffffff" }}
+            className={`[text-shadow:0_2px_14px_rgba(0,0,0,0.8)] ${tour.heroTextAlign === "right" ? "text-right" : ""}`}>
             <span className="block text-primary text-sm font-sans uppercase tracking-[0.3em] mb-3">
               {tour.region} · {tour.days} дней
             </span>
             <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light leading-tight max-w-3xl">
               {tour.name}
             </h1>
-            <p className="font-serif text-lg md:text-xl text-foreground/70 italic mt-4 max-w-2xl">
+            <p className="font-serif text-lg md:text-xl italic mt-4 max-w-2xl opacity-80">
               {tour.subtitle}
             </p>
           </motion.div>
