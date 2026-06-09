@@ -28,14 +28,19 @@ interface CategoryToursPageProps {
 const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumbParent, category, source, hideSpecialOfferTag, fallbackHeroImage }: CategoryToursPageProps) => {
   // Берём программы из базы (чтобы фото/данные совпадали с главной и менялись из админки),
   // иначе — статический список из кода (фолбэк).
-  const { data: apiAll } = useQuery({ queryKey: ["tours-all"], queryFn: () => api.getTours() });
+  const { data: apiAll, isError } = useQuery({
+    queryKey: ["tours-all"], queryFn: () => api.getTours(), staleTime: 5 * 60 * 1000,
+  });
+  const loading = !apiAll && !isError;
   const list: Tour[] = useMemo(() => {
     const all: any[] = apiAll || [];
     let derived: any[] | null = null;
     if (source) derived = all.filter((t) => t.source === source);
     else if (category) derived = all.filter((t) => t.category === category);
-    return derived && derived.length ? derived : tours;
-  }, [apiAll, source, category, tours]);
+    if (derived && derived.length) return derived;
+    // пока грузится — пусто (не мигаем старыми фото); если база недоступна — фолбэк на код
+    return isError ? tours : [];
+  }, [apiAll, source, category, tours, isError]);
 
   const heroTour = useMemo(() => list[Math.floor(Math.random() * list.length)], [list]);
   const heroImage = heroTour?.image ?? fallbackHeroImage;
@@ -50,7 +55,7 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumb
       <Navbar />
 
       {/* Hero */}
-      <section className="relative h-[75vh] overflow-hidden bg-muted">
+      <section className={`relative h-[75vh] overflow-hidden bg-muted ${loading ? "animate-pulse" : ""}`}>
         {heroImage && (
           <img
             src={heroImage}
@@ -73,7 +78,7 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumb
 
       {/* Tour cards */}
       <section className="container mx-auto px-10 md:px-16 lg:px-24 py-12 md:py-20 space-y-6">
-        {list.map((tour) => (
+        {loading ? [0, 1, 2, 3].map((i) => <div key={i} className="h-[220px] rounded-lg bg-muted animate-pulse" />) : list.map((tour) => (
           <Link
             key={tour.id}
             to={`/tour/${tour.id}`}
