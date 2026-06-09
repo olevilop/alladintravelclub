@@ -76,7 +76,9 @@ server {
     }
     location /assets/ { expires 1y; add_header Cache-Control "public, immutable"; access_log off; }
     location /tour-assets/ { expires 30d; add_header Cache-Control "public"; access_log off; }
-    location / { try_files \$uri \$uri/ /index.html; }
+    # index.html не кэшируем — браузер всегда берёт свежую версию (и новые хэши ассетов)
+    location = /index.html { add_header Cache-Control "no-store, no-cache, must-revalidate"; expires off; }
+    location / { add_header Cache-Control "no-store, no-cache, must-revalidate"; try_files \$uri \$uri/ /index.html; }
 }
 NGINX
 else
@@ -100,7 +102,9 @@ server {
     }
     location /uploads/ { alias ${APP_DIR}/backend/uploads/; expires 30d; access_log off; }
     location /tour-assets/ { expires 30d; access_log off; }
-    location / { try_files \$uri \$uri/ /index.html; }
+    # index.html не кэшируем — браузер всегда берёт свежую версию (и новые хэши ассетов)
+    location = /index.html { add_header Cache-Control "no-store, no-cache, must-revalidate"; expires off; }
+    location / { add_header Cache-Control "no-store, no-cache, must-revalidate"; try_files \$uri \$uri/ /index.html; }
 }
 NGINX
 fi
@@ -112,4 +116,5 @@ systemctl reload nginx
 log "Проверки"
 sleep 1
 curl -fsS -o /dev/null -w "API через сайт (/api/tours): HTTP %{http_code}\n" "http://127.0.0.1:${BACK_PORT}/tours" || true
+echo "Выкачена версия (коммит):"; git -C "$APP_DIR" log -1 --format="  %h %s"
 echo "Готово. Открой https://${DOMAIN}/admin и войди (admin@alladin.club + твой пароль)."
