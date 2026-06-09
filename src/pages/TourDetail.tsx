@@ -121,7 +121,7 @@ const TourDetail = () => {
         return <Breadcrumbs items={[{ label: crumb?.label || tour.region || "Туры", href: crumb?.path || "/" }, { label: tour.name }]} />;
       })()}
 
-      <div className="container mx-auto px-6 py-16 md:py-24">
+      <div className="container mx-auto px-6 pt-16 md:pt-24">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
           {/* Main content */}
           <div className="lg:col-span-2 space-y-16">

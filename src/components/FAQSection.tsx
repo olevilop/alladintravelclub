@@ -59,7 +59,7 @@ const FAQSection = ({ isCruise = false, customFaq }: { isCruise?: boolean; custo
   const items = customFaq ?? (isCruise ? cruiseFaqItems : tourFaqItems);
 
   return (
-    <section id="faq" className="py-24 md:py-32">
+    <section id="faq" className="pt-20 pb-24 md:pb-32">
       <div ref={ref} className="container mx-auto px-6 max-w-3xl">
         <motion.div
           initial={{ opacity: 0, y: 40 }}

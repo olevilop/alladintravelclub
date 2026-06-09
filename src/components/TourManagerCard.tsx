@@ -1,11 +1,14 @@
 import { Phone, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const TourManagerCard = () => {
   return (
     <div className="bg-card border border-border p-6 space-y-4">
-      <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground">
-        МЕНЕДЖЕР ПО ЮЖНОЙ КОРЕЕ — ЕЛЕНА
-      </h4>
+      <Link to="/team" className="block">
+        <h4 className="text-xs font-sans uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors">
+          МЕНЕДЖЕР ПО ЮЖНОЙ КОРЕЕ — ЕЛЕНА
+        </h4>
+      </Link>
       <div className="space-y-3">
         <a
           href="https://t.me/+79025240653"
@@ -27,13 +30,10 @@ const TourManagerCard = () => {
           <MessageCircle className="w-4 h-4 text-primary shrink-0" />
           <span>WhatsApp</span>
         </a>
-        <a
-          href="tel:+79025240653"
-          className="flex items-center gap-3 text-sm text-foreground/80 hover:text-primary transition-colors"
-        >
+        <div className="flex items-center gap-3 text-sm text-foreground/80">
           <Phone className="w-4 h-4 text-primary shrink-0" />
           <span>+7(902)524-06-53</span>
-        </a>
+        </div>
       </div>
     </div>
   );
