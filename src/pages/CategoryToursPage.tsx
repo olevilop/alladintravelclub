@@ -28,16 +28,24 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumb
   // Берём программы из базы (чтобы фото/данные совпадали с главной и менялись из админки),
   // иначе — статический список из кода (фолбэк).
   const { data: apiAll, isError } = useTours();
-  const loading = !apiAll && !isError;
   const list: Tour[] = useMemo(() => {
-    const all: any[] = apiAll || [];
-    let derived: any[] | null = null;
-    if (source) derived = all.filter((t) => t.source === source);
-    else if (category) derived = all.filter((t) => t.category === category);
-    if (derived && derived.length) return derived;
-    // пока грузится — пусто (не мигаем старыми фото); если база недоступна — фолбэк на код
-    return isError ? tours : [];
+    // Страница без API-фильтра (готовый список: по материку, флагу и т.п.) — показываем её набор,
+    // но подменяем данные свежими из базы по id (чтобы фото совпадали и обновлялись).
+    if (!source && !category) {
+      if (apiAll) {
+        const byId = new Map((apiAll as any[]).map((t) => [t.id, t]));
+        return tours.map((t) => byId.get(t.id) || t);
+      }
+      return tours;
+    }
+    // Страница с API-фильтром (разделы по source/category)
+    if (!apiAll) return isError ? tours : []; // пока грузится — пусто (без мигания)
+    const all = apiAll as any[];
+    const d = source ? all.filter((t) => t.source === source) : all.filter((t) => t.category === category);
+    return d.length ? d : tours;
   }, [apiAll, source, category, tours, isError]);
+  // Скелет нужен только на страницах с API-фильтром, пока идёт первая загрузка
+  const loading = (!!source || !!category) && !apiAll && !isError;
 
   // Стабильно берём первый тур раздела (без случайности) — иначе шапка «мигает» при обновлении данных
   const heroTour = list[0];
