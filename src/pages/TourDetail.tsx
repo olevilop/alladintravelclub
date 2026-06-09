@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { api } from "@/lib/api";
+import { useTours } from "@/lib/useTours";
 import { Calendar, Moon, MapPin, Ship, Banknote, Route, Check, X, Compass, Globe, Users, ArrowUpRight, Mountain, Feather, Briefcase, HeartPulse, Binoculars, Waves } from "lucide-react";
 import {
   Select,
@@ -37,7 +38,11 @@ const TourDetail = () => {
     enabled: !!id,
     retry: false,
   });
-  const tour: any = apiTour || getTourById(id || "");
+  // Кэш всех туров (из localStorage) — даёт правильное фото мгновенно при обновлении,
+  // без вспышки старого из кода.
+  const { data: allTours } = useTours();
+  const fromCache = (allTours || []).find((t: any) => t.id === id);
+  const tour: any = apiTour || fromCache || getTourById(id || "");
   const [galleryIndex, setGalleryIndex] = useState(0);
   const [selectedHotel, setSelectedHotel] = useState<string>("");
   const [selectedExcursion, setSelectedExcursion] = useState<string>("");
