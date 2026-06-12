@@ -2,19 +2,35 @@ import { useState } from "react";
 import { Send } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
+import { api } from "@/lib/api";
 
 const NewsletterSocial = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [sending, setSending] = useState(false);
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) {
       toast.error("Введите email");
       return;
     }
-    toast.success("Вы успешно подписались на рассылку!");
-    setEmail("");
+    setSending(true);
+    try {
+      await api.submitLead({
+        type: "newsletter",
+        source: "Подписка на рассылку",
+        email,
+        name: name || undefined,
+      });
+      toast.success("Вы успешно подписались на рассылку!");
+      setEmail("");
+      setName("");
+    } catch {
+      toast.error("Не удалось подписаться. Попробуйте позже.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -45,10 +61,11 @@ const NewsletterSocial = () => {
             />
             <button
               type="submit"
-              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground text-sm font-sans uppercase tracking-widest hover:bg-primary/90 transition-colors whitespace-nowrap"
+              disabled={sending}
+              className="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-primary text-primary-foreground text-sm font-sans uppercase tracking-widest hover:bg-primary/90 transition-colors whitespace-nowrap disabled:opacity-60"
             >
               <Send className="w-4 h-4" />
-              Подписаться
+              {sending ? "Отправка…" : "Подписаться"}
             </button>
           </form>
         </div>
