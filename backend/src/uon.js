@@ -7,11 +7,6 @@ export async function sendLeadToUon(lead) {
 
   const note = [
     "Заявка с сайта alladintravelclub.ru",
-    "— Контакты из заявки —",
-    lead.name ? `Имя: ${lead.name}` : null,
-    lead.phone ? `Телефон: ${lead.phone}` : null,
-    lead.email ? `Email: ${lead.email}` : null,
-    "— Детали —",
     lead.tourName ? `Тур/круиз: ${lead.tourName}` : null,
     lead.date ? `Даты: ${lead.date}` : null,
     lead.cabin ? `Каюта: ${lead.cabin}` : null,
@@ -25,7 +20,9 @@ export async function sendLeadToUon(lead) {
   if (lead.phone) params.set("u_phone", lead.phone);
   if (lead.email) params.set("u_email", lead.email);
   params.set("note", note);
-  params.set("source", lead.source || "Сайт alladintravelclub.ru");
+  params.set("source", lead.source
+    ? `Сайт alladintravelclub.ru (${lead.source})`
+    : "Сайт alladintravelclub.ru");
 
   const url = `https://api.u-on.ru/${config.uonApiKey}/lead/create.json`;
   try {
