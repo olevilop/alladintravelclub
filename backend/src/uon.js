@@ -7,6 +7,11 @@ export async function sendLeadToUon(lead) {
 
   const note = [
     "Заявка с сайта alladintravelclub.ru",
+    "— Контакты из заявки —",
+    lead.name ? `Имя: ${lead.name}` : null,
+    lead.phone ? `Телефон: ${lead.phone}` : null,
+    lead.email ? `Email: ${lead.email}` : null,
+    "— Детали —",
     lead.tourName ? `Тур/круиз: ${lead.tourName}` : null,
     lead.date ? `Даты: ${lead.date}` : null,
     lead.cabin ? `Каюта: ${lead.cabin}` : null,
