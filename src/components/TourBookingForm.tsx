@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { useToast } from "@/hooks/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { api } from "@/lib/api";
 
 interface TourBookingFormProps {
   tourName: string;
@@ -12,15 +13,34 @@ interface TourBookingFormProps {
 const TourBookingForm = ({ tourName, startDates, cabins }: TourBookingFormProps) => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: "", phone: "", email: "", date: "", cabin: "", message: "" });
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name.trim() || !form.phone.trim() || !form.email.trim()) {
       toast({ title: "Заполните обязательные поля", variant: "destructive" });
       return;
     }
-    toast({ title: "Заявка отправлена!", description: `Мы свяжемся с вами по поводу тура «${tourName}»` });
-    setForm({ name: "", phone: "", email: "", date: "", cabin: "", message: "" });
+    setSending(true);
+    try {
+      await api.submitLead({
+        type: "booking",
+        source: "Форма бронирования",
+        name: form.name,
+        phone: form.phone,
+        email: form.email,
+        tourName,
+        date: form.date,
+        cabin: form.cabin,
+        message: form.message,
+      });
+      toast({ title: "Заявка отправлена!", description: `Мы свяжемся с вами по поводу тура «${tourName}»` });
+      setForm({ name: "", phone: "", email: "", date: "", cabin: "", message: "" });
+    } catch {
+      toast({ title: "Не удалось отправить заявку", description: "Попробуйте позже или позвоните нам.", variant: "destructive" });
+    } finally {
+      setSending(false);
+    }
   };
 
   const inputClass =
@@ -92,9 +112,10 @@ const TourBookingForm = ({ tourName, startDates, cabins }: TourBookingFormProps)
         />
         <button
           type="submit"
-          className="w-full bg-gold-gradient text-primary-foreground py-3 text-sm font-medium uppercase tracking-wider hover:opacity-90 transition-opacity"
+          disabled={sending}
+          className="w-full bg-gold-gradient text-primary-foreground py-3 text-sm font-medium uppercase tracking-wider hover:opacity-90 transition-opacity disabled:opacity-60"
         >
-          Отправить заявку
+          {sending ? "Отправка…" : "Отправить заявку"}
         </button>
       </form>
     </motion.div>

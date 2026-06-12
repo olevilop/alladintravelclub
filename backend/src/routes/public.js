@@ -3,6 +3,7 @@
 import { Router } from "express";
 import { pool } from "../db.js";
 import { rowToTour, rowToLiner } from "../serialize.js";
+import { sendLeadToUon } from "../uon.js";
 
 export const publicRouter = Router();
 
@@ -85,6 +86,8 @@ publicRouter.post("/leads", async (req, res, next) => {
       [type || "contact", name || null, phone || null, email || null,
        messenger || null, source || null, JSON.stringify(payload)]
     );
+    // Отправляем в CRM U-ON (не блокируем ответ — заявка уже сохранена в БД)
+    sendLeadToUon({ type, name, phone, email, messenger, source, ...payload }).catch(() => {});
     res.status(201).json({ ok: true });
   } catch (e) { next(e); }
 });

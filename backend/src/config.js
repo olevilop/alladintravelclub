@@ -29,4 +29,5 @@ export const config = {
   },
   uploadDir: process.env.UPLOAD_DIR || path.resolve(__dirname, "../uploads"),
   maxUploadMb: parseInt(process.env.MAX_UPLOAD_MB || "25", 10),
+  uonApiKey: process.env.UON_API_KEY || "",
 };
