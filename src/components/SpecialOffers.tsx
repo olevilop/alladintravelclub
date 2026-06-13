@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours, eventTours } from "@/data/tours";
 import TourCarousel from "@/components/TourCarousel";
@@ -10,12 +10,17 @@ interface SpecialOffersProps {
 
 const SpecialOffers = ({ excludeTourId }: SpecialOffersProps) => {
   const { data: apiTours } = useTours();
+  // Случайное «зерно» на один заход (меняется при каждом обновлении страницы).
+  const [seed] = useState(() => Math.floor(Math.random() * 1e9));
   const selected = useMemo(() => {
     const all = (apiTours && apiTours.length)
       ? apiTours
       : [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours, ...eventTours];
-    return all.filter((t: any) => t.specialOfferTag && t.id !== excludeTourId);
-  }, [apiTours, excludeTourId]);
+    const list = all.filter((t: any) => t.specialOfferTag && t.id !== excludeTourId);
+    // перемешиваем стабильно для этого захода (зависит от seed), при обновлении страницы — новый порядок
+    const hash = (s: string) => { let h = 0; for (let i = 0; i < s.length; i++) h = (h * 31 + s.charCodeAt(i)) | 0; return h; };
+    return [...list].sort((a: any, b: any) => hash(a.id + seed) - hash(b.id + seed));
+  }, [apiTours, excludeTourId, seed]);
 
   if (selected.length === 0) return null;
 
