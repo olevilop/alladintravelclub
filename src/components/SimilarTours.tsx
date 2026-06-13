@@ -1,5 +1,6 @@
 import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours, eventTours } from "@/data/tours";
 import TourCarousel from "@/components/TourCarousel";
+import { useTours } from "@/lib/useTours";
 
 const regionLabels: Record<string, string> = {
   "Япония": "туры в Японию",
@@ -15,7 +16,10 @@ interface SimilarToursProps {
 }
 
 const SimilarTours = ({ currentTour }: SimilarToursProps) => {
-  const allTours = [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours, ...eventTours];
+  const { data: apiTours } = useTours();
+  const allTours = (apiTours && apiTours.length)
+    ? apiTours
+    : [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours, ...eventTours];
   const isCruise = currentTour.category === "expedition" || currentTour.category === "classic";
   const similarTours = allTours.filter(t => {
     if (t.id === currentTour.id) return false;

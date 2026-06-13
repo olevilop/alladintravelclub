@@ -7,23 +7,23 @@ import NewsletterSocial from "@/components/NewsletterSocial";
 import { Moon, MapPin, Ship, Banknote } from "lucide-react";
 import { tours, japanTours, koreaTours, chinaTours, northKoreaTours, russiaTours, eventTours } from "@/data/tours";
 import { getSpecialOfferLabel } from "@/config/specialOfferTags";
+import { useTours } from "@/lib/useTours";
 
 const SpecialOffersPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const allTours = useMemo(
-    () =>
-      [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours, ...eventTours]
-        .filter((t) => t.specialOfferTag),
-    []
-  );
+  const { data: apiTours } = useTours();
+  const allTours = useMemo(() => {
+    const all = (apiTours && apiTours.length)
+      ? apiTours
+      : [...tours, ...japanTours, ...koreaTours, ...chinaTours, ...northKoreaTours, ...russiaTours, ...eventTours];
+    return all.filter((t: any) => t.specialOfferTag);
+  }, [apiTours]);
 
-  const heroTour = useMemo(
-    () => (allTours.length > 0 ? allTours[Math.floor(Math.random() * allTours.length)] : null),
-    [allTours]
-  );
+  // стабильно (без случайности) — чтобы шапка не «прыгала» при обновлении
+  const heroTour = allTours.length > 0 ? allTours[0] : null;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
