@@ -36,7 +36,7 @@ const SimilarTours = ({ currentTour }: SimilarToursProps) => {
         <span className="hidden sm:block flex-shrink-0 h-[1px] w-24 bg-gradient-to-l from-transparent to-primary" />
       </div>
       {similarTours.length > 0 ? (
-        <TourCarousel tours={similarTours} />
+        <TourCarousel tours={similarTours} imageField="imageSimilar" />
       ) : (
         <p className="text-center text-muted-foreground">Похожих туров этого региона пока нет</p>
       )}

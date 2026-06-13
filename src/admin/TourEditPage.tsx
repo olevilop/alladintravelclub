@@ -26,7 +26,16 @@ const KNOWN = new Set([
   ...FLAGS.map((f) => f[0]),
   "gallery", "startDates", "included", "notIncluded",
   "heroTextColor", "heroTextAlign",
+  "imageHome", "imageCategory", "imageSimilar", "imageOffer",
 ]);
+
+// Картинки карточек по местам показа
+const CARD_IMAGES: [string, string][] = [
+  ["imageHome", "На главной (в разделе)"],
+  ["imageCategory", "Страница раздела"],
+  ["imageSimilar", "Блок «Похожие»"],
+  ["imageOffer", "Спецпредложения"],
+];
 
 const linesToArr = (s: string) => s.split("\n").map((x) => x.trim()).filter(Boolean);
 const arrToLines = (a: any) => (Array.isArray(a) ? a.join("\n") : "");
@@ -54,7 +63,16 @@ export default function TourEditPage() {
 
   const imageInput = useRef<HTMLInputElement>(null);
   const galleryInput = useRef<HTMLInputElement>(null);
+  const variantInput = useRef<HTMLInputElement>(null);
   const [uploadSlot, setUploadSlot] = useState<number | null>(null);
+  const [uploadField, setUploadField] = useState<string | null>(null);
+
+  const uploadVariant = async (file: File) => {
+    if (!uploadField) return;
+    try { const { url } = await api.upload(file); set(uploadField, url); toast.success("Фото загружено"); }
+    catch (e: any) { toast.error(e.message); }
+    finally { setUploadField(null); }
+  };
 
   const setSlot = (i: number, url: string) =>
     setGallerySlots((s) => s.map((v, idx) => (idx === i ? url : v)));
@@ -231,6 +249,36 @@ export default function TourEditPage() {
           ))}
         </div>
         <p className="text-xs text-muted-foreground">Фото 1 — большое в шапке; остальные — миниатюры рядом. Пустые окошки не показываются.</p>
+      </div>
+
+      {/* Картинки карточек по местам показа (если пусто — берётся «Главное фото») */}
+      <div className="space-y-2">
+        <Label>Картинки карточек по местам показа (если окошко пустое — берётся «Главное фото»)</Label>
+        <input ref={variantInput} type="file" accept="image/*" hidden
+          onChange={(e) => e.target.files?.[0] && uploadVariant(e.target.files[0])} />
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {CARD_IMAGES.map(([key, label]) => {
+            const shown = f[key] || f.image;
+            return (
+              <div key={key} className="border rounded-md p-2 space-y-1.5">
+                <div className="text-xs font-medium">{label}</div>
+                {shown ? (
+                  <img src={shown} alt="" className="h-20 w-full object-cover rounded" />
+                ) : (
+                  <div className="h-20 w-full rounded bg-muted flex items-center justify-center text-xs text-muted-foreground">пусто</div>
+                )}
+                <Input value={f[key] ?? ""} onChange={(e) => set(key, e.target.value)} placeholder="URL" className="text-xs h-8" />
+                <div className="flex gap-1">
+                  <Button type="button" size="sm" variant="outline" className="flex-1 h-7 text-xs"
+                    onClick={() => { setUploadField(key); variantInput.current?.click(); }}>Загрузить</Button>
+                  {f[key] && <Button type="button" size="sm" variant="ghost" className="h-7 text-xs text-destructive"
+                    onClick={() => set(key, "")}>✕</Button>}
+                </div>
+                {!f[key] && <p className="text-[10px] text-muted-foreground">берётся главное фото</p>}
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       <section className="grid sm:grid-cols-2 gap-4">

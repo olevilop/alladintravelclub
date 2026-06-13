@@ -93,7 +93,7 @@ const CategoryToursPage = ({ tours, title, subtitle, breadcrumbLabel, breadcrumb
             <div className="flex flex-col md:flex-row">
               <div className="md:w-[300px] md:min-h-[220px] flex-shrink-0 overflow-hidden">
                 <img
-                  src={tour.image}
+                  src={(tour as any).imageCategory || tour.image}
                   alt={tour.name}
                   loading="lazy"
                   className="w-full h-full object-cover"

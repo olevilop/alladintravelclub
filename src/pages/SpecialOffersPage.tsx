@@ -64,7 +64,7 @@ const SpecialOffersPage = () => {
               {/* Image */}
               <div className="md:w-[300px] md:min-h-[220px] flex-shrink-0 overflow-hidden">
                 <img
-                  src={tour.image}
+                  src={(tour as any).imageOffer || tour.image}
                   alt={tour.name}
                   loading="lazy"
                   className="w-full h-full object-cover"

@@ -14,7 +14,7 @@ interface Tour {
   specialOfferTag?: string;
 }
 
-const TourCarousel = ({ tours, hideSpecialOfferTag = false }: { tours: Tour[]; hideSpecialOfferTag?: boolean }) => {
+const TourCarousel = ({ tours, hideSpecialOfferTag = false, imageField }: { tours: Tour[]; hideSpecialOfferTag?: boolean; imageField?: string }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(false);
@@ -77,7 +77,7 @@ const TourCarousel = ({ tours, hideSpecialOfferTag = false }: { tours: Tour[]; h
           >
             <div className="relative aspect-[16/10] overflow-hidden">
               <img
-                src={tour.image}
+                src={(imageField ? (tour as any)[imageField] : "") || tour.image}
                 alt={tour.name}
                 loading="lazy"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"

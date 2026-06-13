@@ -64,7 +64,7 @@ const ToursSection = () => {
                   <SectionHeading>{section.title}</SectionHeading>
                 )}
               </motion.div>
-              <TourCarousel tours={list} hideSpecialOfferTag={section.filter_value === "expedition"} />
+              <TourCarousel tours={list} hideSpecialOfferTag={section.filter_value === "expedition"} imageField="imageHome" />
             </div>
           );
         })}
