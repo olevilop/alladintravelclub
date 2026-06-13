@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { api } from "@/lib/api";
+import LampQuiz from "@/components/LampQuiz";
 
 import heroBg from "@/assets/hero-bg.jpg";
 import heroChinaMountains from "@/assets/hero-china-mountains.jpg";
@@ -53,6 +54,7 @@ const HeroSection = () => {
     : FALLBACK;
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [quizOpen, setQuizOpen] = useState(false);
   useEffect(() => { setCurrentIndex(0); }, [data]);
 
   const nextSlide = useCallback(() => {
@@ -128,7 +130,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
-          onClick={(e) => { e.stopPropagation(); document.querySelector("#tours")?.scrollIntoView({ behavior: "smooth" }); }}
+          onClick={(e) => { e.stopPropagation(); setQuizOpen(true); }}
           className="absolute bottom-12 left-6 sm:left-12 lg:left-24 flex items-center gap-3 px-6 py-3 rounded-full text-white font-sans text-lg tracking-wide hover:brightness-110 transition-all duration-300 pointer-events-auto"
           style={{ backgroundColor: "#a87f39" }}
         >
@@ -148,6 +150,8 @@ const HeroSection = () => {
           ))}
         </div>
       </div>
+
+      <LampQuiz open={quizOpen} onClose={() => setQuizOpen(false)} />
     </section>
   );
 };
