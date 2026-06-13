@@ -49,6 +49,16 @@ publicRouter.get("/liners/:slug", async (req, res, next) => {
   } catch (e) { next(e); }
 });
 
+// Настройки сайта (переключатели) — ключ→значение
+publicRouter.get("/settings", async (_req, res, next) => {
+  try {
+    const { rows } = await pool.query("SELECT key, value FROM settings");
+    const obj = {};
+    rows.forEach((r) => { obj[r.key] = r.value; });
+    res.json(obj);
+  } catch (e) { next(e); }
+});
+
 // Hero-слайды (активные, по порядку)
 publicRouter.get("/hero", async (_req, res, next) => {
   try {

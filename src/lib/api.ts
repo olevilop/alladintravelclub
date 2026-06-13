@@ -41,6 +41,7 @@ export const api = {
   getRoute: (tourId: string) => request(`/routes/${tourId}`),
   getHero: () => request<any[]>(`/hero`),
   getSections: () => request<any[]>(`/sections`),
+  getSettings: () => request<Record<string, string>>(`/settings`),
   submitLead: (payload: unknown) => request(`/leads`, { method: "POST", body: payload }),
 
   // ── Авторизация ──
@@ -90,6 +91,11 @@ export const api = {
   updateSection: (id: number, s: unknown) => request(`/admin/sections/${id}`, { method: "PUT", body: s, auth: true }),
   deleteSection: (id: number) => request(`/admin/sections/${id}`, { method: "DELETE", auth: true }),
   reorderSections: (ids: number[]) => request(`/admin/sections-reorder`, { method: "PUT", body: { ids }, auth: true }),
+
+  // ── Настройки (админ) ──
+  adminSettings: () => request<Record<string, string>>(`/admin/settings`, { auth: true }),
+  setSetting: (key: string, value: string) =>
+    request(`/admin/settings`, { method: "PUT", body: { key, value }, auth: true }),
 
   // ── Заявки (админ) ──
   leads: (type?: string) =>

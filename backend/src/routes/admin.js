@@ -378,6 +378,29 @@ adminRouter.put("/sections-reorder", async (req, res, next) => {
   } catch (e) { await client.query("ROLLBACK"); next(e); } finally { client.release(); }
 });
 
+// ── Настройки (переключатели) ────────────────────────────────────────────────
+adminRouter.get("/settings", async (_req, res, next) => {
+  try {
+    const { rows } = await pool.query("SELECT key, value FROM settings");
+    const obj = {};
+    rows.forEach((r) => { obj[r.key] = r.value; });
+    res.json(obj);
+  } catch (e) { next(e); }
+});
+
+adminRouter.put("/settings", async (req, res, next) => {
+  try {
+    const { key, value } = req.body || {};
+    if (!key) return res.status(400).json({ error: "Нужен key" });
+    await pool.query(
+      `INSERT INTO settings (key, value) VALUES ($1,$2)
+       ON CONFLICT (key) DO UPDATE SET value=$2, updated_at=now()`,
+      [key, value == null ? null : String(value)]
+    );
+    res.json({ ok: true });
+  } catch (e) { next(e); }
+});
+
 // ── Загрузка фото ────────────────────────────────────────────────────────────
 fs.mkdirSync(config.uploadDir, { recursive: true });
 const storage = multer.diskStorage({

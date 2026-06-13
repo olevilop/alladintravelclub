@@ -115,6 +115,13 @@ CREATE TABLE IF NOT EXISTS home_sections (
   updated_at   TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
+-- Простые настройки сайта (переключатели и т.п.): ключ -> значение
+CREATE TABLE IF NOT EXISTS settings (
+  key        TEXT PRIMARY KEY,
+  value      TEXT,
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
+);
+
 -- Триггер обновления updated_at
 CREATE OR REPLACE FUNCTION set_updated_at() RETURNS trigger AS $$
 BEGIN NEW.updated_at = now(); RETURN NEW; END;

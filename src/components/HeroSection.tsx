@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
 import { api } from "@/lib/api";
 import LampQuiz from "@/components/LampQuiz";
+import { useSettings } from "@/lib/useSettings";
 
 import heroBg from "@/assets/hero-bg.jpg";
 import heroChinaMountains from "@/assets/hero-china-mountains.jpg";
@@ -53,6 +54,8 @@ const HeroSection = () => {
       }))
     : FALLBACK;
 
+  const { isEnabled } = useSettings();
+  const lampEnabled = isEnabled("lamp_quiz_enabled");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [quizOpen, setQuizOpen] = useState(false);
   useEffect(() => { setCurrentIndex(0); }, [data]);
@@ -126,17 +129,19 @@ const HeroSection = () => {
           Авторские туры по всему миру
         </motion.p>
 
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2 }}
-          onClick={(e) => { e.stopPropagation(); setQuizOpen(true); }}
-          className="absolute bottom-12 left-6 sm:left-12 lg:left-24 flex items-center gap-3 px-6 py-3 rounded-full text-white font-sans text-lg tracking-wide hover:brightness-110 transition-all duration-300 pointer-events-auto"
-          style={{ backgroundColor: "#a87f39" }}
-        >
-          <img src={lampButton} alt="Лампа" className="h-8 w-auto invert" />
-          Потри лампу
-        </motion.button>
+        {lampEnabled && (
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 1.2 }}
+            onClick={(e) => { e.stopPropagation(); setQuizOpen(true); }}
+            className="absolute bottom-12 left-6 sm:left-12 lg:left-24 flex items-center gap-3 px-6 py-3 rounded-full text-white font-sans text-lg tracking-wide hover:brightness-110 transition-all duration-300 pointer-events-auto"
+            style={{ backgroundColor: "#a87f39" }}
+          >
+            <img src={lampButton} alt="Лампа" className="h-8 w-auto invert" />
+            Потри лампу
+          </motion.button>
+        )}
 
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex gap-2 items-center pointer-events-auto">
           {slides.map((_, index) => (

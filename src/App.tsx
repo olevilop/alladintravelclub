@@ -55,6 +55,7 @@ import UsersAdminPage from "./admin/UsersAdminPage.tsx";
 import ProfilePage from "./admin/ProfilePage.tsx";
 import HeroAdminPage from "./admin/HeroAdminPage.tsx";
 import SectionsAdminPage from "./admin/SectionsAdminPage.tsx";
+import SettingsAdminPage from "./admin/SettingsAdminPage.tsx";
 
 const queryClient = new QueryClient();
 
@@ -115,6 +116,7 @@ const App = () => (
             <Route path="liners" element={<LinersAdminPage />} />
             <Route path="leads" element={<LeadsAdminPage />} />
             <Route path="users" element={<UsersAdminPage />} />
+            <Route path="settings" element={<SettingsAdminPage />} />
             <Route path="profile" element={<ProfilePage />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

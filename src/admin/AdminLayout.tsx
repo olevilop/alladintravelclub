@@ -24,6 +24,7 @@ export default function AdminLayout() {
           <NavLink to="/admin/liners" className={linkCls}>Лайнеры</NavLink>
           <NavLink to="/admin/leads" className={linkCls}>Заявки</NavLink>
           <NavLink to="/admin/users" className={linkCls}>Пользователи</NavLink>
+          <NavLink to="/admin/settings" className={linkCls}>Настройки</NavLink>
           <NavLink to="/admin/profile" className={linkCls}>Профиль</NavLink>
           <div className="ml-auto flex items-center gap-3">
             <a href="/" target="_blank" rel="noreferrer" className="text-sm text-muted-foreground hover:underline">
