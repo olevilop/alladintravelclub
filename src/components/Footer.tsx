@@ -68,7 +68,7 @@ const Footer = () => {
             <div className="space-y-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-primary shrink-0" />
-                <span>г. Владивосток, ул. 1-я Круговая 25А, офис 211</span>
+                <span>г. Владивосток, ул. Пологая 3, ст. 2, офис 408</span>
               </div>
               <div className="flex items-center gap-3">
                 <Clock className="w-4 h-4 text-primary shrink-0" />
